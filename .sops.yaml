@@ -1,0 +1,6 @@
+key:
+  - &cl age146r3w6yshk76n7fly783jvw540m4kn0ugfq6q9at2jgs4s8aq4jsdd0zds
+creation_rules:
+  - key_groups:
+      - age:
+        - *cl
