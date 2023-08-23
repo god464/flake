@@ -1,19 +1,12 @@
-{ lib, pkgs, inputs, config, ... }:
-{
+{ pkgs, ... }: {
   time.timeZone = "Asia/Shanghai";
+  zramSwap.enable = true;
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    supportedLocales = [
-      "zh_CN.UTF-8/UTF-8"
-      "en_US.UTF-8/UTF-8"
-    ];
-    extraLocaleSettings = {
-      LC_CTYPE = "zh_CN.UTF-8";
-    };
+    supportedLocales = [ "zh_CN.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
+    extraLocaleSettings = { LC_CTYPE = "zh_CN.UTF-8"; };
   };
-  console = {
-    useXkbConfig = true; # use xkbOptions in tty.
-  };
+  console.useXkbConfig = true;
   nixpkgs.config.allowUnfree = true;
   nix = {
     sshServe.enable = true;
@@ -37,20 +30,13 @@
   };
   programs = {
     zsh.enable = true;
-    gnupg = {
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
-        enableExtraSocket = true;
-      };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      enableExtraSocket = true;
     };
     vim.defaultEditor = true;
   };
-  environment.systemPackages = with pkgs;[
-    wget
-    age
-    sops
-    vim
-  ];
+  environment.systemPackages = with pkgs; [ wget age sops vim nload ];
   system.stateVersion = "23.11";
 }

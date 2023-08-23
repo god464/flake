@@ -1,77 +1,64 @@
-{ pkgs, lib, ... }:
-{
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ../../system/coreServer.nix
-  ];
-
-  # Use the systemd-boot EFI boot loader.
+{ pkgs, lib, inputs, ... }: {
+  imports = [ ../../system/coreServer.nix ];
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = true;
   boot = {
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-      };
+      efi.canTouchEfiVariables = true;
       systemd-boot = {
         enable = true;
-        netbootxyz.enable = true;
-        memtest86.enable = true;
+        consoleMode = "max";
+        editor = false;
       };
     };
-    supportedFilesystems = [
-      "btrfs"
-      "ntfs"
-      "exfat"
-    ];
-  };
-  networking = {
-    hostName = "nixos";
-    networkmanager = {
-      enable = true;
-      enableStrongSwan = true;
-      enableFccUnlock = true;
+    initrd = {
+      availableKernelModules =
+        [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "sd_mod" "sr_mod" ];
+      supportedFilesystems = [ "btrfs" "ntfs" "exfat" ];
     };
   };
-
-  users.users.cl = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    createHome = true;
-    shell = pkgs.zsh;
-    initialPassword = "a";
+  disko.devices = import ./disko-config.nix;
+  networking = {
+    hostName = "nixos";
+    nftables.enable = true;
+    useNetworkd = true;
+    firewall = {
+      enable = true;
+      filterForward = true;
+    };
   };
-
+  users = {
+    users = {
+      cl = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "networkmanager" ];
+        createHome = true;
+        shell = pkgs.zsh;
+        initialPassword = "a";
+      };
+    };
+  };
   environment = {
-    systemPackages = lib.mkAfter (with pkgs; [
-      ninja
-      meson
-      lldb
-      clang
-      luajit
-      jdk
-      python3
-      texlive.combined.scheme-full
-      sbctl
-      unzip
-      unrar
-    ]);
+    systemPackages = lib.mkAfter (with pkgs; [ sbctl unzip unrar wireshark ]);
   };
-  # Services
   services = {
     resolved.enable = true;
-    # OpenSSH
-    openssh.enable = true;
-
-    # Btrfs
+    openssh = {
+      enable = true;
+      startWhenNeeded = true;
+    };
     btrfs.autoScrub.enable = true;
+    networkd-dispatcher.enable = true;
   };
-
-  # Virtualisation
+  systemd.network.wait-online.enable = lib.mkForce false;
   virtualisation = {
-    # Docker
     docker.enable = true;
-    #vmware
     vmware.guest.enable = true;
   };
-
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    users.cl = import ./home.nix;
+  };
 }

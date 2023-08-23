@@ -1,6 +1,5 @@
 {
   imports = [
-    ./core.nix
+    ./core.nix # ./mysql
   ];
-  programs.tmux.enable = true;
 }

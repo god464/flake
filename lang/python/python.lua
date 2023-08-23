@@ -1,0 +1,1 @@
+lspconfig.pyright.setup {}

@@ -10,9 +10,7 @@
       enable = true;
       videoDrivers = [ "amdgpu" ];
     };
-    mpd = {
-      enable = true;
-    };
+    mpd = { enable = true; };
   };
   sound = {
     enable = true;

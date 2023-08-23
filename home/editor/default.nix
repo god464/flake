@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -49,6 +48,8 @@
       todo-comments-nvim
       nvim-treesitter-textobjects
       neorg
+      flash-nvim
+      null-ls-nvim
     ];
     extraLuaConfig = builtins.readFile ./init.lua;
   };
