@@ -1,12 +1,12 @@
 { pkgs, lib, inputs, ... }: {
   wsl = {
     enable = true;
-    defaultUser = "cl";
+    defaultUser = "nixos";
     startMenuLaunchers = true;
   };
   time.timeZone = "Asia/Shanghai";
   i18n.efaultLocale = "en_US.UTF-8";
-  nixpkgss.config.allowUnFree = true;
+  nixpkgss.config.allowUnfree = true;
   nix = {
     sshServe = true;
     settings = {
@@ -20,11 +20,10 @@
     };
   };
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = true;
   networking.hostName = "nixos";
   users = {
     users = {
-      cl = {
+      nixos = {
         isNormalUser = true;
         extraGroups = [ "wheel" "networkmanager" ];
         createHome = true;
@@ -33,9 +32,8 @@
       };
     };
   };
-  environment = {
-    systemPackages = lib.mkAfter (with pkgs; [ unzip unrar wget vim ]);
-  };
+  environment.systemPackages =
+    lib.mkAfter (with pkgs; [ unzip unrar wget vim deploy-rs nixos-anywhere ]);
   programs = {
     zsh.enable = true;
     gnupg.agent = {
@@ -49,7 +47,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
-    users.cl = import ./home.nix;
+    users.nixos = import ./home.nix;
   };
   system.stateVersion = "23.11";
 }

@@ -37,10 +37,10 @@
           inputs.sops-nix.nixosModules.sops
         ];
       };
-    };
-    wsl = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [ ./hosts/wsl inputs.nixos-wsl.nixosModules.wsl ];
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ ./hosts/wsl inputs.nixos-wsl.nixosModules.wsl ];
+      };
     };
   };
 }

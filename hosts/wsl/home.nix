@@ -1,8 +1,8 @@
 {
   imports = [ ../../home/shell/zsh ../../home/editor ];
   home = {
-    username = "cl";
-    homeDirectory = "/home/cl";
+    username = "nixos";
+    homeDirectory = "/home/nixos";
     stateVersion = "23.11";
   };
   programs.tmux = {
