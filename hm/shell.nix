@@ -68,8 +68,8 @@
   services = {
     gpg-agent = {
       enable = true;
-      enableSshSupport = true;
       pinentryPackage = pkgs.pinentry-all;
     };
+    ssh-agent.enable = true;
   };
 }

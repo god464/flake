@@ -20,18 +20,16 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = [ "-f" ];
+                extraArgs = [ "-f" "--csum SHA256" ];
                 mountpoint = "/";
                 subvolumes = {
                   "@home" = {
                     mountpoint = "/home";
-                    mountOptions =
-                      [ "compress=zstd:15" "noatime" "csum=SHA256" ];
+                    mountOptions = [ "compress=zstd:15" "noatime" ];
                   };
                   "@root" = {
                     mountpoint = "/root";
-                    mountOptions =
-                      [ "compress=zstd:15" "noatime" "csum=SHA256" ];
+                    mountOptions = [ "compress=zstd:15" "noatime" ];
                   };
                   "@nix" = {
                     mountpoint = "/nix";
