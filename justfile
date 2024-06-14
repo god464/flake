@@ -3,7 +3,6 @@ install:
     mkdir -p /mnt/etc/nixos
     cp -r . /mnt/etc/nixos/
     mkdir -p /mnt/var/lib
-    cp /var/lib/key.txt /mnt/var/lib/key.txt
     cd /mnt/etc/nixos
     nixos-install --flake .#vm
 update:
@@ -14,3 +13,5 @@ clean:
 
 upgrade:
 	nixos-rebuild switch --flake .#vm
+test:
+	nixos-rebuild test --flake .#vm
