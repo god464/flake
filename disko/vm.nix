@@ -20,7 +20,7 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = [ "-f" "--csum SHA256" ];
+                extraArgs = [ "-f" "--csum SHA256" "-L NixOS" ];
                 mountpoint = "/";
                 subvolumes = {
                   "@home" = {

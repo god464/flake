@@ -7,4 +7,9 @@
   };
   btrfs.autoScrub.enable = true;
   dbus.apparmor = "enabled";
+  #  beesd.filesystems = {
+  #    root = {
+  #      hashTableSizeMB = 4096;
+  #    };
+  #  };
 }
