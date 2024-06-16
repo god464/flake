@@ -8,6 +8,7 @@
         createHome = true;
         shell = pkgs.zsh;
         hashedPasswordFile = config.sops.secrets.passwd.path;
+        packages = with pkgs; [ emacs ];
       };
     };
   };

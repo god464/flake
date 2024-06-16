@@ -4,7 +4,7 @@
     enableCache = true;
     killUnconfinedConfinables = true;
   };
-  sudo-rs = {
+  sudo = {
     enable = true;
     execWheelOnly = true;
   };
