@@ -1,4 +1,4 @@
-{ inputs, config,... }: {
+{ inputs, config, ... }: {
   imports = [ ./os ./app ];
   sops = {
     age = {
@@ -8,9 +8,9 @@
     defaultSopsFile = ./secrets/vm.yaml;
     secrets = {
       passwd.neededForUsers = true;
-      wgkey = { 
-	owner=config.users.users."systemd-network".name;
-	mode="400";
+      wgkey = {
+        owner = config.users.users."systemd-network".name;
+        mode = "400";
       };
     };
   };

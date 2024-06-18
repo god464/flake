@@ -26,19 +26,16 @@
         };
         wireguardPeers = [{
           PublicKey = "gdDHymLRORl7K5LskRdGN5yIbdSWQcVfYKyygszZ220=";
-          AllowedIPs = [ "192.168.20.1" ];
+          AllowedIPs = [ "192.168.20.0/24" ];
           PersistentKeepalive = 20;
         }];
       };
     };
     networks.wg0 = {
-      enable=true;
+      enable = true;
       matchConfig.Name = "wg0";
       address = [ "192.168.50.1/24" ];
-      networkConfig = {
-        IPMasquerade = "ipv4";
-        IPForward = true;
-      };
+      networkConfig.IPMasquerade = "both";
     };
   };
 }

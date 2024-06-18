@@ -5,13 +5,15 @@ install:
     mkdir -p /mnt/var/lib
     cd /mnt/etc/nixos
     nixos-install --flake .#vm
+
 update:
-	nix flake update
+    nix flake update
 
 clean:
-	nix-collect-garbage -d
+    nix-collect-garbage -d
 
 upgrade:
-	nixos-rebuild switch --flake .#vm
+    nixos-rebuild switch --flake .#vm
+
 test:
-	nixos-rebuild test --flake .#vm
+    nixos-rebuild test --flake .#vm
