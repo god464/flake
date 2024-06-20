@@ -7,10 +7,12 @@
   };
   btrfs.autoScrub.enable = true;
   dbus.apparmor = "enabled";
-  beesd.filesystems = {
-    root = {
-      spec = "LABEL=NixOS";
-      hashTableSizeMB = 4096;
-    };
-  };
+  /* Cost-effectiveness is too low
+     beesd.filesystems = {
+       root = {
+         spec = "LABEL=NixOS";
+         hashTableSizeMB = 4096;
+       };
+     };
+  */
 }
