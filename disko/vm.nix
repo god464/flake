@@ -33,8 +33,7 @@
                   };
                   "@nix" = {
                     mountpoint = "/nix";
-                    mountOptions =
-                      [ "compress=zstd:15" "noatime" "csum=SHA256" ];
+                    mountOptions = [ "compress=zstd:15" "noatime" ];
                   };
                 };
               };

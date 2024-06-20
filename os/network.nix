@@ -8,6 +8,7 @@
       checkReversePath = "strict";
       filterForward = true;
       allowedUDPPorts = [ 51820 ];
+      interfaces.wg0.allowedTCPPorts = [ 22 ];
     };
   };
   systemd.network = {
@@ -25,8 +26,8 @@
           ListenPort = 51820;
         };
         wireguardPeers = [{
-          PublicKey = "gdDHymLRORl7K5LskRdGN5yIbdSWQcVfYKyygszZ220=";
-          AllowedIPs = [ "192.168.20.0/24" ];
+          PublicKey = "22VmKbaYM/fXiXwYesmNlrbGitE8QD8o0K9ROaA1jUM=";
+          AllowedIPs = [ "192.168.50.0/24" ];
           PersistentKeepalive = 20;
         }];
       };
@@ -35,7 +36,10 @@
       enable = true;
       matchConfig.Name = "wg0";
       address = [ "192.168.50.1/24" ];
-      networkConfig.IPMasquerade = "both";
+      networkConfig = {
+        IPMasquerade = "both";
+        IPv4ProxyARP = "yes";
+      };
     };
   };
 }
