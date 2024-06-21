@@ -4,5 +4,5 @@
     homeDirectory = "/home/cl";
     stateVersion = "24.05";
   };
-  imports = [ ./shell.nix ];
+  imports = [ ./shell.nix ./editor.nix ];
 }
