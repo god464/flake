@@ -32,11 +32,12 @@
         cd = "z";
         rg = "batgrep";
         diff = "batdiff";
+        man = "batman";
       };
     };
     bat = {
       enable = true;
-      extraPackages = with pkgs.bat-extras; [ batgrep batdiff ];
+      extraPackages = with pkgs.bat-extras; [ batgrep batdiff batman ];
     };
     eza = {
       enable = true;
