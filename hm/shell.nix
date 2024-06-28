@@ -49,6 +49,7 @@
     fzf.enable = true;
     gpg.enable = true;
     zoxide.enable = true;
+    htop.enable = true;
     fd.enable = true;
     git = {
       enable = true;
