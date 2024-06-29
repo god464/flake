@@ -1,19 +1,5 @@
-{ lib, config, ... }: {
-  networking = {
-    hostName = "nixos";
-    nftables.enable = true;
-    useNetworkd = true;
-    firewall = {
-      enable = true;
-      checkReversePath = "strict";
-      filterForward = true;
-      allowedUDPPorts = [ 51820 ];
-      interfaces.wg0.allowedTCPPorts = [ 22 ];
-    };
-  };
+{ config, ... }: {
   systemd.network = {
-    enable = true;
-    wait-online.enable = lib.mkForce false;
     netdevs = {
       "50-wg0" = {
         enable = true;

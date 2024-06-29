@@ -13,7 +13,7 @@ clean:
     nix-collect-garbage -d
 
 upgrade:
-    nixos-rebuild switch --flake .#vm
+    nixos-rebuild switch --flake .#builder
 
-test:
-    nixos-rebuild test --flake .#vm
+test target:
+    nixos-rebuild test --flake .#{{ target }}

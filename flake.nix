@@ -17,17 +17,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
   outputs = inputs@{ self, nixpkgs, ... }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-    nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.router = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        inputs.disko.nixosModules.disko
+        inputs.sops-nix.nixosModules.sops
+        ./disko/vm.nix
+        ./host/router
+      ];
+    };
+    nixosConfigurations.builder = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         inputs.disko.nixosModules.disko
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
         ./disko/vm.nix
-        ./default.nix
+        ./host/builder
       ];
     };
   };

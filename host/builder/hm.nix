@@ -1,4 +1,9 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
+  home = {
+    username = "cl";
+    homeDirectory = "/home/cl";
+    stateVersion = "24.05";
+  };
   programs = {
     zsh = {
       enable = true;
@@ -66,6 +71,10 @@
       addKeysToAgent = "yes";
       compression = true;
       hashKnownHosts = true;
+    };
+    neovim = {
+      enable = true;
+      extraLuaConfig = builtins.readFile ./init.lua;
     };
   };
   services = {
