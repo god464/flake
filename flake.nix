@@ -12,7 +12,8 @@
     };
   };
   outputs = inputs@{ self, nixpkgs, ... }: {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+    formatter.x86_64-linux =
+      nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     nixosConfigurations.router = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [

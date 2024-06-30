@@ -11,12 +11,13 @@
     packages = with pkgs; [
       emacs
       shfmt
-      nixfmt
+      nixfmt-rfc-style
       nil
       just
       shellcheck
       python3
       yaml-language-server
+      wl-clipboard
     ];
   };
   home-manager = {
