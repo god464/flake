@@ -26,4 +26,10 @@
     users.cl = import ./hm.nix;
   };
   virtualisation.vmware.guest.enable = true;
+  fonts.packages = with pkgs; [
+    noto-fonts-cjk
+    source-han-serif
+    source-han-sans
+    fira-code-nerdfont
+  ];
 }
