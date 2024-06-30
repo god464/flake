@@ -5,4 +5,5 @@
     supportedFilesystems = [ "btrfs" ];
   };
   kernelModules = [ "kvm-amd" ];
+  loader.efi.canTouchEfiVariables = true;
 }

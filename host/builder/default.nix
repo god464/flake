@@ -8,6 +8,16 @@
     createHome = true;
     shell = pkgs.zsh;
     hashedPasswordFile = config.sops.secrets.passwd.path;
+    packages = with pkgs; [
+      emacs
+      shfmt
+      nixfmt
+      nil
+      just
+      shellcheck
+      python3
+      yaml-language-server
+    ];
   };
   home-manager = {
     useGlobalPkgs = true;
@@ -15,4 +25,5 @@
     sharedModules = [ ];
     users.cl = import ./hm.nix;
   };
+  virtualisation.vmware.guest.enable = true;
 }
