@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services = {
     desktopManager.plasma6 = {
       enable = true;
@@ -10,6 +11,12 @@
         enable = true;
         compositor = "kwin";
       };
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+      jack.enable = true;
     };
   };
   programs = {
@@ -27,4 +34,5 @@
       policies.DisableAppUpdate = true;
     };
   };
+  security.polkit.enable = true;
 }

@@ -1,5 +1,10 @@
-{ pkgs, config, ... }: {
-  imports = [ ../common ./desktop.nix ./app.nix ];
+{ pkgs, config, ... }:
+{
+  imports = [
+    ../common
+    ./desktop.nix
+    ./app.nix
+  ];
   boot = import ./boot.nix;
   networking = import ./network.nix;
   users.users.cl = {

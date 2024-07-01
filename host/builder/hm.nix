@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home = {
     username = "cl";
     homeDirectory = "/home/cl";
@@ -30,7 +31,14 @@
 
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "gitignore" "extract" "zoxide" "fzf" "ripgrep" ];
+        plugins = [
+          "git"
+          "gitignore"
+          "extract"
+          "zoxide"
+          "fzf"
+          "ripgrep"
+        ];
       };
       shellAliases = {
         cat = "bat";
@@ -42,7 +50,11 @@
     };
     bat = {
       enable = true;
-      extraPackages = with pkgs.bat-extras; [ batgrep batdiff batman ];
+      extraPackages = with pkgs.bat-extras; [
+        batgrep
+        batdiff
+        batman
+      ];
     };
     eza = {
       enable = true;
@@ -74,6 +86,12 @@
     };
     neovim = {
       enable = true;
+      # plugins = with pkgs.vimPlugins; [
+      #   {
+      #     plugins = nvim-cmp;
+      #     type = "lua";
+      #   }
+      # ];
       extraLuaConfig = builtins.readFile ./init.lua;
     };
   };
