@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   nixpkgs = {
     config.allowUnfree = true;
     hostPlatform = lib.mkDefault "x86_64-linux";
@@ -7,7 +8,10 @@
     sshServe.enable = true;
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
     gc = {
       automatic = true;

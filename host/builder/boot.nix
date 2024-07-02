@@ -12,5 +12,8 @@
   };
   plymouth.enable = true;
   consoleLogLevel = 0;
-  kernelParams = [ "quiet" "splash" ];
+  kernelParams = [
+    "quiet"
+    "splash"
+  ];
 }

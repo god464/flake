@@ -1,4 +1,8 @@
-{ disks ? [ "/dev/sda" ], ... }: {
+{
+  disks ? [ "/dev/sda" ],
+  ...
+}:
+{
   disko.devices = {
     disk = {
       sda = {
@@ -20,9 +24,16 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = [ "-f" "--csum SHA256" "-L NixOS" ];
+                extraArgs = [
+                  "-f"
+                  "--csum SHA256"
+                  "-L NixOS"
+                ];
                 mountpoint = "/";
-                mountOptions = [ "compress=zstd:15" "noatime" ];
+                mountOptions = [
+                  "compress=zstd:15"
+                  "noatime"
+                ];
               };
             };
           };

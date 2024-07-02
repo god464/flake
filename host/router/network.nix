@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   networking = {
     hostName = "router";
     nftables.enable = true;

@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   services = {
     desktopManager.plasma6 = {
@@ -27,7 +26,6 @@
         DisablePocket = true;
         NoDefaultBookmarks = true;
       };
-      nativeMessagingHosts.packages = with pkgs; [ tridactyl-native ];
     };
     thunderbird = {
       enable = true;

@@ -23,6 +23,7 @@
       python3
       yaml-language-server
       wl-clipboard
+      vscode
     ];
   };
   home-manager = {

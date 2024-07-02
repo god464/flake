@@ -1,5 +1,8 @@
-{ inputs, config, lib, ... }: {
-  imports = [ ./i18n.nix ./nix.nix ];
+{
+  imports = [
+    ./i18n.nix
+    ./nix.nix
+  ];
   boot = import ./infra.nix;
   users.mutableUsers = false;
   zramSwap.enable = true;
@@ -14,6 +17,10 @@
   services = {
     btrfs.autoScrub.enable = true;
     dbus.apparmor = "enabled";
+    openssh = {
+      settings.PermitRootLogin = "no";
+      openFirewall = false;
+    };
   };
   security = import ./security.nix;
   system.stateVersion = "24.05";

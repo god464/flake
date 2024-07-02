@@ -11,27 +11,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ self, nixpkgs, ... }: {
-    formatter.x86_64-linux =
-      nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-    nixosConfigurations.router = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        inputs.disko.nixosModules.disko
-        inputs.sops-nix.nixosModules.sops
-        ./disko/server.nix
-        ./host/router
-      ];
+  outputs =
+    inputs@{ self, nixpkgs, ... }:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      nixosConfigurations.router = nixpkgs.lib.nixosSystem {
+        specialArgs.inputs = inputs;
+        modules = [
+          inputs.disko.nixosModules.disko
+          inputs.sops-nix.nixosModules.sops
+          ./disko/server.nix
+          ./host/router
+        ];
+      };
+      nixosConfigurations.builder = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          inputs.disko.nixosModules.disko
+          inputs.sops-nix.nixosModules.sops
+          inputs.home-manager.nixosModules.home-manager
+          ./disko/desktop.nix
+          ./host/builder
+        ];
+      };
     };
-    nixosConfigurations.builder = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        inputs.disko.nixosModules.disko
-        inputs.sops-nix.nixosModules.sops
-        inputs.home-manager.nixosModules.home-manager
-        ./disko/desktop.nix
-        ./host/builder
-      ];
-    };
-  };
 }
