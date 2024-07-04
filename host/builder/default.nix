@@ -37,6 +37,11 @@
     noto-fonts-cjk
     source-han-serif
     source-han-sans
-    fira-code-nerdfont
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "FiraMono"
+      ];
+    })
   ];
 }
