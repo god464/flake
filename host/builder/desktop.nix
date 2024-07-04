@@ -9,7 +9,7 @@
       wayland = {
         enable = true;
         compositor = "kwin";
-      };
+     };
     };
     pipewire = {
       enable = true;

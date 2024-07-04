@@ -25,9 +25,7 @@
         ];
       };
       nixosConfigurations.builder = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-        };
+        specialArgs.inputs = inputs;
         modules = [
           inputs.disko.nixosModules.disko
           inputs.sops-nix.nixosModules.sops
