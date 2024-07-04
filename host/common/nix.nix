@@ -6,6 +6,7 @@
   };
   nix = {
     sshServe.enable = true;
+    channel.enable = false;
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -16,7 +17,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 1w";
     };
   };
 }
