@@ -22,7 +22,6 @@
       shellcheck
       python3
       yaml-language-server
-      vscode
     ];
   };
   home-manager = {

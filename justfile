@@ -1,20 +1,21 @@
-install target:
-    disk=if {{ target }} == "builder {"desktop"} else {"serverr"}
-    nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko/$disk.nix
-    mkdir -p /mnt/etc/nixos
-    cp -r . /mnt/etc/nixos/
+@install target:
+    if [ "{{ target }}" == "builder" ]; then \
+        disk="desktop"; \
+    else \
+        disk="server"; \
+    fi; \
+    nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko/"$disk".nix
     mkdir -p /mnt/var/lib
-    cd /mnt/etc/nixos
     nixos-install --flake .#{{ target }} 
 
-update:
+@update:
     nix flake update
 
-clean:
+@clean:
     nix-collect-garbage -d
 
-upgrade:
+@upgrade:
     nixos-rebuild switch --flake .#builder
 
-test target:
+@test target:
     nixos-rebuild test --flake .#{{ target }}
