@@ -1,3 +1,4 @@
+{ pkgs, lib, ... }:
 {
   services = {
     desktopManager.plasma6 = {
@@ -9,7 +10,7 @@
       wayland = {
         enable = true;
         compositor = "kwin";
-     };
+      };
     };
     pipewire = {
       enable = true;
@@ -17,6 +18,7 @@
       pulse.enable = true;
       jack.enable = true;
     };
+    fwupd.enable = true;
   };
   programs = {
     firefox = {
@@ -33,4 +35,17 @@
     };
   };
   security.polkit.enable = true;
+  environment.systemPackages = lib.mkAfter (
+    with pkgs;
+    [
+      wl-clipboard
+      vulkan-tools
+      virtualgl
+      clinfo
+      wayland-utils
+      pciutils
+      usbutils
+      aha
+    ]
+  );
 }
