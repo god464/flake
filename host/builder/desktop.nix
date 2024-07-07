@@ -36,8 +36,7 @@
   };
   security.polkit.enable = true;
   environment.systemPackages = lib.mkAfter (
-    with pkgs;
-    [
+    (with pkgs; [
       wl-clipboard
       vulkan-tools
       virtualgl
@@ -46,6 +45,7 @@
       pciutils
       usbutils
       aha
-    ]
+    ])
+    ++ (with pkgs.kdePackages; [ yakuake ])
   );
 }
