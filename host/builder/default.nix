@@ -17,7 +17,7 @@
       emacs
       shfmt
       nixfmt-rfc-style
-      nil
+      nixd
       just
       shellcheck
       python3
