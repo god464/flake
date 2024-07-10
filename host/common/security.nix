@@ -1,7 +1,6 @@
 {
   apparmor = {
     enable = true;
-    enableCache = true;
     killUnconfinedConfinables = true;
   };
   sudo = {

@@ -5,11 +5,14 @@
       enable = true;
       enableQt5Integration = false;
     };
-    displayManager.sddm = {
+    displayManager = {
       enable = true;
-      wayland = {
+      sddm = {
         enable = true;
-        compositor = "kwin";
+        wayland = {
+          enable = true;
+          compositor = "kwin";
+        };
       };
     };
     pipewire = {
