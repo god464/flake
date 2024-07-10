@@ -19,3 +19,6 @@
 
 @test target:
     nixos-rebuild test --flake .#{{ target }}
+
+@fix:
+    nix-store --repair --verify --check-contents
