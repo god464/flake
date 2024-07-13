@@ -1,8 +1,5 @@
 {
-  imports = [
-    ./i18n.nix
-    ./nix.nix
-  ];
+  imports = [ ./i18n.nix ];
   boot = import ./infra.nix;
   users.mutableUsers = false;
   zramSwap.enable = true;
@@ -23,5 +20,6 @@
     };
   };
   security = import ./security.nix;
+  nixp.enable = true;
   system.stateVersion = "24.05";
 }
