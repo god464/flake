@@ -86,12 +86,6 @@
     };
     neovim = {
       enable = true;
-      # plugins = with pkgs.vimPlugins; [
-      #   {
-      #     plugins = nvim-cmp;
-      #     type = "lua";
-      #   }
-      # ];
       extraLuaConfig = builtins.readFile ./init.lua;
     };
   };

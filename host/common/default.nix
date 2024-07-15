@@ -1,6 +1,6 @@
 {
   imports = [ ./i18n.nix ];
-  boot = import ./infra.nix;
+  booter.enable = true;
   users.mutableUsers = false;
   zramSwap.enable = true;
   sops = {

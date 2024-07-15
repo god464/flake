@@ -5,10 +5,7 @@ let
 in
 {
   options.nixp = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-    };
+    enable = mkEnableOption "nixp";
     cache = mkOption {
       type = types.listOf types.str;
       default = [ ];

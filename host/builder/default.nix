@@ -5,7 +5,6 @@
     ./desktop.nix
     ./app.nix
   ];
-  boot = import ./boot.nix;
   networking = import ./network.nix;
   users.users.cl = {
     isNormalUser = true;
@@ -17,7 +16,7 @@
       emacs
       shfmt
       nixfmt-rfc-style
-      nixd
+      nil
       just
       shellcheck
       python3
