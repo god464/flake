@@ -5,7 +5,7 @@
     ./desktop.nix
     ./app.nix
   ];
-  networking = import ./network.nix;
+  net.name = "builder";
   users.users.cl = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];

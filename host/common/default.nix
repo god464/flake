@@ -2,6 +2,7 @@
   imports = [ ./i18n.nix ];
   booter.enable = true;
   users.mutableUsers = false;
+  net.enable = true;
   zramSwap.enable = true;
   sops = {
     age = {

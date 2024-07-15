@@ -4,9 +4,7 @@ let
   cfg = config.booter;
 in
 {
-  options.booter = {
-    enable = mkEnableOption "booter";
-  };
+  options.booter.enable = mkEnableOption "booter";
   config = mkIf cfg.enable {
     boot = mkMerge [
       {
@@ -26,16 +24,14 @@ in
         loader.efi.canTouchEfiVariables = true;
       }
       (mkIf config.services.displayManager.sddm.enable {
-        loader = {
-          grub = {
-            enable = true;
-            efiSupport = true;
-            device = "nodev";
-            gfxmodeEfi = "auto";
-            gfxmodeBios = "auto";
-            gfxpayloadEfi = "auto";
-            gfxpayloadBios = "auto";
-          };
+        loader.grub = {
+          enable = true;
+          efiSupport = true;
+          device = "nodev";
+          gfxmodeEfi = "auto";
+          gfxmodeBios = "auto";
+          gfxpayloadEfi = "auto";
+          gfxpayloadBios = "auto";
         };
         plymouth.enable = true;
         consoleLogLevel = 0;
@@ -45,12 +41,10 @@ in
         ];
       })
       (mkIf (!config.services.displayManager.sddm.enable) {
-        loader = {
-          systemd-boot = {
-            enable = true;
-            consoleMode = "max";
-            editor = false;
-          };
+        loader.systemd-boot = {
+          enable = true;
+          consoleMode = "max";
+          editor = false;
         };
       })
     ];

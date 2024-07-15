@@ -20,6 +20,7 @@
         modules = [
           inputs.disko.nixosModules.disko
           inputs.sops-nix.nixosModules.sops
+          ./modules
           ./disko/server.nix
           ./host/router
         ];
