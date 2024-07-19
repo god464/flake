@@ -13,8 +13,24 @@
   };
   outputs =
     inputs@{ nixpkgs, ... }:
+    let
+      system = "x86_64-linux";
+    in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      devShells."${system}".vterm =
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        pkgs.mkShell {
+          packages = with pkgs; [
+            gnumake
+            cmake
+            gcc
+            libtool
+            emacs
+          ];
+        };
+      formatter."${system}" = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations.router = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
         modules = [
