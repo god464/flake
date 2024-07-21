@@ -16,28 +16,25 @@
     inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
-      flake = {
-        nixosConfigurations = {
-          router = nixpkgs.lib.nixosSystem {
-            modules = [
-              inputs.disko.nixosModules.disko
-              inputs.sops-nix.nixosModules.sops
-              ./modules
-              ./disko/server.nix
-              ./host/router
-
-            ];
-          };
-          builder = nixpkgs.lib.nixosSystem {
-            modules = [
-              inputs.disko.nixosModules.disko
-              inputs.sops-nix.nixosModules.sops
-              inputs.home-manager.nixosModules.home-manager
-              ./modules
-              ./disko/desktop.nix
-              ./host/builder
-            ];
-          };
+      flake.nixosConfigurations = {
+        router = nixpkgs.lib.nixosSystem {
+          modules = [
+            inputs.disko.nixosModules.disko
+            inputs.sops-nix.nixosModules.sops
+            ./disko/server.nix
+            ./host/router
+            ./modules
+          ];
+        };
+        builder = nixpkgs.lib.nixosSystem {
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            inputs.disko.nixosModules.disko
+            inputs.sops-nix.nixosModules.sops
+            ./disko/desktop.nix
+            ./host/builder
+            ./modules
+          ];
         };
       };
       perSystem =
@@ -54,6 +51,5 @@
           };
           formatter = pkgs.nixfmt-rfc-style;
         };
-
     };
 }

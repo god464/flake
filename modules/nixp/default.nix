@@ -10,6 +10,10 @@ in
       type = types.listOf types.str;
       default = [ ];
     };
+    platform = mkOption {
+      type = types.str;
+      default = "x86_64-linux";
+    };
   };
   config = mkIf cfg.enable {
     nix = {
@@ -35,7 +39,9 @@ in
         allowUnfree = true;
         warnUndeclaredOptions = true;
       };
-      hostPlatform = "x86_64-linux";
+      hostPlatform = cfg.platform;
     };
+
+    system.stateVersion = "24.05";
   };
 }
