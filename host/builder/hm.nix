@@ -92,7 +92,7 @@
   services = {
     gpg-agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry-all;
+      pinentryPackage = pkgs.pinentry-qt;
     };
     ssh-agent.enable = true;
   };
