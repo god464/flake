@@ -41,7 +41,6 @@ in
       };
       hostPlatform = cfg.platform;
     };
-
     system.stateVersion = "24.05";
   };
 }

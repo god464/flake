@@ -14,7 +14,21 @@ in
         };
       };
   };
-  config = {
+  config = cfg.enable {
+    sops.secrets = mkMerge [
+      (mkIf cfg.client.enable {
+        sops.secrets = {
+          wg-client = { };
+          wg-preshaare = { };
+        };
+      })
+      (mkIf cfg.server.enable {
+        sops.secrets = {
+          wg-server = { };
+          wg-preshaare = { };
+        };
+      })
+    ];
     systemd.network = mkMerge [
       (mkIf cfg.server.enable {
         netdevs = {
@@ -33,7 +47,7 @@ in
                 PublicKey = "b3xxDApNqwMWAW1D3zLKtvDr7ONvRWfveAP1oTsg+lQ=";
                 AllowedIPs = [ "192.168.50.0/24" ];
                 PersistentKeepalive = 20;
-                PresharedKeyFile = config.sops.secrets.wg-ser2bul.path;
+                PresharedKeyFile = config.sops.secrets.wg-preshare.path;
               }
             ];
           };
@@ -52,20 +66,21 @@ in
         # TODO
       })
     ];
-
-    # TODO
-    networking.networkmanager.settings =
+    networking.wg-quick.interfaces =
       (mkIf cfg.client.enable && config.services.displayManager.sddm.enable)
         {
-          connection = {
-            id = "wg0";
-            type = "wireguard";
-            interface-name = "wg0";
+          wg0 = {
+            address = [ "192.168.50.3/24" ];
+            PrivateKeyFile = config.sops.secrets.wg-client.path;
+            peers = [
+              {
+                publicKey = "kR8ZxNd/1DkKgb3TN7t5McJpRklYLViAkvY96iNnri8=";
+                allowedIPs = [ "192.168.50.0/24" ];
+                persistentKeepalive = 20;
+                presharedKeyFile = config.sops.secrets.wg-preshare.path;
+              }
+            ];
           };
-          wireguard = {
-            listen-port = 51820;
-          };
-          wireguard-peer = { };
         };
   };
 }
