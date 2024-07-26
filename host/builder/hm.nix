@@ -86,7 +86,11 @@
     };
     neovim = {
       enable = true;
-      extraLuaConfig = builtins.readFile ./init.lua;
+      extraLuaConfig = builtins.readFile ./nvim.lua;
+    };
+    wezterm = {
+      enable = true;
+      extraConfig = builtins.readFile ./wezterm.lua;
     };
   };
   services = {

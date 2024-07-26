@@ -38,17 +38,20 @@
     };
   };
   security.polkit.enable = true;
-  environment.systemPackages = lib.mkAfter (
-    (with pkgs; [
-      wl-clipboard
-      vulkan-tools
-      virtualgl
-      clinfo
-      wayland-utils
-      pciutils
-      usbutils
-      aha
-    ])
-    ++ (with pkgs.kdePackages; [ yakuake ])
-  );
+  environment = {
+    plasma6.excludePackages = with pkgs; [ konsole ];
+    systemPackages = lib.mkAfter (
+      with pkgs;
+      [
+        wl-clipboard
+        vulkan-tools
+        virtualgl
+        clinfo
+        wayland-utils
+        pciutils
+        usbutils
+        aha
+      ]
+    );
+  };
 }
