@@ -4,33 +4,26 @@ let
   cfg = config.vpn;
 in
 {
-  options.vpn = mkOption {
-    type =
-      with types;
-      submodule {
-        options = {
-          client.enable = mkEnableOption "wireguard client";
-          server.enable = mkEnableOption "wireguad server";
-        };
-      };
+  options.vpn = {
+    enable = mkEnableOption "vpn";
+    role = mkOption {
+      type = types.str;
+      default = "server";
+    };
   };
-  config = cfg.enable {
+  config = mkIf cfg.enable {
     sops.secrets = mkMerge [
-      (mkIf cfg.client.enable {
-        sops.secrets = {
-          wg-client = { };
-          wg-preshaare = { };
-        };
+      (mkIf (cfg.role == "client") {
+        wg-client = { };
+        wg-preshare = { };
       })
-      (mkIf cfg.server.enable {
-        sops.secrets = {
-          wg-server = { };
-          wg-preshaare = { };
-        };
+      (mkIf (cfg.role == "server") {
+        wg-server = { };
+        wg-preshare = { };
       })
     ];
     systemd.network = mkMerge [
-      (mkIf cfg.server.enable {
+      (mkIf (cfg.role == "server") {
         netdevs = {
           "50-wg0" = {
             enable = true;
@@ -62,16 +55,16 @@ in
           };
         };
       })
-      (mkIf (cfg.client.enable && !config.displayManager.sddm.enable) {
+      (mkIf ((cfg.role == "client") && (!config.services.displayManager.sddm.enable)) {
         # TODO
       })
     ];
     networking.wg-quick.interfaces =
-      (mkIf cfg.client.enable && config.services.displayManager.sddm.enable)
+      mkIf ((cfg.role == "client") && config.services.displayManager.sddm.enable)
         {
           wg0 = {
             address = [ "192.168.50.3/24" ];
-            PrivateKeyFile = config.sops.secrets.wg-client.path;
+            privateKeyFile = config.sops.secrets.wg-client.path;
             peers = [
               {
                 publicKey = "kR8ZxNd/1DkKgb3TN7t5McJpRklYLViAkvY96iNnri8=";

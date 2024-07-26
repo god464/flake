@@ -5,7 +5,6 @@ let
 in
 {
   options.nixp = {
-    enable = mkEnableOption "nixp";
     cache = mkOption {
       type = types.listOf types.str;
       default = [ ];
@@ -15,7 +14,7 @@ in
       default = "x86_64-linux";
     };
   };
-  config = mkIf cfg.enable {
+  config = {
     nix = {
       sshServe.enable = true;
       channel.enable = false;

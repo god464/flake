@@ -4,10 +4,6 @@
     ./booter
     ./net
     ./sec
-
-    /*
-      unstable
-      vpn
-    */
+    ./vpn
   ];
 }

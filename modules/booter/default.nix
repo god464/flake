@@ -1,11 +1,7 @@
 { config, lib, ... }:
 with lib;
-let
-  cfg = config.booter;
-in
 {
-  options.booter.enable = mkEnableOption "booter";
-  config = mkIf cfg.enable {
+  config = {
     boot = mkMerge [
       {
         initrd = {

@@ -5,10 +5,9 @@ let
 in
 {
   options.net = {
-    enable = mkEnableOption "net";
     name = mkOption { type = types.str; };
   };
-  config = mkIf cfg.enable {
+  config = {
     services = mkMerge [
       {
         openssh = {
