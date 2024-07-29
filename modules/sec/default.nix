@@ -1,7 +1,7 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.sec;
+  inherit (lib) mkEnableOption mkIf;
 in
 {
   options.sec = {

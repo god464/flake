@@ -1,5 +1,7 @@
 { config, lib, ... }:
-with lib;
+let
+  inherit (lib) mkMerge mkIf;
+in
 {
   config = {
     boot = mkMerge [

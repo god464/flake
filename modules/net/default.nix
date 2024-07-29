@@ -1,6 +1,11 @@
 { config, lib, ... }:
-with lib;
 let
+  inherit (lib)
+    mkOption
+    types
+    mkMerge
+    mkIf
+    ;
   cfg = config.net;
 in
 {

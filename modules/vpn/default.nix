@@ -1,6 +1,12 @@
 { config, lib, ... }:
-with lib;
 let
+  inherit (lib)
+    types
+    mkOption
+    mkEnableOption
+    mkMerge
+    mkIf
+    ;
   cfg = config.vpn;
 in
 {

@@ -1,7 +1,7 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.nixp;
+  inherit (lib) types mkOption mkAfter;
 in
 {
   options.nixp = {
