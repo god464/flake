@@ -10,7 +10,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     createHome = true;
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
     hashedPasswordFile = config.sops.secrets.passwd.path;
     packages = with pkgs; [
       (emacs.override { withPgtk = true; })

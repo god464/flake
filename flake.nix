@@ -15,6 +15,7 @@
   outputs =
     inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      debug = true;
       systems = [ "x86_64-linux" ];
       flake.nixosConfigurations = {
         router = nixpkgs.lib.nixosSystem {
