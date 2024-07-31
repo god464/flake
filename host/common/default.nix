@@ -9,5 +9,4 @@
       openFirewall = false;
     };
   };
-  sec.enable = true;
 }
