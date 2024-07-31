@@ -33,9 +33,7 @@ in
         };
         plymouth.enable = true;
         consoleLogLevel = 0;
-        kernelParams = [
-          "quiet"
-        ];
+        kernelParams = [ "quiet" ];
       })
       (mkIf (!config.services.displayManager.sddm.enable) {
         loader.systemd-boot = {

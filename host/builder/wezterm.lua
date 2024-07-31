@@ -1,7 +1,7 @@
 local config = require("wezterm").config_builder()
 local action = require("wezterm").action
 config = {
-	font = wezterm.font "Fira Code Nerd Font Mono",
+	font = wezterm.font "Fira Code",
 	color_scheme = "Tokyo Night Storm",
 	enable_scroll_bar = true,
 	use_ime = true,
@@ -49,7 +49,7 @@ config = {
 			action = action.AdjustPaneSize({ "Up", 1 }),
 		},
 		{
-			key = "l",
+			key = "n",
 			mods = "CTRL|SHIFT",
 			action = action.SpawnTab("CurrentPaneDomain"),
 		},
