@@ -35,7 +35,6 @@ in
         consoleLogLevel = 0;
         kernelParams = [
           "quiet"
-          "splash"
         ];
       })
       (mkIf (!config.services.displayManager.sddm.enable) {

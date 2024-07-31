@@ -4,10 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf;
 in
 {
-  options.sec = {
-    enable = mkEnableOption "sec";
-  };
-  config = mkIf cfg.enable {
+  config = {
     sops = {
       age = {
         keyFile = "/var/lib/key.txt";
