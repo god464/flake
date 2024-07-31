@@ -22,3 +22,6 @@
 
 @fix:
     nix-store --repair --verify --check-contents
+
+@build:
+    nix develop .#vterm
