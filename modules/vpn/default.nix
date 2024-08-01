@@ -13,8 +13,10 @@ in
   options.vpn = {
     enable = mkEnableOption "vpn";
     role = mkOption {
-      type = types.str;
-      default = "server";
+      type = types.enum [
+        "server"
+        "client"
+      ];
     };
   };
   config = mkIf cfg.enable {
