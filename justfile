@@ -1,12 +1,6 @@
 @install target:
-    if [ "{{ target }}" == "builder" ]; then \
-        disk="desktop"; \
-    else \
-        disk="server"; \
-    fi; \
-    nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko/"$disk".nix
+    nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --flake .#{{ target }}
     mkdir -p /mnt/var/lib
-    nixos-install --flake .#{{ target }} 
 
 @update:
     nix flake update
