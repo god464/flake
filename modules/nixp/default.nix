@@ -9,6 +9,10 @@ in
       type = types.listOf types.str;
       default = [ ];
     };
+    trustKeys = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+    };
     platform = mkOption {
       type = types.str;
       default = "x86_64-linux";
@@ -25,7 +29,8 @@ in
           "nix-command"
           "flakes"
         ];
-        substituters = mkAfter cfg.cache;
+        trusted-substituters = mkAfter cfg.cache;
+        trusted-public-keys = mkAfter cfg.trustKeys;
       };
       gc = {
         automatic = true;
