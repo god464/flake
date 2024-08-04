@@ -5,5 +5,6 @@
     ./net
     ./sec
     ./vpn
+    ./beesd
   ];
 }
