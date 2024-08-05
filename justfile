@@ -1,11 +1,16 @@
-@install target:
+default := "localhost"
+
+@install target ip=default:
+    if  [ -f "/disk/config"]; then \
+        rm disk-config.nix; \
+    fi
     if [ "{{ target }}" == "builder" ]; then \
         disk="desktop"; \
     else \
         disk="server"; \
     fi; \
     ln -s ./disko/"$disk".nix ./disk-config.nix
-    nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --flake .#{{ target }}
+    nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --flake .#{{ target }} {{ ip }}
     mkdir -p /mnt/var/lib
 
 @update:
