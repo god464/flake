@@ -1,11 +1,11 @@
 local config = require("wezterm").config_builder()
 local action = require("wezterm").action
 config = {
-	font = wezterm.font "Fira Code",
+	font = wezterm.font("Fira Code"),
 	color_scheme = "Tokyo Night Storm",
 	enable_scroll_bar = true,
 	use_ime = true,
-    hide_tab_bar_if_only_one_tab=true;
+	hide_tab_bar_if_only_one_tab = true,
 	window_background_opacity = 0.8,
 	text_background_opacity = 0.8,
 	keys = {
