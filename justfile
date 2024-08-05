@@ -1,4 +1,10 @@
 @install target:
+    if [ "{{ target }}" == "builder" ]; then \
+        disk="desktop"; \
+    else \
+        disk="server"; \
+    fi; \
+    ln -s ./disk-config.nix ./disko/"$disk".nix
     nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --flake .#{{ target }}
     mkdir -p /mnt/var/lib
 
