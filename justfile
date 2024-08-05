@@ -4,7 +4,7 @@
     else \
         disk="server"; \
     fi; \
-    ln -s ./disk-config.nix ./disko/"$disk".nix
+    ln -s ./disko/"$disk".nix ./disk-config.nix
     nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --flake .#{{ target }}
     mkdir -p /mnt/var/lib
 
