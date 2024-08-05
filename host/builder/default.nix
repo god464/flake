@@ -6,6 +6,10 @@
     ./app.nix
   ];
   net.name = "builder";
+  nixp = {
+    cache = [ "https://cosmic.cachix.org/" ];
+    trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+  };
   users.users.cl = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
