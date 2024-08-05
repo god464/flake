@@ -1,7 +1,7 @@
 default := "localhost"
 
 @install target ip=default:
-    if  [ -f "/disk/config"]; then \
+    if  [ -f "./disk-config.nix" ]; then \
         rm disk-config.nix; \
     fi
     if [ "{{ target }}" == "builder" ]; then \
