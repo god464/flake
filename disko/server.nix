@@ -1,12 +1,9 @@
-{
-  disks ? [ "/dev/sda" ],
-  ...
-}:
+{lib,...}:
 {
   disko.devices = {
     disk = {
       sda = {
-        device = builtins.elemAt disks 0;
+        device = lib.mkDefault "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";
