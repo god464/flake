@@ -5,6 +5,7 @@ config = {
 	color_scheme = "Tokyo Night Storm",
 	enable_scroll_bar = true,
 	use_ime = true,
+    hide_tab_bar_if_only_one_tab=true;
 	window_background_opacity = 0.8,
 	text_background_opacity = 0.8,
 	keys = {

@@ -11,6 +11,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{ flake-parts, nixpkgs, ... }:
@@ -32,6 +36,7 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.disko.nixosModules.disko
             inputs.sops-nix.nixosModules.sops
+            inputs.nixos-cosmic.nixosModules.default
             ./disko/desktop.nix
             ./host/builder
             ./modules
