@@ -29,7 +29,7 @@ in
           "nix-command"
           "flakes"
         ];
-        trusted-substituters = mkAfter cfg.cache;
+        substituters = mkAfter (cfg.cache ++ [ "https://cache.nixos.org" ]);
         trusted-public-keys = mkAfter cfg.trustKeys;
       };
       gc = {
