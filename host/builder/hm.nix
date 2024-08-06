@@ -55,7 +55,7 @@
   services = {
     gpg-agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry-qt;
+      pinentryPackage = pkgs.pinentry-all;
     };
     ssh-agent.enable = true;
   };
