@@ -2,21 +2,21 @@
 {
   services = {
     desktopManager = {
-      # plasma6 = {
-      #   enable = true;
-      #   enableQt5Integration = false;
-      # };
-      cosmic.enable = true;
+      plasma6 = {
+        enable = true;
+        enableQt5Integration = false;
+      };
+      # cosmic.enable = true;
     };
     displayManager = {
-      # sddm = {
-      #   enable = true;
-      #   wayland = {
-      #     enable = true;
-      #     compositor = "kwin";
-      #   };
-      # };
-      cosmic-greeter.enable = true;
+      sddm = {
+        enable = true;
+        wayland = {
+          enable = true;
+          compositor = "kwin";
+        };
+      };
+      # cosmic-greeter.enable = true;
     };
     pipewire = {
       enable = true;
@@ -24,7 +24,7 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    # fwupd.enable = true;
+    fwupd.enable = true;
   };
   programs = {
     firefox = {
@@ -47,13 +47,13 @@
       with pkgs;
       [
         wl-clipboard
-        # vulkan-tools
-        # virtualgl
-        # clinfo
-        # wayland-utils
-        # pciutils
-        # usbutils
-        # aha
+        vulkan-tools
+        virtualgl
+        clinfo
+        wayland-utils
+        pciutils
+        usbutils
+        aha
       ]
     );
   };

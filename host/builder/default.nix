@@ -25,6 +25,7 @@
       shellcheck
       python3
       yaml-language-server
+      nushell
     ];
   };
   home-manager = {
@@ -36,9 +37,6 @@
   virtualisation.vmware.guest.enable = true;
   fonts.packages = with pkgs; [
     fira-code
-    noto-fonts-cjk
-    source-han-serif
-    source-han-sans
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     noto-fonts-color-emoji
   ];

@@ -1,8 +1,3 @@
-{ config, lib, ... }:
-let
-  cfg = config.sec;
-  inherit (lib) mkEnableOption mkIf;
-in
 {
   config = {
     sops = {

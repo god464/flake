@@ -20,7 +20,7 @@ in
           openFirewall = false;
         };
       }
-      (mkIf (config.networking.useNetworkd) { resolved.enable = true; })
+      (mkIf config.networking.useNetworkd { resolved.enable = true; })
     ];
     networking = mkMerge [
       {
