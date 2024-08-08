@@ -21,35 +21,27 @@ in
         kernelModules = [ "kvm-amd" ];
         loader.efi.canTouchEfiVariables = true;
       }
-      (mkIf
-        (config.services.displayManager.sddm.enable || config.services.displayManager.cosmic-greeter.enable)
-        {
-          loader.grub = {
-            enable = true;
-            efiSupport = true;
-            device = "nodev";
-            gfxmodeEfi = "auto";
-            gfxmodeBios = "auto";
-            gfxpayloadEfi = "auto";
-            gfxpayloadBios = "auto";
-          };
-          plymouth.enable = true;
-          consoleLogLevel = 0;
-          kernelParams = [ "quiet" ];
-        }
-      )
-      (mkIf
-        (
-          !config.services.displayManager.sddm.enable && !config.services.displayManager.cosmic-greeter.enable
-        )
-        {
-          loader.systemd-boot = {
-            enable = true;
-            consoleMode = "max";
-            editor = false;
-          };
-        }
-      )
+      (mkIf config.services.displayManager.sddm.enable {
+        loader.grub = {
+          enable = true;
+          efiSupport = true;
+          device = "nodev";
+          gfxmodeEfi = "auto";
+          gfxmodeBios = "auto";
+          gfxpayloadEfi = "auto";
+          gfxpayloadBios = "auto";
+        };
+        plymouth.enable = true;
+        consoleLogLevel = 0;
+        kernelParams = [ "quiet" ];
+      })
+      (mkIf (!config.services.displayManager.sddm.enable) {
+        loader.systemd-boot = {
+          enable = true;
+          consoleMode = "max";
+          editor = false;
+        };
+      })
     ];
   };
 }

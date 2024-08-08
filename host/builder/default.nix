@@ -40,4 +40,8 @@
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     noto-fonts-color-emoji
   ];
+  services.openssh = {
+    settings.PermitRootLogin = "no";
+    openFirewall = false;
+  };
 }

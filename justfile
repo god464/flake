@@ -4,8 +4,8 @@ defaultTarget := "builder"
     nix --experimental-features "nix-command flakes" run github:nix-community/disko -- -f .#{{ target }}
     mkdir -p /mnt/var/lib
 
-@remote-install target ip:
-    nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --flake .#{{ target }} {{ ip }}
+@install-remote target ip:
+    nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --flake .#{{ target }} root@{{ ip }}
 
 @update:
     nix flake update
