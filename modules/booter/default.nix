@@ -1,6 +1,7 @@
 { config, lib, ... }:
 let
   inherit (lib) mkMerge mkIf;
+  display = config.services.displayManager;
 in
 {
   config = {
@@ -21,7 +22,7 @@ in
         kernelModules = [ "kvm-amd" ];
         loader.efi.canTouchEfiVariables = true;
       }
-      (mkIf config.services.displayManager.sddm.enable {
+      (mkIf (display.sddm.enable || display.cosmic-greeter.enable) {
         loader.grub = {
           enable = true;
           efiSupport = true;
@@ -35,7 +36,7 @@ in
         consoleLogLevel = 0;
         kernelParams = [ "quiet" ];
       })
-      (mkIf (!config.services.displayManager.sddm.enable) {
+      (mkIf (!display.sddm.enable && !display.cosmic-greeter.enable) {
         loader.systemd-boot = {
           enable = true;
           consoleMode = "max";

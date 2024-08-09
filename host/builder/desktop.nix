@@ -2,21 +2,21 @@
 {
   services = {
     desktopManager = {
-      plasma6 = {
-        enable = true;
-        enableQt5Integration = false;
-      };
-      # cosmic.enable = true;
+      # plasma6 = {
+      #   enable = true;
+      #   enableQt5Integration = false;
+      # };
+      cosmic.enable = true;
     };
     displayManager = {
-      sddm = {
-        enable = true;
-        wayland = {
-          enable = true;
-          compositor = "kwin";
-        };
-      };
-      # cosmic-greeter.enable = true;
+      # sddm = {
+      #   enable = true;
+      #   wayland = {
+      #     enable = true;
+      #     compositor = "kwin";
+      #   };
+      # };
+      cosmic-greeter.enable = true;
     };
     pipewire = {
       enable = true;

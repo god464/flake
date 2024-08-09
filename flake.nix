@@ -26,6 +26,7 @@
           modules = [
             inputs.disko.nixosModules.disko
             inputs.sops-nix.nixosModules.sops
+            inputs.nixos-cosmic.nixosModules.default
             ./disko/server.nix
             ./host/router
             ./modules
