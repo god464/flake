@@ -2,21 +2,21 @@
 {
   services = {
     desktopManager = {
-      plasma6 = {
-        enable = true;
-        enableQt5Integration = false;
-      };
-      # cosmic.enable = true;
+      # plasma6 = {
+      #   enable = true;
+      #   enableQt5Integration = false;
+      # };
+      cosmic.enable = true;
     };
     displayManager = {
-      sddm = {
-        enable = true;
-        wayland = {
-          enable = true;
-          compositor = "kwin";
-        };
-      };
-      # cosmic-greeter.enable = true;
+      # sddm = {
+      #   enable = true;
+      #   wayland = {
+      #     enable = true;
+      #     compositor = "kwin";
+      #   };
+      # };
+      cosmic-greeter.enable = true;
     };
     pipewire = {
       enable = true;
@@ -24,7 +24,6 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    fwupd.enable = true;
   };
   programs = {
     firefox = {
@@ -42,19 +41,6 @@
   };
   security.polkit.enable = true;
   environment = {
-    plasma6.excludePackages = with pkgs; [ konsole ];
-    systemPackages = lib.mkAfter (
-      with pkgs;
-      [
-        wl-clipboard
-        vulkan-tools
-        virtualgl
-        clinfo
-        wayland-utils
-        pciutils
-        usbutils
-        aha
-      ]
-    );
+    systemPackages = lib.mkAfter (with pkgs; [ wl-clipboard ]);
   };
 }

@@ -20,7 +20,7 @@
       (emacs.override { withPgtk = true; })
       shfmt
       nixfmt-rfc-style
-      nixd
+      nil
       just
       shellcheck
       python3
