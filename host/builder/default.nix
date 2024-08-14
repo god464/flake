@@ -4,6 +4,7 @@
     ../common
     ./desktop.nix
     ./app.nix
+    ../../disko/desktop.nix
   ];
   net.name = "builder";
   nixp = {
