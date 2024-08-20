@@ -1,29 +1,24 @@
 { pkgs, lib, ... }:
 {
   services = {
-    desktopManager = {
-      # plasma6 = {
-      #   enable = true;
-      #   enableQt5Integration = false;
-      # };
-      cosmic.enable = true;
-    };
-    displayManager = {
-      # sddm = {
-      #   enable = true;
-      #   wayland = {
-      #     enable = true;
-      #     compositor = "kwin";
-      #   };
-      # };
-      cosmic-greeter.enable = true;
-    };
-    pipewire = {
+    desktopManager.plasma6 = {
       enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-      jack.enable = true;
+      enableQt5Integration = false;
     };
+    displayManager.sddm = {
+      enable = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
+    };
+  };
+  pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
+    wireplumber.enable = true;
   };
   programs = {
     firefox = {
@@ -42,6 +37,18 @@
   };
   security.polkit.enable = true;
   environment = {
-    systemPackages = lib.mkAfter (with pkgs; [ wl-clipboard ]);
+    plasma6.excludePackages = with pkgs.kdePackages; [
+      konsole
+      kate
+      krdp
+      kwrited
+    ];
+    systemPackages = lib.mkAfter (
+      with pkgs;
+      [
+        wl-clipboard
+        kdePackages.dragon
+      ]
+    );
   };
 }
