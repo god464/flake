@@ -17,33 +17,10 @@
     };
   };
   outputs =
-    inputs@{ flake-parts, nixpkgs, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      debug = true;
       systems = [ "x86_64-linux" ];
-      flake.nixosConfigurations = {
-        router = nixpkgs.lib.nixosSystem {
-          modules = [
-            inputs.disko.nixosModules.disko
-            inputs.sops-nix.nixosModules.sops
-            inputs.nixos-cosmic.nixosModules.default
-            ./disko/server.nix
-            ./host/router
-            ./modules
-          ];
-        };
-        builder = nixpkgs.lib.nixosSystem {
-          modules = [
-            inputs.home-manager.nixosModules.home-manager
-            inputs.disko.nixosModules.disko
-            inputs.sops-nix.nixosModules.sops
-            inputs.nixos-cosmic.nixosModules.default
-            ./disko/desktop.nix
-            ./host/builder
-            ./modules
-          ];
-        };
-      };
+      imports = [ ./host ];
       perSystem =
         { pkgs, ... }:
         {
