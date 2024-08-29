@@ -12,13 +12,13 @@
         compositor = "kwin";
       };
     };
-  };
-  pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+      jack.enable = true;
+      wireplumber.enable = true;
+    };
   };
   programs = {
     firefox = {
@@ -38,7 +38,6 @@
   security.polkit.enable = true;
   environment = {
     plasma6.excludePackages = with pkgs.kdePackages; [
-      konsole
       kate
       krdp
       kwrited
