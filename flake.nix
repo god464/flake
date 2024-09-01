@@ -27,7 +27,7 @@
           devShells.vterm = pkgs.mkShell {
             packages = with pkgs; [
               cmake
-              emacs
+              (emacs.override { withPgtk = true; })
               gcc
               gnumake
               libtool
