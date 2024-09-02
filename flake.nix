@@ -15,25 +15,19 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ggnvim = {
+      url = "github:god464/nvim";
+      flake = false;
+    };
   };
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      debug = true;
       systems = [ "x86_64-linux" ];
-      imports = [ ./host ];
-      perSystem =
-        { pkgs, ... }:
-        {
-          devShells.vterm = pkgs.mkShell {
-            packages = with pkgs; [
-              cmake
-              (emacs.override { withPgtk = true; })
-              gcc
-              gnumake
-              libtool
-            ];
-          };
-          formatter = pkgs.nixfmt-rfc-style;
-        };
+      imports = [
+        ./hosts
+        ./shells
+      ];
     };
 }

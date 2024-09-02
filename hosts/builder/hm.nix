@@ -43,20 +43,12 @@
       compression = true;
       hashKnownHosts = true;
     };
-    neovim = {
-      enable = true;
-      extraLuaConfig = builtins.readFile ./nvim.lua;
-    };
-    wezterm = {
-      enable = true;
-      extraConfig = builtins.readFile ./wezterm.lua;
-    };
   };
   services = {
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      pinentryPackage = pkgs.pinentry-all;
+      pinentryPackage = pkgs.pinentry-qt;
     };
   };
 }

@@ -9,9 +9,7 @@ let
   cfg = config.net;
 in
 {
-  options.net = {
-    name = mkOption { type = types.str; };
-  };
+  options.net.name = mkOption { type = types.str; };
   config = {
     services = mkMerge [
       {

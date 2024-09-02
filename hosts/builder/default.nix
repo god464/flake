@@ -19,13 +19,7 @@
     hashedPasswordFile = config.sops.secrets.passwd.path;
     packages = with pkgs; [
       (emacs.override { withPgtk = true; })
-      shfmt
-      nixfmt-rfc-style
-      nil
       just
-      shellcheck
-      python3
-      yaml-language-server
       nushell
     ];
   };
