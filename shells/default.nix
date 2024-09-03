@@ -1,8 +1,6 @@
 {
   perSystem =
     { pkgs, ... }:
-    let
-    in
     {
       devShells = {
         vterm = pkgs.mkShell {
@@ -40,6 +38,15 @@
           packages = with pkgs; [
             nixd
             nixfmt-rfc-style
+          ];
+        };
+        rust = pkgs.mkShell {
+          packages = with pkgs; [
+            rustc
+            rustfmt
+            clippy
+            cargo
+            rust-analyzer
           ];
         };
       };

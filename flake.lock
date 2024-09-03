@@ -76,22 +76,6 @@
         "type": "github"
       }
     },
-    "ggnvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1725072715,
-        "narHash": "sha256-afNLgX4AheoVB4uJ7Xj3UBJnAD7Vhm9ki9iPtxg9dYk=",
-        "owner": "god464",
-        "repo": "nvim",
-        "rev": "35bb349a87ccc34427c0d990da7bb7d6f7a72540",
-        "type": "github"
-      },
-      "original": {
-        "owner": "god464",
-        "repo": "nvim",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -239,7 +223,6 @@
       "inputs": {
         "disko": "disko",
         "flake-parts": "flake-parts",
-        "ggnvim": "ggnvim",
         "home-manager": "home-manager",
         "nixos-cosmic": "nixos-cosmic",
         "nixpkgs": "nixpkgs",
