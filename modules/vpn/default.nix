@@ -8,6 +8,7 @@ let
     mkIf
     ;
   cfg = config.vpn;
+  display = config.services.displayManager;
 in
 {
   options.vpn = {
@@ -63,7 +64,7 @@ in
           };
         };
       })
-      (mkIf ((cfg.role == "client") && (!config.services.displayManager.sddm.enable)) {
+      (mkIf ((cfg.role == "client") && (!display.enable)) {
         netdevs = {
           "10-wg0" = {
             enable = true;
@@ -88,21 +89,19 @@ in
         };
       })
     ];
-    networking.wg-quick.interfaces =
-      mkIf ((cfg.role == "client") && config.services.displayManager.sddm.enable)
-        {
-          wg0 = {
-            address = [ "192.168.50.3/24" ];
-            privateKeyFile = config.sops.secrets.wg-client.path;
-            peers = [
-              {
-                publicKey = "kR8ZxNd/1DkKgb3TN7t5McJpRklYLViAkvY96iNnri8=";
-                allowedIPs = [ "192.168.50.0/24" ];
-                persistentKeepalive = 20;
-                presharedKeyFile = config.sops.secrets.wg-preshare.path;
-              }
-            ];
-          };
-        };
+    networking.wg-quick.interfaces = mkIf ((cfg.role == "client") && display.enable) {
+      wg0 = {
+        address = [ "192.168.50.3/24" ];
+        privateKeyFile = config.sops.secrets.wg-client.path;
+        peers = [
+          {
+            publicKey = "kR8ZxNd/1DkKgb3TN7t5McJpRklYLViAkvY96iNnri8=";
+            allowedIPs = [ "192.168.50.0/24" ];
+            persistentKeepalive = 20;
+            presharedKeyFile = config.sops.secrets.wg-preshare.path;
+          }
+        ];
+      };
+    };
   };
 }

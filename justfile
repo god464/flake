@@ -1,4 +1,5 @@
 defaultTarget := "builder"
+defaultShell := "nix"
 
 @install target:
     nix --experimental-features "nix-command flakes" run github:nix-community/disko -- -m disko -f .#{{ target }}
@@ -26,5 +27,5 @@ defaultTarget := "builder"
 @fix:
     nix-store --repair --verify --check-contents
 
-@build:
-    nix develop .#vterm
+@build shName=defaultShell:
+    nix develop .#{{ shName }}

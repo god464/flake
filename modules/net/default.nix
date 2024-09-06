@@ -7,6 +7,7 @@ let
     mkIf
     ;
   cfg = config.net;
+  display = config.services.displayManager;
 in
 {
   options.net.name = mkOption { type = types.str; };
@@ -30,14 +31,14 @@ in
           filterForward = true;
         };
       }
-      (mkIf config.services.displayManager.sddm.enable {
+      (mkIf display.enable {
         networkmanager = {
           enable = true;
           wifi.backend = "iwd";
           enableStrongSwan = true;
         };
       })
-      (mkIf (!config.services.displayManager.sddm.enable) { useNetworkd = true; })
+      (mkIf (!display.enable) { useNetworkd = true; })
     ];
 
     systemd.network = mkIf config.networking.useNetworkd {

@@ -20,7 +20,7 @@
             gcc
             gnumake
             yaml-language-server
-            vscode-langservers-extracted
+            yamlfmt
             taplo
           ];
         };
@@ -38,6 +38,8 @@
           packages = with pkgs; [
             nixd
             nixfmt-rfc-style
+            yaml-language-server
+            yamlfmt
           ];
         };
         rust = pkgs.mkShell {

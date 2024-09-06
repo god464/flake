@@ -1,9 +1,24 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  inherit (lib) mkMerge mkIf;
+  inherit (lib)
+    mkMerge
+    mkIf
+    types
+    mkOption
+    ;
   display = config.services.displayManager;
+  cfg = config.booter;
 in
 {
+  options.booter.kernel = mkOption {
+    type = types.raw;
+    default = pkgs.linuxPackages;
+  };
   config = {
     boot = mkMerge [
       {
@@ -20,9 +35,10 @@ in
           supportedFilesystems = [ "btrfs" ];
         };
         kernelModules = [ "kvm-amd" ];
+        kernelPackages = cfg.kernel;
         loader.efi.canTouchEfiVariables = true;
       }
-      (mkIf (display.sddm.enable || display.cosmic-greeter.enable) {
+      (mkIf (display.enable) {
         loader.grub = {
           enable = true;
           efiSupport = true;
@@ -36,7 +52,7 @@ in
         consoleLogLevel = 0;
         kernelParams = [ "quiet" ];
       })
-      (mkIf (!display.sddm.enable && !display.cosmic-greeter.enable) {
+      (mkIf (!display.enable) {
         loader.systemd-boot = {
           enable = true;
           consoleMode = "max";
