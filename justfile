@@ -27,5 +27,5 @@ defaultShell := "nix"
 @fix:
     nix-store --repair --verify --check-contents
 
-@build shName=defaultShell:
+@env shName=defaultShell:
     nix develop .#{{ shName }}
