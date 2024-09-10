@@ -1,10 +1,7 @@
 {
   config = {
     sops = {
-      age = {
-        keyFile = "/var/lib/key.txt";
-        generateKey = true;
-      };
+      age.keyFile = "/var/lib/key.txt";
       defaultSopsFile = ./secrets.yaml;
       secrets.passwd.neededForUsers = true;
     };
