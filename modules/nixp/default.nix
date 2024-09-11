@@ -30,7 +30,6 @@ in
       nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
       settings = {
         auto-optimise-store = true;
-        pure-eval = true;
         experimental-features = [
           "nix-command"
           "flakes"

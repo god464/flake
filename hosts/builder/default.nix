@@ -2,7 +2,6 @@
 {
   imports = [
     ../common
-    ./desktop.nix
     ./app.nix
     ../../disko/desktop.nix
   ];
@@ -42,5 +41,14 @@
   services.openssh = {
     settings.PermitRootLogin = "no";
     openFirewall = false;
+  };
+  desktop = {
+    enable = true;
+    includePackages = with pkgs.kdePackages; [ dragon ];
+    excludePackages = with pkgs.kdePackages; [
+      kate
+      krdp
+      kwrited
+    ];
   };
 }
