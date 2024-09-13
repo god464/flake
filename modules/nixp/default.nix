@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   ...
 }:
 let
@@ -12,11 +11,9 @@ in
   options.nixp = {
     cache = mkOption {
       type = types.listOf types.str;
-      default = [ ];
     };
     trustKeys = mkOption {
       type = types.listOf types.str;
-      default = [ ];
     };
     platform = mkOption {
       type = types.str;
@@ -27,7 +24,6 @@ in
     nix = {
       sshServe.enable = true;
       channel.enable = false;
-      nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
       settings = {
         auto-optimise-store = true;
         experimental-features = [
@@ -56,10 +52,7 @@ in
       };
     };
     nixpkgs = {
-      config = {
-        allowUnfree = true;
-        warnUndeclaredOptions = true;
-      };
+      config.allowUnfree = true;
       hostPlatform = cfg.platform;
     };
     system.stateVersion = "24.05";
