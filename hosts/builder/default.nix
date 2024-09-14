@@ -22,7 +22,7 @@
     shell = pkgs.nushell;
     hashedPasswordFile = config.sops.secrets.passwd.path;
     packages = with pkgs; [
-      (emacs.override { withPgtk = true; })
+      neovide
       just
       nushell
     ];
