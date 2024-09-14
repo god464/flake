@@ -8,25 +8,21 @@
   booter.kernel = pkgs.linuxPackages_latest;
   net.name = "builder";
   nixp = {
-    cache = [
-      "https://cosmic.cachix.org"
-    ];
-    trustKeys = [
-      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-    ];
+    cache = [ "https://cosmic.cachix.org" ];
+    trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
   };
   users.users.cl = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     createHome = true;
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.passwd.path;
     packages = with pkgs; [
       neovide
       just
-      nushell
     ];
   };
+  programs.fish.enable = true;
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

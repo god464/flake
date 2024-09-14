@@ -15,12 +15,34 @@
         batman
       ];
     };
+    fish = {
+      enable = true;
+      shellAbbrs = {
+        ls = "eza";
+        cd = "z";
+        cat = "bat";
+        man = "batman";
+        diff = "batdiff";
+        rg = "batgrep";
+      };
+    };
     fastfetch.enable = true;
     ripgrep.enable = true;
+    zoxide.enable = true;
     fzf.enable = true;
     gpg.enable = true;
     htop.enable = true;
     fd.enable = true;
+    eza = {
+      enable = true;
+      git = true;
+      icons = true;
+    };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      silent = true;
+    };
     git = {
       enable = true;
       delta.enable = true;
