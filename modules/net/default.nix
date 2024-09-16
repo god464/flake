@@ -34,7 +34,6 @@ in
       (mkIf display.enable {
         networkmanager = {
           enable = true;
-          wifi.backend = "iwd";
           enableStrongSwan = true;
         };
       })

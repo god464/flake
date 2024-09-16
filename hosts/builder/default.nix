@@ -21,10 +21,7 @@
     createHome = true;
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.passwd.path;
-    packages = with pkgs; [
-      neovide
-      just
-    ];
+    packages = with pkgs; [ just ];
   };
   programs = {
     fish.enable = true;

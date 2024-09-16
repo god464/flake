@@ -16,6 +16,14 @@
                 mountpoint = "/boot";
               };
             };
+            swap = {
+              size = "4G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
+              };
+            };
             root = {
               size = "100%";
               content = {
