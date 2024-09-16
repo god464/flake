@@ -1,0 +1,6 @@
+keys:
+  - &vm age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
+creation_rules:
+  - key_groups:
+      - age:
+          - *vm
