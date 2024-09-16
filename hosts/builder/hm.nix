@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home = {
     username = "cl";
@@ -6,7 +6,6 @@
     stateVersion = "24.05";
   };
   programs = {
-    nushell.enable = true;
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [
@@ -59,6 +58,8 @@
       compression = true;
       hashKnownHosts = true;
     };
+    neovim.enable = true;
+    starship.enable = true;
   };
   services = {
     gpg-agent = {
@@ -66,5 +67,9 @@
       enableSshSupport = true;
       pinentryPackage = pkgs.pinentry-qt;
     };
+  };
+  xdg.configFile.nvim = {
+    source = inputs.ggnvim;
+    recursive = true;
   };
 }

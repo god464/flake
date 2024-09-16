@@ -15,6 +15,10 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ggnvim = {
+      url = "github:god464/nvim";
+      flake = false;
+    };
   };
   outputs =
     inputs@{ flake-parts, ... }:

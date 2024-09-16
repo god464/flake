@@ -1,8 +1,12 @@
-{ pkgs, config, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 {
   imports = [
     ../common
-    ./app.nix
     ../../disko/desktop.nix
   ];
   booter.kernel = pkgs.linuxPackages_latest;
@@ -22,11 +26,25 @@
       just
     ];
   };
-  programs.fish.enable = true;
+  programs = {
+    fish.enable = true;
+    neovim = {
+      enable = true;
+      vimAlias = true;
+      viAlias = true;
+      withNodeJs = true;
+      withPython3 = true;
+      withRuby = true;
+      defaultEditor = true;
+    };
+  };
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     users.cl = import ./hm.nix;
+    extraSpecialArgs = {
+      inherit inputs;
+    };
   };
   virtualisation.vmware.guest.enable = true;
   fonts.packages = with pkgs; [
