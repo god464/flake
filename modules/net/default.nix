@@ -35,6 +35,7 @@ in
         networkmanager = {
           enable = true;
           wifi.backend = "iwd";
+          dhcp = "dhcpcd";
           enableStrongSwan = true;
         };
       })
