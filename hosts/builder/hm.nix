@@ -58,7 +58,15 @@
       compression = true;
       hashKnownHosts = true;
     };
-    neovim.enable = true;
+    neovim = {
+      enable = true;
+      extraPackages = with pkgs; [
+        gcc
+        gnumake
+        nodejs
+        tree-sitter
+      ];
+    };
     starship.enable = true;
   };
   services = {
