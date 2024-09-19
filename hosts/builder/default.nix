@@ -53,13 +53,5 @@
     settings.PermitRootLogin = "no";
     openFirewall = false;
   };
-  desktop = {
-    enable = true;
-    includePackages = with pkgs.kdePackages; [ dragon ];
-    excludePackages = with pkgs.kdePackages; [
-      kate
-      krdp
-      kwrited
-    ];
-  };
+  desktop.cosmic.enable = true;
 }
