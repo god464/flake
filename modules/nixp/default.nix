@@ -52,7 +52,11 @@ in
       };
     };
     nixpkgs = {
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        checkMeta = true;
+        warnUndeclaredOptions = true;
+      };
       hostPlatform = cfg.platform;
     };
     system.stateVersion = "24.05";
