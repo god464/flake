@@ -6,6 +6,7 @@
     stateVersion = "24.05";
   };
   programs = {
+    man.enable = false;
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [
