@@ -1,5 +1,4 @@
 defaultTarget := "builder"
-defaultShell := "nix"
 
 @install target:
     nix --experimental-features "nix-command flakes" run github:nix-community/disko -- -m disko -f .#{{ target }}

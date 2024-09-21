@@ -39,6 +39,14 @@ in
         policies.DisableAppUpdate = true;
       };
     };
+    i18n.inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [ fcitx5-rime ];
+      };
+    };
     security.polkit.enable = true;
     environment.systemPackages = lib.mkAfter ([ pkgs.wl-clipboard ]);
   };
