@@ -74,7 +74,7 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      pinentryPackage = pkgs.pinentry-qt;
+      pinentryPackage = pkgs.pinentry-all;
     };
   };
   xdg.configFile.nvim = {

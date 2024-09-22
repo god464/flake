@@ -39,9 +39,6 @@ in
         substituters = mkAfter (
           cfg.cache
           ++ [
-            "https://mirrors.bfsu.edu.cn/nix-channels/store"
-            "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-            "https://mirrors.ustc.edu.cn/nix-channels/store"
             "https://cache.garnix.io"
             "https://cache.nixos.org"
             "https://nix-community.cachix.org"
