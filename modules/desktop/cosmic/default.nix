@@ -44,7 +44,13 @@ in
       type = "fcitx5";
       fcitx5 = {
         waylandFrontend = true;
-        addons = with pkgs; [ fcitx5-rime ];
+        addons = with pkgs; [
+          fcitx5-rime
+          fcitx5-gtk
+          fcitx5-tokyonight
+          fcitx5-chinese-addons
+          rime-data
+        ];
       };
     };
     security.polkit.enable = true;
