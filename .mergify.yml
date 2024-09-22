@@ -1,0 +1,12 @@
+pull_request_rules:
+  - name: Automatic merge
+    description: Merge when PR passes all branch protection and has label automerge
+    conditions:
+      - label = merge-queue
+      - check-success=Evaluate flake.nix
+      - check-success=nixosConfig builder
+      - check-success=nixosConfig router
+      - check-success=devShell default [x86_64-linux]
+    actions:
+      merge:
+        method: squash
