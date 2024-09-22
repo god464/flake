@@ -2,7 +2,7 @@
 {
   imports = [
     ../common
-    ../../disko/desktop.nix
+    ../../disko/server.nix
   ];
   net.name = "router";
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;

@@ -13,12 +13,12 @@ in
   options.net.name = mkOption { type = types.str; };
   config = {
     services = mkMerge [
-      {
+      (mkIf display {
         openssh = {
           settings.PermitRootLogin = "no";
           openFirewall = false;
         };
-      }
+      })
       (mkIf config.networking.useNetworkd { resolved.enable = true; })
     ];
     networking = mkMerge [
