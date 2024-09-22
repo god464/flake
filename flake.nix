@@ -15,8 +15,8 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence={url = "github:nix-community/home-manager";
-
+    impermanence = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ggnvim = {
