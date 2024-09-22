@@ -13,7 +13,7 @@ in
   options.net.name = mkOption { type = types.str; };
   config = {
     services = mkMerge [
-      (mkIf display {
+      (mkIf display.enable {
         openssh = {
           settings.PermitRootLogin = "no";
           openFirewall = false;

@@ -10,9 +10,11 @@ in
 {
   options.nixp = {
     cache = mkOption {
+      default = [ ];
       type = types.listOf types.str;
     };
     trustKeys = mkOption {
+      default = [ ];
       type = types.listOf types.str;
     };
     platform = mkOption {
