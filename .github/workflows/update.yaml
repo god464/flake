@@ -17,9 +17,7 @@ jobs:
         with:
           extra-conf: |
             extra-substituters = https://cache.garnix.io
-            extra-substituters = https://cosmic.cachix.org/
             extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
-            extra-trusted-public-keys = cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=
       - name: Use nix cache
         uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Update flake.lock
