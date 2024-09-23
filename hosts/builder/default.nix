@@ -46,6 +46,8 @@
   virtualisation.vmware.guest.enable = true;
   fonts.packages = with pkgs; [
     fira-code
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     noto-fonts-color-emoji
   ];
