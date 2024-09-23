@@ -70,6 +70,7 @@
       ];
     };
     starship.enable = true;
+    sioyek.enable = true;
   };
   services = {
     gpg-agent = {
