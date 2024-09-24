@@ -11,8 +11,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-cosmic = {
+    nixos-cosmic-draft = {
       url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-cosmic = {
+      url = "github:god464/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence = {
