@@ -1,0 +1,4 @@
+build:
+  includes:
+    - nixosConfigurations.*
+    - devShell.x86_64-linux
