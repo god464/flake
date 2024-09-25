@@ -1,15 +1,12 @@
 { lib, config, ... }:
 let
-  cfg = config.sec;
   inherit (lib) mkOption mkEnableOption types;
 in
 {
   options.sec = {
     # TODO
     secret = {
-      name = mkOption {
-        type = types.str;
-      };
+      name = mkOption { type = types.str; };
       needBoot = mkEnableOption "sops";
     };
   };
