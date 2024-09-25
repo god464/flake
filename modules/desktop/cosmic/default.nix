@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.desktop.cosmic;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf mkAfter;
 in
 {
   options.desktop.cosmic = {
@@ -54,6 +54,6 @@ in
       };
     };
     security.polkit.enable = true;
-    environment.systemPackages = lib.mkAfter ([ pkgs.wl-clipboard ]);
+    environment.systemPackages = mkAfter [ pkgs.wl-clipboard ];
   };
 }

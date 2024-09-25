@@ -2,7 +2,7 @@
 {
   flake =
     let
-      lib = inputs.nixpkgs.lib;
+      inherit (inputs.nixpkgs) lib;
       mkNixossystem =
         host:
         lib.nixosSystem {

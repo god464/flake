@@ -38,7 +38,7 @@ in
         kernelPackages = cfg.kernel;
         loader.efi.canTouchEfiVariables = true;
       }
-      (mkIf (display.enable) {
+      (mkIf display.enable {
         loader.grub = {
           enable = true;
           efiSupport = true;
