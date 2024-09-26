@@ -11,7 +11,7 @@
         packages = with pkgs; [
           nixd
           yaml-language-server
-          nixfmt
+          nixfmt-rfc-style
           yamlfmt
           statix
           deadnix
