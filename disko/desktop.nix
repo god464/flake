@@ -49,6 +49,13 @@
                       "noatime"
                     ];
                   };
+                  "@var" = {
+                    mountpoint = "/var";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
                 };
               };
             };
