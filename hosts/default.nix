@@ -14,6 +14,7 @@
             inputs.disko.nixosModules.disko
             inputs.sops-nix.nixosModules.sops
             inputs.nixos-cosmic.nixosModules.default
+            inputs.impermanence.nixosModules.default
             ./${host}
             ../modules
           ];
