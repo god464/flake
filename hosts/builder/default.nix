@@ -7,7 +7,7 @@
 {
   imports = [
     ../common
-    ../../disko/desktop.nix
+    ./disk.nix
   ];
   booter.kernel = pkgs.linuxPackages_latest;
   net.name = "builder";

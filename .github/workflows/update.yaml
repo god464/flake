@@ -23,7 +23,8 @@ jobs:
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
         with:
-          pr-title: "chore(lock): update flake.lock"
+          commit-msg: "bump(lock): update flake.lock"
+          pr-title: "Update flake.lock"
           pr-labels: merge-queue
           pr-body: |
             Automated changes by GitHub Action.
