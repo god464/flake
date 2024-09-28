@@ -56,7 +56,8 @@
     enable = true;
     hideMounts = true;
     directories = [
-      "/var/lib/sops-nix"
+      "/var/lib"
+      "/var/cache"
     ];
     users.cl.directories = [
       {
@@ -73,6 +74,7 @@
       ".local/state/nvim"
       ".cache/nvim"
       ".cache/bat"
+      ".config/cosmic"
     ];
   };
 }
