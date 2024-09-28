@@ -12,7 +12,7 @@ in
   };
   config = {
     sops = {
-      age.keyFile = "/var/lib/keys.txt";
+      age.keyFile = "/var/lib/sops-nix/keys.txt";
       defaultSopsFile = ./secrets.yaml;
       secrets.passwd.neededForUsers = true;
     };

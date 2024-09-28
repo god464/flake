@@ -34,22 +34,8 @@
                   "-L NixOS"
                 ];
                 subvolumes = {
-                  "@home" = {
-                    mountpoint = "/home";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
                   "@nix" = {
                     mountpoint = "/nix";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "@var" = {
-                    mountpoint = "/var";
                     mountOptions = [
                       "compress=zstd"
                       "noatime"

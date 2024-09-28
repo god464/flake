@@ -52,4 +52,27 @@
     noto-fonts-color-emoji
   ];
   desktop.cosmic.enable = true;
+  environment.persistence."/persist" = {
+    enable = true;
+    hideMounts = true;
+    directories = [
+      "/var/lib/sops-nix"
+    ];
+    users.cl.directories = [
+      {
+        directory = ".ssh";
+        mode = "600";
+      }
+      {
+        directory = ".gnupg";
+        mode = "600";
+      }
+      ".local/share/nvim"
+      ".local/share/fish"
+      ".local/share/zoxide"
+      ".local/state/nvim"
+      ".cache/nvim"
+      ".cache/bat"
+    ];
+  };
 }
