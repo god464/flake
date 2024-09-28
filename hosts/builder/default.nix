@@ -62,11 +62,11 @@
     users.cl.directories = [
       {
         directory = ".ssh";
-        mode = "600";
+        mode = "700";
       }
       {
         directory = ".gnupg";
-        mode = "600";
+        mode = "700";
       }
       ".local/share/nvim"
       ".local/share/fish"
