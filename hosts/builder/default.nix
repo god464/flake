@@ -72,9 +72,11 @@
       ".local/share/fish"
       ".local/share/zoxide"
       ".local/state/nvim"
+      ".local/state/cosmic-comp"
       ".cache/nvim"
       ".cache/bat"
       ".config/cosmic"
+      ".config/fcitx5"
     ];
   };
 }

@@ -23,6 +23,8 @@ in
         jack.enable = true;
         wireplumber.enable = true;
       };
+      fwupd.enable = true;
+      power-profiles-daemon.enable = true;
     };
     programs = {
       firefox = {
@@ -45,11 +47,9 @@ in
       fcitx5 = {
         waylandFrontend = true;
         addons = with pkgs; [
-          fcitx5-rime
-          fcitx5-gtk
-          fcitx5-tokyonight
           fcitx5-chinese-addons
-          rime-data
+          fcitx5-pinyin-zhwiki
+          fcitx5-pinyin-moegirl
         ];
       };
     };
