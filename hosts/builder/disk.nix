@@ -33,7 +33,6 @@
                   "--csum XXHASH"
                   "-L NixOS"
                 ];
-                mountpoint = "/";
                 subvolumes = {
                   "@home" = {
                     mountpoint = "/home";
@@ -56,6 +55,13 @@
                       "noatime"
                     ];
                   };
+                  "@persist" = {
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                    mountpoint = "/persist";
+                  };
                 };
               };
             };
@@ -63,5 +69,10 @@
         };
       };
     };
+    nodev."/" = {
+      fsType = "tmpfs";
+      mountOptions = [ "mode=755" ];
+    };
   };
+  fileSystems."/persist".neededForBoot = true;
 }
