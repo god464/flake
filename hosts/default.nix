@@ -22,7 +22,7 @@
     in
     {
       nixosConfigurations = {
-        router = mkNixossystem "router";
+        server = mkNixossystem "server";
         builder = mkNixossystem "builder";
       };
     };
