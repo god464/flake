@@ -10,7 +10,7 @@
     ./disk.nix
   ];
   booter.kernel = pkgs.linuxPackages_latest;
-  net.name = "builder";
+  net.name = "desktop";
   nixp = {
     cache = [ "https://cosmic.cachix.org" ];
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];

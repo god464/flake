@@ -23,7 +23,7 @@
     {
       nixosConfigurations = {
         server = mkNixossystem "server";
-        builder = mkNixossystem "builder";
+        desktop = mkNixossystem "desktop";
       };
     };
 }

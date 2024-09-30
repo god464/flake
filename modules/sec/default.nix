@@ -12,7 +12,10 @@ in
   };
   config = {
     sops = {
-      age.keyFile = "/var/lib/sops-nix/keys.txt";
+      age = {
+        keyFile = "/var/lib/sops-nix/keys.txt";
+        sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      };
       defaultSopsFile = ./secrets.yaml;
       secrets.passwd.neededForUsers = true;
     };

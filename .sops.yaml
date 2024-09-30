@@ -1,6 +1,8 @@
 keys:
-  - &builder age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
+  - &desktop age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
+  - &server age1hda3dvm2w844kmzpuqtqegp846lun3f7h0tje9r5ksx9hx435dgsk2ylky
 creation_rules:
   - key_groups:
       - age:
-          - *builder
+          - *desktop
+          - *server
