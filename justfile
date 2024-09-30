@@ -1,5 +1,3 @@
-defaultTarget := "builder"
-
 @install target:
     nix --experimental-features "nix-command flakes" run github:nix-community/disko -- -m disko -f .#{{ target }}
     mkdir -p /mnt/var/lib/sops-nix
@@ -14,7 +12,7 @@ defaultTarget := "builder"
 @clean:
     nix-collect-garbage -d
 
-@upgrade target=defaultTarget:
+@upgrade target="desktop":
     nixos-rebuild switch --flake .#{{ target }}
 
 @upgrade-remote target ip:
