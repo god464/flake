@@ -9,6 +9,6 @@
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
-    permitRootLogin = "yes";
+    settings.PermitRootLogin = "yes";
   };
 }
