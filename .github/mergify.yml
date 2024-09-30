@@ -15,7 +15,7 @@ merge_protections:
   - name: Enforce conventional commit
     description: Make sure that we follow https://www.conventionalcommits.org/en/v1.0.0/
     if:
-      - base = main
+      - base = master
     success_conditions:
       - "title ~=
         ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert)(?:\\(.+\
