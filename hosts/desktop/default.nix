@@ -11,6 +11,7 @@
   ];
   booter.kernel = pkgs.linuxPackages_latest;
   net.name = "desktop";
+  sec.type = "age";
   nixp = {
     cache = [ "https://cosmic.cachix.org" ];
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
