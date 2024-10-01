@@ -4,8 +4,8 @@ pull_request_rules:
     conditions:
       - label = merge-queue
       - check-success=Evaluate flake.nix
-      - check-success=nixosConfig builder
-      - check-success=nixosConfig router
+      - check-success=nixosConfig desktop
+      - check-success=nixosConfig server
       - check-success=devShell default [x86_64-linux]
     actions:
       update:
@@ -17,4 +17,6 @@ merge_protections:
     if:
       - base = master
     success_conditions:
-      - "title ~= ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert|bump)(?:\\(.+\\))?:"
+      - "title ~=
+        ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert|bump)(?:\
+        \\(.+\\))?:"
