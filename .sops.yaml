@@ -1,6 +1,6 @@
 keys:
   - &desktop age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
-  - &server age1qrzlj28743kmwzumljy96k9j7nywxulx5hpmafu8qrxmr5q45yfs9dh250
+  - &server age1cc6kdwdztlrkkxghf9ka7xgqgu0hmt4u2dv2jrua6wgznmcqcv3s3fy5ux
 creation_rules:
   - key_groups:
       - age:
