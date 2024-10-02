@@ -13,13 +13,26 @@ in
   options.net.name = mkOption { type = types.str; };
   config = {
     services = mkMerge [
+      {
+        openssh = {
+          enable = true;
+          startWhenNeeded = true;
+        };
+      }
       (mkIf display.enable {
         openssh = {
           settings.PermitRootLogin = "no";
           openFirewall = false;
         };
       })
-      (mkIf config.networking.useNetworkd { resolved.enable = true; })
+      (mkIf config.networking.useNetworkd {
+        resolved.enable = true;
+        openssh.settings.PermitRootLogin = "yes";
+        fail2ban = {
+          enable = true;
+          bantime-increment.enable = true;
+        };
+      })
     ];
     networking = mkMerge [
       {
