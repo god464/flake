@@ -57,11 +57,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1726153070,
-        "narHash": "sha256-HO4zgY0ekfwO5bX0QH/3kJ/h4KvUDFZg8YpkNwIbg1U=",
+        "lastModified": 1727826117,
+        "narHash": "sha256-K5ZLCyfO/Zj9mPFldf3iwS6oZStJcU4tSpiXTMYaaL0=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "bcef6817a8b2aa20a5a6dbb19b43e63c5bf8619a",
+        "rev": "3d04084d54bedc3d6b8b736c70ef449225c361b1",
         "type": "github"
       },
       "original": {
@@ -73,11 +73,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1727749663,
-        "narHash": "sha256-Ewu5o35v3UKV/FZd6pXsRHfTB/JwR5xln7ksEW+n6Bo=",
+        "lastModified": 1727830506,
+        "narHash": "sha256-HFmHdpXIOWCbRD5JAnKMCXlKctgkYdIFuSRqHKScC5c=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "98278780237ab7265cc95bcbbada061df9956c08",
+        "rev": "618582a45cac19f421dcfd48ccece1a04a804c62",
         "type": "github"
       },
       "original": {
@@ -175,11 +175,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1727746579,
-        "narHash": "sha256-DUfc08Zry3EJi9SutWopIEdADWm0lzcmnDIXEIFoYGU=",
+        "lastModified": 1727830406,
+        "narHash": "sha256-4ekXerSu3/K8U0I9A8hipIZxfvN2znvdKxYCy4UAaIo=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "074bbcc4e3fa9ce4bee100de64506c3662c62299",
+        "rev": "7b940d61e09249aee3c6269730d06ffac0061bb8",
         "type": "github"
       },
       "original": {
@@ -206,14 +206,14 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1725233747,
-        "narHash": "sha256-Ss8QWLXdr2JCBPcYChJhz4xJm+h/xjl4G0c0XlP6a74=",
+        "lastModified": 1727825735,
+        "narHash": "sha256-0xHYkMkeLVQAMa7gvkddbPqpxph+hDzdu1XdGPJR+Os=",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/356624c12086a18f2ea2825fed34523d60ccc4e3.tar.gz"
+        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/356624c12086a18f2ea2825fed34523d60ccc4e3.tar.gz"
+        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
       }
     },
     "nixpkgs-stable": {
