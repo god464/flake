@@ -1,8 +1,8 @@
 keys:
   - &desktop age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
-  - &server age1cc6kdwdztlrkkxghf9ka7xgqgu0hmt4u2dv2jrua6wgznmcqcv3s3fy5ux
+  - &server age1nyrum2l87ktpvewhe9stjd5lfx0ghf5la5h0typ3flwaqkyk9gdqm2pws3
 creation_rules:
-  - key_groups:
+  - path_regex: hosts/desktop/[^/]+\.yaml
+    key_groups:
       - age:
           - *desktop
-          - *server

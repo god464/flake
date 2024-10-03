@@ -2,7 +2,6 @@
 let
   inherit (lib)
     mkOption
-    mkEnableOption
     mkMerge
     mkIf
     types
@@ -10,19 +9,12 @@ let
   cfg = config.sec;
 in
 {
-  options.sec = {
-    # TODO
-    type = mkOption {
-      type = types.enum [
-        "age"
-        "ssh"
-      ];
-      default = "ssh";
-    };
-    secret = {
-      name = mkOption { type = types.str; };
-      needBoot = mkEnableOption "needBoot";
-    };
+  options.sec.type = mkOption {
+    type = types.enum [
+      "age"
+      "ssh"
+    ];
+    default = "ssh";
   };
   config = {
     sops = {
@@ -34,10 +26,11 @@ in
           sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
         })
       ];
-      defaultSopsFile = ./secrets.yaml;
-      secrets.passwd.neededForUsers = true;
     };
     services.dbus.apparmor = "enabled";
-    security.sudo.execWheelOnly = true;
+    security = {
+      sudo.execWheelOnly = true;
+      apparmor.enable = true;
+    };
   };
 }

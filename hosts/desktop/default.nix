@@ -12,6 +12,10 @@
   booter.kernel = pkgs.linuxPackages_latest;
   net.name = "desktop";
   sec.type = "age";
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    secrets.passwd.neededForUsers = true;
+  };
   nixp = {
     cache = [ "https://cosmic.cachix.org" ];
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
