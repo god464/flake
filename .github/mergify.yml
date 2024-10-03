@@ -17,6 +17,4 @@ merge_protections:
     if:
       - base = master
     success_conditions:
-      - "title ~=
-        ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert|bump)(?:\
-        \\(.+\\))?:"
+      - "title ~= ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert|bump)(?:\\(.+\\))?:"

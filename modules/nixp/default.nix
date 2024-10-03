@@ -39,9 +39,12 @@ in
         substituters = mkAfter (
           cfg.cache
           ++ [
-            "https://cache.garnix.io"
+            "https://mirrors.bfsu.edu.cn/nix-channels/store"
+            "https://mirror.sjtu.edu.cn/nix-channels/store"
+            "https://mirrors.ustc.edu.cn/nix-channels/store"
             "https://cache.nixos.org"
             "https://nix-community.cachix.org"
+            "https://cache.garnix.io"
           ]
         );
         trusted-public-keys = mkAfter (
