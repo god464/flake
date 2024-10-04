@@ -1,30 +1,24 @@
 { lib, config, ... }:
 let
   inherit (lib)
-    mkOption
     mkMerge
+    mkEnableOption
     mkIf
-    types
     ;
   cfg = config.sec;
 in
 {
-  options.sec.type = mkOption {
-    type = types.enum [
-      "age"
-      "ssh"
-    ];
-    default = "ssh";
-  };
+  options.sec.useAge = mkEnableOption "useAge";
   config = {
     sops = {
       age = mkMerge [
-        (mkIf (cfg.type == "age") {
+        (mkIf cfg.useAge {
           keyFile = "/var/lib/sops-nix/keys.txt";
         })
-        (mkIf (cfg.type == "ssh") {
+        {
           sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-        })
+          generateKey = true;
+        }
       ];
     };
     services.dbus.apparmor = "enabled";
