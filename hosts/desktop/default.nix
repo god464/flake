@@ -11,7 +11,7 @@
   ];
   booter.kernel = pkgs.linuxPackages_latest;
   net.name = "desktop";
-  sec.type = "age";
+  sec.useAge = true;
   sops = {
     defaultSopsFile = ./secrets.yaml;
     secrets.passwd.neededForUsers = true;
@@ -61,6 +61,7 @@
     enable = true;
     hideMounts = true;
     directories = [
+      "/etc/ssh"
       "/var/lib"
       "/var/cache"
     ];

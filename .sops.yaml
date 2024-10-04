@@ -1,8 +1,15 @@
 keys:
-  - &desktop age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
-  - &server age1nyrum2l87ktpvewhe9stjd5lfx0ghf5la5h0typ3flwaqkyk9gdqm2pws3
+  - &recover age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
+  - &desktop age15el87ccmfm42y49tuwaqhq0gg59cpkckw5cmwz57czkr02qf2f8qwx6csg
+  - &server age1972wm0vc96w489jfw7sd335ayz4t2j4839s8sgjpdcf89fur7qfqea8lm7
 creation_rules:
-  - path_regex: hosts/desktop/[^/]+\.yaml
+  - path_regex: ^hosts/desktop/secrets\.yaml$
     key_groups:
       - age:
           - *desktop
+          - *recover
+  - path_regex: ^hosts/server/secrets\.yaml$
+    key_groups:
+      - age:
+          - *server
+          - *recover
