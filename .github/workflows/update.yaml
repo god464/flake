@@ -2,7 +2,7 @@ name: update-flake-lock
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 0 * * *'
 permissions:
   pull-requests: write
   contents: write
@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.1
       - name: Install nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: DeterminateSystems/nix-installer-action@14
         with:
           extra-conf: |
             extra-substituters = https://cache.garnix.io
             extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
       - name: Use nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@main
+        uses: DeterminateSystems/magic-nix-cache-action@v8
       - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@main
+        uses: DeterminateSystems/update-flake-lock@v24
         with:
           commit-msg: "bump(lock): update flake.lock"
           sign-commits: true
