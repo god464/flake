@@ -48,6 +48,8 @@
                     ];
                     mountpoint = "/persist";
                   };
+                  "@arch-root" = { };
+                  "@arch-home" = { };
                 };
               };
             };
