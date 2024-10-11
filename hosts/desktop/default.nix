@@ -74,6 +74,7 @@
         directory = ".gnupg";
         mode = "700";
       }
+      "flake"
       ".local/share/nvim"
       ".local/share/fish"
       ".local/share/zoxide"
