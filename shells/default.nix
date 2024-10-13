@@ -15,6 +15,7 @@
           yamlfmt
           statix
           deadnix
+          yamllint
         ];
         shellHook = config.pre-commit.installationScript;
       };
