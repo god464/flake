@@ -42,6 +42,7 @@ in
         loader.grub = {
           enable = true;
           efiSupport = true;
+          useOSProber = true;
           device = "nodev";
         };
         plymouth.enable = true;

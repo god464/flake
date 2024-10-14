@@ -13,7 +13,7 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountpoint = "/boot";
+                mountpoint = "/boot/nixos";
                 mountOptions = [ "umask=0077" ];
               };
             };
@@ -26,7 +26,7 @@
               };
             };
             root = {
-              size = "100%";
+              end = "-500M";
               content = {
                 type = "btrfs";
                 extraArgs = [
