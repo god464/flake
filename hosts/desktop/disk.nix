@@ -17,14 +17,6 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            swap = {
-              size = "4G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = true;
-              };
-            };
             root = {
               end = "-500M";
               content = {
@@ -48,6 +40,14 @@
                       "noatime"
                     ];
                     mountpoint = "/persist";
+                  };
+                  "@swap"={
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                    mountpoint = "/.swap";
+                      swap.swapfile.size = "4G";
                   };
                   "@arch-root" = { };
                   "@arch-home" = { };
