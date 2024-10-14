@@ -36,6 +36,7 @@ in
         };
         kernelModules = [ "kvm-amd" ];
         kernelPackages = cfg.kernel;
+        loader.efi.canTouchEfiVariables = true;
       }
       (mkIf display.enable {
         loader.grub = {
