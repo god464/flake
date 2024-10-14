@@ -8,17 +8,17 @@
           type = "gpt";
           partitions = {
             ESP = {
-              size = "500M";
+              size = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountpoint = "/boot/nixos";
+                mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
               };
             };
             root = {
-              end = "-500M";
+              size = "100%";
               content = {
                 type = "btrfs";
                 extraArgs = [
@@ -41,13 +41,13 @@
                     ];
                     mountpoint = "/persist";
                   };
-                  "@swap"={
+                  "@swap" = {
                     mountOptions = [
                       "compress=zstd"
                       "noatime"
                     ];
                     mountpoint = "/.swap";
-                      swap.swapfile.size = "4G";
+                    swap.swapfile.size = "4G";
                   };
                   "@arch-root" = { };
                   "@arch-home" = { };
