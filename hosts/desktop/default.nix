@@ -61,7 +61,6 @@
     enable = true;
     hideMounts = true;
     directories = [
-      "/etc/ssh"
       "/var/lib"
       "/var/cache"
     ];

@@ -49,8 +49,6 @@
                     mountpoint = "/.swap";
                     swap.swapfile.size = "4G";
                   };
-                  "@arch-root" = { };
-                  "@arch-home" = { };
                 };
               };
             };

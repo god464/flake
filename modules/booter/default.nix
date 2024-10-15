@@ -32,7 +32,11 @@ in
             "sd_mod"
             "sr_mod"
           ];
-          supportedFilesystems = [ "btrfs" ];
+          supportedFilesystems = [
+            "btrfs"
+            "tmpfs"
+          ];
+          systemd.enable = true;
         };
         kernelModules = [ "kvm-amd" ];
         kernelPackages = cfg.kernel;

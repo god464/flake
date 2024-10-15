@@ -86,6 +86,22 @@
         "type": "github"
       }
     },
+    "ggterm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1728202695,
+        "narHash": "sha256-fhl6vxCzBkCra+Nl/UmdVean+fzs7s3Gi36RvnP8VNo=",
+        "owner": "god464",
+        "repo": "wezterm",
+        "rev": "1eb8fbd28cc44b86353f9b7bb1b0f7b5d8a5cc72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "god464",
+        "repo": "wezterm",
+        "type": "github"
+      }
+    },
     "git-hooks-nix": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -285,6 +301,7 @@
         "disko": "disko",
         "flake-parts": "flake-parts",
         "ggnvim": "ggnvim",
+        "ggterm": "ggterm",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "impermanence": "impermanence",

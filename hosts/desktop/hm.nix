@@ -70,6 +70,7 @@
       ];
     };
     starship.enable = true;
+    wezterm.enable = true;
   };
   services = {
     gpg-agent = {
@@ -78,8 +79,14 @@
       pinentryPackage = pkgs.pinentry-gtk2;
     };
   };
-  xdg.configFile.nvim = {
-    source = inputs.ggnvim;
-    recursive = true;
+  xdg.configFile = {
+    nvim = {
+      source = inputs.ggnvim;
+      recursive = true;
+    };
+    wezterm = {
+      source = inputs.ggterm;
+      recursive = true;
+    };
   };
 }
