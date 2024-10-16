@@ -34,7 +34,6 @@ in
           "cgroups"
           "nix-command"
           "flakes"
-          "repl-flake"
         ];
         substituters = mkAfter (
           cfg.cache
