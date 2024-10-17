@@ -73,11 +73,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1729039608,
-        "narHash": "sha256-guhjb6eMkZydX9A/nvAlHGCyuM0Xt92mDuzJHr5dPsM=",
+        "lastModified": 1729125046,
+        "narHash": "sha256-DRaBDKb7qbDrUzEwt1/N/z/+6OAWpIV2SEUNq9b6qMg=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "754695ea5e4d165568ae43c6526a60fc379896fc",
+        "rev": "656742a5716c86ae25d0b8c423b450aa88ce752a",
         "type": "github"
       },
       "original": {
@@ -191,11 +191,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1729119726,
-        "narHash": "sha256-Z0oL81zpXHTvlMwkrGmsO0OfQMZqAzDMgDoEho6p80U=",
+        "lastModified": 1729127697,
+        "narHash": "sha256-y186Ure57VLL3bF7AbpXZjtX1XA464MNyPyJI35r0H4=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "8adaea8532005dc1501f81f62ee8a4360eab33a8",
+        "rev": "4bfcdcfa50521342fe308ce71172bbbc6ce72a6c",
         "type": "github"
       },
       "original": {
