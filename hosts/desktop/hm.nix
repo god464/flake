@@ -37,7 +37,7 @@
     eza = {
       enable = true;
       git = true;
-      icons = true;
+      icons = "always";
     };
     direnv = {
       enable = true;

@@ -3,8 +3,8 @@ pull_request_rules:
     description: Merge when PR passes all branch protection and has label merge-queue
     conditions:
       - or:
-        - label = merge-queue
-        - label = dependencies
+          - label = merge-queue
+          - label = dependencies
       - check-success=All Garnix checks
     actions:
       update:
