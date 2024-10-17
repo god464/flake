@@ -2,7 +2,9 @@ pull_request_rules:
   - name: Automatic merge
     description: Merge when PR passes all branch protection and has label merge-queue
     conditions:
-      - label = merge-queue|dependencies
+      - or:
+        - label = merge-queue
+        - label = dependencies
       - check-success=All Garnix checks
     actions:
       update:
