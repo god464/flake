@@ -16,6 +16,7 @@
           statix
           deadnix
           yamllint
+          config.treefmt.build.wrapper
         ];
         shellHook = config.pre-commit.installationScript;
       };
