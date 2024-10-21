@@ -20,6 +20,7 @@
     cache = [ "https://cosmic.cachix.org" ];
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
   };
+  hardware.enableAllFirmware = true;
   users.users.cl = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -38,6 +39,12 @@
       withPython3 = true;
       withRuby = true;
       defaultEditor = true;
+    };
+    clash-verge = {
+      enable = true;
+      tunMode = true;
+      autoStart = true;
+      package = pkgs.clash-verge-rev;
     };
   };
   home-manager = {
