@@ -24,19 +24,15 @@ in
       {
         initrd = {
           availableKernelModules = [
-            "ata_piix"
-            "mptspi"
-            "uhci_hcd"
-            "ehci_pci"
-            "ahci"
+            "nvme"
+            "xhci_pci"
+            "uas"
             "sd_mod"
-            "sr_mod"
           ];
           supportedFilesystems = [
             "btrfs"
             "tmpfs"
           ];
-          systemd.enable = true;
         };
         kernelModules = [ "kvm-amd" ];
         kernelPackages = cfg.kernel;
@@ -55,6 +51,7 @@ in
           "quiet"
           "splash"
         ];
+
       })
       (mkIf (!display.enable) {
         loader.systemd-boot = {

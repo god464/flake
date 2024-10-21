@@ -9,6 +9,7 @@
           partitions = {
             ESP = {
               size = "1G";
+              label = "ESP";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -18,36 +19,47 @@
               };
             };
             root = {
-              size = "100%";
+              end = "-128G";
+              label = "ROOT";
               content = {
-                type = "btrfs";
-                extraArgs = [
-                  "-f"
-                  "--csum XXHASH"
-                  "-L NixOS"
-                ];
-                subvolumes = {
-                  "@nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "@persist" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/persist";
-                  };
-                  "@swap" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/.swap";
-                    swap.swapfile.size = "4G";
+                type = "luks";
+                name = "nixos";
+                settings = {
+                  allowDiscards = true;
+                  bypassWorkqueues = true;
+                  fallbackToPassword = true;
+                  crypttabExtraOpts = [ "tpm2-device=auto" ];
+                };
+                content = {
+                  type = "btrfs";
+                  extraArgs = [
+                    "-f"
+                    "--csum XXHASH"
+                    "-L NixOS"
+                  ];
+                  subvolumes = {
+                    "@nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "@persist" = {
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                      mountpoint = "/persist";
+                    };
+                    "@swap" = {
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                      mountpoint = "/.swap";
+                      swap.swapfile.size = "4G";
+                    };
                   };
                 };
               };
