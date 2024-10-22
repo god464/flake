@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   config,
+  lib,
   ...
 }:
 {
@@ -23,11 +24,17 @@
   hardware.enableAllFirmware = true;
   users.users.cl = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     createHome = true;
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.passwd.path;
-    packages = with pkgs; [ just ];
+    packages = with pkgs; [
+      just
+      mihomo-party
+    ];
   };
   programs = {
     fish.enable = true;
@@ -40,12 +47,6 @@
       withRuby = true;
       defaultEditor = true;
     };
-    clash-verge = {
-      enable = true;
-      tunMode = true;
-      autoStart = true;
-      package = pkgs.clash-verge-rev;
-    };
   };
   home-manager = {
     useGlobalPkgs = true;
@@ -55,7 +56,12 @@
       inherit inputs;
     };
   };
-  virtualisation.vmware.guest.enable = true;
+  security.wrappers.mihomo-party = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_net_bind_service,cap_net_admin=+ep";
+    source = "${lib.getExe pkgs.mihomo-party}";
+  };
   fonts.packages = with pkgs; [
     fira-code
     noto-fonts-cjk-sans
@@ -81,15 +87,21 @@
         mode = "700";
       }
       "flake"
+      ".thunderbird"
+      ".mozilla"
       ".local/share/nvim"
       ".local/share/fish"
       ".local/share/zoxide"
       ".local/state/nvim"
+      ".local/state/keyrings"
       ".local/state/cosmic-comp"
+      ".local/state/cosmic"
+      ".local/state/pop-launcher"
       ".cache/nvim"
       ".cache/bat"
       ".config/cosmic"
       ".config/fcitx5"
+      ".config/mihomo-party"
     ];
   };
 }
