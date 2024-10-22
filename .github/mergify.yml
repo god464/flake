@@ -1,3 +1,6 @@
+queue_rules:
+  - name: default
+    merge_method: squash
 pull_request_rules:
   - name: Automatic merge
     description: Merge when PR passes all branch protection and has label merge-queue
@@ -5,7 +8,6 @@ pull_request_rules:
       - or:
           - label = merge-queue
           - label = dependencies
-      - check-success=All Garnix checks
     actions:
       update:
       merge:
