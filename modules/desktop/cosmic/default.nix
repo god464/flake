@@ -30,7 +30,6 @@ in
       firefox = {
         enable = true;
         policies = {
-          DisableAccounts = true;
           DisableAppUpdate = true;
           DisablePocket = true;
           NoDefaultBookmarks = true;
