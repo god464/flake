@@ -94,6 +94,7 @@
       ".local/share/zoxide"
       ".local/state/nvim"
       ".local/state/keyrings"
+      ".local/state/wireplumber"
       ".local/state/cosmic-comp"
       ".local/state/cosmic"
       ".local/state/pop-launcher"
