@@ -13,3 +13,7 @@ creation_rules:
       - age:
           - *server
           - *recover
+  - path_regex: ^modules/dae/config\.dae$
+    key_groups:
+      - age:
+          - *desktop
