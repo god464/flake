@@ -7,5 +7,6 @@
     ./beesd
     ./desktop
     ./i18n
+    ./dae
   ];
 }

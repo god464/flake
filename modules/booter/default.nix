@@ -39,7 +39,7 @@ in
         loader.efi.canTouchEfiVariables = true;
       }
       (mkIf display.enable {
-        initrd.systemd.enableTpm2 = true;
+        initrd.systemd.tpm2.enable = true;
         loader.grub = {
           enable = true;
           efiSupport = true;
