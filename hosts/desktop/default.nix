@@ -21,6 +21,11 @@
     cache = [ "https://cosmic.cachix.org" ];
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
   };
+  security.tpm2 = {
+    enable = true;
+    pkcs11.enable = true;
+    applyUdevRules = true;
+  };
   hardware.enableAllFirmware = true;
   users.users.cl = {
     isNormalUser = true;
