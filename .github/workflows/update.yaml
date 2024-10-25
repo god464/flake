@@ -25,7 +25,6 @@ jobs:
         with:
           commit-msg: "bump(lock): update flake.lock"
           sign-commits: true
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY  }}
           pr-title: "bump(lock): Update flake.lock"
           pr-labels: merge-queue
           pr-body: |
