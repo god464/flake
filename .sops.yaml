@@ -1,5 +1,4 @@
 keys:
-  - &recover age1fqsveefjf02dy9uzg2xa0pqjsaypa9d9xvpe9c293cg0cv3m7e7ss2uct5
   - &desktop age1gklefcuzv2ard7fzqkycmx8lrrscjp942xpfx2u9m0fwapt383ysnxh2qy
   - &server age1972wm0vc96w489jfw7sd335ayz4t2j4839s8sgjpdcf89fur7qfqea8lm7
 creation_rules:
@@ -7,12 +6,10 @@ creation_rules:
     key_groups:
       - age:
           - *desktop
-          - *recover
   - path_regex: ^hosts/server/secrets\.yaml$
     key_groups:
       - age:
           - *server
-          - *recover
   - path_regex: ^modules/dae/config\.dae$
     key_groups:
       - age:
