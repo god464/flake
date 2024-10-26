@@ -17,6 +17,7 @@
               sops-nix.nixosModules.sops
               nixos-cosmic.nixosModules.default
               impermanence.nixosModules.impermanence
+              lanzaboote.nixosModules.lanzaboote
             ]
             ++ [
               ./${host}

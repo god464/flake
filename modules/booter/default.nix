@@ -27,27 +27,35 @@ in
             "nvme"
             "xhci_pci"
             "uas"
+            "usb_storage"
             "sd_mod"
           ];
           supportedFilesystems = [
             "btrfs"
             "tmpfs"
+            "ntfs"
           ];
         };
         kernelModules = [ "kvm-amd" ];
         kernelPackages = cfg.kernel;
-        loader.efi.canTouchEfiVariables = true;
+        loader = {
+          efi.canTouchEfiVariables = true;
+          systemd-boot = {
+            enable = true;
+            editor = false;
+          };
+        };
       }
       (mkIf display.enable {
-        initrd.systemd.tpm2.enable = true;
-        loader.grub = {
+        loader.systemd-boot.enable = lib.mkForce false;
+        lanzaboote = {
           enable = true;
-          efiSupport = true;
-          useOSProber = true;
-          device = "nodev";
+          pkiBundle = "/etc/secureboot";
         };
+        loader.systemd-boot.consoleMode = "0";
         plymouth.enable = true;
         consoleLogLevel = 0;
+        tmp.useTmpfs = true;
         kernelParams = [
           "quiet"
           "splash"
@@ -55,11 +63,7 @@ in
 
       })
       (mkIf (!display.enable) {
-        loader.systemd-boot = {
-          enable = true;
-          consoleMode = "max";
-          editor = false;
-        };
+        loader.systemd-boot.consoleMode = "max";
       })
     ];
   };

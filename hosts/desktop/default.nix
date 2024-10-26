@@ -87,6 +87,7 @@
     enable = true;
     hideMounts = true;
     directories = [
+      "/etc/secureboot"
       "/var/lib"
       "/var/cache"
     ];
