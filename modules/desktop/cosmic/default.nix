@@ -48,7 +48,9 @@ in
         addons = with pkgs; [
           fcitx5-chinese-addons
           fcitx5-pinyin-zhwiki
+          fcitx5-lua
           fcitx5-pinyin-moegirl
+          fcitx5-nord
         ];
       };
     };
