@@ -30,8 +30,6 @@
                   keyFileOffset = 2 * 1024 * 1024;
                   allowDiscards = true;
                   bypassWorkqueues = true;
-                  fallbackToPassword = true;
-                  crypttabExtraOpts = [ "tpm2-device=auto" ];
                 };
                 content = {
                   type = "btrfs";
