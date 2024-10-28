@@ -11,6 +11,7 @@ let
     types
     mkOption
     ;
+  inherit (config.sops) secrets;
   display = config.services.displayManager;
   cfg = config.booter;
 in
@@ -20,6 +21,18 @@ in
     default = pkgs.linuxPackages;
   };
   config = {
+    sops = {
+      secrets = {
+        db-key = {
+          format = "binary";
+          sopsFile = ./db.key;
+        };
+        db-pem = {
+          format = "binary";
+          sopsFile = ./db.pem;
+        };
+      };
+    };
     boot = mkMerge [
       {
         initrd = {
@@ -50,7 +63,8 @@ in
         loader.systemd-boot.enable = lib.mkForce false;
         lanzaboote = {
           enable = true;
-          pkiBundle = "/etc/secureboot";
+          publicKeyFile = secrets.db-pem.path;
+          privateKeyFile = secrets.db-key.path;
         };
         loader.systemd-boot.consoleMode = "0";
         plymouth.enable = true;

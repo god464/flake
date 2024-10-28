@@ -14,3 +14,7 @@ creation_rules:
     key_groups:
       - age:
           - *desktop
+  - path_regex: ^modules/booter/db\.(key|pem)$
+    key_groups:
+      - age:
+          - *desktop

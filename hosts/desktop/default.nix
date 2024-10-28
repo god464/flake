@@ -21,11 +21,6 @@
     cache = [ "https://cosmic.cachix.org" ];
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
   };
-  security.tpm2 = {
-    enable = true;
-    pkcs11.enable = true;
-    applyUdevRules = true;
-  };
   hardware.enableAllFirmware = true;
   users.users.cl = {
     isNormalUser = true;
@@ -61,11 +56,18 @@
       inherit inputs;
     };
   };
-  security.wrappers.mihomo-party = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_net_bind_service,cap_net_admin=+ep";
-    source = "${lib.getExe pkgs.mihomo-party}";
+  security = {
+    wrappers.mihomo-party = {
+      owner = "root";
+      group = "root";
+      capabilities = "cap_net_bind_service,cap_net_admin=+ep";
+      source = "${lib.getExe pkgs.mihomo-party}";
+    };
+    tpm2 = {
+      enable = true;
+      pkcs11.enable = true;
+      applyUdevRules = true;
+    };
   };
   fonts.packages = with pkgs; [
     fira-code
@@ -87,7 +89,6 @@
     enable = true;
     hideMounts = true;
     directories = [
-      "/etc/secureboot"
       "/var/lib"
       "/var/cache"
     ];
