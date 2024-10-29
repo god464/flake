@@ -25,6 +25,7 @@
         programs = {
           nixfmt.enable = true;
           yamlfmt.enable = true;
+          shfmt.enable = true;
         };
       };
       pre-commit.settings.hooks = {

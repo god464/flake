@@ -76,9 +76,7 @@ in
         ];
 
       })
-      (mkIf (!display.enable) {
-        loader.systemd-boot.consoleMode = "max";
-      })
+      (mkIf (!display.enable) { loader.systemd-boot.consoleMode = "max"; })
     ];
   };
 }

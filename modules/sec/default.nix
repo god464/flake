@@ -1,10 +1,6 @@
 { lib, config, ... }:
 let
-  inherit (lib)
-    mkMerge
-    mkEnableOption
-    mkIf
-    ;
+  inherit (lib) mkMerge mkEnableOption mkIf;
   cfg = config.sec;
 in
 {
@@ -12,9 +8,7 @@ in
   config = {
     sops = {
       age = mkMerge [
-        (mkIf cfg.useAge {
-          keyFile = "/var/lib/sops-nix/keys.txt";
-        })
+        (mkIf cfg.useAge { keyFile = "/var/lib/sops-nix/keys.txt"; })
         {
           sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
           generateKey = true;
