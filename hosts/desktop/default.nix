@@ -10,7 +10,11 @@
     ../common
     ./disk.nix
   ];
-  booter.kernel = pkgs.linuxPackages_latest;
+  boot' = {
+    boot.kernel = pkgs.linuxPackages_latest;
+    secure-boot.enable = true;
+    impermanence.enable = true;
+  };
   net.name = "desktop";
   sec.useAge = true;
   sops = {
@@ -63,11 +67,6 @@
       capabilities = "cap_net_bind_service,cap_net_admin=+ep";
       source = "${lib.getExe pkgs.mihomo-party}";
     };
-    tpm2 = {
-      enable = true;
-      pkcs11.enable = true;
-      applyUdevRules = true;
-    };
   };
   fonts.packages = with pkgs; [
     fira-code
@@ -85,39 +84,4 @@
     noto-fonts-color-emoji
   ];
   desktop.cosmic.enable = true;
-  environment.persistence."/persist" = {
-    enable = true;
-    hideMounts = true;
-    directories = [
-      "/var/lib"
-      "/var/cache"
-    ];
-    users.cl.directories = [
-      {
-        directory = ".ssh";
-        mode = "700";
-      }
-      {
-        directory = ".gnupg";
-        mode = "700";
-      }
-      "flake"
-      ".thunderbird"
-      ".mozilla"
-      ".local/share/nvim"
-      ".local/share/fish"
-      ".local/share/zoxide"
-      ".local/state/nvim"
-      ".local/state/keyrings"
-      ".local/state/wireplumber"
-      ".local/state/cosmic-comp"
-      ".local/state/cosmic"
-      ".local/state/pop-launcher"
-      ".cache/nvim"
-      ".cache/bat"
-      ".config/cosmic"
-      ".config/fcitx5"
-      ".config/mihomo-party"
-    ];
-  };
 }

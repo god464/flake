@@ -1,4 +1,9 @@
-{ inputs, withSystem, ... }:
+{
+  inputs,
+  withSystem,
+  self,
+  ...
+}:
 {
   flake =
     let
@@ -17,12 +22,10 @@
                 disko.nixosModules.disko
                 sops-nix.nixosModules.sops
                 nixos-cosmic.nixosModules.default
-                impermanence.nixosModules.impermanence
-                lanzaboote.nixosModules.lanzaboote
               ]
               ++ [
                 ./${host}
-                ../modules
+                self.nixosModules.default
               ];
           }
         );

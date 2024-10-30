@@ -56,6 +56,7 @@
         ./hosts
         ./shells
         ./lib
+        ./modules
       ];
     };
 }

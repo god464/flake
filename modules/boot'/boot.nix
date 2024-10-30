@@ -11,28 +11,15 @@ let
     types
     mkOption
     ;
-  inherit (config.sops) secrets;
   display = config.services.displayManager;
-  cfg = config.booter;
+  cfg = config.boot'.boot;
 in
 {
-  options.booter.kernel = mkOption {
+  options.boot'.boot.kernel = mkOption {
     type = types.raw;
     default = pkgs.linuxPackages;
   };
   config = {
-    sops = {
-      secrets = {
-        db-key = {
-          format = "binary";
-          sopsFile = ./db.key;
-        };
-        db-pem = {
-          format = "binary";
-          sopsFile = ./db.pem;
-        };
-      };
-    };
     boot = mkMerge [
       {
         initrd = {
@@ -60,21 +47,13 @@ in
         };
       }
       (mkIf display.enable {
-        loader.systemd-boot.enable = lib.mkForce false;
-        lanzaboote = {
-          enable = true;
-          publicKeyFile = secrets.db-pem.path;
-          privateKeyFile = secrets.db-key.path;
-        };
         loader.systemd-boot.consoleMode = "0";
         plymouth.enable = true;
         consoleLogLevel = 0;
-        tmp.useTmpfs = true;
         kernelParams = [
           "quiet"
           "splash"
         ];
-
       })
       (mkIf (!display.enable) { loader.systemd-boot.consoleMode = "max"; })
     ];
