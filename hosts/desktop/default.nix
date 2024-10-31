@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   config,
-  lib,
   ...
 }:
 {
@@ -15,7 +14,10 @@
     secure-boot.enable = true;
     impermanence.enable = true;
   };
-  net.name = "desktop";
+  network' = {
+    net.name = "desktop";
+    mihomo.enable = true;
+  };
   sec.useAge = true;
   sops = {
     defaultSopsFile = ./secrets.yaml;
@@ -35,10 +37,7 @@
     createHome = true;
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.passwd.path;
-    packages = with pkgs; [
-      just
-      mihomo-party
-    ];
+    packages = with pkgs; [ just ];
   };
   programs = {
     fish.enable = true;
@@ -58,14 +57,6 @@
     users.cl = import ./hm.nix;
     extraSpecialArgs = {
       inherit inputs;
-    };
-  };
-  security = {
-    wrappers.mihomo-party = {
-      owner = "root";
-      group = "root";
-      capabilities = "cap_net_bind_service,cap_net_admin=+ep";
-      source = "${lib.getExe pkgs.mihomo-party}";
     };
   };
   fonts.packages = with pkgs; [

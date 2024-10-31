@@ -22,13 +22,17 @@ in
           filterForward = true;
         };
       }
-      (mkIf display.enable {
-        networkmanager = {
-          enable = true;
-          enableStrongSwan = true;
-        };
-      })
-      (mkIf (!display.enable) { useNetworkd = true; })
+      (
+        if display.enable then
+          {
+            networkmanager = {
+              enable = true;
+              enableStrongSwan = true;
+            };
+          }
+        else
+          { useNetworkd = true; }
+      )
     ];
     systemd.network = mkIf config.networking.useNetworkd {
       enable = true;

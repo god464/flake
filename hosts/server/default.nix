@@ -4,7 +4,7 @@
     ../common
     ./disk.nix
   ];
-  net.name = "server";
+  network'.net.name = "server";
   sops = {
     defaultSopsFile = ./secrets.yaml;
     secrets.passwd.neededForUsers = true;
