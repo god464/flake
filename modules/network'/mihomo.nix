@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.network'.mihomo;
+  persist = config.boot'.impermanence;
   inherit (lib) mkEnableOption mkIf mkAfter;
 in
 {
@@ -18,5 +19,8 @@ in
       capabilities = "cap_net_bind_service,cap_net_admin=+ep";
       source = "${lib.getExe pkgs.mihomo-party}";
     };
+    environment.persistence."/persist".users.cl.directories = mkIf persist.enable [
+      ".config/mihomo-party"
+    ];
   };
 }

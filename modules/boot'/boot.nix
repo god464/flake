@@ -5,12 +5,7 @@
   ...
 }:
 let
-  inherit (lib)
-    mkMerge
-    mkIf
-    types
-    mkOption
-    ;
+  inherit (lib) mkMerge types mkOption;
   display = config.services.displayManager;
   cfg = config.boot'.boot;
 in
@@ -46,16 +41,24 @@ in
           };
         };
       }
-      (mkIf display.enable {
-        loader.systemd-boot.consoleMode = "0";
-        plymouth.enable = true;
-        consoleLogLevel = 0;
-        kernelParams = [
-          "quiet"
-          "splash"
-        ];
-      })
-      (mkIf (!display.enable) { loader.systemd-boot.consoleMode = "max"; })
+      (
+        if display.enable then
+          {
+            loader.systemd-boot.consoleMode = "0";
+            plymouth.enable = true;
+            consoleLogLevel = 0;
+            kernelParams = [
+              "quiet"
+              "splash"
+            ];
+          }
+        else
+          {
+            loader.systemd-boot.consoleMode = "max";
+          }
+      )
     ];
+    zramSwap.enable = true;
+    services.btrfs.autoScrub.enable = true;
   };
 }

@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.beesd;
+  cfg = config.services'.beesd;
   inherit (lib) mkEnableOption mkIf;
 in
 {
-  options.beesd.enable = mkEnableOption "beesd";
+  options.services'.beesd.enable = mkEnableOption "beesd";
   config = mkIf cfg.enable {
     services.beesd.filesystems = {
       root = {

@@ -23,7 +23,7 @@
     defaultSopsFile = ./secrets.yaml;
     secrets.passwd.neededForUsers = true;
   };
-  nixp = {
+  nix'.nix = {
     cache = [ "https://cosmic.cachix.org" ];
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
   };

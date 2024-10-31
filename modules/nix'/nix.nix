@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.nixp;
+  cfg = config.nix'.nix;
   inherit (lib) types mkOption mkAfter;
 in
 {
-  options.nixp = {
+  options.nix'.nix = {
     cache = mkOption {
       default = [ ];
       type = types.listOf types.str;
@@ -12,10 +12,6 @@ in
     trustKeys = mkOption {
       default = [ ];
       type = types.listOf types.str;
-    };
-    platform = mkOption {
-      type = types.str;
-      default = "x86_64-linux";
     };
   };
   config = {
@@ -34,9 +30,6 @@ in
         substituters = mkAfter (
           cfg.cache
           ++ [
-            "https://mirrors.bfsu.edu.cn/nix-channels/store"
-            "https://mirror.sjtu.edu.cn/nix-channels/store"
-            "https://mirrors.ustc.edu.cn/nix-channels/store"
             "https://cache.nixos.org"
             "https://nix-community.cachix.org"
             "https://cache.garnix.io"
@@ -56,14 +49,5 @@ in
         options = "--delete-older-than 1w";
       };
     };
-    nixpkgs = {
-      config = {
-        allowUnfree = true;
-        checkMeta = true;
-        warnUndeclaredOptions = true;
-      };
-      hostPlatform = cfg.platform;
-    };
-    system.stateVersion = "24.05";
   };
 }

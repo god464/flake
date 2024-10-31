@@ -11,7 +11,16 @@ in
         enable = true;
         startWhenNeeded = true;
       }
-      (if cfg.enable then { openssh.settings.PermitRootLogin = "yes"; } else { openFirewall = false; })
+      (
+        if cfg.enable then
+          {
+            settings.PermitRootLogin = "yes";
+          }
+        else
+          {
+            openFirewall = false;
+          }
+      )
     ];
   };
 }

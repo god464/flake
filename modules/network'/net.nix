@@ -31,7 +31,9 @@ in
             };
           }
         else
-          { useNetworkd = true; }
+          {
+            useNetworkd = true;
+          }
       )
     ];
     systemd.network = mkIf config.networking.useNetworkd {
