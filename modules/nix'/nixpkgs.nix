@@ -1,13 +1,11 @@
 {
-  config = {
-    nixpkgs = {
-      config = {
-        allowUnfree = true;
-        checkMeta = true;
-        warnUndeclaredOptions = true;
-      };
-      hostPlatform = "x86_64-linux";
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      checkMeta = true;
+      warnUndeclaredOptions = true;
     };
-    system.stateVersion = "24.05";
+    hostPlatform = "x86_64-linux";
   };
+  system.stateVersion = "24.05";
 }

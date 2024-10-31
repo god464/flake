@@ -24,10 +24,6 @@ in
       files = [ "/etc/machine-id" ];
       users.cl.directories = [
         {
-          directory = ".ssh";
-          mode = "700";
-        }
-        {
           directory = ".gnupg";
           mode = "700";
         }

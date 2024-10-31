@@ -18,7 +18,6 @@
             modules =
               with inputs;
               [
-                home-manager.nixosModules.home-manager
                 disko.nixosModules.disko
                 sops-nix.nixosModules.sops
                 nixos-cosmic.nixosModules.default

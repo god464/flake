@@ -1,13 +1,9 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ../common
     ./disk.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
   boot' = {
     boot.kernel = pkgs.linuxPackages_latest;
@@ -28,19 +24,7 @@
     trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
   };
   hardware.enableAllFirmware = true;
-  users.users.cl = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-    createHome = true;
-    shell = pkgs.fish;
-    hashedPasswordFile = config.sops.secrets.passwd.path;
-    packages = with pkgs; [ just ];
-  };
   programs = {
-    fish.enable = true;
     neovim = {
       enable = true;
       vimAlias = true;
@@ -52,8 +36,6 @@
     };
   };
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
     users.cl = import ./hm.nix;
     extraSpecialArgs = {
       inherit inputs;
