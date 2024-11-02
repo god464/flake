@@ -1,10 +1,6 @@
 { inputs, pkgs, ... }:
 {
   programs = {
-    man.enable = false;
-    fastfetch.enable = true;
-    gpg.enable = true;
-    htop.enable = true;
     neovim = {
       enable = true;
       extraPackages = with pkgs; [
@@ -15,13 +11,6 @@
       ];
     };
     wezterm.enable = true;
-  };
-  services = {
-    gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-      pinentryPackage = pkgs.pinentry-gtk2;
-    };
   };
   xdg.configFile = {
     nvim = {
