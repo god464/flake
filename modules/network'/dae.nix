@@ -17,5 +17,4 @@ in
       configFile = config.sops.secrets.config-dae.path;
     };
   };
-
 }

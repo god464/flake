@@ -17,5 +17,6 @@ in
         NoDefaultBookmarks = true;
       };
     };
+    environment.persistence."/persist".users.cl.directories = [ ".mozilla" ];
   };
 }

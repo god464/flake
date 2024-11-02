@@ -35,5 +35,9 @@ in
         recursive = true;
       };
     };
+    environment.persistence."/persist".users.cl.directories = [
+      ".local/share/nvim"
+      ".cache/nvim"
+    ];
   };
 }

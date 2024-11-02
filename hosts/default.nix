@@ -20,7 +20,6 @@
               [
                 disko.nixosModules.disko
                 sops-nix.nixosModules.sops
-                nixos-cosmic.nixosModules.default
               ]
               ++ [
                 ./${host}

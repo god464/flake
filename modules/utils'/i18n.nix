@@ -34,5 +34,6 @@ in
       };
     };
   };
+  environment.persistence."/persist".users.cl.directories = [ ".config/fcitx5" ];
   console.useXkbConfig = true;
 }

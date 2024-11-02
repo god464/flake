@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -9,6 +10,7 @@ let
   inherit (lib) mkEnableOption mkIf mkAfter;
 in
 {
+  imports = [ inputs.nixos-cosmic.nixosModules.default ];
   options.desktop'.cosmic = {
     enable = mkEnableOption "cosmic";
   };
@@ -17,7 +19,14 @@ in
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
     };
-    security.polkit.enable = true;
-    environment.systemPackages = mkAfter [ pkgs.wl-clipboard ];
+    environment = {
+      systemPackages = mkAfter [ pkgs.wl-clipboard ];
+      persistence."/persist".users.cl.directories = [
+        ".local/state/cosmic-comp"
+        ".local/state/cosmic"
+        ".local/state/pop-launcher"
+        ".config/cosmic"
+      ];
+    };
   };
 }

@@ -13,5 +13,6 @@ in
       enable = true;
       policies.DisableAppUpdate = true;
     };
+    environment.persistence."/persist".users.cl.directories = [ ".thunderbird" ];
   };
 }
