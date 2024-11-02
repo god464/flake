@@ -1,25 +1,8 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
-  programs = {
-    neovim = {
-      enable = true;
-      extraPackages = with pkgs; [
-        gcc
-        gnumake
-        nodejs
-        tree-sitter
-      ];
-    };
-    wezterm.enable = true;
-  };
-  xdg.configFile = {
-    nvim = {
-      source = inputs.ggnvim;
-      recursive = true;
-    };
-    wezterm = {
-      source = inputs.ggterm;
-      recursive = true;
-    };
+  programs.wezterm.enable = true;
+  xdg.configFile.wezterm = {
+    source = inputs.ggterm;
+    recursive = true;
   };
 }

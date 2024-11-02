@@ -10,8 +10,8 @@
     net.name = "desktop";
     mihomo.enable = true;
   };
-  sec.useAge = true;
   sops = {
+    age.keyFile = "/var/lib/sops-nix/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets.passwd.neededForUsers = true;
   };
@@ -37,16 +37,9 @@
   programs' = {
     fish.enable = true;
   };
-  programs = {
-    neovim = {
-      enable = true;
-      vimAlias = true;
-      viAlias = true;
-      withNodeJs = true;
-      withPython3 = true;
-      withRuby = true;
-      defaultEditor = true;
-    };
+  services' = {
+    ssh.enable = true;
+    gpg.enable = true;
   };
   fonts.packages = with pkgs; [
     fira-code

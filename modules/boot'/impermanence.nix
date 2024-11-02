@@ -23,10 +23,6 @@ in
       ];
       files = [ "/etc/machine-id" ];
       users.cl.directories = [
-        {
-          directory = ".gnupg";
-          mode = "700";
-        }
         "flake"
         ".cache/pre-commit"
         ".cache/treefmt"
