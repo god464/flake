@@ -11,8 +11,6 @@ in
       nix-direnv.enable = true;
       silent = true;
     };
-    environment.persistence."/persist".users.cl.directories = [
-      ".local/share/direnv"
-    ];
+    environment.persistence."/persist".users.cl.directories = [ ".local/share/direnv" ];
   };
 }

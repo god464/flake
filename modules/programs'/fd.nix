@@ -5,7 +5,5 @@ let
   inherit (lib) mkIf;
 in
 {
-  config = mkIf cfg.enable {
-    home-manager.users.cl.programs.fd.enable = true;
-  };
+  config = mkIf cfg.enable { home-manager.users.cl.programs.fd.enable = true; };
 }

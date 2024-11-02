@@ -5,7 +5,5 @@ let
   inherit (lib) mkIf;
 in
 {
-  config = mkIf cfg.enable {
-    home-manager.users.cl.programs.ripgrep.enable = true;
-  };
+  config = mkIf cfg.enable { home-manager.users.cl.programs.ripgrep.enable = true; };
 }

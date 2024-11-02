@@ -21,8 +21,6 @@ in
         rg = "batgrep";
       };
     };
-    environment.persistence."/persist".users.cl.directories = [
-      ".local/share/fish"
-    ];
+    environment.persistence."/persist".users.cl.directories = [ ".local/share/fish" ];
   };
 }

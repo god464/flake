@@ -1,9 +1,6 @@
 { config, ... }:
 {
-  imports = [
-    ../common
-    ./disk.nix
-  ];
+  imports = [ ./disk.nix ];
   network'.net.name = "server";
   services'.ssh.enable = true;
   sops = {

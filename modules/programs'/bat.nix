@@ -20,8 +20,6 @@ in
         batman
       ];
     };
-    environment.persistence."/persist".users.cl.directories = [
-      ".cache/bat"
-    ];
+    environment.persistence."/persist".users.cl.directories = [ ".cache/bat" ];
   };
 }

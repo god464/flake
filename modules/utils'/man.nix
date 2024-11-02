@@ -1,5 +1,4 @@
 {
-  users.mutableUsers = false;
   documentation = {
     enable = false;
     man.enable = false;
@@ -7,4 +6,5 @@
     info.enable = false;
     doc.enable = false;
   };
+  home-manager.users.cl.programs.man.enable = false;
 }

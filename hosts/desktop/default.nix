@@ -1,15 +1,6 @@
+{ pkgs, config, ... }:
 {
-  inputs,
-  pkgs,
-  config,
-  ...
-}:
-{
-  imports = [
-    ../common
-    ./disk.nix
-    inputs.home-manager.nixosModules.home-manager
-  ];
+  imports = [ ./disk.nix ];
   boot' = {
     boot.kernel = pkgs.linuxPackages_latest;
     secure-boot.enable = true;

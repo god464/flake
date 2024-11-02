@@ -7,8 +7,6 @@ in
 {
   config = mkIf cfg.enable {
     home-manager.users.cl.programs.zoxide.enable = true;
-    environment.persistence."/persist".users.cl.directories = [
-      ".local/share/zoxide"
-    ];
+    environment.persistence."/persist".users.cl.directories = [ ".local/share/zoxide" ];
   };
 }
