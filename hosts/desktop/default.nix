@@ -34,29 +34,10 @@
     packages = with pkgs; [ just ];
   };
   hardware.enableAllFirmware = true;
-  programs' = {
-    fish.enable = true;
-  };
+  programs'.fish.enable = true;
   services' = {
     ssh.enable = true;
     gpg.enable = true;
   };
-  fonts.packages = with pkgs; [
-    fira-code
-    sarasa-gothic
-    fira-sans
-    fira-mono
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    source-han-sans
-    source-han-serif
-    source-han-mono
-    noto-fonts
-    source-sans
-    source-serif
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-    twemoji-color-font
-    noto-fonts-color-emoji
-  ];
-  desktop.cosmic.enable = true;
+  desktop'.cosmic.enable = true;
 }

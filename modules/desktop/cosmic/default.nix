@@ -26,20 +26,6 @@ in
       fwupd.enable = true;
       power-profiles-daemon.enable = true;
     };
-    programs = {
-      firefox = {
-        enable = true;
-        policies = {
-          DisableAppUpdate = true;
-          DisablePocket = true;
-          NoDefaultBookmarks = true;
-        };
-      };
-      thunderbird = {
-        enable = true;
-        policies.DisableAppUpdate = true;
-      };
-    };
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";
