@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 {
   imports = [
     ../common
@@ -19,11 +24,28 @@
     defaultSopsFile = ./secrets.yaml;
     secrets.passwd.neededForUsers = true;
   };
-  nix'.nix = {
-    cache = [ "https://cosmic.cachix.org" ];
-    trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+  nix' = {
+    nix = {
+      cache = [ "https://cosmic.cachix.org" ];
+      trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+    };
+    home-manager.enable = true;
+  };
+  users.users.cl = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
+    createHome = true;
+    shell = pkgs.fish;
+    hashedPasswordFile = config.sops.secrets.passwd.path;
+    packages = with pkgs; [ just ];
   };
   hardware.enableAllFirmware = true;
+  programs' = {
+    fish.enable = true;
+  };
   programs = {
     neovim = {
       enable = true;
@@ -35,15 +57,11 @@
       defaultEditor = true;
     };
   };
-  home-manager = {
-    users.cl = import ./hm.nix;
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-  };
   fonts.packages = with pkgs; [
     fira-code
     sarasa-gothic
+    fira-sans
+    fira-mono
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     source-han-sans

@@ -49,5 +49,10 @@ in
         options = "--delete-older-than 1w";
       };
     };
+    environment.persistence."/persist".users.cl.directories = [
+      ".cache/nix"
+      ".local/share/nix"
+      ".local/state/nix"
+    ];
   };
 }

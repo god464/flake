@@ -28,12 +28,8 @@ in
           mode = "700";
         }
         "flake"
-        ".cache/nix"
         ".cache/pre-commit"
         ".cache/treefmt"
-        ".local/share/direnv"
-        ".local/share/nix"
-        ".local/state/nix"
       ];
     };
   };
