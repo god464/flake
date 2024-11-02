@@ -1,10 +1,8 @@
 { config, ... }:
 {
-  imports = [
-    ../common
-    ./disk.nix
-  ];
-  net.name = "server";
+  imports = [ ./disk.nix ];
+  network'.net.name = "server";
+  services'.ssh.enable = true;
   sops = {
     defaultSopsFile = ./secrets.yaml;
     secrets.passwd.neededForUsers = true;

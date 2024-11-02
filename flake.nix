@@ -55,6 +55,8 @@
       imports = [
         ./hosts
         ./shells
+        ./lib
+        ./modules
       ];
     };
 }
