@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.services.displayManager;
   inherit (lib) mkIf;
@@ -14,5 +10,6 @@ in
       power-profiles-daemon.enable = true;
     };
     security.polkit.enable = true;
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
   };
 }
