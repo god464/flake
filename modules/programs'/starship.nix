@@ -8,7 +8,20 @@ in
   config = mkIf cfg.enable {
     home-manager.users.cl.programs.starship = {
       enable = true;
-      enableTransience = true;
+      settings = {
+        git_branch.symbol = " ";
+        git_state = {
+          ahead = "";
+          behind = "";
+          diverged = "";
+          untracked = "";
+          stashed = "";
+          modified = "";
+          staged = "";
+          renamed = "";
+          deleted = "";
+        };
+      };
     };
   };
 }
