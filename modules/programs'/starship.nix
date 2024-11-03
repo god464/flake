@@ -11,6 +11,7 @@ in
       settings = {
         git_branch.symbol = " ";
         git_state = {
+          conflicted = "";
           ahead = "";
           behind = "";
           diverged = "";

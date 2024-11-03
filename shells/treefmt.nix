@@ -6,7 +6,6 @@
     programs = {
       nixfmt.enable = true;
       yamlfmt.enable = true;
-      shfmt.enable = true;
     };
   };
 }
