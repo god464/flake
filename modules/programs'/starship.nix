@@ -12,8 +12,13 @@ in
         c.symbol = "󰙱 ";
         lua.symbol = "󰢱 ";
         nix_shell.symbol = "󱄅 ";
+        package.symbol = " ";
         python.symbol = " ";
         rust.symbol = " ";
+        directory = {
+          read_only = "";
+          home_symbol = "";
+        };
         git_branch.symbol = " ";
         git_status = {
           conflicted = "󰇼";
@@ -27,6 +32,7 @@ in
           renamed = "";
           deleted = "";
         };
+        jobs.symbol = "󰫢";
       };
     };
   };
