@@ -120,11 +120,11 @@
     "ggterm": {
       "flake": false,
       "locked": {
-        "lastModified": 1730598266,
-        "narHash": "sha256-lQ24LpGDIT/dHdy9bQ4zitDscPxRbnl0bO8tvlKTEs8=",
+        "lastModified": 1730687068,
+        "narHash": "sha256-7/pLmy4zUygmy7r0AaSF/hAkll3p5GaGaNLCTfvhfvk=",
         "owner": "god464",
         "repo": "wezterm",
-        "rev": "e2bd37c3dba01dd0894e06ac5dfb359fde1aa321",
+        "rev": "6cbaff3ca4e37c0ca91489365fd1f232c6cdf2d7",
         "type": "github"
       },
       "original": {
