@@ -12,7 +12,6 @@ let
     mkEnableOption
     ;
   cfg = config.desktop'.kde;
-
 in
 {
   options.desktop'.kde = {

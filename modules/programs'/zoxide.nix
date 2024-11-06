@@ -1,6 +1,5 @@
 { config, lib, ... }:
 let
-
   cfg = config.programs'.fish;
   inherit (lib) mkIf;
 in
