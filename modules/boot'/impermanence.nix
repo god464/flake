@@ -21,7 +21,6 @@ in
         "/var/cache"
         "/var/log"
       ];
-      files = [ "/etc/machine-id" ];
       users.cl.directories = [
         "flake"
         ".cache/pre-commit"
