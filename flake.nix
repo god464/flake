@@ -39,6 +39,10 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ggnvim = {
       url = "github:god464/nvim";
       flake = false;
