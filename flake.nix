@@ -58,6 +58,7 @@
         ./shells
         ./lib
         ./modules
+        ./pkgs
       ];
     };
 }
