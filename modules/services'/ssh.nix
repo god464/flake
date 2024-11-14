@@ -10,6 +10,7 @@ in
       {
         enable = true;
         startWhenNeeded = true;
+        settings.UseDns = true;
       }
       (
         if cfg.enable then
@@ -19,6 +20,7 @@ in
         else
           {
             openFirewall = false;
+            settings.PermitRootLogin = "no";
           }
       )
     ];
