@@ -1,3 +1,4 @@
 builds:
   include:
-    - nixosConfigurations.*
+    - 'nixosConfigurations.*'
+    - 'packages.x86_64-linux.*'

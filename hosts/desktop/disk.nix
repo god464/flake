@@ -59,7 +59,7 @@
                         "noatime"
                       ];
                       mountpoint = "/.swap";
-                      swap.swapfile.size = "4G";
+                      swap.swapfile.size = "32G";
                     };
                   };
                 };
