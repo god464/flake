@@ -23,7 +23,7 @@ in
       programs.neovim = {
         enable = true;
         extraPackages = with pkgs; [
-          clang
+          gcc
           gnumake
           nodejs
           luarocks
