@@ -9,6 +9,7 @@ in
       enable = true;
       settings = {
         c.symbol = "󰙱 ";
+        java.symbol = "";
         lua.symbol = "󰢱 ";
         nix_shell.symbol = "󱄅 ";
         package.symbol = " ";
