@@ -2,7 +2,14 @@
 {
   imports = [ ./disk.nix ];
   boot' = {
-    boot.kernel = pkgs.linuxPackages_latest;
+    boot = {
+      kernel = pkgs.linuxPackages_latest;
+      para = [
+        "amd_pstate=active"
+        "radeon.cik_support=0"
+        "amdgpu.cik_support=1"
+      ];
+    };
     secure-boot.enable = true;
     impermanence.enable = true;
   };
@@ -33,7 +40,11 @@
     hashedPasswordFile = config.sops.secrets.passwd.path;
     packages = with pkgs; [ just ];
   };
-  hardware.enableAllFirmware = true;
+  hardware = {
+    enableAllFirmware = true;
+    cpu.amd.updateMicrocode = true;
+    amdgpu.initrd.enable = true;
+  };
   programs'.fish.enable = true;
   services' = {
     ssh.enable = true;

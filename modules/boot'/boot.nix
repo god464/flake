@@ -10,9 +10,15 @@ let
   cfg = config.boot'.boot;
 in
 {
-  options.boot'.boot.kernel = mkOption {
-    type = types.raw;
-    default = pkgs.linuxPackages;
+  options.boot'.boot = {
+    kernel = mkOption {
+      type = types.raw;
+      default = pkgs.linuxPackages;
+    };
+    para = mkOption {
+      default = [ ];
+      type = types.listOf types.str;
+    };
   };
   config = {
     boot = mkMerge [
@@ -47,7 +53,7 @@ in
             loader.systemd-boot.consoleMode = "0";
             plymouth.enable = true;
             consoleLogLevel = 0;
-            kernelParams = [
+            kernelParams = cfg.para ++ [
               "quiet"
               "splash"
             ];
