@@ -15,7 +15,7 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      users.cl.home.stateVersion = "24.05";
+      users.cl.home.stateVersion = "24.11";
     };
   };
 }
