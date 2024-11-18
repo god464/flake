@@ -10,7 +10,7 @@ creation_rules:
     key_groups:
       - age:
           - *server
-  - path_regex: ^modules/network'/config\.dae$
+  - path_regex: ^modules/network'/dae_sub\.yaml$
     key_groups:
       - age:
           - *desktop

@@ -15,7 +15,7 @@
   };
   network' = {
     net.name = "desktop";
-    mihomo.enable = true;
+    clash.enable = true;
   };
   sops = {
     age.keyFile = "/var/lib/sops-nix/keys.txt";

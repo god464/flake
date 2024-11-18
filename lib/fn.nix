@@ -10,7 +10,7 @@ rec {
         "secrets.yaml"
         "db.key"
         "db.pem"
-        "config.dae"
+        "dae_sub.yaml"
       ];
     });
 }

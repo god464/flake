@@ -5,12 +5,12 @@
   ...
 }:
 let
-  cfg = config.network'.mihomo;
+  cfg = config.network'.clash;
   persist = config.boot'.impermanence;
   inherit (lib) mkEnableOption mkIf mkAfter;
 in
 {
-  options.network'.mihomo.enable = mkEnableOption "mihomo";
+  options.network'.clash.enable = mkEnableOption "clash";
   config = mkIf cfg.enable {
     users.users.cl.packages = mkAfter [ pkgs.mihomo-party ];
     security.wrappers.mihomo-party = {
