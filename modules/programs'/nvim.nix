@@ -24,8 +24,6 @@ in
         enable = true;
         extraPackages = with pkgs; [
           gcc
-          gnumake
-          nodejs
           luarocks
           tree-sitter
         ];

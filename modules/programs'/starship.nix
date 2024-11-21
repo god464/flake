@@ -17,6 +17,7 @@ in
         python.symbol = " ";
         rust.symbol = " ";
         directory = {
+          format = "[ $path ]($style)";
           read_only = "";
           home_symbol = "";
           substitutions = {
