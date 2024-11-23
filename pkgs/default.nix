@@ -18,7 +18,10 @@
         pkgs = import inputs.nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [ self.overlays.default ];
+          overlays = [
+            self.overlays.default
+            inputs.niri.overlays.niri
+          ];
         };
       };
       legacyPackages = pkgs;
