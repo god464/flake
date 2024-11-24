@@ -38,6 +38,7 @@ in
     environment.persistence."/persist".users.cl.directories = [
       ".local/share/nvim"
       ".cache/nvim"
+      ".supermaven"
     ];
   };
 }
