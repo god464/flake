@@ -11,6 +11,8 @@
           statix
           deadnix
           yamllint
+          actionlint
+          dotenv-linter
           config.treefmt.build.wrapper
         ];
         shellHook = config.pre-commit.installationScript;
