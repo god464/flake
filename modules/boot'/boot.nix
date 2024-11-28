@@ -36,6 +36,7 @@ in
             "tmpfs"
             "ntfs"
           ];
+          systemd.enable = config.system.etc.overlay.enable;
         };
         kernelModules = [ "kvm-amd" ];
         kernelPackages = cfg.kernel;
