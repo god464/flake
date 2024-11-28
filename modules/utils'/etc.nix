@@ -1,8 +1,6 @@
 {
   system.etc.overlay = {
-    /*
-      enable = true;
-      mutable = false;
-    */
+    enable = true;
+    # mutable = false;
   };
 }
