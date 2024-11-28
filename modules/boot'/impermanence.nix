@@ -22,7 +22,10 @@ in
         "/var/log"
       ];
       users.cl.directories = [
-        "flake"
+        {
+          directory = "persist";
+          mode = "700";
+        }
         ".cache/pre-commit"
         ".cache/treefmt"
       ];
