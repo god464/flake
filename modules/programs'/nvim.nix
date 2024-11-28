@@ -17,16 +17,17 @@ in
       viAlias = true;
       withNodeJs = true;
       withPython3 = true;
+      withRuby = true;
       defaultEditor = true;
     };
     home-manager.users.cl = {
       programs.neovim = {
         enable = true;
         extraPackages = with pkgs; [
-          clang
+          gcc
           luarocks
           nodejs
-          lua5_1
+          luajit
           tree-sitter
         ];
       };
