@@ -1,4 +1,3 @@
 builds:
-  include:
-    - 'nixosConfigurations.*'
-    - 'packages.x86_64-linux.*'
+  exclude:
+    - 'checks.*.*'
