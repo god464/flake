@@ -17,7 +17,7 @@ in
       source-han-serif
       noto-fonts
       noto-fonts-extra
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      nerd-fonts.symbols-only
       twemoji-color-font
       noto-fonts-color-emoji
     ];
