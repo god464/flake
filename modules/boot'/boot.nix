@@ -47,6 +47,7 @@ in
             editor = false;
           };
         };
+        tmp.useTmpfs = true;
       }
       (
         if display.enable then
