@@ -21,6 +21,7 @@ in
     };
     environment = {
       systemPackages = mkAfter [ pkgs.wl-clipboard ];
+      sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
       persistence."/persist".users.cl.directories = [
         ".local/state/cosmic-comp"
         ".local/state/cosmic"
