@@ -44,5 +44,5 @@
     ssh.enable = true;
     gpg.enable = true;
   };
-  desktop'.cosmic.enable = true;
+  desktop'.kde.enable = true;
 }

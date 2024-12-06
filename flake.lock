@@ -430,6 +430,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1733212471,
+        "narHash": "sha256-M1+uCoV5igihRfcUKrr1riygbe73/dzNnzPsmaLCmpo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "55d15ad12a74eb7d4646254e13638ad0c4128776",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -443,10 +459,7 @@
         "niri": "niri",
         "nix-index-database": "nix-index-database",
         "nixos-cosmic": "nixos-cosmic",
-        "nixpkgs": [
-          "nixos-cosmic",
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_3",
         "sops-nix": "sops-nix",
         "treefmt-nix": "treefmt-nix"
       }

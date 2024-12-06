@@ -16,8 +16,14 @@ in
 {
   options.desktop'.kde = {
     enable = mkEnableOption "KDE";
-    includePackages = mkOption { type = types.listOf types.package; };
-    excludePackages = mkOption { type = types.listOf types.package; };
+    includePackages = mkOption {
+      type = types.listOf types.package;
+      default = [ ];
+    };
+    excludePackages = mkOption {
+      type = types.listOf types.package;
+      default = [ ];
+    };
   };
   config = mkIf cfg.enable {
     services = {
