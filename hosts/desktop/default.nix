@@ -22,13 +22,7 @@
     defaultSopsFile = ./secrets.yaml;
     secrets.passwd.neededForUsers = true;
   };
-  nix' = {
-    nix = {
-      cache = [ "https://cosmic.cachix.org" ];
-      trustKeys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-    };
-    home-manager.enable = true;
-  };
+  nix'.home-manager.enable = true;
   users.users.cl = {
     isNormalUser = true;
     extraGroups = [
