@@ -22,7 +22,10 @@ in
     };
     excludePackages = mkOption {
       type = types.listOf types.package;
-      default = [ ];
+      default = with pkgs.kdePackages; [
+        kate
+        kwrited
+      ];
     };
   };
   config = mkIf cfg.enable {
@@ -42,6 +45,15 @@ in
     security.polkit.enable = true;
     environment = {
       plasma6.excludePackages = cfg.excludePackages;
+      persistence."/persist".users.cl.files = [
+        ".config/baloofilerc"
+        ".config/kcminputrc"
+        ".config/kwalletrc"
+        ".config/kwinoutputconfig.json"
+        ".config/dolphinrc"
+        ".config/plasma-org.kde.plasma.desktop-appletsrc"
+        ".config/spectaclerc"
+      ];
       systemPackages = lib.mkAfter (cfg.includePackages ++ [ pkgs.wl-clipboard ]);
     };
   };
