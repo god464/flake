@@ -53,6 +53,7 @@ in
         ".config/dolphinrc"
         ".config/plasma-org.kde.plasma.desktop-appletsrc"
         ".config/spectaclerc"
+        ".config/kwinrc"
       ];
       systemPackages = lib.mkAfter (cfg.includePackages ++ [ pkgs.wl-clipboard ]);
     };
