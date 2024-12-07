@@ -4,7 +4,6 @@ let
 in
 {
   options.window'.wm.enable = mkEnableOption "window manager";
-  config =
-    {
-    };
+  config = {
+  };
 }
