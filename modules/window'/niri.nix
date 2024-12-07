@@ -12,6 +12,10 @@ in
 {
   options.window'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
+    programs.niri = {
+      enable = true;
+      package = pkgs.niri;
+    };
     services.xserver.displayManager.gdm = {
       enable = true;
       wayland = true;
