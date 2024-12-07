@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -15,14 +16,19 @@ in
       enable = true;
       wayland = true;
     };
-    programs.niri.enable = true;
     environment.systemPackages = with pkgs; [ wl-clipboard ];
+
+    home-manager.users.cl = {
+      imports = [ inputs.niri.homeModules.niri ];
+      programs.niri = {
+        enable = true;
+      };
+    };
     environment.persistence."/persist" = {
       users.cl = {
         directories = [
           ".config/dconf"
           ".local/share/keyrings"
-          ".local/state/wireplumber"
         ];
       };
     };

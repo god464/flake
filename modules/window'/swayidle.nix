@@ -5,6 +5,6 @@ let
 in
 {
   config = mkIf cfg.enable {
-    home-manager.users.cl.services.mako.enable = true;
+    home-manager.users.cl.services.swayidle.enable = true;
   };
 }

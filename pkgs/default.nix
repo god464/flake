@@ -20,7 +20,6 @@
           config.allowUnfree = true;
           overlays = [
             self.overlays.default
-            inputs.niri.overlays.niri
           ];
         };
       };
