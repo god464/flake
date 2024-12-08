@@ -9,7 +9,7 @@ in
     services.beesd.filesystems = {
       root = {
         spec = "LABEL=NixOS";
-        hashTableSizeMB = 4096;
+        hashTableSizeMB = 256;
       };
     };
   };
