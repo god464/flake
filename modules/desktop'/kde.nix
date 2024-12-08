@@ -26,6 +26,9 @@ in
       default = with pkgs.kdePackages; [
         kate
         kwrited
+        baloo
+        milou
+        baloo-widgets
       ];
     };
   };
@@ -56,12 +59,13 @@ in
           plasma = {
             enable = true;
             input.touchpads = [
-              /*
-                {
-                  naturalScroll = true;
-                  tapToClick = true;
-                }
-              */
+              {
+                naturalScroll = true;
+                tapToClick = true;
+                vendorId = "06CB";
+                productId = "CD50";
+                name = "SYNA32AC:00 06CB:CD50 Touchpad";
+              }
             ];
           };
         };
