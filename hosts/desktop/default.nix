@@ -44,5 +44,5 @@
     ssh.enable = true;
     gpg.enable = true;
   };
-  window'.niri.enable = true;
+  desktop'.kde.enable = true;
 }

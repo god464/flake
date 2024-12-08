@@ -34,15 +34,13 @@ in
         enable = true;
         enableQt5Integration = false;
       };
-      /*
-        displayManager.sddm = {
+      displayManager.sddm = {
+        enable = true;
+        wayland = {
           enable = true;
-          wayland = {
-            enable = true;
-            compositor = "kwin";
-          };
+          compositor = "kwin";
         };
-      */
+      };
     };
     security.polkit.enable = true;
     environment = {
