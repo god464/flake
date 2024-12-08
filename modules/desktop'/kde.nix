@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -18,7 +19,7 @@ in
     enable = mkEnableOption "KDE";
     includePackages = mkOption {
       type = types.listOf types.package;
-      default = [ ];
+      default = with pkgs.kdePackages; [ dragon ];
     };
     excludePackages = mkOption {
       type = types.listOf types.package;
@@ -45,17 +46,26 @@ in
     security.polkit.enable = true;
     environment = {
       plasma6.excludePackages = cfg.excludePackages;
-      persistence."/persist".users.cl.files = [
-        ".config/baloofilerc"
-        ".config/kcminputrc"
-        ".config/kwalletrc"
-        ".config/kwinoutputconfig.json"
-        ".config/dolphinrc"
-        ".config/plasma-org.kde.plasma.desktop-appletsrc"
-        ".config/spectaclerc"
-        ".config/kwinrc"
-      ];
       systemPackages = lib.mkAfter (cfg.includePackages ++ [ pkgs.wl-clipboard ]);
+    };
+
+    home-manager = {
+      sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+      users.cl = {
+        programs = {
+          plasma = {
+            enable = true;
+            input.touchpads = [
+              /*
+                {
+                  naturalScroll = true;
+                  tapToClick = true;
+                }
+              */
+            ];
+          };
+        };
+      };
     };
   };
 }
