@@ -10,11 +10,11 @@ creation_rules:
     key_groups:
       - age:
           - *server
-  - path_regex: ^modules/network'/dae_sub\.yaml$
+  - path_regex: ^secrets/dae-sub\.yaml$
     key_groups:
       - age:
           - *desktop
-  - path_regex: ^modules/boot'/db\.(key|pem)$
+  - path_regex: ^secrets/db\.(key|pem)$
     key_groups:
       - age:
           - *desktop

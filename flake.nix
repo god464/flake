@@ -18,10 +18,6 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        pre-commit-hooks-nix.follows = "git-hooks-nix";
-      };
     };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
@@ -59,7 +55,6 @@
         ./shells
         ./lib
         ./modules
-        ./pkgs
       ];
     };
 }

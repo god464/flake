@@ -23,6 +23,7 @@
               ]
               ++ [
                 ./${host}
+                ../secrets
                 self.nixosModules.default
               ];
           }
