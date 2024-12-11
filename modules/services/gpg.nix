@@ -16,12 +16,5 @@ in
       enableSSHSupport = true;
       pinentryPackage = pkgs.pinentry-tty;
     };
-    home-manager.users.cl.programs.gpg.enable = true;
-    environment.persistence."/persist".users.cl.directories = [
-      {
-        directory = ".gnupg";
-        mode = "700";
-      }
-    ];
   };
 }

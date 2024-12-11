@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -50,26 +49,6 @@ in
     environment = {
       plasma6.excludePackages = cfg.excludePackages;
       systemPackages = lib.mkAfter (cfg.includePackages ++ [ pkgs.wl-clipboard ]);
-    };
-
-    home-manager = {
-      sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
-      users.cl = {
-        programs = {
-          plasma = {
-            enable = true;
-            input.touchpads = [
-              {
-                naturalScroll = true;
-                tapToClick = true;
-                vendorId = "06CB";
-                productId = "CD50";
-                name = "SYNA32AC:00 06CB:CD50 Touchpad";
-              }
-            ];
-          };
-        };
-      };
     };
   };
 }

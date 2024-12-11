@@ -12,6 +12,5 @@ in
       jack.enable = true;
       wireplumber.enable = true;
     };
-    environment.persistence."/persist".users.cl.directories = [ ".local/state/wireplumber" ];
   };
 }

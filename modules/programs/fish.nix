@@ -48,17 +48,5 @@ in
 
       '';
     };
-    home-manager.users.cl.programs.fish = {
-      enable = true;
-      shellAbbrs = {
-        ls = "eza";
-        cd = "z";
-        cat = "bat";
-        man = "batman";
-        diff = "batdiff";
-        rg = "batgrep";
-      };
-    };
-    environment.persistence."/persist".users.cl.directories = [ ".local/share/fish" ];
   };
 }

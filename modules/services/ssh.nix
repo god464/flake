@@ -24,16 +24,5 @@ in
           }
       )
     ];
-    home-manager.users.cl.programs.ssh = {
-      enable = true;
-      forwardAgent = true;
-      addKeysToAgent = "yes";
-    };
-    environment.persistence."/persist".users.cl.directories = [
-      {
-        directory = ".ssh";
-        mode = "700";
-      }
-    ];
   };
 }

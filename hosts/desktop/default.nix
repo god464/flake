@@ -1,6 +1,9 @@
 { pkgs, config, ... }:
 {
-  imports = [ ./disk.nix ];
+  imports = [
+    ./disk.nix
+    ../persist.nix
+  ];
   boot' = {
     boot = {
       kernel = pkgs.linuxPackages_latest;

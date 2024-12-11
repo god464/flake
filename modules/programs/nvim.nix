@@ -1,10 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.programs'.fish;
   inherit (lib) mkIf;
@@ -20,26 +14,5 @@ in
       withRuby = true;
       defaultEditor = true;
     };
-    home-manager.users.cl = {
-      programs.neovim = {
-        enable = true;
-        extraPackages = with pkgs; [
-          gcc
-          luarocks
-          nodejs
-          luajit
-          tree-sitter
-        ];
-      };
-      xdg.configFile.nvim = {
-        source = inputs.ggnvim;
-        recursive = true;
-      };
-    };
-    environment.persistence."/persist".users.cl.directories = [
-      ".local/share/nvim"
-      ".cache/nvim"
-      ".supermaven"
-    ];
   };
 }
