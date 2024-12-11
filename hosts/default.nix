@@ -31,8 +31,8 @@
     in
     {
       nixosConfigurations = {
-        server = mkNixossystem "server";
         desktop = mkNixossystem "desktop";
+        server = mkNixossystem "server";
       };
     };
 }

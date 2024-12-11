@@ -1,6 +1,7 @@
+{ config, ... }:
 {
   system.etc.overlay = {
     enable = true;
-    # mutable = false;
+    mutable = config.network'.net.name == "server";
   };
 }

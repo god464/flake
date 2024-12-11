@@ -8,4 +8,5 @@
     secrets.passwd.neededForUsers = true;
   };
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;
+  web'.app.forgejo.enable = true;
 }
