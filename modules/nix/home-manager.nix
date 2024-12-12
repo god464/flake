@@ -61,7 +61,6 @@ in
           neovim = {
             enable = true;
             extraPackages = with pkgs; [
-              gcc
               luarocks
               nodejs
               luajit
