@@ -22,12 +22,11 @@
                 type = "btrfs";
                 extraArgs = [
                   "-f"
-                  "--csum SHA256"
                   "-L NixOS"
                 ];
                 mountpoint = "/";
                 mountOptions = [
-                  "compress=zstd:15"
+                  "compress=zstd"
                   "noatime"
                 ];
               };
