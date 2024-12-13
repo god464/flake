@@ -12,9 +12,7 @@
         withSystem "x86_64-linux" (
           { lib, ... }:
           lib.nixosSystem {
-            specialArgs = {
-              inherit inputs;
-            };
+            specialArgs = { inherit inputs; };
             modules =
               with inputs;
               [
