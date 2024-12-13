@@ -1,5 +1,5 @@
 keys:
-  - &desktop age1gklefcuzv2ard7fzqkycmx8lrrscjp942xpfx2u9m0fwapt383ysnxh2qy
+  - &desktop age16uursap4jrnalgpjggu38xujvtmfuvtedk8t0ksth4u5apr2wpssu5xdnh
   - &server age1972wm0vc96w489jfw7sd335ayz4t2j4839s8sgjpdcf89fur7qfqea8lm7
 creation_rules:
   - path_regex: ^hosts/desktop/secrets\.yaml$
