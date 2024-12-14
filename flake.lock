@@ -125,11 +125,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1734081062,
-        "narHash": "sha256-bn3Uyeb+q8L7P7g9pi45PZnXmAlnEGuu/SsGlYTCNEI=",
+        "lastModified": 1734107866,
+        "narHash": "sha256-fpesJg5i2AeEizvf/+yEvd5RU5xcMvctRwdQYuXrcaU=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "a40b3c83ea1933ee53b76a1beb01b418d4b42d5d",
+        "rev": "e4092029f62c171906859cd4cd59c945e196b3dc",
         "type": "github"
       },
       "original": {
@@ -227,11 +227,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734043726,
-        "narHash": "sha256-e9YAMReFV1fDPcZLFC2pa4k/8TloSXeX0z2VysNMAoA=",
+        "lastModified": 1734093295,
+        "narHash": "sha256-hSwgGpcZtdDsk1dnzA0xj5cNaHgN9A99hRF/mxMtwS4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3066cc58f552421a2c5414e78407fa5603405b1e",
+        "rev": "66c5d8b62818ec4c1edb3e941f55ef78df8141a8",
         "type": "github"
       },
       "original": {
@@ -308,11 +308,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1734065204,
-        "narHash": "sha256-T+3bvgTBCKXs2T1ZWVqB8GeHqEDnKpBZMWa4yFX6UEQ=",
+        "lastModified": 1734126636,
+        "narHash": "sha256-qVEkfc950Bj5bbjmPc1B4BdpeqJbuEMKIhYGq/N9jII=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "d828d3986667c49244548ff431be2a92515281c3",
+        "rev": "3279f5f6b35be38302d5f4de8333490174a14326",
         "type": "github"
       },
       "original": {
