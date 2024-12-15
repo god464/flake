@@ -13,6 +13,7 @@
           yamllint
           actionlint
           config.treefmt.build.wrapper
+          just
         ];
         shellHook = config.pre-commit.installationScript;
       };
