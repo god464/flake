@@ -65,6 +65,7 @@ in
               nodejs
               luajit
               tree-sitter
+              gh
             ];
           };
           git = {
