@@ -52,6 +52,7 @@ in
         ".local/state/cosmic"
         ".local/state/pop-launcher"
         ".config/fcitx5"
+        ".config/gh"
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
