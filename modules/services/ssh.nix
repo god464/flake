@@ -1,27 +1,21 @@
 { config, lib, ... }:
 let
-  inherit (lib) mkEnableOption mkMerge;
-  inherit (config.sops) secrets;
+  inherit (lib) mkOption mkEnableOption mkMerge;
   cfg = config.services'.ssh;
 in
 {
-  options.services'.ssh.enable = mkEnableOption "ssh";
+  options.services'.ssh = {
+    enable = mkEnableOption "ssh";
+    hostKey = mkOption { type = lib.types.nullOr lib.types.str; };
+  };
   config = {
     services.openssh = mkMerge [
       {
         enable = true;
         hostKeys = [
           {
-            inherit (secrets.host-rsa) path;
-            type = "rsa";
-          }
-          {
-            inherit (secrets.host-ed25519) path;
+            path = cfg.hostKey;
             type = "ed25519";
-          }
-          {
-            inherit (secrets.host-ecdsa) path;
-            type = "ecdsa";
           }
         ];
         startWhenNeeded = true;
