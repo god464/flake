@@ -61,11 +61,12 @@ in
           neovim = {
             enable = true;
             extraPackages = with pkgs; [
+              gnumake
+              gcc
               luarocks
               nodejs
               luajit
               tree-sitter
-              gh
             ];
           };
           git = {

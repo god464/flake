@@ -30,6 +30,7 @@
       "networkmanager"
     ];
     createHome = true;
+    packages = with pkgs; [ gh ];
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.passwd.path;
   };
