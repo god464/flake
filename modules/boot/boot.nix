@@ -5,7 +5,12 @@
   ...
 }:
 let
-  inherit (lib) mkMerge types mkOption;
+  inherit (lib)
+    mkMerge
+    types
+    mkOption
+    mkDefault
+    ;
   display = config.services.displayManager;
   cfg = config.boot'.boot;
 in
@@ -67,6 +72,6 @@ in
       )
     ];
     zramSwap.enable = true;
-    services.btrfs.autoScrub.enable = true;
+    services.btrfs.autoScrub.enable = mkDefault true;
   };
 }
