@@ -1,7 +1,11 @@
 { config, ... }:
 {
-  system.etc.overlay = {
-    enable = true;
-    mutable = config.network'.net.name != "server";
-  };
+  system.etc.overlay =
+    let
+      needMut = x: builtins.elem x [ "desktop" ];
+    in
+    {
+      enable = true;
+      mutable = needMut config.network'.net.name;
+    };
 }
