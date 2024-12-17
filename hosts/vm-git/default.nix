@@ -8,7 +8,7 @@
   microvm = {
     mem = 2048;
     vcpu = 2;
-    hypervisor = "qemu";
+    hypervisor = "cloud-hypervisor";
   };
   services.btrfs.autoScrub.enable = false;
 }
