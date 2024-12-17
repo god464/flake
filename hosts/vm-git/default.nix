@@ -11,4 +11,5 @@
     hypervisor = "cloud-hypervisor";
   };
   services.btrfs.autoScrub.enable = false;
+  web'.app.forgejo.enable = true;
 }
