@@ -41,7 +41,7 @@ in
             "tmpfs"
             "ntfs"
           ];
-          systemd.enable = config.system.etc.overlay.enable;
+          systemd.enable = true;
         };
         kernelModules = [ "kvm-amd" ];
         kernelPackages = cfg.kernel;
@@ -57,7 +57,6 @@ in
       (
         if display.enable then
           {
-            loader.systemd-boot.consoleMode = "0";
             plymouth.enable = true;
             consoleLogLevel = 0;
             kernelParams = cfg.para ++ [
@@ -66,9 +65,7 @@ in
             ];
           }
         else
-          {
-            loader.systemd-boot.consoleMode = "max";
-          }
+          { }
       )
     ];
     zramSwap.enable = true;
