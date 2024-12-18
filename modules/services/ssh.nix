@@ -6,7 +6,10 @@ in
 {
   options.services'.ssh = {
     enable = mkEnableOption "ssh";
-    hostKey = mkOption { type = lib.types.nullOr lib.types.str; };
+    hostKey = mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = "/etc/ssh/ssh_host_ed25519_key";
+    };
   };
   config = {
     services.openssh = mkMerge [
