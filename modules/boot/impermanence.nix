@@ -53,10 +53,10 @@ in
         ".local/state/pop-launcher"
         ".config/fcitx5"
         ".config/gh"
+        ".config/github-copilot/"
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
-        ".supermaven"
       ];
     };
   };
