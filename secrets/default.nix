@@ -1,16 +1,15 @@
 {
-  sops.secrets = {
-    db-key = {
-      format = "binary";
-      sopsFile = ./db.key;
+  sops.secrets =
+    let
+      mkSecret = x: {
+        format = "binary";
+        sopsFile = x;
+      };
+    in
+    {
+      db-key = mkSecret ./db.key;
+      db-pem = mkSecret ./db.pem;
+      host-desktop = mkSecret ./host-desktop.key;
+      host-server = mkSecret ./host-server.key;
     };
-    db-pem = {
-      format = "binary";
-      sopsFile = ./db.pem;
-    };
-    host-desktop = {
-      format = "binary";
-      sopsFile = ./host-desktop.key;
-    };
-  };
 }
