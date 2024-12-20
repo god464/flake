@@ -34,7 +34,6 @@ in
             "https://mirror.sjtu.edu.cn/nix-channels/store"
             "https://nix-community.cachix.org"
             "https://cache.garnix.io"
-            "https://cache.nixos.org"
           ]
         );
         trusted-public-keys = mkAfter (
