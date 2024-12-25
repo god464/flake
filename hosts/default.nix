@@ -18,6 +18,7 @@
               [
                 disko.nixosModules.disko
                 sops-nix.nixosModules.sops
+                nixos-generators.nixosModules.all-formats
               ]
               ++ [
                 ./${host}
