@@ -23,18 +23,12 @@
             content = {
               type = "luks";
               name = "nixos";
-              settings = {
-                keyFile = "/dev/disk/by-label/Ventoy";
-                keyFileSize = 1024 * 1024;
-                keyFileOffset = 2 * 1024 * 1024;
-                allowDiscards = true;
-                bypassWorkqueues = true;
-              };
+              settings.allowDiscards = true;
+              passwordFile = "/tmp/secret.key";
               content = {
                 type = "btrfs";
                 extraArgs = [
                   "-f"
-                  "--csum XXHASH"
                   "-L NixOS"
                 ];
                 subvolumes = {
