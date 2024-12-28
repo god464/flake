@@ -30,7 +30,10 @@
       "networkmanager"
     ];
     createHome = true;
-    packages = with pkgs; [ gh ];
+    packages = with pkgs; [
+      gh
+      rustdesk-flutter
+    ];
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.passwd.path;
   };
@@ -42,7 +45,6 @@
   programs'.fish.enable = true;
   desktop'.kde.enable = true;
   services' = {
-    rustdesk.enable = true;
     gpg.enable = true;
     ssh.hostKey = config.sops.secrets.host-desktop.path;
   };
