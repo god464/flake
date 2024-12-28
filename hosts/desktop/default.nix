@@ -48,4 +48,5 @@
     gpg.enable = true;
     ssh.hostKey = config.sops.secrets.host-desktop.path;
   };
+  services.xserver.enable = true;
 }
