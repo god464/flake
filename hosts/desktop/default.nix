@@ -17,7 +17,6 @@
     net.name = "desktop";
     clash.enable = true;
   };
-  services'.ssh.hostKey = config.sops.secrets.host-desktop.path;
   sops = {
     age.keyFile = "/var/lib/sops-nix/keys.txt";
     defaultSopsFile = ./secrets.yaml;
@@ -41,6 +40,10 @@
     amdgpu.initrd.enable = true;
   };
   programs'.fish.enable = true;
-  services'.gpg.enable = true;
   desktop'.kde.enable = true;
+  services' = {
+    rustdesk.enable = true;
+    gpg.enable = true;
+    ssh.hostKey = config.sops.secrets.host-desktop.path;
+  };
 }
