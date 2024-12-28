@@ -24,7 +24,6 @@
               type = "luks";
               name = "nixos";
               settings.allowDiscards = true;
-              passwordFile = "/tmp/secret.key";
               content = {
                 type = "btrfs";
                 extraArgs = [
