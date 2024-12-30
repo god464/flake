@@ -34,8 +34,6 @@ in
           directory = ".ssh";
           mode = "700";
         }
-        ".config/cosmic"
-        ".config/mihomo-party"
         ".cache/nvim"
         ".cache/pre-commit"
         ".cache/treefmt"
@@ -48,9 +46,6 @@ in
         ".local/share/zoxide"
         ".local/share/nix"
         ".local/state/nix"
-        ".local/state/cosmic-comp"
-        ".local/state/cosmic"
-        ".local/state/pop-launcher"
         ".config/fcitx5"
         ".config/gh"
         ".config/github-copilot/"
