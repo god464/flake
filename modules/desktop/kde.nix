@@ -18,7 +18,7 @@ in
     enable = mkEnableOption "KDE";
     includePackages = mkOption {
       type = types.listOf types.package;
-      default = with pkgs.kdePackages; [ dragon ];
+      default = [ ];
     };
     excludePackages = mkOption {
       type = types.listOf types.package;
@@ -28,6 +28,7 @@ in
         baloo
         milou
         baloo-widgets
+        elisa
       ];
     };
   };

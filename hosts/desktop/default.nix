@@ -30,7 +30,10 @@
       "networkmanager"
     ];
     createHome = true;
-    packages = with pkgs; [ gh ];
+    packages = with pkgs; [
+      gh
+      vlc
+    ];
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.passwd.path;
   };
