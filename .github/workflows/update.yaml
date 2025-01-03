@@ -12,20 +12,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
+      - name: Use nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@v9
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@v16
         with:
           extra-conf: |
             extra-substituters = https://cache.garnix.io
             extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
-      - name: Use nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v24
         with:
           commit-msg: "bump(lock): update flake.lock"
-          sign-commits: true
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY  }}
           pr-title: "bump(lock): Update flake.lock"
           pr-labels: merge-queue
           pr-body: |

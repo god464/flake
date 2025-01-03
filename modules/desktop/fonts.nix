@@ -17,9 +17,9 @@ in
       source-han-serif
       noto-fonts
       noto-fonts-extra
+      noto-fonts-cjk
       nerd-fonts.symbols-only
       twemoji-color-font
-      noto-fonts-color-emoji
     ];
   };
 }
