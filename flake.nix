@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
+      url = "github:numtide/treefmt-nix/56c0ecd79f7ba01a0ec027da015df751d6ca3ae7?narHash=sha256-Q6xAmciTXDtZfUxf6c15QqtRR8BvX4edYPstF/uoqMk%3D";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     git-hooks-nix = {
