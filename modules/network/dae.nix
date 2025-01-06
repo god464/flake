@@ -8,8 +8,6 @@ in
   config = mkIf cfg.enable {
     sops = {
       secrets.sub = {
-        owner = "root";
-        group = "root";
       };
       templates."config.dae".content = ''
         global {
@@ -81,7 +79,7 @@ in
     };
     services.dae = {
       enable = true;
-      config = "${config.sops.templates."config.dae".path}";
+      configFile = "${config.sops.templates."config.dae".path}";
     };
   };
 }
