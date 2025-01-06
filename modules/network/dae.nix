@@ -51,7 +51,7 @@ in
         }
 
         subscription {
-           my_sub: ${config.sops.placeholder.sub}
+           my_sub: '${config.sops.placeholder.sub}'
         }
 
         group {
