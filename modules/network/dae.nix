@@ -7,7 +7,10 @@ in
   options.network'.dae.enable = mkEnableOption "dae";
   config = mkIf cfg.enable {
     sops = {
-      secrets.sub = { };
+      secrets.sub = {
+        owner = "root";
+        group = "root";
+      };
       templates."config.dae".content = ''
         global {
           tproxy_port: 12345
