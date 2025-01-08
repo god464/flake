@@ -11,7 +11,7 @@ in
 {
   config = mkIf cfg.enable {
     fonts.packages = with pkgs; [
-      nerd-fonts.fira-code
+      fira-code
       sarasa-gothic
       source-han-sans
       source-han-serif
