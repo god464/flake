@@ -62,7 +62,6 @@ in
             enable = true;
             extraPackages = with pkgs; [
               gnumake
-              gcc
               luarocks
               nodejs
               luajit
