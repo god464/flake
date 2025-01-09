@@ -7,7 +7,7 @@
           nixd
           yaml-language-server
           nixfmt-rfc-style
-          yamlfmt
+          prettierd
           statix
           deadnix
           yamllint
