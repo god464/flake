@@ -15,10 +15,13 @@ in
       sarasa-gothic
       source-han-sans
       source-han-serif
-      noto-fonts
-      noto-fonts-extra
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
+      jigmo
+      noto-fonts
+      noto-fonts-extra
+      source-serif-pro
+      source-sans-pro
       nerd-fonts.symbols-only
       twemoji-color-font
     ];
