@@ -19,6 +19,7 @@ in
       sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
       users.cl = {
         home.stateVersion = "24.11";
+        fonts.fontconfig.enable = true;
         programs = {
           plasma = {
             enable = true;
