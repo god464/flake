@@ -24,6 +24,7 @@ in
       source-sans-pro
       nerd-fonts.symbols-only
       twemoji-color-font
+      font-awesome
     ];
   };
 }
