@@ -7,7 +7,7 @@
           nixd
           yaml-language-server
           nixfmt-rfc-style
-          prettierd
+          nodePackages_latest.prettier
           statix
           deadnix
           yamllint
