@@ -38,11 +38,6 @@ in
           bat = {
             enable = true;
             config.theme = "Nord";
-            extraPackages = with pkgs.bat-extras; [
-              batgrep
-              batdiff
-              batman
-            ];
           };
           direnv = {
             enable = true;
@@ -63,6 +58,7 @@ in
             enable = true;
             extraPackages = with pkgs; [
               gnumake
+              clang
               luarocks
               nodejs
               luajit
@@ -85,9 +81,6 @@ in
               ls = "eza";
               cd = "z";
               cat = "bat";
-              man = "batman";
-              diff = "batdiff";
-              rg = "batgrep";
             };
           };
           starship.enable = true;
