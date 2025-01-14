@@ -1,3 +1,6 @@
 {
-  "singleQuote": true
+  "singleQuote": true,
+  "vueIndentScriptAndStyle": true,
+  "bracketSameLine": true,
+  "experimentalTernaries": true
 }
