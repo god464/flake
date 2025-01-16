@@ -1,11 +1,11 @@
 {
-  network'.net.name = "git";
+  network'.net.name = "test";
   users.users.root.password = "";
   services'.ssh.enable = true;
   microvm = {
     mem = 2048;
     vcpu = 2;
-    hypervisor = "cloud-hypervisor";
+    hypervisor = "qemu";
     interfaces = [
       {
         type = "tap";
@@ -14,5 +14,5 @@
     ];
   };
   services.btrfs.autoScrub.enable = false;
-  web'.app.forgejo.enable = true;
+  web'.http.caddy.enable = true;
 }
