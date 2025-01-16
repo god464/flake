@@ -51,7 +51,7 @@
       nixosConfigurations = {
         desktop = mkNixossystem "desktop";
         server = mkNixossystem "server";
-        vm-git = mkMicroVm "vm-git";
+        vm-deploy = mkMicroVm "vm-deploy";
       };
     };
 }
