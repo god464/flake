@@ -29,7 +29,7 @@ in
   config = lib.mkIf cfg.enable {
     services.caddy = {
       enable = true;
-      virtualHosts."{name}" = {
+      virtualHosts."${cfg.name}" = {
         listenAddresses = cfg.address;
         serverAliases = cfg.aliases;
         extraConfig = cfg.config;
