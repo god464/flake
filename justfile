@@ -23,3 +23,9 @@
 
 @fix:
     nix-store --repair --verify --check-contents
+
+@runvm:
+    nix run .#nixosConfigurations.vm-deploy.config.microvm.declaredRunner
+
+@geniso:
+    nix build .#nixosConfigurations.desktop.config.formats.iso

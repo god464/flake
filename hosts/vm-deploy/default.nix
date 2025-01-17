@@ -3,13 +3,14 @@
   users.users.root.password = "";
   services'.ssh.enable = true;
   microvm = {
-    mem = 2048;
+    mem = 4096;
     vcpu = 2;
     hypervisor = "qemu";
     interfaces = [
       {
         type = "tap";
         id = "vmnet";
+        mac = "02:00:00:00:00:01";
       }
     ];
   };
