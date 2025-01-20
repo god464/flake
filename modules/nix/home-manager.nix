@@ -57,8 +57,6 @@ in
           neovim = {
             enable = true;
             extraPackages = with pkgs; [
-              gnumake
-              clang
               luarocks
               nodejs
               luajit
