@@ -6,7 +6,7 @@ in
 {
   options.web'.http.caddy = {
     enable = mkEnableOption "caddy";
-    name = lib.mkOption {
+    name = mkOption {
       type = types.str;
       default = "localhost";
     };
