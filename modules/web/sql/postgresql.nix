@@ -6,12 +6,8 @@ in
 {
   options.web'.sql.postgresql = {
     enable = mkEnableOption "postgresql";
-    users = mkOption {
-      type = types.listOf types.submodule;
-      default = [ ];
-    };
     db = mkOption {
-      type = types.listOf types.submodule;
+      type = types.listOf types.str;
       default = [ ];
     };
   };
@@ -21,7 +17,6 @@ in
       enableTCPIP = true;
       enableJIT = true;
       ensureDatabases = cfg.db;
-      ensureUsers = cfg.users;
     };
   };
 }
