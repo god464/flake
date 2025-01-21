@@ -33,7 +33,7 @@ in
               }
             ];
           };
-          wezterm.enable = true;
+          # wezterm.enable = true;
           atuin.enable = true;
           bat = {
             enable = true;
@@ -88,12 +88,18 @@ in
             forwardAgent = true;
             addKeysToAgent = "yes";
           };
+          ghostty = {
+            enable = true;
+            enableFishIntegration = true;
+          };
         };
         xdg.configFile = {
-          wezterm = {
-            source = inputs.ggterm;
-            recursive = true;
-          };
+          /*
+            wezterm = {
+              source = inputs.ggterm;
+              recursive = true;
+            };
+          */
           nvim = {
             source = inputs.ggnvim;
             recursive = true;
