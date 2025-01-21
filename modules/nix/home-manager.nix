@@ -91,6 +91,11 @@ in
           ghostty = {
             enable = true;
             enableFishIntegration = true;
+            settings = {
+              theme = "tokyonight-storm";
+              font-family = "Fira Code";
+              font-feature = "cv01 cv02 cv14 cv30 ss01 ss03 ss05 ss07 zero";
+            };
           };
         };
         xdg.configFile = {
