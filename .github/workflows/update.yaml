@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
       - name: Use nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
+        uses: DeterminateSystems/magic-nix-cache-action@v9
       - name: Check Nix flake inputs
         uses: DeterminateSystems/flake-checker-action@v9
       - name: Install nix
