@@ -1,22 +1,15 @@
 { config, lib, ... }:
 let
   cfg = config.web'.sql.postgresql;
-  inherit (lib) mkOption mkEnableOption types;
+  inherit (lib) mkEnableOption;
 in
 {
-  options.web'.sql.postgresql = {
-    enable = mkEnableOption "postgresql";
-    db = mkOption {
-      type = types.listOf types.str;
-      default = [ ];
-    };
-  };
+  options.web'.sql.postgresql.enable = mkEnableOption "postgresql";
   config = lib.mkIf cfg.enable {
     services.postgresql = {
       enable = true;
       enableTCPIP = true;
       enableJIT = true;
-      ensureDatabases = cfg.db;
     };
   };
 }
