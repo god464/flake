@@ -57,6 +57,7 @@ in
           neovim = {
             enable = true;
             extraPackages = with pkgs; [
+              clang
               luarocks
               nodejs
               luajit
@@ -95,6 +96,18 @@ in
               theme = "tokyonight-storm";
               font-family = "Fira Code";
               background-opacity = 0.7;
+              font-feature = [
+                "cv01"
+                "cv02"
+                "cv14"
+                "cv30"
+                "ss01"
+                "ss02"
+                "ss03"
+                "ss05"
+                "ss07"
+                "zero"
+              ];
             };
           };
         };
