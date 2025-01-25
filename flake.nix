@@ -46,12 +46,10 @@
       url = "github:god464/nvim";
       flake = false;
     };
-    /*
-      ggterm = {
-        url = "github:god464/wezterm";
-        flake = false;
-      };
-    */
+    ggterm = {
+      url = "github:god464/wezterm";
+      flake = false;
+    };
   };
   outputs =
     inputs@{ flake-parts, ... }:
