@@ -26,9 +26,8 @@ in
         kate
         kwrited
         baloo
-        milou
-        baloo-widgets
         elisa
+        konsole
       ];
     };
   };
