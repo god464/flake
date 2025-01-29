@@ -37,7 +37,7 @@ in
           atuin.enable = true;
           bat = {
             enable = true;
-            config.theme = "Nord";
+            config.theme = "gruvbox-dark";
           };
           direnv = {
             enable = true;
