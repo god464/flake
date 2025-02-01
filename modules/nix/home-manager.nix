@@ -37,7 +37,7 @@ in
           atuin.enable = true;
           bat = {
             enable = true;
-            config.theme = "gruvbox-dark";
+            config.theme = "Nord";
           };
           direnv = {
             enable = true;
@@ -95,29 +95,6 @@ in
             forwardAgent = true;
             addKeysToAgent = "yes";
           };
-          /*
-            ghostty = {
-              enable = true;
-              enableFishIntegration = true;
-              settings = {
-                theme = "tokyonight-storm";
-                font-family = "Fira Code";
-                background-opacity = 0.7;
-                font-feature = [
-                  "cv01"
-                  "cv02"
-                  "cv14"
-                  "cv30"
-                  "ss01"
-                  "ss02"
-                  "ss03"
-                  "ss05"
-                  "ss07"
-                  "zero"
-                ];
-              };
-            };
-          */
         };
         xdg.configFile = {
           wezterm = {
