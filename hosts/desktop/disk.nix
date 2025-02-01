@@ -19,6 +19,7 @@
           };
           root = {
             size = "100%";
+            type = "8304";
             label = "ROOT";
             content = {
               type = "luks";
