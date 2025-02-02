@@ -23,16 +23,23 @@
             label = "ROOT";
             content = {
               type = "btrfs";
-              extraArgs = [
-                "-f"
-                "-L NixOS"
-              ];
               mountpoint = "/";
               mountOptions = [
                 "compress=zstd"
                 "noatime"
               ];
+              extraArgs = [
+                "-f"
+                "-L NixOS"
+              ];
               subvolumes = {
+                "@" = {
+                  mountpoint = "/";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
                 "@nix" = {
                   mountpoint = "/nix";
                   mountOptions = [
@@ -41,11 +48,11 @@
                   ];
                 };
                 "@var" = {
+                  mountpoint = "/var";
                   mountOptions = [
                     "compress=zstd"
                     "noatime"
                   ];
-                  mountpoint = "/var";
                 };
               };
             };
