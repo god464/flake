@@ -1,3 +1,10 @@
 builds:
-  exclude:
-    - 'checks.*.*'
+  include:
+    - nixosConfigurations.*
+    - devShells.*.*
+    - packages.x86_64-linux.*
+    - apps.x86_64-linux.*
+
+incrementalizeBuilds:
+  excludeBranches:
+    - 'master'
