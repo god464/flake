@@ -59,8 +59,8 @@ in
             extraPackages = with pkgs; [
               clang
               luarocks
+              lua
               nodejs
-              luajit
               tree-sitter
             ];
           };
