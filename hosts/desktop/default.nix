@@ -44,6 +44,7 @@
   };
   programs'.fish.enable = true;
   desktop'.kde.enable = true;
+  config.facter.reportPath = ./facter.json;
   services' = {
     gpg.enable = true;
     ssh.hostKey = config.sops.secrets.host-desktop.path;
