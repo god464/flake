@@ -99,7 +99,7 @@ in
             enable = true;
             enableFishIntegration = true;
             settings = {
-              theme = "tokyonight-storm";
+              theme = "nightfox";
               font-family = "Fira Code";
               background-opacity = 0.7;
               font-feature = [
