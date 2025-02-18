@@ -9,4 +9,5 @@
     secrets.passwd.neededForUsers = true;
   };
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;
+  environment.etc."resolv.conf".text = ''nameserver 127.0.0.53'';
 }
