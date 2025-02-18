@@ -23,8 +23,8 @@
     },
     "bluetooth": [
       {
-        "index": 51,
-        "attached_to": 57,
+        "index": 53,
+        "attached_to": 59,
         "class_list": ["usb", "bluetooth"],
         "bus_type": {
           "hex": "0086",
@@ -98,8 +98,8 @@
         "module_alias": "usb:v0BDAp385Ad0000dcE0dsc01dp01icE0isc01ip01in01"
       },
       {
-        "index": 58,
-        "attached_to": 57,
+        "index": 60,
+        "attached_to": 59,
         "class_list": ["usb", "bluetooth"],
         "bus_type": {
           "hex": "0086",
@@ -1009,8 +1009,8 @@
     ],
     "camera": [
       {
-        "index": 55,
-        "attached_to": 57,
+        "index": 57,
+        "attached_to": 59,
         "class_list": ["camera", "usb"],
         "bus_type": {
           "hex": "0086",
@@ -1104,8 +1104,8 @@
         "module_alias": "usb:v30C9p0035d0003dcEFdsc02dp01ic0Eisc01ip00in00"
       },
       {
-        "index": 59,
-        "attached_to": 57,
+        "index": 61,
+        "attached_to": 59,
         "class_list": ["camera", "usb"],
         "bus_type": {
           "hex": "0086",
@@ -1358,7 +1358,7 @@
           "[13]",
           "[14]"
         ],
-        "bogo": 3593.35,
+        "bogo": 3593.47,
         "cache": 512,
         "units": 16,
         "physical_id": 0,
@@ -1461,6 +1461,87 @@
       },
       {
         "index": 49,
+        "attached_to": 41,
+        "class_list": ["disk", "usb", "scsi", "block_device"],
+        "bus_type": {
+          "hex": "0084",
+          "name": "SCSI",
+          "value": 132
+        },
+        "slot": {
+          "bus": 1,
+          "number": 0
+        },
+        "base_class": {
+          "hex": "0106",
+          "name": "Mass Storage Device",
+          "value": 262
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Disk",
+          "value": 0
+        },
+        "vendor": {
+          "hex": "30de",
+          "name": "KIOXIA",
+          "value": 12510
+        },
+        "device": {
+          "hex": "6544",
+          "name": "TransMemory",
+          "value": 25924
+        },
+        "serial": "0",
+        "model": "KIOXIA TransMemory",
+        "sysfs_id": "/class/block/sdb",
+        "sysfs_bus_id": "1:0:0:0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:08.1/0000:03:00.4/usb4/4-2/4-2:1.0/host1/target1:0:0/1:0:0:0",
+        "unix_device_name": "/dev/sdb",
+        "unix_device_number": {
+          "type": 98,
+          "major": 8,
+          "minor": 16,
+          "range": 16
+        },
+        "unix_device_names": [
+          "/dev/disk/by-diskseq/14",
+          "/dev/disk/by-id/usb-KIOXIA_TransMemory_0022CFF6B88BC81123263061-0:0",
+          "/dev/disk/by-path/pci-0000:03:00.4-usb-0:2:1.0-scsi-0:0:0:0",
+          "/dev/disk/by-path/pci-0000:03:00.4-usbv3-0:2:1.0-scsi-0:0:0:0",
+          "/dev/sdb"
+        ],
+        "unix_device_name2": "/dev/sg1",
+        "unix_device_number2": {
+          "type": 99,
+          "major": 21,
+          "minor": 1,
+          "range": 1
+        },
+        "resources": [
+          {
+            "type": "disk_geo",
+            "cylinders": 29565,
+            "heads": 64,
+            "sectors": 32,
+            "size": 0,
+            "geo_type": "logical"
+          },
+          {
+            "type": "size",
+            "unit": "sectors",
+            "value_1": 60549120,
+            "value_2": 512
+          }
+        ],
+        "driver": "usb-storage",
+        "driver_module": "usb_storage",
+        "drivers": ["sd", "usb-storage"],
+        "driver_modules": ["sd_mod", "usb_storage"],
+        "module_alias": "usb:v30DEp6544d0001dc00dsc00dp00ic08isc06ip50in00"
+      },
+      {
+        "index": 50,
         "attached_to": 29,
         "class_list": ["disk", "usb", "scsi", "block_device"],
         "bus_type": {
@@ -1547,7 +1628,7 @@
         "module_alias": "usb:v0BDAp9210d2001dc00dsc00dp00ic08isc06ip62in00"
       },
       {
-        "index": 50,
+        "index": 51,
         "attached_to": 0,
         "class_list": ["disk", "block_device"],
         "base_class": {
@@ -1572,7 +1653,7 @@
         "unix_device_names": [
           "/dev/disk/by-diskseq/13",
           "/dev/disk/by-label/zram0",
-          "/dev/disk/by-uuid/ed3d209b-21bc-45db-8c10-3e1803e6fdc8",
+          "/dev/disk/by-uuid/8cd3541c-62c9-429a-8d3b-017535c4669d",
           "/dev/zram0"
         ],
         "resources": [
@@ -1649,7 +1730,7 @@
           },
           {
             "type": "irq",
-            "base": 47,
+            "base": 64,
             "triggered": 0,
             "enabled": true
           },
@@ -1683,7 +1764,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 47,
+          "irq": 64,
           "prog_if": 0
         },
         "driver": "amdgpu",
@@ -1696,7 +1777,7 @@
     ],
     "hub": [
       {
-        "index": 53,
+        "index": 55,
         "attached_to": 41,
         "class_list": ["usb", "hub"],
         "bus_type": {
@@ -1774,7 +1855,7 @@
         "module_alias": "usb:v1D6Bp0002d0613dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 56,
+        "index": 58,
         "attached_to": 41,
         "class_list": ["usb", "hub"],
         "bus_type": {
@@ -1842,7 +1923,7 @@
         "module_alias": "usb:v1D6Bp0003d0613dc09dsc00dp03ic09isc00ip00in00"
       },
       {
-        "index": 57,
+        "index": 59,
         "attached_to": 29,
         "class_list": ["usb", "hub"],
         "bus_type": {
@@ -1920,7 +2001,7 @@
         "module_alias": "usb:v1D6Bp0002d0613dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 60,
+        "index": 62,
         "attached_to": 29,
         "class_list": ["usb", "hub"],
         "bus_type": {
@@ -2097,7 +2178,7 @@
     ],
     "mouse": [
       {
-        "index": 64,
+        "index": 66,
         "attached_to": 0,
         "bus_type": {
           "hex": "0081",
@@ -2294,7 +2375,26 @@
     ],
     "network_interface": [
       {
-        "index": 62,
+        "index": 64,
+        "attached_to": 0,
+        "class_list": ["network_interface"],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_name": "lo",
+        "unix_device_names": ["lo"]
+      },
+      {
+        "index": 65,
         "attached_to": 28,
         "class_list": ["network_interface"],
         "base_class": {
@@ -2326,25 +2426,6 @@
         "driver_module": "rtw89_8852ae",
         "drivers": ["rtw89_8852ae"],
         "driver_modules": ["rtw89_8852ae"]
-      },
-      {
-        "index": 63,
-        "attached_to": 0,
-        "class_list": ["network_interface"],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "unix_device_names": ["lo"]
       }
     ],
     "pci": [
@@ -2834,7 +2915,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 56,
+            "base": 38,
             "triggered": 0,
             "enabled": true
           },
@@ -2852,7 +2933,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 56,
+          "irq": 38,
           "prog_if": 2
         },
         "driver": "nvme",
@@ -2867,8 +2948,8 @@
     },
     "usb": [
       {
-        "index": 54,
-        "attached_to": 57,
+        "index": 56,
+        "attached_to": 59,
         "class_list": ["usb", "unknown"],
         "bus_type": {
           "hex": "0086",
@@ -3015,7 +3096,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 38,
+            "base": 55,
             "triggered": 0,
             "enabled": true
           },
@@ -3033,7 +3114,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 38,
+          "irq": 55,
           "prog_if": 48
         },
         "driver": "xhci_hcd",
@@ -3093,7 +3174,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 47,
+            "base": 64,
             "triggered": 0,
             "enabled": true
           },
@@ -3111,7 +3192,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 47,
+          "irq": 64,
           "prog_if": 48
         },
         "driver": "xhci_hcd",
