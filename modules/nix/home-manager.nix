@@ -95,25 +95,34 @@ in
             forwardAgent = true;
             addKeysToAgent = "yes";
           };
-          ghostty = {
+          /*
+            ghostty = {
+              enable = true;
+              enableFishIntegration = true;
+              settings = {
+                theme = "nightfox";
+                font-family = "Fira Code";
+                background-opacity = 0.7;
+                font-feature = [
+                  "cv01"
+                  "cv02"
+                  "cv14"
+                  "cv30"
+                  "ss01"
+                  "ss02"
+                  "ss03"
+                  "ss05"
+                  "ss07"
+                  "zero"
+                ];
+              };
+            };
+          */
+          kitty = {
             enable = true;
-            enableFishIntegration = true;
-            settings = {
-              theme = "nightfox";
-              font-family = "Fira Code";
-              background-opacity = 0.7;
-              font-feature = [
-                "cv01"
-                "cv02"
-                "cv14"
-                "cv30"
-                "ss01"
-                "ss02"
-                "ss03"
-                "ss05"
-                "ss07"
-                "zero"
-              ];
+            font = {
+              package = pkgs.iosevka;
+              name = "Iosevka Term";
             };
           };
         };

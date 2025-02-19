@@ -12,7 +12,6 @@ in
   config = mkIf cfg.enable {
     fonts = {
       packages = with pkgs; [
-        fira-code
         sarasa-gothic
         source-han-sans
         source-han-serif
@@ -26,6 +25,7 @@ in
         source-sans-pro
         nerd-fonts.symbols-only
         twemoji-color-font
+        noto-fonts-color-emoji
         font-awesome
       ];
       fontconfig = {
