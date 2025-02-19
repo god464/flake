@@ -20,7 +20,13 @@
   sops = {
     age.keyFile = "/var/lib/sops-nix/keys.txt";
     defaultSopsFile = ./secrets.yaml;
-    secrets.passwd.neededForUsers = true;
+    secrets = {
+      passwd.neededForUsers = true;
+      host-desktop = {
+        format = "binary";
+        sopsFile = ./secrets/host-desktop.key;
+      };
+    };
   };
   nix'.home-manager.enable = true;
   users.users.cl = {
