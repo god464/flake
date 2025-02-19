@@ -35,11 +35,13 @@ in
             "Source Han Serif SC"
             "Noto Serif CJK SC"
             "Symbols Nerd Font"
+            "Twitter Color Emoji"
           ];
           sansSerif = [
             "Source Han Sans SC"
             "Noto Sans CJK SC"
             "Symbols Nerd Font"
+            "Twitter Color Emoji"
           ];
           monospace = [
             "Source Han Mono SC"

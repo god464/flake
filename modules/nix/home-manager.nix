@@ -121,8 +121,33 @@ in
           kitty = {
             enable = true;
             font = {
-              package = pkgs.iosevka;
-              name = "Iosevka";
+              package = pkgs.fira-code;
+              name = "Fira Code";
+              size = 13.0;
+            };
+            themeFile = "NightFox";
+            settings = {
+              copy_on_select = true;
+              enabled_layouts = "Splits, Stack";
+              enable_audio_bell = false;
+              tab_bar_edge = "top";
+              tab_bar_style = "powerline";
+              tab_powerline_style = "round";
+              background_opacity = 0.8;
+              background_blur = 1;
+              disable_ligatures = "cursor";
+              font_feature = [
+                "cv01"
+                "cv02"
+                "cv14"
+                "cv30"
+                "ss01"
+                "ss02"
+                "ss03"
+                "ss05"
+                "ss07"
+                "zero"
+              ];
             };
           };
         };
