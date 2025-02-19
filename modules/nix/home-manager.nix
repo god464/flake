@@ -122,7 +122,7 @@ in
             enable = true;
             font = {
               package = pkgs.iosevka;
-              name = "Iosevka Term";
+              name = "Iosevka";
             };
           };
         };
