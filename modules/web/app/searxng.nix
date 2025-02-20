@@ -12,12 +12,13 @@ in
         ui = {
           static_use_hash = true;
           center_alignment = true;
+          results_on_new_tab = true;
           search_on_category_select = false;
           hotkeys = "vim";
         };
         server = {
           port = "8888";
-          bind_address = "::1";
+          bind_address = "0.0.0.0";
           # secret_key = config.sops.secrets.searx.path;
           image_proxy = true;
           method = "GET";
@@ -30,5 +31,6 @@ in
         };
       };
     };
+    networking.firewall.allowedTCPPorts = [ 8888 ];
   };
 }
