@@ -19,7 +19,7 @@ in
         server = {
           port = "8888";
           bind_address = "0.0.0.0";
-          # secret_key = config.sops.secrets.searx.path;
+          secret_key = config.sops.secrets.searxng.path;
           image_proxy = true;
           method = "GET";
         };

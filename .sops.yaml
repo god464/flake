@@ -1,6 +1,6 @@
 keys:
   - &desktop age1h0w3eg0ac5k8jn8527qfext3sd8c44qshnpe9p7gw5zfke2glapqxa4sxq
-  - &server age1n7kfxefqaghcan9tuzgamzu2zjjncxczvcf25amk4j4pqle22gqq9ghvaw
+  - &server age197adxh6vrkt0ktkxr7vel646vstvnenflwnnk5y30vr58hgwq98sr4z5qy
 creation_rules:
   - path_regex: ^hosts/desktop/secrets\.yaml$
     key_groups:
@@ -9,17 +9,4 @@ creation_rules:
   - path_regex: ^hosts/server/secrets\.yaml$
     key_groups:
       - age:
-          - *server
-  - path_regex: ^secrets/db\.(key|pem)$
-    key_groups:
-      - age:
-          - *desktop
-  - path_regex: ^secrets/host-desktop.key$
-    key_groups:
-      - age:
-          - *desktop
-  - path_regex: ^secrets/host-server.key$
-    key_groups:
-      - age:
-          - *desktop
           - *server
