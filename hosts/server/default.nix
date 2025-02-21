@@ -9,6 +9,7 @@
     secrets = {
       passwd.neededForUsers = true;
       searxng = { };
+      photoprism = { };
     };
   };
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;

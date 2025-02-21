@@ -8,7 +8,8 @@ in
   config = mkIf cfg.enable {
     services.photoprism = {
       enable = true;
-      passwordFile = config.sops.secrets.passwd.path;
+      passwordFile = config.sops.secrets.photoprism.path;
+      originalsPath = "/data/photos";
     };
   };
 }
