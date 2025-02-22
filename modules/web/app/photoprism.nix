@@ -11,5 +11,6 @@ in
       passwordFile = config.sops.secrets.photoprism.path;
       originalsPath = "/data/photos";
     };
+    networking.firewall.allowedTCPPorts = [ 2342 ];
   };
 }

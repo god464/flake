@@ -10,5 +10,6 @@ in
       enable = true;
       database.type = "postgres";
     };
+    networking.firewall.allowedTCPPorts = [ 3000 ];
   };
 }
