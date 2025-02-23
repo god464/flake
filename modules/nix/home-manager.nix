@@ -33,7 +33,6 @@ in
               }
             ];
           };
-          # wezterm.enable = true;
           atuin.enable = true;
           bat = {
             enable = true;
@@ -95,34 +94,11 @@ in
             forwardAgent = true;
             addKeysToAgent = "yes";
           };
-          /*
-            ghostty = {
-              enable = true;
-              enableFishIntegration = true;
-              settings = {
-                theme = "nightfox";
-                font-family = "Fira Code";
-                background-opacity = 0.7;
-                font-feature = [
-                  "cv01"
-                  "cv02"
-                  "cv14"
-                  "cv30"
-                  "ss01"
-                  "ss02"
-                  "ss03"
-                  "ss05"
-                  "ss07"
-                  "zero"
-                ];
-              };
-            };
-          */
           kitty = {
             enable = true;
             font = {
-              package = pkgs.fira-code;
-              name = "Fira Code";
+              package = pkgs.iosevka;
+              name = "iosevka";
               size = 13.0;
             };
             themeFile = "Nightfox";
@@ -138,17 +114,9 @@ in
             };
           };
         };
-        xdg.configFile = {
-          /*
-            wezterm = {
-              source = inputs.ggterm;
-              recursive = true;
-            };
-          */
-          nvim = {
-            source = inputs.ggnvim;
-            recursive = true;
-          };
+        xdg.configFile.nvim = {
+          source = inputs.ggnvim;
+          recursive = true;
         };
       };
     };
