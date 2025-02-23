@@ -13,5 +13,8 @@
     };
   };
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;
-  web'.app.photoprism.enable = true;
+  web' = {
+    app.photoprism.enable = true;
+    sql.mysql.enable = true;
+  };
 }
