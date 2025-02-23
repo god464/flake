@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.web'.sql.postgresql;
+  cfg = config.web'.sql.mysql;
   inherit (lib) mkEnableOption;
 in
 {
