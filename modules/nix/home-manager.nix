@@ -7,7 +7,7 @@
 }:
 let
   cfg = config.nix'.home-manager;
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib) mkIf mkEnableOption mkForce;
 in
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
@@ -119,7 +119,7 @@ in
             source = inputs.ggnvim;
             recursive = true;
           };
-          ".baloofilerc".text = ''
+          ".baloofilerc".text = mkForce ''
             [Basic Settings]
             Indexing-Enabled=false
           '';
