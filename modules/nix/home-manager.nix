@@ -114,9 +114,15 @@ in
             };
           };
         };
-        xdg.configFile.nvim = {
-          source = inputs.ggnvim;
-          recursive = true;
+        xdg.configFile = {
+          nvim = {
+            source = inputs.ggnvim;
+            recursive = true;
+          };
+          ".baloofilerc".text = ''
+            [Basic Settings]
+            Indexing-Enabled=false
+          '';
         };
       };
     };
