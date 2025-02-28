@@ -101,7 +101,7 @@ in
               name = "iosevka";
               size = 13.0;
             };
-            themeFile = "Nightfox";
+            themeFile = "gruvbox-dark-hard";
             settings = {
               copy_on_select = true;
               enabled_layouts = "Splits, Stack";
