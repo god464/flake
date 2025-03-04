@@ -114,6 +114,19 @@ in
             };
           };
         };
+        i18n.inputMethod = {
+          enabled = "fcitx5";
+          fcitx5 = {
+            waylandFrontend = true;
+            addons = with pkgs; [
+              fcitx5-chinese-addons
+              fcitx5-pinyin-zhwiki
+              fcitx5-lua
+              fcitx5-pinyin-moegirl
+              fcitx5-nord
+            ];
+          };
+        };
         xdg.configFile = {
           nvim = {
             source = inputs.ggnvim;
