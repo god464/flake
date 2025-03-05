@@ -98,6 +98,7 @@ in
             enable = true;
             font = {
               package = pkgs.iosevka.override {
+                set = "Custom";
                 privateBuildPlan = {
                   family = "Iosevka";
                   spaceing = "term";
