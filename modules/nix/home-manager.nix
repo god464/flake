@@ -97,7 +97,23 @@ in
           kitty = {
             enable = true;
             font = {
-              package = pkgs.iosevka;
+              package = pkgs.iosevka.override {
+                privateBuildPlan = {
+                  family = "Iosevka";
+                  spaceing = "term";
+                  serifs = "sans";
+                  noCvSs = true;
+                  exportGlyphNames = true;
+                  variants = {
+                    inherits = "ss05";
+                    design = {
+                      capital-q = "crossing";
+                      a = "single-storey-top-cut-serifed";
+                      g = "single-storey-serifless";
+                    };
+                  };
+                };
+              };
               name = "iosevka";
               size = 13.0;
             };
