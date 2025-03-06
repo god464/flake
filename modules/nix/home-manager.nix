@@ -100,7 +100,7 @@ in
               package = pkgs.iosevka.override {
                 set = "Custom";
                 privateBuildPlan = {
-                  family = "Iosevka";
+                  family = "Iosevka Custom";
                   spaceing = "term";
                   serifs = "sans";
                   noCvSs = true;
@@ -115,7 +115,7 @@ in
                   };
                 };
               };
-              name = "iosevka";
+              name = "Iosevka Custom";
               size = 13.0;
             };
             themeFile = "gruvbox-dark-hard";
