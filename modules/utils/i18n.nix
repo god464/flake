@@ -10,19 +10,19 @@
     extraLocaleSettings = {
       LC_CTYPE = "zh_CN.UTF-8";
     };
-  };
-  console.useXkbConfig = true;
-  inputMethod = {
-    enabled = "fcitx5";
-    fcitx5 = {
-      waylandFrontend = true;
-      addons = with pkgs; [
-        fcitx5-chinese-addons
-        fcitx5-pinyin-zhwiki
-        fcitx5-lua
-        fcitx5-pinyin-moegirl
-        fcitx5-nord
-      ];
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-chinese-addons
+          fcitx5-pinyin-zhwiki
+          fcitx5-lua
+          fcitx5-pinyin-moegirl
+          fcitx5-nord
+        ];
+      };
     };
   };
+  console.useXkbConfig = true;
 }
