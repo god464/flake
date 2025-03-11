@@ -29,16 +29,24 @@
     };
   };
   nix'.home-manager.enable = true;
-  users.users.cl = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-    createHome = true;
-    packages = with pkgs; [ vlc ];
-    shell = pkgs.fish;
-    hashedPasswordFile = config.sops.secrets.passwd.path;
+  users.users = {
+    cl = {
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ];
+      createHome = true;
+      packages = with pkgs; [ vlc ];
+      shell = pkgs.fish;
+      hashedPasswordFile = config.sops.secrets.passwd.path;
+    };
+    elysium = {
+      isNormalUser = true;
+      createHome = true;
+      packages = with pkgs; [ vlc ];
+      shell = pkgs.fish;
+    };
   };
   hardware = {
     enableAllFirmware = true;
