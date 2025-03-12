@@ -32,10 +32,7 @@
   users.users = {
     cl = {
       isNormalUser = true;
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-      ];
+      extraGroups = [ "wheel" ];
       createHome = true;
       packages = with pkgs; [ vlc ];
       shell = pkgs.fish;

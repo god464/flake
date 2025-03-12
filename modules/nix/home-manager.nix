@@ -187,9 +187,23 @@ in
             };
             ghostty = {
               enable = true;
+              enableFishIntegration = true;
+              settings = {
+                background-opacity = 0.8;
+              };
             };
             zed-editor = {
               enable = true;
+              userSettings = {
+                features.copilot = false;
+                telemetry = {
+                  diagnostics = false;
+                  metrics = false;
+                };
+                vim_mode = true;
+                inlay_hints.enabled = true;
+                theme.mode = "dark";
+              };
             };
           };
         };
