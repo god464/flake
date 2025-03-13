@@ -195,18 +195,13 @@ in
             zed-editor = {
               enable = true;
               userSettings = {
-                features.copilot = false;
+                edit_prediction_provider = "zed";
                 telemetry = {
                   diagnostics = false;
                   metrics = false;
                 };
                 vim_mode = true;
                 inlay_hints.enabled = true;
-                extensions = [
-                  "Astro"
-                  "Vue"
-                  "Nix"
-                ];
               };
             };
           };
