@@ -1,4 +1,13 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  inherit (lib) mkIf;
+  display = config.services.displayManager;
+in
 {
   time.timeZone = "Asia/Shanghai";
   i18n = {
@@ -10,7 +19,7 @@
     extraLocaleSettings = {
       LC_CTYPE = "zh_CN.UTF-8";
     };
-    inputMethod = {
+    inputMethod = mkIf display.enable {
       enable = true;
       type = "fcitx5";
       fcitx5 = {
