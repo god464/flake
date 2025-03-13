@@ -202,10 +202,10 @@ in
                 };
                 vim_mode = true;
                 inlay_hints.enabled = true;
-                theme.mode = "dark";
                 extensions = [
                   "astro"
                   "vue"
+                  "nix"
                 ];
               };
             };
