@@ -203,9 +203,9 @@ in
                 vim_mode = true;
                 inlay_hints.enabled = true;
                 extensions = [
-                  "astro"
-                  "vue"
-                  "nix"
+                  "Astro"
+                  "Vue"
+                  "Nix"
                 ];
               };
             };
