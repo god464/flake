@@ -204,7 +204,7 @@ in
                 inlay_hints.enabled = true;
                 theme.mode = "dark";
                 extensions = [
-                  "asciidoc"
+                  "astro"
                   "vue"
                 ];
               };
