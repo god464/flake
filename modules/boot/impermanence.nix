@@ -59,6 +59,8 @@ in
           ".local/state/nix"
           ".local/share/atuin"
           ".local/share/zoxide"
+          ".local/share/zed"
+          ".config/fcitx5"
           ".mozilla"
           ".thunderbird"
           {
