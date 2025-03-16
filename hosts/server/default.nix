@@ -1,7 +1,13 @@
 { config, ... }:
 {
   imports = [ ./disk.nix ];
-  network'.net.name = "server";
+  network'.net = {
+    name = "server";
+    allowTcpPorts = [
+      80
+      443
+    ];
+  };
   services'.ssh.enable = true;
   sops = {
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
