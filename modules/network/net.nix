@@ -10,13 +10,7 @@ let
   display = config.services.displayManager;
 in
 {
-  options.network'.net = {
-    name = mkOption { type = types.str; };
-    allowTcpPorts = mkOption {
-      type = types.listOf types.port;
-      default = [ ];
-    };
-  };
+  options.network'.net.name = mkOption { type = types.str; };
   config = {
     networking = mkMerge [
       {
@@ -26,7 +20,6 @@ in
           enable = true;
           checkReversePath = "strict";
           filterForward = true;
-          allowedTCPPorts = cfg.allowTcpPorts;
         };
       }
       (
