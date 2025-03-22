@@ -96,28 +96,11 @@ in
           kitty = {
             enable = true;
             font = {
-              package = pkgs.iosevka.override {
-                set = "Custom";
-                privateBuildPlan = {
-                  family = "Iosevka Custom";
-                  spaceing = "term";
-                  serifs = "sans";
-                  noCvSs = true;
-                  exportGlyphNames = true;
-                  variants = {
-                    inherits = "ss05";
-                    design = {
-                      capital-q = "crossing";
-                      a = "single-storey-top-cut-serifed";
-                      g = "single-storey-serifless";
-                    };
-                  };
-                };
-              };
-              name = "Iosevka Custom";
+              package = pkgs.maple-mono;
+              name = "Maple Mono";
               size = 13.0;
             };
-            themeFile = "gruvbox-dark-hard";
+            themeFile = "Everforest Dark Hard";
             settings = {
               copy_on_select = true;
               enabled_layouts = "Splits, Stack";
