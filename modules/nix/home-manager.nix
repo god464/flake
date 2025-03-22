@@ -100,7 +100,7 @@ in
               name = "Maple Mono";
               size = 13.0;
             };
-            themeFile = "Everforest Dark Hard";
+            themeFile = "everforest_dark_hard";
             settings = {
               copy_on_select = true;
               enabled_layouts = "Splits, Stack";
