@@ -18,6 +18,8 @@ in
       enableQuicBPF = true;
       package = pkgs.nginxQuic;
       recommendedZstdSettings = true;
+      recommendedOptimisation = true;
+      recommendedProxySettings = true;
     };
     networking.firewall.allowedTCPPorts = [
       80
