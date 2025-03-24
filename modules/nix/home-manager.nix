@@ -97,7 +97,7 @@ in
             enable = true;
             font = {
               package = pkgs.maple-mono.Normal-CN;
-              name = "Maple Mono Normal";
+              name = "Maple Mono Normal CN";
               size = 13.0;
             };
             themeFile = "everforest_dark_hard";
