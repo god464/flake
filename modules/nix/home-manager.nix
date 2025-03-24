@@ -96,7 +96,7 @@ in
           kitty = {
             enable = true;
             font = {
-              package = pkgs.maple-mono;
+              package = pkgs.maple-mono.CN;
               name = "Maple Mono";
               size = 13.0;
             };
