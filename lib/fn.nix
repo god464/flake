@@ -14,12 +14,6 @@ rec {
     path:
     map (n: path + "/${n}") (getFileNames {
       inherit path;
-      exclude = [
-        "default.nix"
-        "secrets.yaml"
-        "db.key"
-        "db.pem"
-        "dae_sub.yaml"
-      ];
+      exclude = [ "default.nix" ];
     });
 }
