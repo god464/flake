@@ -6,10 +6,14 @@ in
 {
   options.web'.app.forgejo.enable = mkEnableOption "forgejo";
   config = mkIf cfg.enable {
-    services.forgejo = {
-      enable = true;
-      database.type = "postgres";
+    services = {
+      forgejo = {
+        enable = true;
+        database.type = "postgres";
+      };
+      nginx.virtualHosts.localhost = {
+        locations."/git/".proxyPass = "http://localhost:3000/";
+      };
     };
-    networking.firewall.allowedTCPPorts = [ 3000 ];
   };
 }
