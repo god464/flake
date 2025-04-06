@@ -15,8 +15,4 @@
     ];
   };
   services.btrfs.autoScrub.enable = false;
-  web' = {
-    http.caddy.enable = true;
-    sql.postgresql.enable = true;
-  };
 }

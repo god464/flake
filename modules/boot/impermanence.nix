@@ -47,7 +47,6 @@ in
         ".local/share/nix"
         ".local/state/nix"
         ".config/fcitx5"
-        ".config/gh"
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
