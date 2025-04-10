@@ -31,7 +31,10 @@
   nix'.home-manager.enable = true;
   users.users.cl = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     createHome = true;
     packages = with pkgs; [ vlc ];
     shell = pkgs.fish;
