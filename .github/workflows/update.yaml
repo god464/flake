@@ -12,16 +12,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
-      - name: Use nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v9
-      - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@v9
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@v16
         with:
           extra-conf: |
             extra-substituters = https://cache.garnix.io
             extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@v9
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v24
         with:
