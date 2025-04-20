@@ -18,7 +18,6 @@ in
         source-han-mono
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
-        jigmo
         noto-fonts
         noto-fonts-extra
         source-serif-pro
