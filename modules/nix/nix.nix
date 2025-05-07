@@ -32,6 +32,7 @@ in
           "cgroups"
           "nix-command"
           "flakes"
+          "pipe-operators"
         ];
         substituters = mkAfter (
           cfg.cache

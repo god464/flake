@@ -5,6 +5,7 @@
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
           nixd
+          nil
           yaml-language-server
           nixfmt-rfc-style
           nodePackages_latest.prettier
