@@ -13,22 +13,18 @@ in
         global {
           tproxy_port: 12345
           tproxy_port_protect: true
-
           tcp_check_url: 'http://cp.cloudflare.com,1.1.1.1,2606:4700:4700::1111'
           tcp_check_http_method: HEAD
-          udp_check_dns: 'dns.google.com:53,8.8.8.8,2001:4860:4860::8888'
-
+          udp_check_dns: '8.8.8.8:53,114.114.114.114:53,2001:4860:4860::8888,1.1.1.1:53'
           check_interval: 30s
           check_tolerance: 50ms
-
           wan_interface: auto
-
-          tls_implementation: tls
+          tls_implementation: utls
           utls_imitate: chrome_auto
-
           log_level: info
           allow_insecure: false
-          auto_config_kernel_parameter: false
+          auto_config_kernel_parameter: true
+          enable_local_tcp_fast_redirect: true
         }
 
         dns {
@@ -63,9 +59,9 @@ in
         routing {
           pname(NetworkManager) -> direct
 
-          dip(224.0.0.0/3, 'ff00::/8') -> direct
-          dip(geoip:private) -> direct
-          dip(geoip:cn) -> direct
+          dip(224.0.0.0/3, 'ff00::/8', 10.0.0.0/8, 'fd00::/8') -> direct
+          domain(geosite:cn) -> direct
+          dip(geoip:private,geoip:cn) -> direct
 
           l4proto(udp)  && dport(443) -> block
 
@@ -73,7 +69,7 @@ in
           domain(geosite:category-scholar-cn) -> direct
           domain(geosite:geolocation-cn) -> direct
 
-          fallback: proxy
+          fallback: all
         }
       '';
     };
