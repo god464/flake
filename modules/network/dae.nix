@@ -69,7 +69,7 @@ in
           domain(geosite:category-scholar-cn) -> direct
           domain(geosite:geolocation-cn) -> direct
 
-          fallback: all
+          fallback: proxy
         }
       '';
     };
