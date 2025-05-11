@@ -11,7 +11,7 @@ in
         enable = true;
         settings.server = {
           enable_gzip = true;
-          domain = "localhost/monitor";
+          root_url = "%(protocol)s://%(domain)s:%(http_port)s/monitor/";
           serve_from_sub_path = true;
         };
       };
