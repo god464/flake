@@ -14,8 +14,8 @@
   };
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;
   web' = {
-    app.photoprism.enable = true;
-    sql.mysql.enable = true;
     http.nginx.enable = true;
+    app.grafana.enable = true;
   };
+  monitor'.prometheus.enable = true;
 }

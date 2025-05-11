@@ -31,9 +31,7 @@ in
           }
         ];
       };
-      nginx.virtualHosts.localhost = {
-        locations."/photo/".proxyPass = "http://localhost:2342/";
-      };
+      nginx.virtualHosts.localhost.locations."/photo/".proxyPass = "http://localhost:2342/";
     };
   };
 }
