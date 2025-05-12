@@ -13,13 +13,16 @@ in
     enable = mkEnableOption "nginx";
   };
   config = lib.mkIf cfg.enable {
-    services.nginx = {
-      enable = true;
-      enableQuicBPF = true;
-      package = pkgs.nginxQuic;
-      recommendedZstdSettings = true;
-      recommendedOptimisation = true;
-      recommendedProxySettings = true;
+    services = {
+      nginx = {
+        enable = true;
+        enableQuicBPF = true;
+        package = pkgs.nginxQuic;
+        recommendedZstdSettings = true;
+        recommendedOptimisation = true;
+        recommendedProxySettings = true;
+      };
+      prometheus.exporters.nginx.enable = true;
     };
     networking.firewall.allowedTCPPorts = [
       80

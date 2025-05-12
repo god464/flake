@@ -1,0 +1,15 @@
+{ config, lib, ... }:
+let
+  inherit (lib) mkIf mkEnableOption;
+  cfg = config.services'.rustdesk;
+in
+{
+  options.services'.minecraft.enable = mkEnableOption "minecraft";
+  config = mkIf cfg.enable {
+    services.minecraft-server = {
+      enable = true;
+      openFirewall = true;
+      eula = true;
+    };
+  };
+}
