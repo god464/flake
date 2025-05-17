@@ -6,10 +6,13 @@ in
 {
   options.web'.sql.postgresql.enable = mkEnableOption "postgresql";
   config = lib.mkIf cfg.enable {
-    services.postgresql = {
-      enable = true;
-      enableTCPIP = true;
-      enableJIT = true;
+    services = {
+      postgresql = {
+        enable = true;
+        enableTCPIP = true;
+        enableJIT = true;
+      };
+      prometheus.exporters.postgres.enable = true;
     };
   };
 }
