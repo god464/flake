@@ -39,6 +39,7 @@ in
           ++ [
             "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store"
             "https://nix-community.cachix.org"
+            "https://numtide.cachix.org"
             "https://cache.garnix.io"
           ]
         );
@@ -46,8 +47,9 @@ in
           cfg.trustKeys
           ++ [
             "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-            "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
             "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
+            "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
           ]
         );
         trusted-users = [ "@wheel" ];
