@@ -69,7 +69,7 @@ in
 
           l4proto(udp)  && dport(443) -> block
 
-          domain(geosite:cn, geosite:china-list, geolocation-cn) -> direct
+          domain(geosite:cn, geolocation-cn) -> direct
           domain(geosite:openai, geosite:anthropic) -> pure
           domain(geosite:category-ads-all) -> block
 
