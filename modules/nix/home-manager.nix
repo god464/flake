@@ -16,22 +16,9 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
       users.cl = {
         home.stateVersion = "24.11";
         programs = {
-          plasma = {
-            enable = true;
-            input.touchpads = [
-              {
-                naturalScroll = true;
-                tapToClick = true;
-                vendorId = "06CB";
-                productId = "CD50";
-                name = "SYNA32AC:00 06CB:CD50 Touchpad";
-              }
-            ];
-          };
           atuin.enable = true;
           bat = {
             enable = true;
