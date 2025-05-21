@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  imports = [ ./disk.nix ];
   network'.net.name = "livecd";
   services'.gpg.enable = true;
   programs'.fish.enable = true;

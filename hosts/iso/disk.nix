@@ -32,22 +32,6 @@
                   "compress=zstd"
                   "noatime"
                 ];
-                subvolumes = {
-                  "@nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "@var" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/var";
-                  };
-                };
               };
             };
           };

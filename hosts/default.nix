@@ -33,7 +33,7 @@
       nixosConfigurations = {
         laptop = mkNixossystem "laptop";
         server = mkNixossystem "server";
-        # iso = mkNixossystem "iso";
+        iso = mkNixossystem "iso";
       };
     };
 }
