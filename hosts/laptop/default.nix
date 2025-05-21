@@ -3,7 +3,6 @@
   imports = [ ./disk.nix ];
   boot' = {
     boot = {
-      kernel = pkgs.linuxPackages_latest;
       para = [
         "amd_pstate=active"
         "radeon.cik_support=0"
@@ -14,7 +13,7 @@
     impermanence.enable = true;
   };
   network' = {
-    net.name = "desktop";
+    net.name = "laptop";
     dae.enable = true;
   };
   sops = {
@@ -24,7 +23,7 @@
       passwd.neededForUsers = true;
       host-desktop = {
         format = "binary";
-        sopsFile = ./secrets/host-desktop.key;
+        sopsFile = ./secrets/host-laptop.key;
       };
     };
   };

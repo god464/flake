@@ -15,15 +15,9 @@ let
   cfg = config.boot'.boot;
 in
 {
-  options.boot'.boot = {
-    kernel = mkOption {
-      type = types.raw;
-      default = pkgs.linuxPackages;
-    };
-    para = mkOption {
-      default = [ ];
-      type = types.listOf types.str;
-    };
+  options.boot'.boot.para = mkOption {
+    default = [ ];
+    type = types.listOf types.str;
   };
   config = {
     boot = mkMerge [
@@ -44,7 +38,7 @@ in
           systemd.enable = true;
         };
         kernelModules = [ "kvm-amd" ];
-        kernelPackages = cfg.kernel;
+        kernelPackages = pkgs.linuxPackages_latest;
         loader = {
           efi.canTouchEfiVariables = true;
           systemd-boot = {

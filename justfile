@@ -12,7 +12,7 @@
 @clean:
     nix-collect-garbage -d
 
-@upgrade target="desktop":
+@upgrade target="laptop":
     nixos-rebuild switch --flake .#{{ target }}
 
 @upgrade-remote target ip:

@@ -7,6 +7,7 @@
           nixd
           nil
           yaml-language-server
+          vscode-langservers-extracted
           nixfmt-rfc-style
           nodePackages_latest.prettier
           statix
