@@ -25,7 +25,7 @@
     nix-store --repair --verify --check-contents
 
 @geniso:
-    nix build .#nixosConfigurations.desktop.config.formats.iso
+    nix build .#nixosConfigurations.iso.config.formats.iso
 
 @genfacter:
     nix run github:numtide/nixos-facter -- -o facter.json
