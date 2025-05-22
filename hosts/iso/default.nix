@@ -24,4 +24,5 @@
     amdgpu.initrd.enable = true;
     nvidia.open = true;
   };
+  services.btrfs.autoScrub.fileSystems = [ "/" ];
 }

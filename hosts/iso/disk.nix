@@ -23,12 +23,10 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = [
-                  "-f"
-                  "-L Nixos"
-                ];
+                extraArgs = [ "-f" ];
                 mountpoint = "/";
                 mountOptions = [
+                  "csum=xxhash"
                   "compress=zstd"
                   "noatime"
                 ];
