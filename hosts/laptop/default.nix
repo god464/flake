@@ -10,7 +10,7 @@
       ];
     };
     secure-boot.enable = true;
-    impermanence.enable = true;
+    preservation.enable = true;
   };
   network' = {
     net.name = "laptop";
