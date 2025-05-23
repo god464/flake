@@ -1,0 +1,28 @@
+name: build-livecd-image
+on:
+  workflow_dispatch:
+
+jobs:
+  image:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@4.2.2
+      - name: Install Nix
+        with:
+          extra-conf: |
+            extra-substituters = https://cache.garnix.io
+            extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
+            experimental-features = nix-command flakes auto-allocate-uids cgroups recursive-nix ca-derivations pipe-operators
+        uses: DeterminateSystems/nix-installer-action@v17
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@v9
+      - name: build LiveCD
+        run: |
+          nix build .#nixosConfigurations.iso.config.formats.iso
+      - uses: actions/upload-artifact@v4
+        with:
+          path: ./result/*
+          overwrite: true
+          retention-days: 7days
