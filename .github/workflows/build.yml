@@ -1,7 +1,8 @@
 name: build-livecd-image
 on:
   workflow_dispatch:
-
+permissions:
+  contents: read
 jobs:
   image:
     name: build
