@@ -23,6 +23,11 @@ in
           bat = {
             enable = true;
             config.theme = "Nord";
+            extraPackages = with pkgs.bat-extras; [
+              batpipe
+              batgrep
+              batdiff
+            ];
           };
           direnv = {
             enable = true;
@@ -35,7 +40,10 @@ in
             icons = "always";
           };
           fd.enable = true;
-          fzf.enable = true;
+          fzf = {
+            enable = true;
+            defaultCommand = "fd –type f –follow –exclude .git";
+          };
           htop.enable = true;
           ripgrep.enable = true;
           zoxide.enable = true;
@@ -71,6 +79,9 @@ in
               ls = "eza";
               cd = "z";
               cat = "bat";
+              diff = "batdiff";
+              less = "batpipe";
+              rg = "batdiff";
             };
           };
           starship.enable = true;
