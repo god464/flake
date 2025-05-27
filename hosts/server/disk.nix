@@ -3,14 +3,13 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/sda1";
+        device = "/dev/sda";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
               name = "ESP";
-              start = "1M";
-              end = "128M";
+              size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -20,6 +19,7 @@
               };
             };
             root = {
+              label = "ROOT";
               size = "100%";
               content = {
                 type = "btrfs";
