@@ -41,6 +41,7 @@
                 };
                 "@var" = {
                   mountOptions = [
+                    "csum=xxhash"
                     "compress=zstd"
                     "noatime"
                   ];

@@ -17,12 +17,6 @@
   };
   hardware = {
     enableAllFirmware = true;
-    cpu = {
-      amd.updateMicrocode = true;
-      intel.updateMicrocode = true;
-    };
-    amdgpu.initrd.enable = true;
-    nvidia.open = true;
+    enableAllHardware = true;
   };
-  services.btrfs.autoScrub.fileSystems = [ "/" ];
 }
