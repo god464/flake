@@ -18,7 +18,7 @@ jobs:
             experimental-features = nix-command flakes auto-allocate-uids cgroups recursive-nix ca-derivations pipe-operators
         uses: DeterminateSystems/nix-installer-action@v17
       - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@v9
+        uses: DeterminateSystems/flake-checker-action@v10
       - name: build LiveCD
         run: |
           nix build .#nixosConfigurations.iso.config.formats.iso
