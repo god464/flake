@@ -127,9 +127,7 @@ in
               disable_ligatures = "cursor";
             };
           };
-          niri = mkIf niriEnable {
-            settings = { };
-          };
+          niri = mkIf niriEnable { settings = { }; };
           swaylock = mkIf niriEnable { enable = true; };
           fuzzel = mkIf niriEnable { enable = true; };
           waybar = mkIf niriEnable { enable = true; };

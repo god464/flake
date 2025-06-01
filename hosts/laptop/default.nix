@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, config, ... }:
 {
   imports = [ ./disk.nix ];
   boot' = {

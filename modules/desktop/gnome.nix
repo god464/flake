@@ -15,8 +15,6 @@ in
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
-    environment.systemPackages = with pkgs; [
-      gnome-tweaks
-    ];
+    environment.systemPackages = with pkgs; [ gnome-tweaks ];
   };
 }

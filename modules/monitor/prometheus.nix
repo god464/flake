@@ -21,12 +21,12 @@ in
               rules = [
                 {
                   alert = "NodeDown";
-                  expr = ''up == 0'';
+                  expr = "up == 0";
                   for = "5m";
                 }
                 {
                   alert = "OOM";
-                  expr = ''node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes < 0.85'';
+                  expr = "node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes < 0.85";
                 }
                 {
                   alert = "DiskFull";
@@ -42,7 +42,7 @@ in
                 }
                 {
                   alert = "BtrfsDevErr";
-                  expr = ''sum(rate(node_btrfs_device_errors_total[2m])) > 0'';
+                  expr = "sum(rate(node_btrfs_device_errors_total[2m])) > 0";
                 }
               ];
             }
