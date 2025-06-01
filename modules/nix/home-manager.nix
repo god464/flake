@@ -11,17 +11,14 @@ let
   inherit (lib) mkIf mkEnableOption;
 in
 {
-  imports = with inputs; [
-    home-manager.nixosModules.home-manager
-    niri-flake.homeModules.niri
-  ];
+  imports = with inputs; [ home-manager.nixosModules.home-manager ];
   options.nix'.home-manager.enable = mkEnableOption "home-manager";
   config = mkIf cfg.enable {
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
       users.cl = {
-        home.stateVersion = "24.11";
+        home.stateVersion = "25.05";
         programs = {
           atuin.enable = true;
           bat = {
@@ -131,7 +128,6 @@ in
             };
           };
           niri = mkIf niriEnable {
-            enable = true;
             settings = { };
           };
           swaylock = mkIf niriEnable { enable = true; };
