@@ -20,14 +20,11 @@ in
       enable = true;
       profiles.user.databases = [
         {
-          lockAll = true;
+          localAll = true;
           settings = {
             "org/gnome/shell" = {
               disable-user-extensions = false;
-              enabled-extensions = [
-                "blur-my-shell@aunetx"
-                "paperwm@paperwm"
-              ];
+              enabled-extensions = [ "paperwm@paperwm.github.com" ];
             };
             "org/gnome/desktop/interface" = {
               clock-show-seconds = true;
@@ -46,6 +43,16 @@ in
               duration-seconds = mkUint32 300;
               interval-seconds = mkUint32 1800;
               play-sound = true;
+            };
+            "org/gnome/settings-daemon/plugins/media-keys" = {
+              screensaver = [ "<Super>Escape" ];
+            };
+            "org/gnome/shell/extensions/paperwm/keybindings" = {
+              switch-down = [ "<Super>j" ];
+              switch-left = [ "<Super>h" ];
+              switch-right = [ "<Super>l" ];
+              switch-up = [ "<Super>k" ];
+              toggle-scratch-window = [ "<Super>m" ];
             };
           };
         }
@@ -71,10 +78,7 @@ in
           gnome-tweaks
           wl-clipboard
         ]
-        ++ (with pkgs.gnomeExtensions; [
-          paperwm
-          blur-my-shell
-        ]);
+        ++ (with pkgs.gnomeExtensions; [ paperwm ]);
     };
   };
 }
