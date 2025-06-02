@@ -6,6 +6,7 @@
 }:
 let
   inherit (lib) mkEnableOption mkIf;
+  inherit (lib.gvariant) mkUint32;
   cfg = config.desktop'.gnome;
 in
 {
@@ -21,6 +22,13 @@ in
         {
           lockAll = true;
           settings = {
+            "org/gnome/shell" = {
+              disable-user-extensions = false;
+              enabled-extensions = [
+                "blur-my-shell@aunetx"
+                "paperwm@paperwm"
+              ];
+            };
             "org/gnome/desktop/interface" = {
               clock-show-seconds = true;
               clock-show-weekday = true;
@@ -35,8 +43,8 @@ in
             "org/gnome/desktop/peripherals/touchpad".two-finger-scrolling-enabled = true;
             "org/gnome/desktop/screen-time-limits".daily-limit-enabled = true;
             "org/gnome/desktop/break-reminders/movement" = {
-              duration-seconds = 300;
-              interval-seconds = 1800;
+              duration-seconds = mkUint32 300;
+              interval-seconds = mkUint32 1800;
               play-sound = true;
             };
           };
