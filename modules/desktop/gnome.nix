@@ -20,7 +20,7 @@ in
       enable = true;
       profiles.user.databases = [
         {
-          localAll = true;
+          lockAll = true;
           settings = {
             "org/gnome/shell" = {
               disable-user-extensions = false;
