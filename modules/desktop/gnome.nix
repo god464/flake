@@ -24,6 +24,7 @@ in
         gnome-tour
         gnome-text-editor
         gnome-console
+        gnome-contacts
         simple-scan
         snapshot
         yelp
