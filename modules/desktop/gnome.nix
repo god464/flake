@@ -11,7 +11,7 @@ in
 {
   options.desktop'.gnome.enable = mkEnableOption "Gnome";
   config = mkIf cfg.enable {
-    services.xserver = {
+    services = {
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };

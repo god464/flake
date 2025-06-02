@@ -45,7 +45,7 @@
     amdgpu.initrd.enable = true;
   };
   programs'.fish.enable = true;
-  desktop'.cosmic.enable = true;
+  desktop'.gnome.enable = true;
   facter.reportPath = ./facter.json;
   services' = {
     gpg.enable = true;

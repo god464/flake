@@ -7,7 +7,6 @@
 }:
 let
   cfg = config.nix'.home-manager;
-  niriEnable = config.programs.niri.enable;
   inherit (lib) mkIf mkEnableOption;
 in
 {
@@ -127,13 +126,6 @@ in
               disable_ligatures = "cursor";
             };
           };
-          niri = mkIf niriEnable { settings = { }; };
-          swaylock = mkIf niriEnable { enable = true; };
-          fuzzel = mkIf niriEnable { enable = true; };
-          waybar = mkIf niriEnable { enable = true; };
-        };
-        services = {
-          mako = mkIf niriEnable { enable = true; };
         };
         xdg.configFile.nvim = {
           source = inputs.ggnvim;
