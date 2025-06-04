@@ -22,12 +22,12 @@ in
           }
         ];
         startWhenNeeded = true;
-        settings.UseDns = true;
+        settings.PasswordAuthentication = false;
       }
       (
         if cfg.enable then
           {
-            settings.PermitRootLogin = "yes";
+            settings.PermitRootLogin = "prohibit-password";
           }
         else
           {

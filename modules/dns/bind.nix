@@ -4,7 +4,7 @@ let
   cfg = config.dns'.bind;
 in
 {
-  options.dns'.bind.enable = mkEnableOption "Bind";
+  options.dns'.bind.enable = mkEnableOption "bind";
   config = mkIf cfg.enable {
     services.bind = {
       enable = true;

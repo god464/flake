@@ -15,7 +15,7 @@ in
           serve_from_sub_path = true;
         };
       };
-      nginx.virtualHosts.localhost.locations."/photo/".proxyPass = "http://localhost:3000/";
+      nginx.virtualHosts.localhost.locations."/grafana/".proxyPass = "http://localhost:3000";
     };
   };
 }

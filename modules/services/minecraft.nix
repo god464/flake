@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.services'.rustdesk;
@@ -8,6 +13,7 @@ in
   config = mkIf cfg.enable {
     services.minecraft-server = {
       enable = true;
+      package = pkgs.papermc;
       openFirewall = true;
       eula = true;
     };
