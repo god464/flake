@@ -52,6 +52,7 @@
         ./shells
         ./lib
         ./modules
+        ./home
       ];
     };
 }
