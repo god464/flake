@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   lib,
   config,
@@ -17,36 +18,9 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
       users.cl = {
+        sharedModules = [ self.homeModules.default ];
         home.stateVersion = "25.05";
         programs = {
-          atuin.enable = true;
-          bat = {
-            enable = true;
-            config.theme = "Nord";
-            extraPackages = with pkgs.bat-extras; [
-              batpipe
-              batgrep
-              batdiff
-            ];
-          };
-          direnv = {
-            enable = true;
-            nix-direnv.enable = true;
-            silent = true;
-          };
-          eza = {
-            enable = true;
-            git = true;
-            icons = "always";
-          };
-          fd.enable = true;
-          fzf = {
-            enable = true;
-            defaultCommand = "fd –type f –follow –exclude .git";
-          };
-          htop.enable = true;
-          ripgrep.enable = true;
-          zoxide.enable = true;
           neovim = {
             enable = true;
             extraPackages = with pkgs; [
@@ -73,18 +47,6 @@ in
               signByDefault = true;
             };
           };
-          fish = {
-            enable = true;
-            shellAbbrs = {
-              ls = "eza";
-              cd = "z";
-              cat = "bat";
-              diff = "batdiff";
-              less = "batpipe";
-              rg = "batgrep";
-            };
-          };
-          starship.enable = true;
           gpg = {
             enable = true;
             mutableKeys = false;
