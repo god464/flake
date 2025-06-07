@@ -81,7 +81,7 @@ in
               cat = "bat";
               diff = "batdiff";
               less = "batpipe";
-              rg = "batdiff";
+              rg = "batgrep";
             };
           };
           starship.enable = true;
