@@ -1,9 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 {
   config = {
     programs.neovim = {
