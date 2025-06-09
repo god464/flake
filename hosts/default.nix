@@ -2,6 +2,7 @@
   inputs,
   withSystem,
   self,
+  config,
   ...
 }:
 {
@@ -12,7 +13,10 @@
         withSystem "x86_64-linux" (
           { lib, ... }:
           lib.nixosSystem {
-            specialArgs = { inherit inputs; };
+            specialArgs = {
+              inherit inputs;
+              topcfg = config;
+            };
             modules =
               with inputs;
               [
