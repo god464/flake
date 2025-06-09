@@ -1,14 +1,12 @@
 {
-  flake = {
-    nixosModules.default =
-      { lib, ... }:
-      {
+  flake =
+    { lib, ... }:
+    {
+      nixosModules.default = {
         imports = lib.importModule' ./nixos/.;
       };
-    homeModules.default =
-      { lib, ... }:
-      {
+      homeModules.default = {
         imports = lib.importModule' ./home/.;
       };
-  };
+    };
 }
