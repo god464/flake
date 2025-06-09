@@ -1,16 +1,6 @@
+{ config, pkgs, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-let
-
-  cfg = config.services.displayManager;
-  inherit (lib) mkIf;
-in
-{
-  config = mkIf cfg.enable {
+  config = {
     programs.kitty = {
       enable = true;
       font = {

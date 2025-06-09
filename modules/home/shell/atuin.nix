@@ -1,8 +1,6 @@
-{ config, lib, ... }:
-let
-  cfg = config.programs.fish;
-  inherit (lib) mkIf;
-in
+{ config, ... }:
 {
-  config = mkIf cfg.enable { programs.atuin.enable = true; };
+  config = {
+    programs.atuin.enable = true;
+  };
 }

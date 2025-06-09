@@ -1,15 +1,6 @@
+{ config, pkgs, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-let
-  cfg = config.programs.fish;
-  inherit (lib) mkIf;
-in
-{
-  config = mkIf cfg.enable {
+  config = {
     programs.bat = {
       enable = true;
       config.theme = "Nord";

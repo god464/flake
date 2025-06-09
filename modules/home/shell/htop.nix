@@ -1,8 +1,6 @@
-{ config, lib, ... }:
-let
-  cfg = config.programs.fish;
-  inherit (lib) mkIf;
-in
+{ config, ... }:
 {
-  config = mkIf cfg.enable { programs.htop.enable = true; };
+  config = {
+    programs.htop.enable = true;
+  };
 }

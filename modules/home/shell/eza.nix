@@ -1,10 +1,6 @@
-{ config, lib, ... }:
-let
-  cfg = config.programs.fish;
-  inherit (lib) mkIf;
-in
+{ config, ... }:
 {
-  config = mkIf cfg.enable {
+  config = {
     programs.eza = {
       enable = true;
       git = true;
