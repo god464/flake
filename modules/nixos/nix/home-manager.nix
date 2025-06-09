@@ -17,6 +17,7 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
       sharedModules = [ topcfg.flake.homeModules.default ];
+      specialArgs = { inherit inputs; };
       users.cl.home.stateVersion = "25.05";
     };
   };
