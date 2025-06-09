@@ -28,6 +28,8 @@ in
             networkmanager = {
               enable = true;
               enableStrongSwan = true;
+              ethernet.macAddress = "random";
+              wifi.macAddress = "ramdom";
             };
           }
         else
@@ -40,6 +42,9 @@ in
       enable = true;
       wait-online.enable = lib.mkForce false;
     };
-    services.resolved.enable = !display.enable;
+    services.resolved = {
+      enable = !display.enable;
+      dnssec = "true";
+    };
   };
 }
