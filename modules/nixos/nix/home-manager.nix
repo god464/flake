@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  topcfg,
   pkgs,
   ...
 }:
@@ -16,6 +17,7 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      sharedModules = [ topcfg.flake.homeModules.default ];
       users.cl = {
         home.stateVersion = "25.05";
         programs = {
