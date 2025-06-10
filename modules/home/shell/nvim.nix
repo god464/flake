@@ -1,6 +1,15 @@
-{ inputs, pkgs, ... }:
 {
-  config = {
+  inputs,
+  pkgs,
+  osConfig,
+  lib,
+  ...
+}:
+let
+  cfg = osConfig.programs.nvim;
+in
+{
+  config = lib.mkIf cfg.enable {
     programs.neovim = {
       enable = true;
       extraPackages = with pkgs; [

@@ -1,5 +1,9 @@
+{ lib, osConfig, ... }:
+let
+  cfg = osConfig.programs.fish;
+in
 {
-  config = {
+  config = lib.mkIf cfg.enable {
     programs.fish = {
       enable = true;
       shellAbbrs = {

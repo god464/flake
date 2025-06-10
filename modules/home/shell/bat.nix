@@ -1,6 +1,14 @@
-{ pkgs, ... }:
 {
-  config = {
+  pkgs,
+  osConfig,
+  lib,
+  ...
+}:
+let
+  cfg = osConfig.programs.fish;
+in
+{
+  config = lib.mkIf cfg.enable {
     programs.bat = {
       enable = true;
       config.theme = "Nord";
