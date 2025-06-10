@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = osConfig.programs.nvim;
+  cfg = osConfig.programs.neovim;
 in
 {
   config = lib.mkIf cfg.enable {
