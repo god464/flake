@@ -6,108 +6,112 @@ in
   config = lib.mkIf cfg.enable {
     programs.waybar = {
       enable = true;
-      settings = {
-        modules-left = [
-          "niri/workspaces"
-          "niri/window"
-        ];
-        modules-center = [ "clock" ];
-        modules-right = [
-          "idle_inhibitor"
-          "battery"
-          "wireplumber"
-          "backlight"
-          "network"
-          "bluetooth"
-          "power-profiles-daemon"
-        ];
-        clock = {
-          interval = 1;
-          format = "{:%F %a %T}";
-          timezone = "Asia/Hong_Kong";
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          max-length = 25;
-          calendar = {
-            mode = "year";
-            mode-mon-col = 3;
-            weeks-pos = "right";
-            on-scroll = 1;
-            format = {
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              weeks = "<span color='#99ffdd'><b>U{}</b></span>";
-              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+      settings = [
+        {
+          layer = "top";
+          position = "top";
+          modules-left = [
+            "niri/workspaces"
+            "niri/window"
+          ];
+          modules-center = [ "clock" ];
+          modules-right = [
+            "idle_inhibitor"
+            "battery"
+            "wireplumber"
+            "backlight"
+            "network"
+            "bluetooth"
+            "power-profiles-daemon"
+          ];
+          clock = {
+            interval = 1;
+            format = "{:%F %a %T}";
+            timezone = "Asia/Hong_Kong";
+            tooltip-format = "<tt><small>{calendar}</small></tt>";
+            max-length = 25;
+            calendar = {
+              mode = "year";
+              mode-mon-col = 3;
+              weeks-pos = "right";
+              on-scroll = 1;
+              format = {
+                months = "<span color='#ffead3'><b>{}</b></span>";
+                days = "<span color='#ecc6d9'><b>{}</b></span>";
+                weeks = "<span color='#99ffdd'><b>U{}</b></span>";
+                weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+                today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+              };
+            };
+            actions = {
+              on-click-right = "mode";
+              on-scroll-up = "tz_up";
+              on-scroll-down = "tz_down";
             };
           };
-          actions = {
-            on-click-right = "mode";
-            on-scroll-up = "tz_up";
-            on-scroll-down = "tz_down";
+          "niri/workspaces" = {
+            format = "{icon}";
+            format-icons = {
+              active = "";
+              default = "󰄰";
+            };
+            on-scroll-up = "niri msg action focus-workspace-up";
           };
-        };
-        "niri/workspaces" = {
-          format = "{icon}";
-          format-icons = {
-            active = "";
-            default = "󰄰";
+          "niri/window" = {
+            format-alt = "{app_id}";
+            icon = true;
+            separate-outputs = true;
+            on-scroll-up = "niri msg action focus-column-left";
+            on-scroll-down = "niri msg action focus-column-right";
           };
-          on-scroll-up = "niri msg action focus-workspace-up";
-        };
-        "niri/window" = {
-          format-alt = "{app_id}";
-          icon = true;
-          separate-outputs = true;
-          on-scroll-up = "niri msg action focus-column-left";
-          on-scroll-down = "niri msg action focus-column-right";
-        };
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = "󰈈";
-            deactivated = "󰈉";
+          idle_inhibitor = {
+            format = "{icon}";
+            format-icons = {
+              activated = "󰈈";
+              deactivated = "󰈉";
+            };
           };
-        };
-        power-profiles-daemon = {
-          format-icons = {
-            default = "";
-            performance = "";
-            balanced = "";
-            power-saver = "";
+          power-profiles-daemon = {
+            format-icons = {
+              default = "";
+              performance = "";
+              balanced = "";
+              power-saver = "";
+            };
           };
-        };
-        battery = {
-          format = "{icon}";
-          format-icons = {
-            default = [
-              "󱊡"
-              "󱊢"
-              "󱊣"
+          battery = {
+            format = "{icon}";
+            format-icons = {
+              default = [
+                "󱊡"
+                "󱊢"
+                "󱊣"
+              ];
+              charging = [
+                "󱊤"
+                "󱊥"
+                "󱊦"
+              ];
+            };
+            tooltip-format = "{capacity}%";
+          };
+          backlight = {
+            format = "{icon}";
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
             ];
-            charging = [
-              "󱊤"
-              "󱊥"
-              "󱊦"
-            ];
+            tooltip-format = "{percent}%";
           };
-          tooltip-format = "{capacity}%";
-        };
-        backlight = {
-          format = "{icon}";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
-          tooltip-format = "{percent}%";
-        };
-      };
+        }
+      ];
       style = ''
         * {
           border: none;
