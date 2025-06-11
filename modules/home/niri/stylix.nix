@@ -12,7 +12,8 @@ in
     stylix = {
       enable = true;
       image = pkgs.fetchurl {
-        url = "https://github.com/NixOS/nixos-artwork/blob/master/wallpapers/NixOS-Gradient-grey.png?raw=true";
+        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-dracula.png";
+        hash = "sha256-SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
       };
     };
   };

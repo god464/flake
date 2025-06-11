@@ -19,7 +19,7 @@ in
       themeFile = "everforest_dark_hard";
       settings = {
         copy_on_select = true;
-        enabled_layouts = "Splits, Stack";
+        enabled_layouts = "splits, stack";
         enable_audio_bell = false;
         tab_bar_edge = "top";
         tab_bar_style = "powerline";
