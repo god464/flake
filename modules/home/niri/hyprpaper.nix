@@ -17,7 +17,7 @@ in
       enable = true;
       settings = {
         preload = [ wallpaper ];
-        wallpapers = [ ", ${wallpaper}" ];
+        wallpapers = [ ",${wallpaper}" ];
       };
     };
   };
