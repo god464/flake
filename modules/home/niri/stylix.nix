@@ -15,6 +15,10 @@ in
         url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/03c6c20be96c38827037d2238357f2c777ec4aa5/wallpapers/nix-wallpaper-dracula.png";
         hash = "sha256-SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
       };
+      targets = {
+        fontconfig.enable = false;
+        font-packages.enable = false;
+      };
     };
   };
 }
