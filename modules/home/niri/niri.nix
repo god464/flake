@@ -58,7 +58,7 @@ in
 
       (plain "binds" [
         (plain "Mod+Shift+Slash" [ (flag "show-hotkey-overlay") ])
-        (plain "Mod+Enter" [ (leaf "spawn" [ "kitty" ]) ])
+        (plain "Mod+Return" [ (leaf "spawn" [ "kitty" ]) ])
         (plain "Mod+Space" [ (leaf "spawn" [ "fuzzel" ]) ])
         (plain "Super+Escape" [ (leaf "spawn" [ "hyprlock" ]) ])
         (plain "XF86AudioRaiseVolume" [
