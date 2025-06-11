@@ -24,6 +24,10 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
