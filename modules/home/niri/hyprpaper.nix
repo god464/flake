@@ -16,8 +16,8 @@ in
     services.hyprpaper = {
       enable = true;
       settings = {
-        preload = [ wallpaper ];
-        wallpapers = [ ",${wallpaper}" ];
+        # preload = [ wallpaper ];
+        # wallpapers = [ ",${wallpaper}" ];
       };
     };
   };
