@@ -1,10 +1,24 @@
-{ osConfig, lib, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = osConfig.programs.niri;
+  wallpaper = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/03c6c20be96c38827037d2238357f2c777ec4aa5/wallpapers/nix-wallpaper-dracula.png";
+    hash = "sha256-SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
+  };
 in
 {
   config = lib.mkIf cfg.enable {
-    services.hyprpaper.enable = true;
-    systemd.user.services.hyprpaper.wantedBy = [ "niri.service" ];
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        preload = wallpaper;
+        wallpapers = ", ${wallpaper}";
+      };
+    };
   };
 }

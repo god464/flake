@@ -169,6 +169,5 @@ in
         }
       '';
     };
-    systemd.user.services.waybar.wantedBy = [ "niri.service" ];
   };
 }

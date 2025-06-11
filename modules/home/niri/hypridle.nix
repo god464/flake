@@ -5,6 +5,5 @@ in
 {
   config = lib.mkIf cfg.enable {
     services.hypridle.enable = true;
-    systemd.user.services.hypridle.wantedBy = [ "niri.service" ];
   };
 }

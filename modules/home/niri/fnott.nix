@@ -5,6 +5,5 @@ in
 {
   config = lib.mkIf cfg.enable {
     services.fnott.enable = true;
-    systemd.user.services.fnott.wantedBy = [ "niri.service" ];
   };
 }
