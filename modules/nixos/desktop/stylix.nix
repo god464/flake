@@ -1,11 +1,11 @@
 {
-  Config,
+  config,
   lib,
   pkgs,
   ...
 }:
 let
-  cfg = Config.programs.niri;
+  cfg = config.programs.niri;
 in
 {
   config = lib.mkIf cfg.enable {
