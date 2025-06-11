@@ -3,7 +3,5 @@ let
   cfg = osConfig.programs.fish;
 in
 {
-  config = lib.mkIf cfg.enable {
-    programs.zoxide.enable = true;
-  };
+  config = lib.mkIf cfg.enable { programs.zoxide.enable = true; };
 }

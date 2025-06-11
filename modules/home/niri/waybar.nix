@@ -1,8 +1,4 @@
-{
-  osConfig,
-  lib,
-  ...
-}:
+{ osConfig, lib, ... }:
 let
   cfg = osConfig.programs.niri;
 in
@@ -15,9 +11,7 @@ in
           "niri/workspaces"
           "niri/window"
         ];
-        modules-center = [
-          "clock"
-        ];
+        modules-center = [ "clock" ];
         modules-right = [
           "idle_inhibitor"
           "battery"

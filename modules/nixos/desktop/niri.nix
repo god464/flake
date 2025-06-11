@@ -10,7 +10,10 @@ let
   cfg = config.desktop'.niri;
 in
 {
-  imports = [ inputs.niri-flake.nixosModules.niri ];
+  imports = with inputs; [
+    niri-flake.nixosModules.niri
+    stylix.nixosModules.stylix
+  ];
   options.desktop'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
     nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
@@ -18,5 +21,6 @@ in
       enable = true;
       package = pkgs.niri-unstable;
     };
+    services.displayManager.gdm.enable = true;
   };
 }

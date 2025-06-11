@@ -1,14 +1,10 @@
-{
-  osConfig,
-  lib,
-  ...
-}:
+{ osConfig, lib, ... }:
 let
   cfg = osConfig.programs.niri;
 in
 {
   config = lib.mkIf cfg.enable {
-    services.fnoot.enable = true;
-    systemd.user.services.fuzzel.wantedBy = [ "niri.service" ];
+    services.fnott.enable = true;
+    systemd.user.services.fnott.wantedBy = [ "niri.service" ];
   };
 }

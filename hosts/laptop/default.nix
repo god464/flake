@@ -44,7 +44,10 @@
     amdgpu.initrd.enable = true;
   };
   programs'.fish.enable = true;
-  desktop'.gnome.enable = true;
+  desktop' = {
+    gnome.enable = true;
+    niri.enable = true;
+  };
   facter.reportPath = ./facter.json;
   services' = {
     gpg.enable = true;

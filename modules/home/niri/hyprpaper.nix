@@ -1,8 +1,4 @@
-{
-  osConfig,
-  lib,
-  ...
-}:
+{ osConfig, lib, ... }:
 let
   cfg = osConfig.programs.niri;
 in
