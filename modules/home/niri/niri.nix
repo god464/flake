@@ -26,7 +26,6 @@ in
         default-column-width.proportion = 0.5;
         focus-ring.width = 2;
       };
-      spawn-at-startup = [ "waybar" ];
       binds = with config.lib.niri.actions; {
         "Mod+Shift+Slash".action = show-hotkey-overlay;
         "Mod+Return".action = spawn "kitty";
