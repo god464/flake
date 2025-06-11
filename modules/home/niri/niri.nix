@@ -20,7 +20,7 @@ in
         (plain "keyboard" [ (plain "xkb" [ (leaf "layout" "us") ]) ])
         (plain "touchpad" [
           (flag "tap")
-          (flag "natual-scroll")
+          (flag "natural-scroll")
         ])
       ])
 
@@ -31,7 +31,7 @@ in
       ])
 
       (plain "layout" [
-        (leaf "gap" 8)
+        (leaf "gaps" 8)
         (leaf "center-focused-column" "on-overflow")
         (plain "preset-column-widths" [
           (leaf "proportion" (1.0 / 3.0))
