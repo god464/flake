@@ -50,6 +50,8 @@ in
 
       (leaf "screenshot-path" "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png")
 
+      (flag "prefer-no-csd")
+
       (plain "window-rule" [
         (leaf "match" {
           app-id = ''r#"firefox$"# title="^Picture-in-Picture$"'';
@@ -59,15 +61,9 @@ in
 
       (plain "binds" [
         (plain "Mod+Shift+Slash" [ (flag "show-hotkey-overlay") ])
-        (node "Mod+Return" { hotkey-overlay-title = "Open Terminal"; } [
-          (leaf "spawn" [ "kitty" ])
-        ])
-        (node "Mod+Space" { hotkey-overlay-title = "Open Launcher"; } [
-          (leaf "spawn" [ "fuzzel" ])
-        ])
-        (node "Super+Escape" { hotkey-overlay-title = "Lock Screen"; } [
-          (leaf "spawn" [ "hyprlock" ])
-        ])
+        (node "Mod+Return" { hotkey-overlay-title = "Open Terminal"; } [ (leaf "spawn" [ "kitty" ]) ])
+        (node "Mod+Space" { hotkey-overlay-title = "Open Launcher"; } [ (leaf "spawn" [ "fuzzel" ]) ])
+        (node "Super+Escape" { hotkey-overlay-title = "Lock Screen"; } [ (leaf "spawn" [ "hyprlock" ]) ])
         (node "XF86AudioRaiseVolume" { allow-when-locked = true; } [
           (leaf "spawn" [
             "wpctl"

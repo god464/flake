@@ -14,8 +14,12 @@ in
         fnott.enable = true;
         fuzzel.enable = true;
         fzf.enable = true;
-        hyprlock.enable = true;
+        hyprlock = {
+          enable = true;
+          useWallpaper = false;
+        };
         hyprpaper.enable = true;
+        kitty.enable = true;
         starship.enable = true;
         waybar.enable = true;
       };

@@ -15,8 +15,8 @@ in
       enable = true;
       autoEnable = false;
       image = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/03c6c20be96c38827037d2238357f2c777ec4aa5/wallpapers/nix-wallpaper-dracula.png";
-        hash = "sha256-SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
+        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/3f7695afe75239720a32d6c38df7c9888b5ed581/wallpapers/NixOS-Gradient-grey.png";
+        hash = "sha256-Tf4Xruf608hpl7YwL4Mq9l9egBOCN+W4KFKnqrgosLE=";
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
       opacity = {
@@ -30,6 +30,7 @@ in
         size = 24;
       };
       fonts = {
+        sizes.terminal = 13.0;
         serif = {
           package = pkgs.source-han-serif;
           name = "Source Han Serif SC";

@@ -3,5 +3,10 @@ let
   cfg = osConfig.programs.niri;
 in
 {
-  config = lib.mkIf cfg.enable { services.fnott.enable = true; };
+  config = lib.mkIf cfg.enable {
+    services.fnott = {
+      enable = true;
+      settings.main.max-timeout = 15;
+    };
+  };
 }
