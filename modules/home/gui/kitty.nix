@@ -26,7 +26,6 @@ in
         tab_powerline_style = "round";
         background_opacity = 0.8;
         disable_ligatures = "cursor";
-        hide_window_decorations = "yes";
       };
     };
   };

@@ -1,4 +1,9 @@
-{ osConfig, lib, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = osConfig.programs.niri;
 in
@@ -96,6 +101,19 @@ in
             };
             tooltip-format = "{capacity}%";
           };
+          wireplumber = {
+            format = "{icon}";
+            format-muted = "󰖁";
+            format-icons = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
+            on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK toggle";
+            on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK 5%+";
+            on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK 5%-";
+            tooltip-format = "{volume}%";
+          };
           backlight = {
             format = "{icon}";
             format-icons = [
@@ -109,6 +127,8 @@ in
               ""
               ""
             ];
+            on-scroll-up = "${lib.getExe pkgs.brightnessctl} set 5%+";
+            on-scroll-down = "${lib.getExe pkgs.brightnessctl} set 5%-";
             tooltip-format = "{percent}%";
           };
         }
@@ -124,7 +144,6 @@ in
 
         window#waybar {
           border-radius: 0;
-          background: rgba(25, 25, 25, 0.65);
         }
 
         window#waybar.empty #window {
@@ -146,7 +165,6 @@ in
         #power-profiles-daemon {
           padding: 3px 10px;
           border-radius: 0;
-          background: #1d1d1d;
         }
 
         #power-profiles-daemon {
@@ -154,13 +172,11 @@ in
           padding: 3px 10px;
           margin-right: 5px;
           border-radius: 0 10px 10px 0;
-          background: #1d1d1d;
         }
 
         #workspaces {
           padding: 0 5px;
           margin: 0 5px;
-          background: #1d1d1d;
         }
         #workspaces button {
           padding: 3px;
