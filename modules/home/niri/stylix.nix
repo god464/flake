@@ -1,0 +1,24 @@
+{ osConfig, lib, ... }:
+let
+  cfg = osConfig.programs.niri;
+in
+{
+  config = lib.mkIf cfg.enable {
+    stylix = {
+      enable = true;
+      autoEnable = false;
+      targets = {
+        bat.enable = true;
+        fcitx5.enable = true;
+        firefox.enable = true;
+        fnott.enable = true;
+        fuzzel.enable = true;
+        fzf.enable = true;
+        hyprlock.enable = true;
+        hyprpaper.enable = true;
+        starship.enable = true;
+        waybar.enable = true;
+      };
+    };
+  };
+}

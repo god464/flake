@@ -10,10 +10,7 @@ let
   cfg = config.desktop'.niri;
 in
 {
-  imports = with inputs; [
-    niri-flake.nixosModules.niri
-    stylix.nixosModules.stylix
-  ];
+  imports = [ inputs.niri-flake.nixosModules.niri ];
   options.desktop'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
     nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
