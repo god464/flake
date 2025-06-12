@@ -60,19 +60,19 @@ in
       (plain "binds" [
         (plain "Mod+Shift+Slash" [ (flag "show-hotkey-overlay") ])
         (plain "Mod+Return" [
-          (leaf "hotkey-overlay-title" "Open Terminal")
+          (flag { hotkey-overlay-title = "Open Terminal"; })
           (leaf "spawn" [ "kitty" ])
         ])
         (plain "Mod+Space" [
-          (leaf "hotkey-overlay-title" "Open Launcher")
+          (flag { hotkey-overlay-title = "Open Launcher"; })
           (leaf "spawn" [ "fuzzel" ])
         ])
         (plain "Super+Escape" [
-          (leaf "hotkey-overlay-title" "Lock Screen")
+          (flag { hotkey-overlay-title = "Lock Screen"; })
           (leaf "spawn" [ "hyprlock" ])
         ])
         (plain "XF86AudioRaiseVolume" [
-          (leaf "allow-when-locked" true)
+          (flag { allow-when-locked = true; })
           (leaf "spawn" [
             "wpctl"
             "set-volume"
@@ -81,7 +81,7 @@ in
           ])
         ])
         (plain "XF86AudioLowerVolume" [
-          (leaf "allow-when-locked" true)
+          (flag { allow-when-locked = true; })
           (leaf "spawn" [
             "wpctl"
             "set-volume"
@@ -90,7 +90,7 @@ in
           ])
         ])
         (plain "XF86AudioMute" [
-          (leaf "allow-when-locked" true)
+          (flag { allow-when-locked = true; })
           (leaf "spawn" [
             "wpctl"
             "set-mute"
@@ -99,7 +99,7 @@ in
           ])
         ])
         (plain "XF86MonBrightnessUp" [
-          (leaf "allow-when-locked" true)
+          (flag { allow-when-locked = true; })
           (leaf "spawn" [
             "${lib.getExe pkgs.brightnessctl}"
             "set"
@@ -107,7 +107,7 @@ in
           ])
         ])
         (plain "XF86MonBrightnessDown" [
-          (leaf "allow-when-locked" true)
+          (flag { allow-when-locked = true; })
           (leaf "spawn" [
             "${lib.getExe pkgs.brightnessctl}"
             "set"
