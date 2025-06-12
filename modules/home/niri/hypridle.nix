@@ -21,12 +21,13 @@ in
             on-timeout = "/run/current-system/systemd/bin/systemctl suspend";
           }
           {
-            timeout = 600;
-            ontimeout = ''
-              if [[ "cat /sys/class/power_supply/ACAD/online == 1" ]]
-              then
-                systemctl hibernation
-            '';
+            timeout = map (x: x) [
+              500
+              800
+              1300
+              2100
+            ];
+            ontimeout = "systemd-ac-power|| systemctl hibernation";
           }
         ];
       };
