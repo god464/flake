@@ -8,7 +8,7 @@ in
       enable = true;
       settings = {
         general = {
-          lock_cmd = "hyprlock";
+          lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "/run/current-system/systemd/bin/loginctl lock-session";
         };
         listener = [
@@ -17,8 +17,16 @@ in
             on-timeout = "/run/current-system/systemd/bin/loginctl lock-session";
           }
           {
-            timeout = 900;
+            timeout = 300;
             on-timeout = "/run/current-system/systemd/bin/systemctl suspend";
+          }
+          {
+            timeout = 600;
+            ontimeout = ''
+              if [[ "cat /sys/class/power_supply/ACAD/online == 1" ]]
+              then
+                systemctl hibernation
+            '';
           }
         ];
       };

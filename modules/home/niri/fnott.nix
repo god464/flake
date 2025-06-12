@@ -6,7 +6,11 @@ in
   config = lib.mkIf cfg.enable {
     services.fnott = {
       enable = true;
-      settings.main.max-timeout = 15;
+      settings.main = {
+        default-timeout = 15;
+        max-timeout = 15;
+        idle-timeout = 15;
+      };
     };
   };
 }
