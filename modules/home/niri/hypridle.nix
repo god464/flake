@@ -22,10 +22,11 @@ in
           }
           {
             timeout = map (x: x) [
-              500
-              800
-              1300
-              2100
+              600
+              1800
+              5400
+              7200
+              9000
             ];
             ontimeout = "systemd-ac-power|| systemctl hibernation";
           }
