@@ -59,20 +59,16 @@ in
 
       (plain "binds" [
         (plain "Mod+Shift+Slash" [ (flag "show-hotkey-overlay") ])
-        (plain "Mod+Return" [
-          # (flag { hotkey-overlay-title = "Open Terminal"; })
+        (node "Mod+Return" { hotkey-overlay-title = "Open Terminal"; } [
           (leaf "spawn" [ "kitty" ])
         ])
-        (plain "Mod+Space" [
-          # (flag { hotkey-overlay-title = "Open Launcher"; })
+        (node "Mod+Space" { hotkey-overlay-title = "Open Launcher"; } [
           (leaf "spawn" [ "fuzzel" ])
         ])
-        (plain "Super+Escape" [
-          # (flag { hotkey-overlay-title = "Lock Screen"; })
+        (node "Super+Escape" { hotkey-overlay-title = "Lock Screen"; } [
           (leaf "spawn" [ "hyprlock" ])
         ])
-        (plain "XF86AudioRaiseVolume" [
-          # (flag { allow-when-locked = true; })
+        (node "XF86AudioRaiseVolume" { allow-when-locked = true; } [
           (leaf "spawn" [
             "wpctl"
             "set-volume"
@@ -80,8 +76,7 @@ in
             "5%+"
           ])
         ])
-        (plain "XF86AudioLowerVolume" [
-          # (flag { allow-when-locked = true; })
+        (node "XF86AudioLowerVolume" { allow-when-locked = true; } [
           (leaf "spawn" [
             "wpctl"
             "set-volume"
@@ -89,8 +84,7 @@ in
             "5%-"
           ])
         ])
-        (plain "XF86AudioMute" [
-          # (flag { allow-when-locked = true; })
+        (node "XF86AudioMute" { allow-when-locked = true; } [
           (leaf "spawn" [
             "wpctl"
             "set-mute"
@@ -98,16 +92,14 @@ in
             "toggle"
           ])
         ])
-        (plain "XF86MonBrightnessUp" [
-          # (flag { allow-when-locked = true; })
+        (node "XF86MonBrightnessUp" { allow-when-locked = true; } [
           (leaf "spawn" [
             "${lib.getExe pkgs.brightnessctl}"
             "set"
             "5%+"
           ])
         ])
-        (plain "XF86MonBrightnessDown" [
-          # (flag { allow-when-locked = true; })
+        (node "XF86MonBrightnessDown" { allow-when-locked = true; } [
           (leaf "spawn" [
             "${lib.getExe pkgs.brightnessctl}"
             "set"
