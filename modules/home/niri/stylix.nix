@@ -10,7 +10,11 @@ in
       targets = {
         bat.enable = true;
         fcitx5.enable = true;
-        firefox.enable = true;
+        firefox = {
+          enable = true;
+          colorTheme.enable = true;
+          firefoxGnomeTheme.enable = true;
+        };
         fnott.enable = true;
         fuzzel.enable = true;
         fzf.enable = true;

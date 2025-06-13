@@ -1,9 +1,4 @@
-{
-  osConfig,
-  lib,
-  pkgs,
-  ...
-}:
+{ osConfig, lib, ... }:
 let
   cfg = osConfig.programs.niri;
 in
@@ -59,7 +54,7 @@ in
             format = "{icon}";
             format-icons = {
               active = "";
-              default = "󰄰";
+              default = "";
             };
             on-scroll-up = "niri msg action focus-workspace-up";
           };
@@ -131,9 +126,8 @@ in
               "󰖀"
               "󰕾"
             ];
+            max-volume = 100.0;
             on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-            on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
-            on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           };
           backlight = {
             format = "{icon} {percent}%";
@@ -148,8 +142,6 @@ in
               ""
               ""
             ];
-            on-scroll-up = "${lib.getExe pkgs.brightnessctl} set 5%+";
-            on-scroll-down = "${lib.getExe pkgs.brightnessctl} set 5%-";
           };
         }
       ];
@@ -158,17 +150,13 @@ in
           border: none;
           border-radius: 10px;
           font-family: monospace;
-          font-size: 13px;
-          color: white;
         }
 
         window#waybar {
           border-radius: 0;
         }
 
-        window#waybar.empty #window {
-          background: transparent;
-        }
+
 
         .modules-left,
         .modules-center,
@@ -198,11 +186,18 @@ in
           padding: 0 5px;
           margin: 0 5px;
         }
+
         #workspaces button {
           padding: 3px;
+          color:#d3c6aa;
         }
+
         #workspaces button:hover {
           background: none;
+        }
+
+        window#waybar.empty #window {
+          background: transparent;
         }
       '';
     };
