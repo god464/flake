@@ -86,7 +86,7 @@ in
             };
           };
           battery = {
-            format = "{icon}";
+            format = "{icon} {capacity}%";
             format-icons = {
               default = [
                 "󱊡"
@@ -99,10 +99,32 @@ in
                 "󱊦"
               ];
             };
-            tooltip-format = "{capacity}%";
+          };
+          network = {
+            format-wifi = "{icon} {essid}";
+            format-ethernet = "{icon} Wired";
+            tooltip-format = "󰅢  {bandwidthUpBytes} 󰅧  {bandwidthDownBytes}";
+            format-linked = "{icon} {ifname} (No IP)";
+            format-disconnected = "{icon} Disconnected";
+            format-alt = "{icon} {signalStrength}%";
+            format-icons = {
+              wifi = "󰖩";
+              ethernet = "󰈁";
+              linked = "󰈂";
+              disconnected = "󰖪";
+            };
+          };
+          bluetooth = {
+            format = "{icon} {device_alias}";
+            format-disabled = "";
+            format-cons = {
+              on = "󰂯";
+              connected = "󰂱";
+              off = "󰂲";
+            };
           };
           wireplumber = {
-            format = "{icon}";
+            format = "{icon} {volume}%";
             format-muted = "󰖁";
             format-icons = [
               "󰕿"
@@ -112,10 +134,9 @@ in
             on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
             on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-            tooltip-format = "{volume}%";
           };
           backlight = {
-            format = "{icon}";
+            format = "{icon} {percent}%";
             format-icons = [
               ""
               ""
@@ -129,7 +150,6 @@ in
             ];
             on-scroll-up = "${lib.getExe pkgs.brightnessctl} set 5%+";
             on-scroll-down = "${lib.getExe pkgs.brightnessctl} set 5%-";
-            tooltip-format = "{percent}%";
           };
         }
       ];
@@ -163,7 +183,7 @@ in
         #network,
         #bluetooth,
         #power-profiles-daemon {
-          padding: 3px 10px;
+          padding: 2px 10px;
           border-radius: 0;
         }
 

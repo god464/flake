@@ -27,7 +27,7 @@ in
       cursor = {
         name = "Bibata-Modern-Ice";
         package = pkgs.bibata-cursors;
-        size = 24;
+        size = 20;
       };
       fonts = {
         sizes.terminal = 13.0;

@@ -5,7 +5,10 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.fuzzel = {
-      settings.main.font = lib.mkForce "Maple Mono Normal CN=13";
+      settings.main = {
+        font = lib.mkForce "Maple Mono Normal CN=13";
+        lines = 10;
+      };
       enable = true;
     };
   };
