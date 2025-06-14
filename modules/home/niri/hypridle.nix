@@ -11,19 +11,21 @@ in
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "/run/current-system/systemd/bin/loginctl lock-session";
         };
-        listener = [
-          {
-            timeout = 120;
-            on-timeout = "/run/current-system/systemd/bin/loginctl lock-session";
-          }
-          {
-            timeout = 300;
-            on-timeout = "/run/current-system/systemd/bin/systemctl suspend";
-          }
-          (map
+        listener =
+          [
+            {
+              timeout = 120;
+              on-timeout = "/run/current-system/systemd/bin/loginctl lock-session";
+            }
+            {
+              timeout = 300;
+              on-timeout = "/run/current-system/systemd/bin/systemctl suspend";
+            }
+          ]
+          ++ (map
             (x: {
               timeout = x;
-              ontimeout = "systemd-ac-power|| systemctl hibernation";
+              ontimeout = "systemd-ac-power || systemctl hibernation";
             })
             [
               600
@@ -32,8 +34,7 @@ in
               7200
               9000
             ]
-          )
-        ];
+          );
       };
     };
   };
