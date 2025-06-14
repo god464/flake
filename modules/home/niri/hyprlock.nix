@@ -7,10 +7,10 @@ in
     programs.hyprlock = {
       enable = true;
       settings = {
-        lable = [
+        label = [
           {
             monitor = "";
-            text = "$Time12";
+            text = "$TIME12";
             position = "0, 300";
             halign = "center";
             valign = "center";
