@@ -40,7 +40,6 @@ in
         ".cache/bat"
         ".cache/nix"
         ".local/share/atuin"
-        ".local/share/direnv"
         ".local/share/fish"
         ".local/share/nvim"
         ".local/share/zoxide"
