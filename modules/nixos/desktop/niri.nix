@@ -18,7 +18,13 @@ in
       enable = true;
       package = pkgs.niri-unstable;
     };
-    services.displayManager.gdm.enable = true;
-    environment.systemPackages = [ pkgs.wl-clipboard-rs ];
+    services = {
+      displayManager.gdm.enable = true;
+      gnome.sushi.enable = true;
+    };
+    environment.systemPackages = with pkgs; [
+      wl-clipboard-rs
+      nautilus
+    ];
   };
 }

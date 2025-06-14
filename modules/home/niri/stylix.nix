@@ -28,6 +28,7 @@ in
         waybar.enable = true;
         mpv.enable = true;
         zathura.enable = true;
+        yazi.enable = true;
       };
     };
   };
