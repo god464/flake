@@ -19,5 +19,6 @@ in
       package = pkgs.niri-unstable;
     };
     services.displayManager.gdm.enable = true;
+    environment.systemPackages = [ pkgs.wl-clipboard-rs ];
   };
 }
