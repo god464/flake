@@ -1,4 +1,9 @@
-{ osConfig, lib, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = osConfig.programs.niri;
 in
@@ -14,11 +19,16 @@ in
         listener =
           [
             {
-              timeout = 120;
-              on-timeout = "/run/current-system/systemd/bin/loginctl lock-session";
+              timeout = 150;
+              on-timeout = "${lib.getExe pkgs.brightnessctl} -s set 10 ";
+              on-resume = "${lib.getExe pkgs.brightnessctl} -r";
             }
             {
               timeout = 300;
+              on-timeout = "/run/current-system/systemd/bin/loginctl lock-session";
+            }
+            {
+              timeout = 420;
               on-timeout = "/run/current-system/systemd/bin/systemctl suspend";
             }
           ]

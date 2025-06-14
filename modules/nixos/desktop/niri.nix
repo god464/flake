@@ -22,6 +22,7 @@ in
       displayManager.gdm.enable = true;
       gnome.sushi.enable = true;
     };
+    security.pam.services.hyprlock.fprintAuth = false;
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
       nautilus
