@@ -12,7 +12,7 @@ in
             monitor = "";
             text = "$TIME12";
             position = "0, 300";
-            font_size = 65;
+            font_size = 70;
             color = "#d3c6aa";
             halign = "center";
             valign = "center";
@@ -20,9 +20,9 @@ in
           {
             monitor = "";
             text = ''cmd[update:60000] date +"%A, %B %d"'';
-            font_size = 17;
+            font_size = 20;
             color = "#d3c6aa";
-            position = "0, 240";
+            position = "0, 200";
             halign = "center";
             valign = "center";
           }

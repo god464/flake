@@ -14,7 +14,7 @@ in
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "/run/current-system/systemd/bin/loginctl lock-session";
+          before_sleep_cmd = "loginctl lock-session";
         };
         listener =
           [
@@ -25,11 +25,11 @@ in
             }
             {
               timeout = 300;
-              on-timeout = "/run/current-system/systemd/bin/loginctl lock-session";
+              on-timeout = "loginctl lock-session";
             }
             {
               timeout = 420;
-              on-timeout = "/run/current-system/systemd/bin/systemctl suspend";
+              on-timeout = "systemctl suspend";
             }
           ]
           ++ (map

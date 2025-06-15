@@ -142,6 +142,7 @@ in
               ""
               ""
             ];
+            on-click = "loginctl lock-session";
           };
         }
       ];
