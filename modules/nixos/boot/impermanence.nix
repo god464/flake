@@ -42,7 +42,7 @@ in
         ".local/share/atuin"
         ".local/share/fish"
         ".local/share/nvim"
-        ".lcoal/share/direnv"
+        ".local/share/direnv"
         ".local/share/zoxide"
         ".local/share/nix"
         ".local/state/nix"

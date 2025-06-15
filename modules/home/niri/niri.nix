@@ -102,6 +102,7 @@ in
             "5%-"
           ])
         ])
+        (plain "Mod+O" [ (flag "toggle-overview") ])
         (plain "Mod+Q" [ (flag "close-window") ])
         (plain "Mod+H" [ (flag "focus-column-left") ])
         (plain "Mod+J" [ (flag "focus-window-down") ])
