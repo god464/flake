@@ -7,6 +7,8 @@ in
     stylix = {
       enable = true;
       autoEnable = false;
+      polarity = "dark";
+      overlays.enable = true;
       targets = {
         bat.enable = true;
         fcitx5.enable = true;
@@ -18,10 +20,7 @@ in
         fnott.enable = true;
         fuzzel.enable = true;
         fzf.enable = true;
-        hyprlock = {
-          enable = true;
-          useWallpaper = false;
-        };
+        hyprlock.enable = true;
         hyprpaper.enable = true;
         kitty.enable = true;
         starship.enable = true;
@@ -29,6 +28,7 @@ in
         mpv.enable = true;
         zathura.enable = true;
         yazi.enable = true;
+        nixos-icons.enable = true;
       };
     };
   };
