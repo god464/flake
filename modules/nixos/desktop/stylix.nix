@@ -57,6 +57,7 @@ in
         gtk.enable = true;
         qt.enable = true;
         plymouth.enable = true;
+        regreet.enable = true;
       };
     };
   };
