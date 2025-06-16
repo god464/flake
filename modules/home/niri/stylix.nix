@@ -8,7 +8,7 @@ in
       enable = true;
       autoEnable = false;
       polarity = "dark";
-      overlays.enable = true;
+      overlays.enable = lib.mkForce true;
       targets = {
         bat.enable = true;
         fcitx5.enable = true;
