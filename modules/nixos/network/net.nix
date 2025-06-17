@@ -17,7 +17,7 @@ in
       };
       useNetworkd = true;
       wireless = mkIf display.enable {
-        enabled = true;
+        enable = true;
         iwd = {
           enable = true;
           settings.general.AddressRandomization = "network";
