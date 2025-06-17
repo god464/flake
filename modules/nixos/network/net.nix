@@ -16,12 +16,9 @@ in
         filterForward = true;
       };
       useNetworkd = true;
-      wireless = mkIf display.enable {
-        enable = true;
-        iwd = {
+      wireless.iwd = mkIf display.enable {
           enable = true;
           settings.general.AddressRandomization = "network";
-        };
       };
     };
     systemd.network = {
