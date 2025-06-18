@@ -17,8 +17,8 @@ in
       };
       useNetworkd = true;
       wireless.iwd = mkIf display.enable {
-          enable = true;
-          settings.general.AddressRandomization = "network";
+        enable = true;
+        settings.general.AddressRandomization = "network";
       };
     };
     systemd.network = {
@@ -28,6 +28,12 @@ in
     services.resolved = {
       enable = !display.enable;
       dnssec = "true";
+      dnsovertls = "true";
+      fallbackDns = [
+        "8.8.8.8"
+        "1.1.1.1"
+        "223.6.6.6"
+      ];
     };
   };
 }
