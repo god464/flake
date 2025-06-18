@@ -60,6 +60,7 @@
         ./shells
         ./lib
         ./modules
+        ./overlays
       ];
     };
 }
