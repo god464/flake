@@ -45,10 +45,10 @@
   };
   programs'.fish.enable = true;
   desktop'.niri.enable = true;
-
   facter.reportPath = ./facter.json;
   services' = {
     gpg.enable = true;
     ssh.hostKey = config.sops.secrets.host-desktop.path;
   };
+  environment.systemPackages = [ pkgs.chromium ];
 }
