@@ -1,167 +1,147 @@
 {
-  inputs,
+  pkgs,
   osConfig,
   lib,
-  pkgs,
+  config,
   ...
 }:
 let
   cfg = osConfig.programs.niri;
-  inherit (inputs.niri-flake.lib.kdl)
-    node
-    plain
-    leaf
-    flag
-    ;
 in
 {
   config = lib.mkIf cfg.enable {
-    programs.niri.config = [
-      (plain "input" [
-        (plain "keyboard" [ (plain "xkb" [ (leaf "layout" "us") ]) ])
-        (plain "touchpad" [
-          (flag "tap")
-          (flag "natural-scroll")
-        ])
-      ])
-
-      (node "output" "eDP-1" [
-        (leaf "mode" "1920x1080@60.00")
-        (leaf "scale" 1.25)
-        (leaf "transform" "normal")
-      ])
-
-      (plain "layout" [
-        (leaf "gaps" 8)
-        (leaf "center-focused-column" "on-overflow")
-        (plain "preset-column-widths" [
-          (leaf "proportion" (1.0 / 3.0))
-          (leaf "proportion" (1.0 / 2.0))
-          (leaf "proportion" (2.0 / 3.0))
-        ])
-        (plain "default-column-width" [ (leaf "proportion" 0.5) ])
-        (plain "focus-ring" [
-          (leaf "width" 2)
-          (leaf "active-color" "#7fc8ff")
-          (leaf "inactive-color" "#505050")
-        ])
-        (plain "border" [ (flag "off") ])
-      ])
-
-      (leaf "screenshot-path" "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png")
-
-      (flag "prefer-no-csd")
-
-      (plain "window-rule" [
-        (leaf "match" {
-          app-id = ''r#"firefox$"# title="^Picture-in-Picture$"'';
-        })
-        (leaf "open-floating" true)
-      ])
-
-      (plain "binds" [
-        (plain "Mod+Shift+Slash" [ (flag "show-hotkey-overlay") ])
-        (node "Mod+Return" { hotkey-overlay-title = "Open Terminal"; } [ (leaf "spawn" [ "kitty" ]) ])
-        (node "Mod+Space" { hotkey-overlay-title = "Open Launcher"; } [ (leaf "spawn" [ "fuzzel" ]) ])
-        (node "Super+Escape" { hotkey-overlay-title = "Lock Screen"; } [ (leaf "spawn" [ "hyprlock" ]) ])
-        (node "XF86AudioRaiseVolume" { allow-when-locked = true; } [
-          (leaf "spawn" [
+    programs.niri.settings = {
+      input = {
+        keyboard.xkb.layout = "us";
+        touchpad.accel-profile = "adaptive";
+      };
+      outputs."eDP-1" = {
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 60.0;
+        };
+        scale = 1.25;
+      };
+      layout = {
+        gaps = 10;
+        preset-column-widths = [
+          { proportion = 0.333333; }
+          { proportion = 0.5; }
+          { proportion = 0.666667; }
+        ];
+        default-column-width.proportion = 0.5;
+        focus-ring.width = 2;
+      };
+      prefer-no-csd = true;
+      window-rules = [
+        {
+          matches = [ { app-id = ''r#"firefox$"# title="^Picture-in-Picture$"''; } ];
+          open-floating = true;
+        }
+      ];
+      binds = with config.lib.niri.actions; {
+        "Mod+Shift+Slash".action = show-hotkey-overlay;
+        "Mod+Return" = {
+          hotkey-overlay.title = "Open Terminal";
+          action.spawn = "kitty";
+        };
+        "Mod+Space" = {
+          hotkey-overlay.title = "Open Launcher";
+          action.spawn = "fuzzel";
+        };
+        "Mod+Escape" = {
+          hotkey-overlay.title = "Lock Screen";
+          action.spawn = "hyprlock";
+        };
+        "XF86AudioRaiseVolume" = {
+          allow-when-locked = true;
+          action.spawn = [
             "wpctl"
             "set-volume"
             "@DEFAULT_AUDIO_SINK@"
             "5%+"
-          ])
-        ])
-        (node "XF86AudioLowerVolume" { allow-when-locked = true; } [
-          (leaf "spawn" [
+          ];
+        };
+        "XF86AudioLowerVolume" = {
+          allow-when-locked = true;
+          action.spawn = [
             "wpctl"
             "set-volume"
             "@DEFAULT_AUDIO_SINK@"
             "5%-"
-          ])
-        ])
-        (node "XF86AudioMute" { allow-when-locked = true; } [
-          (leaf "spawn" [
+          ];
+        };
+        "XF86AudioMute" = {
+          allow-when-locked = true;
+          action.spawn = [
             "wpctl"
             "set-mute"
             "@DEFAULT_AUDIO_SINK@"
             "toggle"
-          ])
-        ])
-        (node "XF86MonBrightnessUp" { allow-when-locked = true; } [
-          (leaf "spawn" [
+          ];
+        };
+        "XF86MonBrightnessUp" = {
+          allow-when-locked = true;
+          action.spawn = [
             "${lib.getExe pkgs.brightnessctl}"
             "set"
             "5%+"
-          ])
-        ])
-        (node "XF86MonBrightnessDown" { allow-when-locked = true; } [
-          (leaf "spawn" [
+          ];
+        };
+        "XF86MonBrightnessDown" = {
+          allow-when-locked = true;
+          action.spawn = [
             "${lib.getExe pkgs.brightnessctl}"
             "set"
             "5%-"
-          ])
-        ])
-        (plain "Mod+O" [ (flag "toggle-overview") ])
-        (plain "Mod+Q" [ (flag "close-window") ])
-        (plain "Mod+H" [ (flag "focus-column-left") ])
-        (plain "Mod+J" [ (flag "focus-window-down") ])
-        (plain "Mod+K" [ (flag "focus-window-up") ])
-        (plain "Mod+L" [ (flag "focus-column-right") ])
-        (plain "Mod+Shift+H" [ (flag "move-column-left") ])
-        (plain "Mod+Shift+J" [ (flag "move-window-down") ])
-        (plain "Mod+Shift+K" [ (flag "move-window-up") ])
-        (plain "Mod+Shift+L" [ (flag "move-column-right") ])
-        (plain "Mod+Home" [ (flag "focus-column-first") ])
-        (plain "Mod+End" [ (flag "focus-column-last") ])
-        (plain "Mod+Ctrl+Home" [ (flag "move-column-to-first") ])
-        (plain "Mod+Ctrl+End" [ (flag "move-column-to-last") ])
-        (plain "Mod+U" [ (flag "focus-workspace-up") ])
-        (plain "Mod+D" [ (flag "focus-workspace-down") ])
-        (plain "Mod+Ctrl+U" [ (flag "move-column-to-workspace-up") ])
-        (plain "Mod+Ctrl+D" [ (flag "move-column-to-workspace-down") ])
-        (plain "Mod+Shift+U" [ (flag "move-workspace-up") ])
-        (plain "Mod+Shift+D" [ (flag "move-workspace-down") ])
-        (plain "Mod+1" [ (leaf "focus-workspace" 1) ])
-        (plain "Mod+2" [ (leaf "focus-workspace" 2) ])
-        (plain "Mod+3" [ (leaf "focus-workspace" 3) ])
-        (plain "Mod+4" [ (leaf "focus-workspace" 4) ])
-        (plain "Mod+5" [ (leaf "focus-workspace" 5) ])
-        (plain "Mod+6" [ (leaf "focus-workspace" 6) ])
-        (plain "Mod+7" [ (leaf "focus-workspace" 7) ])
-        (plain "Mod+8" [ (leaf "focus-workspace" 8) ])
-        (plain "Mod+9" [ (leaf "focus-workspace" 9) ])
-        (plain "Mod+Shift+1" [ (leaf "move-column-to-workspace" 1) ])
-        (plain "Mod+Shift+2" [ (leaf "move-column-to-workspace" 2) ])
-        (plain "Mod+Shift+3" [ (leaf "move-column-to-workspace" 3) ])
-        (plain "Mod+Shift+4" [ (leaf "move-column-to-workspace" 4) ])
-        (plain "Mod+Shift+5" [ (leaf "move-column-to-workspace" 5) ])
-        (plain "Mod+Shift+6" [ (leaf "move-column-to-workspace" 6) ])
-        (plain "Mod+Shift+7" [ (leaf "move-column-to-workspace" 7) ])
-        (plain "Mod+Shift+8" [ (leaf "move-column-to-workspace" 8) ])
-        (plain "Mod+Shift+9" [ (leaf "move-column-to-workspace" 9) ])
-        (plain "Mod+BracketLeft" [ (flag "consume-or-expel-window-left") ])
-        (plain "Mod+BracketRight" [ (flag "consume-or-expel-window-right") ])
-        (plain "Mod+R" [ (flag "switch-preset-column-width") ])
-        (plain "Mod+Shift+R" [ (flag "switch-preset-window-height") ])
-        (plain "Mod+F" [ (flag "maximize-column") ])
-        (plain "Mod+Shift+F" [ (flag "fullscreen-window") ])
-        (plain "Mod+Ctrl+F" [ (flag "expand-column-to-available-width") ])
-        (plain "Mod+C" [ (flag "center-column") ])
-        (plain "Mod+Ctrl+C" [ (flag "center-visible-columns") ])
-        (plain "Mod+Minus" [ (leaf "set-column-width" "-10%") ])
-        (plain "Mod+Equal" [ (leaf "set-column-width" "+10%") ])
-        (plain "Mod+Shift+Minus" [ (leaf "set-window-height" "-10%") ])
-        (plain "Mod+Shift+Equal" [ (leaf "set-window-height" "+10%") ])
-        (plain "Mod+V" [ (flag "toggle-window-floating") ])
-        (plain "Mod+Shift+V" [ (flag "switch-focus-between-floating-and-tiling") ])
-        (plain "Mod+W" [ (flag "toggle-column-tabbed-display") ])
-        (plain "Print" [ (flag "screenshot") ])
-        (plain "Ctrl+Print" [ (flag "screenshot-screen") ])
-        (plain "Alt+Print" [ (flag "screenshot-window") ])
-        (plain "Mod+Shift+E" [ (flag "quit") ])
-        (plain "Mod+Shift+P" [ (flag "power-off-monitors") ])
-      ])
-    ];
+          ];
+        };
+        "Mod+O".action = toggle-overview;
+        "Mod+Q".action = close-window;
+        "Mod+H".action = focus-column-left;
+        "Mod+L".action = focus-column-right;
+        "Mod+J".action = focus-window-down;
+        "Mod+K".action = focus-window-up;
+        "Mod+Shift+H".action = move-window-up;
+        "Mod+1".action = focus-workspace 1;
+        "Mod+2".action = focus-workspace 2;
+        "Mod+3".action = focus-workspace 3;
+        "Mod+4".action = focus-workspace 4;
+        "Mod+5".action = focus-workspace 5;
+        "Mod+6".action = focus-workspace 6;
+        "Mod+7".action = focus-workspace 7;
+        "Mod+8".action = focus-workspace 8;
+        "Mod+9".action = focus-workspace 9;
+        "Mod+Shift+1".action.move-column-to-workspace = 1;
+        "Mod+Shift+2".action.move-column-to-workspace = 2;
+        "Mod+Shift+3".action.move-column-to-workspace = 3;
+        "Mod+Shift+4".action.move-column-to-workspace = 4;
+        "Mod+Shift+5".action.move-column-to-workspace = 5;
+        "Mod+Shift+6".action.move-column-to-workspace = 6;
+        "Mod+Shift+7".action.move-column-to-workspace = 7;
+        "Mod+Shift+8".action.move-column-to-workspace = 8;
+        "Mod+Shift+9".action.move-column-to-workspace = 9;
+        "Mod+R".action = switch-preset-column-width;
+        "Mod+Shift+R".action = switch-preset-window-height;
+        "Mod+F".action = maximize-column;
+        "Mod+Shift+F".action = fullscreen-window;
+        "Mod+Ctrl+F".action = expand-column-to-available-width;
+        "Mod+C".action = center-column;
+        "Mod+Ctrl+C".action = center-visible-columns;
+        "Mod+Minus".action = set-column-width "-10%";
+        "Mod+Equal".action = set-column-width "+10%";
+        "Mod+Shift+Minus".action = set-window-height "-10%";
+        "Mod+Shift+Equal".action = set-window-height "+10%";
+        "Mod+V".action = toggle-window-floating;
+        "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
+        "Mod+W".action = toggle-column-tabbed-display;
+        Print.action = screenshot;
+        "Ctrl+Print".action.screenshot-screen = [ ];
+        "Alt+Print".action = screenshot-window;
+        "Mod+Shift+E".action = quit;
+        "Mod+Shift+P".action = power-off-monitors;
+      };
+    };
   };
 }
