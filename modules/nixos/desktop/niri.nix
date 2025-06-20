@@ -26,6 +26,7 @@ in
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
       nautilus
+      xwayland-satellite
     ];
   };
 }
