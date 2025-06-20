@@ -58,7 +58,7 @@ in
           hotkey-overlay.title = "Lock Screen";
           action.spawn = "hyprlock";
         };
-        "Mod+`".action.spawn = lib.getExe' pkgs.cliphist "cliphist-fuzzel-img";
+        "Mod+grave".action.spawn = lib.getExe' pkgs.cliphist "cliphist-fuzzel-img";
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;
           action.spawn = [
