@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   osConfig,
   lib,
@@ -10,6 +11,7 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
     programs.niri.settings = {
       input = {
         keyboard.xkb.layout = "us";
@@ -54,6 +56,7 @@ in
           hotkey-overlay.title = "Lock Screen";
           action.spawn = "hyprlock";
         };
+        "Mod+`".action.spawn = "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;
           action.spawn = [
