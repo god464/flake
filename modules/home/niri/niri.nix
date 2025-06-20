@@ -12,7 +12,10 @@ in
   config = lib.mkIf cfg.enable {
     programs.niri.settings = {
       input = {
-        keyboard.xkb.layout = "us";
+        keyboard.xkb = {
+          layout = "us";
+          options = "caps:escape";
+        };
         touchpad.accel-profile = "adaptive";
       };
       outputs."eDP-1" = {
@@ -55,7 +58,7 @@ in
           hotkey-overlay.title = "Lock Screen";
           action.spawn = "hyprlock";
         };
-        "Mod+Grave".action.spawn = "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+        "Mod+`".action.spawn = lib.getExe' pkgs.cliphist "cliphist-fuzzel-img";
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;
           action.spawn = [
