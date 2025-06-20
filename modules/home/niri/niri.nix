@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   osConfig,
   lib,
@@ -11,7 +10,6 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
     programs.niri.settings = {
       input = {
         keyboard.xkb.layout = "us";

@@ -58,8 +58,9 @@
       imports = [
         ./hosts
         ./shells
-        ./lib
+        ./libs
         ./modules
+        ./overlays
       ];
     };
 }
