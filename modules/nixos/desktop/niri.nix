@@ -21,11 +21,13 @@ in
       regreet.enable = true;
     };
     services.gnome.sushi.enable = true;
-    security.pam.services.hyprlock.fprintAuth = false;
+    security = {
+      polkit.enable = true;
+      pam.services.hyprlock.fprintAuth = false;
+    };
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
       nautilus
-      xwayland-satellite
     ];
   };
 }

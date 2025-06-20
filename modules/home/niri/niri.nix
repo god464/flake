@@ -23,6 +23,7 @@ in
         };
         scale = 1.25;
       };
+      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       layout = {
         gaps = 10;
         preset-column-widths = [
@@ -54,7 +55,7 @@ in
           hotkey-overlay.title = "Lock Screen";
           action.spawn = "hyprlock";
         };
-        "Mod+`".action.spawn = "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
+        "Mod+Grave".action.spawn = "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;
           action.spawn = [
