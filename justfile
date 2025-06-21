@@ -13,7 +13,7 @@
     nix-collect-garbage -d
 
 @upgrade target="laptop":
-    nixos-rebuild switch --flake .#{{ target }}
+    nixos-rebuild switch --sudo --flake .#{{ target }}
 
 @upgrade-remote target ip:
     nixos-rebuild switch --flake .#{{ target }} --target-host "root@{{ ip }}"
