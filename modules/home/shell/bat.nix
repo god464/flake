@@ -15,6 +15,7 @@ in
         batpipe
         batgrep
         batdiff
+        batman
       ];
     };
   };

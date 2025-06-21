@@ -13,6 +13,7 @@ in
         diff = "batdiff";
         less = "batpipe";
         rg = "batgrep";
+        man = "batman";
       };
     };
   };
