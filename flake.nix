@@ -60,7 +60,7 @@
         ./shells
         ./libs
         ./modules
-        ./overlays
+        ./pkgs
       ];
     };
 }

@@ -26,7 +26,7 @@ in
         };
         scale = 1.25;
       };
-      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
       layout = {
         gaps = 10;
         preset-column-widths = [
@@ -40,7 +40,12 @@ in
       prefer-no-csd = true;
       window-rules = [
         {
-          matches = [ { app-id = ''r#"firefox$"# title="^Picture-in-Picture$"''; } ];
+          matches = [
+            {
+              app-id = ''r#"firefox$"#'';
+              title = "^Picture-in-Picture$";
+            }
+          ];
           open-floating = true;
         }
       ];
@@ -58,7 +63,18 @@ in
           hotkey-overlay.title = "Lock Screen";
           action.spawn = "hyprlock";
         };
-        "Mod+grave".action.spawn = lib.getExe' pkgs.cliphist "cliphist-fuzzel-img";
+        "Mod+Grave".action.spawn = [
+          "cliphist"
+          "list"
+          "|"
+          "fuzzel"
+          "--dmenu"
+          "|"
+          "cliphist"
+          "decode"
+          "|"
+          "wl-copy"
+        ];
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;
           action.spawn = [
