@@ -1,5 +1,5 @@
 {
-  templates =
+  flake.templates =
     let
       mkTemplate =
         {
