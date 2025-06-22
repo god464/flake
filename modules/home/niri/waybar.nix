@@ -144,6 +144,7 @@ in
             ];
             on-click = "loginctl lock-session";
           };
+          "tray".spacing = 7;
         }
       ];
       style = ''
@@ -171,6 +172,7 @@ in
         #backlight,
         #network,
         #bluetooth,
+        #tray,
         #power-profiles-daemon {
           padding: 2px 10px;
           border-radius: 0;

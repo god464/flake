@@ -61,6 +61,7 @@
         ./libs
         ./modules
         ./pkgs
+        ./templates
       ];
     };
 }

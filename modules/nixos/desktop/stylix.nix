@@ -51,7 +51,6 @@ in
       polarity = "dark";
       overlays.enable = true;
       targets = {
-        chromium.enable = true;
         fish.enable = true;
         gtk.enable = true;
         qt.enable = true;
