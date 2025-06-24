@@ -30,7 +30,6 @@ in
               enableStrongSwan = true;
               ethernet.macAddress = "random";
               wifi.macAddress = "ramdom";
-              dns = "systemd-resolved";
               wifi.backend = "iwd";
             };
           }
