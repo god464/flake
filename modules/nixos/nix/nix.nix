@@ -55,6 +55,10 @@ in
           ]
         );
         trusted-users = [ "@wheel" ];
+        builders-use-substitutes = true;
+        auto-allocate-uids = true;
+        use-cgroups = true;
+        use-xdg-base-directories = true;
       };
       gc = {
         automatic = true;

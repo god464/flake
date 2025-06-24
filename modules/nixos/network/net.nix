@@ -45,9 +45,9 @@ in
       wait-online.enable = lib.mkForce false;
     };
     services.resolved = {
-      enable = true;
-      dnssec = "true";
-      dnsovertls = "true";
+      enable = !display.enable;
+      dnssec = "allow-downgrade";
+      dnsovertls = "opportunistic";
     };
   };
 }
