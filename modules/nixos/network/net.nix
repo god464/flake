@@ -30,6 +30,8 @@ in
               enableStrongSwan = true;
               ethernet.macAddress = "random";
               wifi.macAddress = "ramdom";
+              dns = "systemd-resolved";
+              wifi.backend = "iwd";
             };
           }
         else
@@ -43,8 +45,9 @@ in
       wait-online.enable = lib.mkForce false;
     };
     services.resolved = {
-      enable = !display.enable;
+      enable = true;
       dnssec = "true";
+      dnsovertls = "true";
     };
   };
 }
