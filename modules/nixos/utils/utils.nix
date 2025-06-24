@@ -9,7 +9,7 @@ in
     programs.command-not-found.enable = false;
     system = {
       tools.nixos-generate-config.enable = false;
-      forbiddenDependenciesRegexes = [ "perl" ];
+      # forbiddenDependenciesRegexes = [ "perl" ];
     };
     boot.enableContainers = false;
     environment.defaultPackages = [ ];

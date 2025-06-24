@@ -44,7 +44,6 @@
   };
   programs'.fish.enable = true;
   desktop'.niri.enable = true;
-
   facter.reportPath = ./facter.json;
   services' = {
     gpg.enable = true;
