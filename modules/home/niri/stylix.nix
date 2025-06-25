@@ -1,4 +1,9 @@
-{ osConfig, lib, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = osConfig.programs.niri;
 in
@@ -7,8 +12,23 @@ in
     stylix = {
       enable = true;
       autoEnable = false;
-      polarity = "dark";
       overlays.enable = lib.mkForce true;
+      opacity = {
+        terminal = 0.8;
+        desktop = 0.8;
+        popups = 0.8;
+      };
+      cursor = {
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
+        size = 20;
+      };
+      iconTheme = {
+        enable = true;
+        package = pkgs.papirus-icon-theme;
+        dark = "Papirus-Dark";
+        light = "Papirus-Light";
+      };
       targets = {
         bat.enable = true;
         fcitx5.enable = true;

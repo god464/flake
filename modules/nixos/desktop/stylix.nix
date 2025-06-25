@@ -48,7 +48,6 @@ in
           name = "Twitter Color Emoji";
         };
       };
-      polarity = "dark";
       overlays.enable = true;
       targets = {
         fish.enable = true;
