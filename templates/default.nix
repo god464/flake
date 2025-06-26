@@ -16,5 +16,6 @@
       cc = mkTemplate "cc" "c/c++";
       web = mkTemplate "web";
       java = mkTemplate "java";
+      go = mkTemplate "go";
     };
 }
