@@ -50,6 +50,7 @@ in
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
+        ".codeium"
       ];
     };
   };
