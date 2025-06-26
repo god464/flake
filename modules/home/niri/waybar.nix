@@ -158,8 +158,6 @@ in
           border-radius: 0;
         }
 
-
-
         .modules-left,
         .modules-center,
         .modules-right {
