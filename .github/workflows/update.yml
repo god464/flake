@@ -2,7 +2,7 @@ name: update-flake-lock
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
 permissions:
   pull-requests: write
   contents: write
@@ -23,8 +23,8 @@ jobs:
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v25
         with:
-          commit-msg: "bump(lock): update flake.lock"
-          pr-title: "bump(lock): Update flake.lock"
+          commit-msg: 'bump(lock): update flake.lock'
+          pr-title: 'bump(lock): Update flake.lock'
           pr-labels: merge-queue
           pr-body: |
             Automated changes by GitHub Action.

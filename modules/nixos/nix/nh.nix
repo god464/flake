@@ -1,3 +1,6 @@
 {
-  programs.nh.enable = true;
+  programs.nh = {
+    enable = true;
+    flake = "/home/cl/persist/flake";
+  };
 }
