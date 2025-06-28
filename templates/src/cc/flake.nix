@@ -36,6 +36,7 @@
               cmake
               vscode-extensions.vadimcn.vscode-lldb
               vcpkg
+              vcpkg-tool
               clang-tools
               cppcheck
               neocmakelsp

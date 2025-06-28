@@ -38,8 +38,6 @@
               delve
               go-tools
               goimports-reviser
-              # TOML
-              taplo
             ];
             shellHook = config.pre-commit.installationScript;
           };

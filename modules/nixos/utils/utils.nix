@@ -2,8 +2,8 @@
 let
   inherit (lib) mkIf;
   name = config.networking.hostName;
-in
 
+in
 {
   config = mkIf (name != "livecd") {
     programs.command-not-found.enable = false;
