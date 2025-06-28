@@ -5,7 +5,7 @@
     projectRootFile = "flake.nix";
     programs = {
       nixfmt.enable = true;
-      prettier.enable = true;
+      dprint.enable = true;
       just.enable = true;
     };
   };

@@ -4,17 +4,17 @@
     {
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
+          config.treefmt.build.wrapper
           nixd
           nil
           yaml-language-server
           vscode-langservers-extracted
           nixfmt-rfc-style
-          nodePackages_latest.prettier
           statix
           deadnix
           yamllint
           actionlint
-          config.treefmt.build.wrapper
+          dprint
           just
         ];
         shellHook = config.pre-commit.installationScript;
