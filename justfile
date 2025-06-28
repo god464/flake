@@ -6,20 +6,17 @@
 @install-remote target ip:
     nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --copy-host-keys --flake .#{{ target }} root@{{ ip }}
 
-@update:
-    nix flake update
-
 @clean:
-    nix-collect-garbage -d
+    nh clean all
 
 @upgrade target="laptop":
-    nixos-rebuild switch --sudo --flake .#{{ target }}
+    nh os switch . -H {{ target }}
 
 @upgrade-remote target ip:
-    nixos-rebuild switch --flake .#{{ target }} --target-host "root@{{ ip }}"
+    nh os switch . -H {{ target }} --target-host  "root@{{ ip }}"
 
 @test target:
-    nixos-rebuild test --flake .#{{ target }}
+    nh os test . -H {{ target }}
 
 @fix:
     nix-store --repair --verify --check-contents
