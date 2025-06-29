@@ -12,10 +12,13 @@
         };
     in
     {
-      rust = mkTemplate "rust";
-      cc = mkTemplate "cc" "c/c++";
-      web = mkTemplate "web";
-      java = mkTemplate "java";
-      go = mkTemplate "go";
+      rust = mkTemplate { p = "rust"; };
+      cc = mkTemplate {
+        p = "cc";
+        q = "c/c++";
+      };
+      web = mkTemplate { p = "web"; };
+      java = mkTemplate { p = "java"; };
+      go = mkTemplate { p = "go"; };
     };
 }
