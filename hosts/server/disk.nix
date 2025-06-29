@@ -1,8 +1,8 @@
 {
   disko.devices = {
     disk.sda = {
-      type = "disk";
       device = "/dev/sda";
+      type = "disk";
       content = {
         type = "gpt";
         partitions = {
@@ -25,6 +25,7 @@
               extraArgs = [
                 "-f"
                 "-L Nixos"
+                "--csum xxhash"
               ];
               mountpoint = "/";
               mountOptions = [
@@ -41,7 +42,6 @@
                 };
                 "@var" = {
                   mountOptions = [
-                    "csum=xxhash"
                     "compress=zstd"
                     "noatime"
                   ];
