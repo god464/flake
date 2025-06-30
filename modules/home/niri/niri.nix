@@ -124,7 +124,10 @@ in
         "Mod+L".action = focus-column-right;
         "Mod+J".action = focus-window-down;
         "Mod+K".action = focus-window-up;
-        "Mod+Shift+H".action = move-window-up;
+        "Mod+Shift+H".action = move-column-left;
+        "Mod+Shift+L".action = move-column-right;
+        "Mod+Shift+K".action = move-window-up;
+        "Mod+Shift+J".action = move-window-down;
         "Mod+1".action = focus-workspace 1;
         "Mod+2".action = focus-workspace 2;
         "Mod+3".action = focus-workspace 3;
