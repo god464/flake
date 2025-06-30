@@ -1,11 +1,11 @@
 keys:
-  - &desktop age1h0w3eg0ac5k8jn8527qfext3sd8c44qshnpe9p7gw5zfke2glapqxa4sxq
+  - &laptop age1h0w3eg0ac5k8jn8527qfext3sd8c44qshnpe9p7gw5zfke2glapqxa4sxq
   - &server age197adxh6vrkt0ktkxr7vel646vstvnenflwnnk5y30vr58hgwq98sr4z5qy
 creation_rules:
-  - path_regex: ^hosts/desktop/secrets\.yaml$
+  - path_regex: ^hosts/laptop/secrets\.yaml$
     key_groups:
       - age:
-          - *desktop
+          - *laptop
   - path_regex: ^hosts/server/secrets\.yaml$
     key_groups:
       - age:
