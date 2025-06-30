@@ -7,7 +7,10 @@ in
   options.network'.dae.enable = mkEnableOption "dae";
   config = mkIf cfg.enable {
     sops = {
-      secrets.sub = { };
+      secrets = {
+        sub1 = { };
+        sub2 = { };
+      };
       templates."config.dae".content = ''
         global {
           tproxy_port: 12345
@@ -28,8 +31,9 @@ in
 
         dns {
           upstream {
-            googledns: 'tcp+udp://dns.google:53'
-            alidns: 'udp://dns.alidns.com:53'
+            googledns: 'tls://dns.google'
+            adguardns: 'quic://dns.adguard-dns.com'
+            alidns: 'quic://dns.alidns.com:853'
           }
           routing {
             request {
@@ -46,7 +50,8 @@ in
         }
 
         subscription {
-           my_sub: '${config.sops.placeholder.sub}'
+           main_sub: '${config.sops.placeholder.sub1}'
+           alt_sub: '${config.sops.placeholder.sub2}'
         }
 
         group {
