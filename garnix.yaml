@@ -5,6 +5,9 @@ builds:
     - packages.x86_64-linux.*
     - apps.x86_64-linux.*
 
+  exclude:
+    - nixosConfigurations.iso
+
 incrementalizeBuilds:
   excludeBranches:
-    - 'master'
+    - '*'
