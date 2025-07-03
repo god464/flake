@@ -26,6 +26,7 @@ in
       wl-clipboard-rs
       nautilus
       eog
+      gemini-cli
     ];
   };
 }
