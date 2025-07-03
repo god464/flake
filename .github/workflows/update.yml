@@ -21,7 +21,7 @@ jobs:
       - name: Check Nix flake inputs
         uses: DeterminateSystems/flake-checker-action@v10
       - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@v25
+        uses: DeterminateSystems/update-flake-lock@v26
         with:
           commit-msg: 'bump(lock): update flake.lock'
           pr-title: 'bump(lock): Update flake.lock'
