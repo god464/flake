@@ -1,15 +1,12 @@
 { pkgs, ... }:
 {
-  imports = [ ./disk.nix ];
   network'.net.name = "livecd";
   programs'.fish.enable = true;
   programs.git.enable = true;
-  users.users.root = {
-    shell = pkgs.fish;
-    initialPassword = "a";
-  };
+  users.users.root.shell = pkgs.fish;
   hardware = {
     enableAllFirmware = true;
     enableAllHardware = true;
   };
+  services.btrfs.autoScrub.enable = false;
 }

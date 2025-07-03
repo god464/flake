@@ -21,7 +21,7 @@ jobs:
         uses: DeterminateSystems/flake-checker-action@v10
       - name: build LiveCD
         run: |
-          nix build .#nixosConfigurations.iso.config.formats.iso
+          nix build .#nixosConfigurations.iso.config.formats.install-iso-hyperv
       - uses: actions/upload-artifact@v4
         with:
           path: ./result/*

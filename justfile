@@ -12,7 +12,7 @@
 
 [group('nix')]
 @clean:
-    nh clean all
+    nix-collect-garbage -d
 
 [group('nix')]
 [linux]
@@ -33,7 +33,7 @@
 
 [group('iso')]
 @geniso:
-    nix build .#nixosConfigurations.iso.config.formats.iso
+    nix build .#nixosConfigurations.iso.config.formats.install-iso-hyperv
 
 [group('facter')]
 @genfacter:
