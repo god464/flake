@@ -51,6 +51,7 @@ in
         ".mozilla"
         ".thunderbird"
         ".codeium"
+        ".gemini"
       ];
     };
   };
