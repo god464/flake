@@ -5,7 +5,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.librewolf = {
-      enable = true;
+      # enable = true;
       policies = {
         DisableAppUpdate = true;
         DisablePocket = true;

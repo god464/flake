@@ -16,11 +16,6 @@ in
           colorTheme.enable = true;
           firefoxGnomeTheme.enable = true;
         };
-        librewolf = {
-          enable = true;
-          colorTheme.enable = true;
-          firefoxGnomeTheme.enable = true;
-        };
         fnott.enable = true;
         fuzzel.enable = true;
         fzf.enable = true;
@@ -33,6 +28,7 @@ in
         zathura.enable = true;
         yazi.enable = true;
         nixos-icons.enable = true;
+        eog.enable = true;
       };
     };
   };

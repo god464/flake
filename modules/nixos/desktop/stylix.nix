@@ -56,6 +56,8 @@ in
         plymouth.enable = true;
         regreet.enable = true;
         console.enable = true;
+        gnome.enable = true;
+        kmscon.enable = true;
       };
     };
   };
