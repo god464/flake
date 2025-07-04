@@ -1,9 +1,4 @@
-{
-  osConfig,
-  lib,
-  pkgs,
-  ...
-}:
+{ osConfig, lib, ... }:
 let
   cfg = osConfig.programs.niri;
 in
@@ -13,26 +8,15 @@ in
       enable = true;
       autoEnable = false;
       overlays.enable = lib.mkForce true;
-      opacity = {
-        terminal = 0.8;
-        desktop = 0.8;
-        popups = 0.8;
-      };
-      cursor = {
-        name = "Bibata-Modern-Ice";
-        package = pkgs.bibata-cursors;
-        size = 20;
-      };
-      iconTheme = {
-        enable = true;
-        package = pkgs.papirus-icon-theme;
-        dark = "Papirus-Dark";
-        light = "Papirus-Light";
-      };
       targets = {
         bat.enable = true;
         fcitx5.enable = true;
         firefox = {
+          enable = true;
+          colorTheme.enable = true;
+          firefoxGnomeTheme.enable = true;
+        };
+        librewolf = {
           enable = true;
           colorTheme.enable = true;
           firefoxGnomeTheme.enable = true;
