@@ -16,7 +16,7 @@ jobs:
             extra-substituters = https://cache.garnix.io
             extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
             experimental-features = nix-command flakes auto-allocate-uids cgroups recursive-nix ca-derivations pipe-operators
-        uses: DeterminateSystems/nix-installer-action@v17
+        uses: DeterminateSystems/nix-installer-action@v18
       - name: Check Nix flake inputs
         uses: DeterminateSystems/flake-checker-action@v11
       - name: build LiveCD
