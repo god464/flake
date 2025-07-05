@@ -20,5 +20,6 @@
       web = mkTemplate { p = "web"; };
       java = mkTemplate { p = "java"; };
       go = mkTemplate { p = "go"; };
+      haskell = mkTemplate { p = "haskell"; };
     };
 }
