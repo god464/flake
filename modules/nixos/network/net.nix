@@ -27,7 +27,6 @@ in
           {
             networkmanager = {
               enable = true;
-              enableStrongSwan = true;
               ethernet.macAddress = "random";
               wifi.macAddress = "ramdom";
               wifi.backend = "iwd";
