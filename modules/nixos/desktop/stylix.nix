@@ -14,6 +14,7 @@ in
     stylix = {
       enable = true;
       autoEnable = false;
+      polarity = "dark";
       image = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/3f7695afe75239720a32d6c38df7c9888b5ed581/wallpapers/NixOS-Gradient-grey.png";
         hash = "sha256-Tf4Xruf608hpl7YwL4Mq9l9egBOCN+W4KFKnqrgosLE=";
@@ -56,7 +57,6 @@ in
         plymouth.enable = true;
         regreet.enable = true;
         console.enable = true;
-        gnome.enable = true;
         kmscon.enable = true;
       };
     };

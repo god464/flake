@@ -1,4 +1,9 @@
-{ osConfig, lib, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = osConfig.programs.niri;
 in
@@ -8,6 +13,12 @@ in
       enable = true;
       autoEnable = false;
       overlays.enable = lib.mkForce true;
+      iconTheme = {
+        enable = true;
+        package = pkgs.papirus-icon-theme;
+        dark = "Papirus-Dark";
+        light = "Papirus-Light";
+      };
       targets = {
         bat.enable = true;
         fcitx5.enable = true;

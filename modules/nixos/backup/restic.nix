@@ -2,27 +2,54 @@
 let
   backup-cfg = config.backup'.restic-backup;
   server-cfg = config.backup'.restic-server;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib)
+    mkEnableOption
+    mkMerge
+    mkIf
+    mkOption
+    types
+    ;
 in
 {
   options.backup' = {
-    restic-backup.enable = mkEnableOption "restic-backup";
+    restic-backup = {
+      enable = mkEnableOption "restic-backup";
+      includeDir = mkOption {
+        type = types.listOf types.str;
+        default = [ "/" ];
+      };
+      excludeDir = mkOption {
+        type = types.listOf types.str;
+        default = [ ];
+      };
+    };
     restic-server.enable = mkEnableOption "restic-server";
   };
-  config =
-    mkIf backup-cfg.enable {
+  config = mkMerge [
+    mkIf
+    backup-cfg.enable
+    {
       services.restic.backups = {
-        # TODO
+        initialize = true;
+        paths = backup-cfg.includeDir;
+        exclude = backup-cfg.excludeDir;
+        # FIXME Need to fit actual enviroment
+        repository = "/tmp/backup";
+        passwordFile = "/tmp/restic/password";
       };
     }
-    // mkIf server-cfg.enable {
+    mkIf
+    server-cfg.enable
+    {
       services.restic.server = {
         enable = true;
-        listenAddress = "0.0.0.0:8000";
+        # FIXME Need to fit actual enviroment
+        htpasswd-file = "/tmp/restic/htpasswd";
       };
       networking.firewall = {
         allowedTCPPorts = [ 8000 ];
         allowedUDPPorts = [ 8000 ];
       };
-    };
+    }
+  ];
 }
