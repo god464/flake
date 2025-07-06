@@ -26,9 +26,7 @@ in
     restic-server.enable = mkEnableOption "restic-server";
   };
   config = mkMerge [
-    mkIf
-    backup-cfg.enable
-    {
+    (mkIf backup-cfg.enable {
       services.restic.backups = {
         initialize = true;
         paths = backup-cfg.includeDir;
@@ -37,10 +35,8 @@ in
         repository = "/tmp/backup";
         passwordFile = "/tmp/restic/password";
       };
-    }
-    mkIf
-    server-cfg.enable
-    {
+    })
+    (mkIf server-cfg.enable {
       services.restic.server = {
         enable = true;
         # FIXME Need to fit actual enviroment
@@ -50,6 +46,6 @@ in
         allowedTCPPorts = [ 8000 ];
         allowedUDPPorts = [ 8000 ];
       };
-    }
+    })
   ];
 }
