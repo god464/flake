@@ -37,6 +37,7 @@ in
           ];
           systemd.enable = true;
         };
+        enableContainers = false;
         kernelModules = [ "kvm-amd" ];
         kernelPackages = pkgs.linuxPackages_latest;
         loader = {

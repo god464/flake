@@ -6,12 +6,10 @@ let
 in
 {
   config = mkIf (name != "livecd") {
-    programs.command-not-found.enable = false;
     system = {
       tools.nixos-generate-config.enable = false;
       # forbiddenDependenciesRegexes = [ "perl" ];
     };
-    boot.enableContainers = false;
     environment.defaultPackages = [ ];
     documentation = {
       info.enable = false;
