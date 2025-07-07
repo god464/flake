@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
