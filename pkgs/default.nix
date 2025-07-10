@@ -11,9 +11,14 @@
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          checkMeta = true;
+          warnUndeclaredOptions = true;
+        };
         overlays = [
           self.overlays.pkgs
+
           inputs.niri-flake.overlays.niri
         ];
       };

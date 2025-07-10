@@ -8,11 +8,13 @@
 {
   flake =
     let
-      mkNixossystem =
+      system = "x86_64-linux";
+      mkNixosSystem =
         host:
-        withSystem "x86_64-linux" (
-          { lib, ... }:
+        withSystem system (
+          { pkgs, lib, ... }:
           lib.nixosSystem {
+            inherit pkgs;
             specialArgs = {
               inherit inputs;
               topcfg = config;
@@ -26,8 +28,8 @@
                 nixos-facter-modules.nixosModules.facter
               ]
               ++ [
+                { nixpkgs.hostPlatform = system; }
                 ./${host}
-                ../secrets
                 self.nixosModules.default
               ];
           }
@@ -35,10 +37,10 @@
     in
     {
       nixosConfigurations = {
-        laptop = mkNixossystem "laptop";
-        server = mkNixossystem "server";
-        iso = mkNixossystem "iso";
-        vm = mkNixossystem "vm";
+        laptop = mkNixosSystem "laptop";
+        server = mkNixosSystem "server";
+        iso = mkNixosSystem "iso";
+        vm = mkNixosSystem "vm";
       };
     };
 }
