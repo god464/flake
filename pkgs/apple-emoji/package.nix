@@ -2,6 +2,8 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  pkgs,
+  ...
 }:
 stdenv.mkDerivation rec {
   pname = "apple-emoji";
@@ -12,11 +14,29 @@ stdenv.mkDerivation rec {
     rev = "v${version}";
     hash = "sha256-Cw4zl9Trb+yVjVajdG2KxG/pozti6IHZB2nR89ZUExM=";
   };
-  dontUnpack = true;
-  dontBuild = true;
-  dontConfigure = true;
+  nativeBuildInputs =
+    with pkgs;
+    [
+      which
+      (python3.withPackages (
+        python-pkgs:
+        [
+          python-pkgs.fonttools
+        ]
+        ++ lib.optional (nototools == null) python-pkgs.nototools
+      ))
+      optipng
+      zopfli
+      pngquant
+      imagemagick
+    ]
+    ++ lib.optional (nototools != null) nototools;
+
   installPhase = ''
-    install -D -m644 $src $out/share/fonts/truetype/AppleColorEmoji.ttf
+    runHook preInstall
+    mkdir -p $out/share/fonts/truetype
+    cp ./AppleColorEmoji.ttf $out/share/fonts/truetype
+    runHook postInstall
   '';
   meta = {
     description = "Brings Apple's vibrant emojis to your Linux experience";
