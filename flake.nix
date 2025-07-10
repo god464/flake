@@ -64,7 +64,7 @@
         ./shells
         ./libs
         ./modules
-        ./packages
+        ./pkgs
         ./templates
       ];
     };

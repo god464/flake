@@ -7,7 +7,7 @@
 {
   flake.overlays.default =
     _final: prev:
-    prev.lib.packagesFromDirectoryRecursive {
+    lib.packagesFromDirectoryRecursive {
       callPackage = lib.callPackageWith (prev.pkgs // { inherit prev; });
       directory = ./.;
     };
