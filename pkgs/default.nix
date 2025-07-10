@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.overlays.default =
+  flake.overlays.pkgs =
     _final: prev:
     prev.lib.packagesFromDirectoryRecursive {
       inherit (prev) callPackage;
@@ -11,7 +11,11 @@
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
-        overlays = [ self.overlays.default ];
+        config.allowUnfree = true;
+        overlays = [
+          self.overlays.pkgs
+          inputs.niri-flake.overlays.niri
+        ];
       };
       legacyPackages = pkgs;
     };
