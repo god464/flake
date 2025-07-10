@@ -20,6 +20,10 @@
     };
     impermanence.url = "github:nix-community/impermanence";
     preservation.url = "github:WilliButz/preservation";
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,7 +64,7 @@
         ./shells
         ./libs
         ./modules
-        ./pkgs
+        ./packages
         ./templates
       ];
     };
