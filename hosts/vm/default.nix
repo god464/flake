@@ -3,7 +3,7 @@
   imports = [ inputs.microvm.nixosModules.microvm ];
   network'.net.name = "microvm";
   users.users.root.password = "";
-  services.btrfs.autoScrub = false;
+  services.btrfs.autoScrub.enable = false;
   microvm = {
     hypervisor = "qemu";
     vcpu = 4;

@@ -1,14 +1,9 @@
-{
-  inputs,
-  self,
-  lib,
-  ...
-}:
+{ inputs, self, ... }:
 {
   flake.overlays.default =
     _final: prev:
-    lib.packagesFromDirectoryRecursive {
-      callPackage = lib.callPackageWith (prev.pkgs // { inherit prev; });
+    prev.lib.packagesFromDirectoryRecursive {
+      inherit (prev) callPackage;
       directory = ./.;
     };
   perSystem =
