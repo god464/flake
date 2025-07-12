@@ -38,6 +38,7 @@
               vcpkg
               vcpkg-tool
               clang-tools
+              ccls
               cppcheck
               neocmakelsp
             ];
