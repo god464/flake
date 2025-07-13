@@ -247,11 +247,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1752113511,
-        "narHash": "sha256-YRuDuFKvGO1xXGTraepYLgjwJh1y2RjJ2rKezOKkE8M=",
+        "lastModified": 1752374342,
+        "narHash": "sha256-wOdaoXgOgnmOJGRSt4rVx8Tx12nZWVYR6UpVyr0d5kg=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "5c4fa50d8fcb8b61aee228c57d9f3fad34ff9e9c",
+        "rev": "c9764cdec83b786401126150d0e3eb06918d75a7",
         "type": "github"
       },
       "original": {
@@ -349,11 +349,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752370912,
-        "narHash": "sha256-2nubM60bAyufUYkHtSxZKOQzvy5H2Q8lTATTptDc+jc=",
+        "lastModified": 1752373701,
+        "narHash": "sha256-d0d7y9gjv9HU0Amws6kHJucR8bxrQ0PfVKxt2ll5cfs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "908200d6808bf961718ae96c5aad7ae6b0f8bda9",
+        "rev": "fc25398450cdab61af9654928dfef9d101f51140",
         "type": "github"
       },
       "original": {
