@@ -74,7 +74,7 @@ in
           l4proto(udp)  && dport(443) -> block
 
           domain(geosite:cn, geolocation-cn) -> direct
-          domain(geosite:openai, geosite:anthropic) -> pure
+          domain(geosite:openai, geosite:anthropic, geosite:wikimedia) -> pure
           domain(geosite:category-ads-all) -> block
 
           fallback: proxy
