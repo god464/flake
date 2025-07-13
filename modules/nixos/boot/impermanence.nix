@@ -46,6 +46,7 @@ in
         ".local/share/zoxide"
         ".local/share/nix"
         ".local/state/nix"
+        ".local/state/nvim"
         ".config/fcitx5"
         ".local/state/wireplumber"
         ".mozilla"
