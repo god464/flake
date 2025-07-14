@@ -28,10 +28,6 @@
                 "--csum xxhash"
               ];
               mountpoint = "/";
-              mountOptions = [
-                "compress=zstd"
-                "noatime"
-              ];
               subvolumes = {
                 "@nix" = {
                   mountpoint = "/nix";

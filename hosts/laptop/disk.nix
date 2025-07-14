@@ -29,6 +29,7 @@
                 extraArgs = [
                   "-f"
                   "-L NixOS"
+                  "--csum xxhash"
                 ];
                 subvolumes = {
                   "@nix" = {
