@@ -16,6 +16,7 @@
           actionlint
           dprint
           just
+          vulnix
         ];
         shellHook = config.pre-commit.installationScript;
       };
