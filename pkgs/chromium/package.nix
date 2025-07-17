@@ -1,6 +1,6 @@
 { prev }:
 {
-  chromium = prev.chromium.override {
+  chromium = prev.ungoogled-chromium.override {
     commandLineArgs = [
       "--enable-features=AcceleratedVideoEncoder"
       "--ignore-gpu-blocklist"

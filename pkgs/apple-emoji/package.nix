@@ -14,23 +14,20 @@ stdenv.mkDerivation rec {
     rev = "v${version}";
     hash = "sha256-Cw4zl9Trb+yVjVajdG2KxG/pozti6IHZB2nR89ZUExM=";
   };
-  nativeBuildInputs =
-    with pkgs;
-    [
-      which
-      (python3.withPackages (
-        python-pkgs:
-        [
-          python-pkgs.fonttools
-        ]
-        ++ lib.optional (nototools == null) python-pkgs.nototools
-      ))
-      optipng
-      zopfli
-      pngquant
-      imagemagick
-    ]
-    ++ lib.optional (nototools != null) nototools;
+  nativeBuildInputs = with pkgs; [
+    which
+    (python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        fonttools
+        nototools
+      ]
+    ))
+    optipng
+    zopfli
+    pngquant
+    imagemagick
+    nototools
+  ];
 
   installPhase = ''
     runHook preInstall
