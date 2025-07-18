@@ -7,4 +7,3 @@ builds:
 
   exclude:
     - nixosConfigurations.iso
-
