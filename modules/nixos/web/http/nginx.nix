@@ -18,7 +18,6 @@ in
         enable = true;
         enableQuicBPF = true;
         package = pkgs.nginxQuic;
-        recommendedZstdSettings = true;
         recommendedOptimisation = true;
         recommendedProxySettings = true;
       };
