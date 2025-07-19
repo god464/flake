@@ -1,13 +1,8 @@
 {
-  "json": {
-    "preferSingleLine": true
-  },
+  "json": { "preferSingleLine": true },
   "malva": {},
   "markup": {},
-  "yaml": {
-    "quotes": "preferSingle",
-    "preferSingleLine": true
-  },
+  "yaml": { "quotes": "preferSingle", "preferSingleLine": true },
   "excludes": ["flake.lock"],
   "plugins": [
     "https://plugins.dprint.dev/json-0.20.0.wasm",

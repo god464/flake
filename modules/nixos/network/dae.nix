@@ -56,11 +56,10 @@ in
 
         group {
           pure {
-            filter: name(keyword: 'ChatGPT解锁')
+            filter: name(keyword: '推荐')
             policy: min_moving_avg
           }
           proxy {
-            filter: !name(keyword: 'ChatGPT解锁')
             policy: min_moving_avg
           }
         }
@@ -71,11 +70,11 @@ in
           dip(224.0.0.0/3, 'ff00::/8', 10.0.0.0/8, 'fd00::/8') -> direct
           dip(geoip:private,geoip:cn) -> direct
 
-          l4proto(udp)  && dport(443) -> block
+          l4proto(udp) && dport(443) -> block
 
           domain(geosite:cn, geolocation-cn) -> direct
-          domain(geosite:openai, geosite:anthropic, geosite:wikimedia) -> pure
           domain(geosite:category-ads-all) -> block
+          domain(geosite:openai, geosite:anthropic) -> pure
 
           fallback: proxy
         }
