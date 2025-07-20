@@ -74,7 +74,6 @@ in
 
           domain(geosite:cn, geolocation-cn) -> direct
           domain(geosite:category-ads-all) -> block
-          domain(geosite:openai, geosite:anthropic) -> pure
 
           fallback: proxy
         }
