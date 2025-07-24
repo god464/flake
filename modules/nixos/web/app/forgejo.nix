@@ -11,9 +11,7 @@ in
         enable = true;
         database.type = "postgres";
       };
-      nginx.virtualHosts.localhost = {
-        locations."/git/".proxyPass = "http://localhost:3000/";
-      };
+      nginx.virtualHosts.localhost.locations."/git/".proxyPass = "http://localhost:3000/";
     };
   };
 }
