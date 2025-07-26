@@ -62,7 +62,6 @@
       imports = [
         ./hosts
         ./shells
-        ./libs
         ./modules
         ./pkgs
         ./templates

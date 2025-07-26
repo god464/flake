@@ -12,8 +12,8 @@
       mkNixosSystem =
         host:
         withSystem system (
-          { pkgs, lib, ... }:
-          lib.nixosSystem {
+          { pkgs, ... }:
+          inputs.nixpkgs.lib.nixosSystem {
             inherit pkgs;
             specialArgs = {
               inherit inputs;

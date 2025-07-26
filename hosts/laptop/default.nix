@@ -42,10 +42,7 @@
     cpu.amd.updateMicrocode = true;
     amdgpu.initrd.enable = true;
   };
-  programs' = {
-    fish.enable = true;
-    tmux.enable = true;
-  };
+  programs'.fish.enable = true;
   desktop'.niri.enable = true;
   facter.reportPath = ./facter.json;
   services' = {
