@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.templates =
     let
@@ -10,16 +11,15 @@
           path = ./src/${p};
           description = "${q} development environment";
         };
-    in
-    {
-      rust = mkTemplate { p = "rust"; };
-      cc = mkTemplate {
-        p = "cc";
-        q = "c/c++";
+
+      templates = {
+        rust = { };
+        cc.q = "c/c++";
+        web = { };
+        java = { };
+        go = { };
+        haskell = { };
       };
-      web = mkTemplate { p = "web"; };
-      java = mkTemplate { p = "java"; };
-      go = mkTemplate { p = "go"; };
-      haskell = mkTemplate { p = "haskell"; };
-    };
+    in
+    lib.mapAttrs (name: cfg: mkTemplate ({ p = name; } // cfg)) templates;
 }

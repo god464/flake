@@ -1,18 +1,14 @@
 { lib, ... }:
 let
-  importModules' =
-    dir:
-    lib.filter (path: lib.hasSuffix ".nix" (builtins.baseNameOf path)) (
-      lib.filesystem.listFilesRecursive dir
-    );
+  inherit (lib.filesystem) listFilesRecursive;
 in
 {
   flake = {
     nixosModules.default = {
-      imports = importModules' ./nixos;
+      imports = listFilesRecursive ./nixos;
     };
     homeModules.default = {
-      imports = importModules' ./home;
+      imports = listFilesRecursive ./home;
     };
   };
 }

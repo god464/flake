@@ -2,6 +2,7 @@
 {
   network'.net.name = "livecd";
   programs'.fish.enable = true;
+  boot.initrd.systemd.enable = false;
   programs.git.enable = true;
   users.users.root.shell = pkgs.fish;
   hardware = {

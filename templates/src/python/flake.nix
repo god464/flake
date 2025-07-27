@@ -36,8 +36,9 @@
               uv
               basedpyright
               ruff
-              # ty # No stable now
+              ty
               pythonPackages.debugpy
+              pythonPackages.venvShellHook
               # TOML
               taplo
             ];
