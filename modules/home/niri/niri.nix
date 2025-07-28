@@ -47,7 +47,9 @@ in
             }
           ];
           open-floating = true;
+          open-maximized = false;
         }
+        { open-maximized = true; }
       ];
       binds = with config.lib.niri.actions; {
         "Mod+Shift+Slash".action = show-hotkey-overlay;

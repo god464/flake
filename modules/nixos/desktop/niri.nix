@@ -20,7 +20,10 @@ in
       };
       regreet.enable = true;
     };
-    services.gnome.sushi.enable = true;
+    services.gnome = {
+      sushi.enable = true;
+      gnome-keyring.enable = true;
+    };
     security.pam.services.hyprlock.fprintAuth = false;
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
