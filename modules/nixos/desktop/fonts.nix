@@ -25,7 +25,8 @@ in
         nerd-fonts.symbols-only
         twemoji-color-font
         noto-fonts-color-emoji
-        # apple-emoji
+        maple-mono.Normal-CN
+        apple-emoji
       ];
       fontconfig = {
         subpixel.rgba = "rgb";

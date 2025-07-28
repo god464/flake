@@ -1,9 +1,14 @@
-{ inputs, self, ... }:
+{
+  inputs,
+  self,
+  lib,
+  ...
+}:
 {
   flake.overlays.pkgs =
     _final: prev:
-    prev.lib.packagesFromDirectoryRecursive {
-      inherit (prev) callPackage;
+    lib.packagesFromDirectoryRecursive {
+      callPackage = lib.callPackageWith (prev.pkgs // { inherit prev; });
       directory = ./.;
     };
   perSystem =
@@ -18,7 +23,6 @@
         };
         overlays = [
           self.overlays.pkgs
-
           inputs.niri-flake.overlays.niri
         ];
       };
