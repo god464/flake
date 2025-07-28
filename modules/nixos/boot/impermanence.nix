@@ -54,6 +54,7 @@ in
         ".codeium"
         ".gemini"
         ".vscode"
+        ".config/Code"
       ];
     };
   };
