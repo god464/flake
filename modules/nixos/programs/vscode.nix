@@ -5,7 +5,5 @@ let
 in
 {
   options.programs'.vscode.enable = mkEnableOption "vscode";
-  config = mkIf cfg.enable {
-    programs.vscode.enable = true;
-  };
+  config = mkIf cfg.enable { programs.vscode.enable = true; };
 }

@@ -53,6 +53,7 @@ in
         ".thunderbird"
         ".codeium"
         ".gemini"
+        ".vscode"
       ];
     };
   };
