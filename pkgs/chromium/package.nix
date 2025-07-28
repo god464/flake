@@ -5,6 +5,7 @@
       "--enable-features=AcceleratedVideoEncoder"
       "--ignore-gpu-blocklist"
       "--enable-zero-copy"
+      "--gtk-version=4"
     ];
   };
 }
