@@ -26,7 +26,6 @@ in
         twemoji-color-font
         noto-fonts-color-emoji
         maple-mono.Normal-CN
-        apple-emoji
       ];
       fontconfig = {
         subpixel.rgba = "rgb";
@@ -46,6 +45,7 @@ in
           monospace = [
             "Source Han Mono SC"
             "Noto Sans Mono CJK SC"
+            "Maple Mono Normal CN"
             "Symbols Nerd Font Mono"
           ];
           emoji = [
