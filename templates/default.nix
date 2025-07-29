@@ -19,6 +19,7 @@
         java = { };
         go = { };
         haskell = { };
+        python = { };
       };
     in
     lib.mapAttrs (name: cfg: mkTemplate ({ p = name; } // cfg)) templates;
