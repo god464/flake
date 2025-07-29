@@ -20,6 +20,8 @@ in
           "--ignore-gpu-blocklist"
           "--enable-zero-copy"
           "--gtk-version=4"
+          "--wayland-text-input-version=3"
+          "--enable-wayland-ime"
         ];
       };
     };
