@@ -5,5 +5,10 @@ let
 in
 {
   options.network'.clash.enable = mkEnableOption "clash";
-  config = mkIf cfg.enable { programs.clash-verge.enable = true; };
+  config = mkIf cfg.enable {
+    programs.clash-verge = {
+      enable = true;
+      tunMode = true;
+    };
+  };
 }
