@@ -37,15 +37,15 @@
               basedpyright
               ruff
               ty
-              pythonPackages.debugpy
-              pythonPackages.venvShellHook
+              python3Packages.debugpy
+              python3Packages.venvShellHook
               # TOML
               taplo
             ];
             shellHook = ''
               ${config.pre-commit.installationScript}
 
-              if [ !-f "pyproject.toml" ]; then
+              if [ ! -f "pyproject.toml" ]; then
                   uv init
               fi
             '';
