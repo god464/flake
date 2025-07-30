@@ -26,7 +26,7 @@ in
         popups = 0.8;
       };
       cursor = {
-        name = "Bibata-Modern-Ice";
+        name = "Bibata-Modern-Classic";
         package = pkgs.bibata-cursors;
         size = 20;
       };
