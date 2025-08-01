@@ -9,7 +9,6 @@ let
   inherit (lib) mkEnableOption mkIf;
 in
 {
-
   options.desktop'.cosmic.enable = mkEnableOption "cosmic";
   config = mkIf cfg.enable {
     services = {
@@ -18,5 +17,4 @@ in
     };
     environment.systemPackages = [ pkgs.wl-clipboard ];
   };
-
 }

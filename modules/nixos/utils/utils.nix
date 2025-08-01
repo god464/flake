@@ -2,7 +2,6 @@
 let
   inherit (lib) mkIf;
   name = config.networking.hostName;
-
 in
 {
   config = mkIf (name != "livecd") {
