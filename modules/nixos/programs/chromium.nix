@@ -16,7 +16,7 @@ in
       pkgs.ungoogled-chromium.override
       {
         commandLineArgs = [
-          "--enable-features=AcceleratedVideoEncoder"
+          "--enable-features=AcceleratedVideoEncoder,UseOzonePlatform,AcceleratedVideoDecodeLinuxGL,VaapiVideoDecoder,AcceleratedVideoDecodeLinuxZeroCopyGL"
           "--ignore-gpu-blocklist"
           "--enable-zero-copy"
           "--gtk-version=4"

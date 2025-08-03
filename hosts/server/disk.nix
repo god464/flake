@@ -27,8 +27,14 @@
                 "-L Nixos"
                 "--csum xxhash"
               ];
-              mountpoint = "/";
               subvolumes = {
+                "@" = {
+                  mountpoint = "/";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
                 "@nix" = {
                   mountpoint = "/nix";
                   mountOptions = [

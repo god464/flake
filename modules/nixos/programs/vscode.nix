@@ -15,13 +15,15 @@ in
       enable = true;
       package = pkgs.vscode.override {
         commandLineArgs = [
-          "--enable-features=AcceleratedVideoEncoder"
+          "--enable-features=UseOzonePlatform"
           "--password-store=gnome"
           "--ignore-gpu-blocklist"
           "--enable-zero-copy"
           "--gtk-version=4"
           "--wayland-text-input-version=3"
           "--enable-wayland-ime"
+          "--ozone-platform=wayland"
+          "--enable-gpu-rasterization"
         ];
       };
     };
