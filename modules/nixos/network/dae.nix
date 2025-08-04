@@ -7,10 +7,7 @@ in
   options.network'.dae.enable = mkEnableOption "dae";
   config = mkIf cfg.enable {
     sops = {
-      secrets = {
-        sub1 = { };
-        sub2 = { };
-      };
+      secrets.sub1 = { };
       templates."config.dae".content = ''
         global {
           tproxy_port: 12345
@@ -51,12 +48,11 @@ in
 
         subscription {
            main_sub: '${config.sops.placeholder.sub1}'
-           alt_sub: '${config.sops.placeholder.sub2}'
         }
 
         group {
           pure {
-            filter: name(keyword: '推荐')
+            filter: name(keyword: 'ChatGPT解锁')
             policy: min_moving_avg
           }
           proxy {
@@ -74,6 +70,7 @@ in
 
           domain(geosite:cn, geolocation-cn) -> direct
           domain(geosite:category-ads-all) -> block
+          domain(geosite:openai, geosite:anthropic, geosite:wikimedia) -> pure
 
           fallback: proxy
         }
