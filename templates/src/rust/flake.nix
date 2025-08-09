@@ -16,16 +16,13 @@
     };
   };
   outputs =
-    inputs@{ flake-parts, self, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = with inputs; [
         treefmt-nix.flakeModule
         git-hooks-nix.flakeModule
       ];
       systems = [ "x86_64-linux" ];
-      flake.overlays.default = _final: prev: {
-        rustToolchain = prev.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
-      };
       perSystem =
         {
           config,
@@ -36,10 +33,7 @@
         {
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
-            overlays = [
-              inputs.rust-overlay.overlays.default
-              self.overlays.default
-            ];
+            overlays = [ inputs.rust-overlay.overlays.default ];
           };
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
@@ -52,8 +46,9 @@
               # TOML
               taplo
               # Rust
-              rustToolchain
+              (rust-bin.fromRustupToolchainFile ./rust-toolchain.toml)
               vscode-extensions.vadimcn.vscode-lldb
+              cargo-edit
             ];
             env.RUST_SRC_PATH = "${pkgs.rustToolchain}/lib/rustlib/src/rust/library";
             shellHook = ''
