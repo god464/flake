@@ -27,6 +27,7 @@ in
       nautilus
       eog
       gemini-cli
+      qwen-code
     ];
   };
 }

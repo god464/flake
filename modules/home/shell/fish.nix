@@ -1,9 +1,4 @@
-{
-  lib,
-  osConfig,
-  pkgs,
-  ...
-}:
+{ lib, osConfig, ... }:
 let
   cfg = osConfig.programs.fish;
 in
@@ -20,12 +15,6 @@ in
         rg = "batgrep";
         man = "batman";
       };
-      plugins = [
-        {
-          name = "autopair";
-          src = pkgs.fishPlugins.autopair;
-        }
-      ];
     };
   };
 }
