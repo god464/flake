@@ -53,6 +53,7 @@ in
         ".thunderbird"
         ".codeium"
         ".gemini"
+        ".qwen"
         ".vscode"
         ".config/Code"
       ];
