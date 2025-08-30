@@ -28,7 +28,6 @@ in
         auto-optimise-store = true;
         experimental-features = [
           "auto-allocate-uids"
-          "ca-derivations"
           "cgroups"
           "nix-command"
           "flakes"
