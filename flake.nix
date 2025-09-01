@@ -40,6 +40,10 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
