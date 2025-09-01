@@ -47,6 +47,7 @@ in
         ".local/share/nix"
         ".local/state/nix"
         ".local/state/nvim"
+        ".local/share/CMakeTools"
         ".config/fcitx5"
         ".local/state/wireplumber"
         ".mozilla"
