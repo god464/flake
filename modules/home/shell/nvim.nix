@@ -14,7 +14,11 @@ in
       enable = true;
       extraPackages = with pkgs; [
         luarocks
-        (tree-sitter.withPlugins (_: allGrammars))
+        clang
+        gnumake
+        nodejs_latest
+        node-gyp
+        luajit
       ];
     };
     xdg.configFile.nvim = {
