@@ -15,7 +15,7 @@ in
       enable = true;
       autoEnable = false;
       polarity = "dark";
-      image = ../../../assests/bg.jpg;
+      image = ../../../assests/bg.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       opacity = {
         terminal = 0.8;
