@@ -32,7 +32,6 @@ in
         fzf.enable = true;
         hyprlock.enable = true;
         hyprpaper.enable = true;
-        kitty.enable = true;
         starship.enable = true;
         waybar.enable = true;
         mpv.enable = true;

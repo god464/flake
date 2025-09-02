@@ -13,11 +13,8 @@ in
     programs.neovim = {
       enable = true;
       extraPackages = with pkgs; [
-        clang
         luarocks
-        lua5_1
-        nodejs
-        tree-sitter
+        (tree-sitter.withPlugins (_: allGrammars))
       ];
     };
     xdg.configFile.nvim = {

@@ -12,8 +12,9 @@ in
     programs.kitty = {
       enable = true;
       font = {
-        package = lib.mkForce pkgs.maple-mono.Normal-CN;
-        name = lib.mkForce "Maple Mono Normal CN";
+        package = pkgs.maple-mono.Normal-CN;
+        name = "Maple Mono Normal CN";
+        size = 13.0;
       };
       settings = {
         copy_on_select = true;
@@ -23,6 +24,7 @@ in
         tab_bar_style = "powerline";
         tab_powerline_style = "round";
         disable_ligatures = "cursor";
+        background_opacity = 0.8;
       };
     };
   };
