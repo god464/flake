@@ -19,6 +19,7 @@ in
         nodejs_latest
         node-gyp
         luajit
+        tree-sitter
       ];
     };
     xdg.configFile.nvim = {
