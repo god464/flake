@@ -10,7 +10,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.kitty = {
-      enable = true;
+      # enable = true;
       themeFile = "Catppuccin-Mocha";
       font = {
         package = pkgs.maple-mono.Normal-CN;

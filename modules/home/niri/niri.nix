@@ -55,7 +55,7 @@ in
         "Mod+Shift+Slash".action = show-hotkey-overlay;
         "Mod+Return" = {
           hotkey-overlay.title = "Open Terminal";
-          action.spawn = "kitty";
+          action.spawn = "ghostty";
         };
         "Mod+Space" = {
           hotkey-overlay.title = "Open Launcher";
