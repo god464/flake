@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   osConfig,
   lib,
   ...
@@ -12,15 +11,9 @@ in
   config = lib.mkIf cfg.enable {
     programs.neovim = {
       enable = true;
-      extraPackages = with pkgs; [
-        luarocks
-        clang
-        gnumake
-        nodejs_latest
-        node-gyp
-        luajit
-        tree-sitter
-      ];
+      withNodeJs = true;
+      withPython3 = true;
+      withRuby = true;
     };
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
