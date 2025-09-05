@@ -46,7 +46,6 @@ in
           name = "Twitter Color Emoji";
         };
       };
-      overlays.enable = true;
       targets = {
         fish.enable = true;
         gtk.enable = true;

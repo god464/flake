@@ -12,7 +12,6 @@ in
     stylix = {
       enable = true;
       autoEnable = false;
-      overlays.enable = lib.mkForce true;
       iconTheme = {
         enable = true;
         package = pkgs.papirus-icon-theme;
