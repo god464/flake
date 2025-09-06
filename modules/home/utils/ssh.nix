@@ -2,9 +2,12 @@
   config = {
     programs.ssh = {
       enable = true;
-      addKeysToAgent = "yes";
-      compression = true;
-      hashKnownHosts = true;
+      enableDefaultConfig = false;
+      matchBlocks."*" = {
+        addKeysToAgent = "yes";
+        compression = true;
+        hashKnownHosts = true;
+      };
       extraConfig = ''
         Host github.com
           HostName github.com
