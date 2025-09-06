@@ -23,8 +23,7 @@ in
         fcitx5.enable = true;
         firefox = {
           enable = true;
-          colorTheme.enable = true;
-          firefoxGnomeTheme.enable = true;
+          profileNames = [ "*" ];
         };
         fnott.enable = true;
         fuzzel.enable = true;

@@ -17,6 +17,7 @@ in
       polarity = "dark";
       image = ../../../assests/bg.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      overlays.enable = true;
       opacity = {
         terminal = 0.8;
         desktop = 0.8;
@@ -47,7 +48,6 @@ in
         };
       };
       targets = {
-        fish.enable = true;
         gtk.enable = true;
         qt.enable = true;
         plymouth.enable = true;

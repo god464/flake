@@ -147,7 +147,7 @@ in
           "tray".spacing = 7;
         }
       ];
-      style = ''
+      style = lib.mkAfter ''
         * {
           border: none;
           border-radius: 10px;
