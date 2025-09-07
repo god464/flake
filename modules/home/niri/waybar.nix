@@ -190,7 +190,7 @@ in
 
         #workspaces button {
           padding: 3px;
-          color:#d3c6aa;
+          color:#cdd6f4;
         }
 
         #workspaces button:hover {
