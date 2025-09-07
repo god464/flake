@@ -51,6 +51,12 @@ in
         }
         { open-maximized = true; }
       ];
+      layer-rules = [
+        {
+          matches = [ { namespace = "^wallpaper$"; } ];
+          place-within-backdrop = true;
+        }
+      ];
       binds = with config.lib.niri.actions; {
         "Mod+Shift+Slash".action = show-hotkey-overlay;
         "Mod+Return" = {
