@@ -20,6 +20,11 @@
     nh os switch . -H {{ target }}
 
 [group('nix')]
+[linux]
+@lazy-upgrade target="laptop":
+    nh os boot . -H {{ target }}
+
+[group('nix')]
 @upgrade-remote target ip:
     nh os switch . -H {{ target }} --target-host  "root@{{ ip }}"
 
