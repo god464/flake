@@ -7,7 +7,7 @@ in
     programs.ghostty = {
       enable = true;
       settings = {
-        theme = "catppuccin-mocha";
+        theme = "Catppuccin Mocha";
         font-family = "Maple Mono Normal CN";
         font-size = 13.0;
         background-opacity = 0.8;
