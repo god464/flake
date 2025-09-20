@@ -2,6 +2,7 @@
   inputs,
   osConfig,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -14,6 +15,10 @@ in
       withNodeJs = true;
       withPython3 = true;
       withRuby = true;
+      extraPackages = with pkgs; [
+        clang
+        tree-sitter
+      ];
     };
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
