@@ -45,6 +45,7 @@ in
         ".local/share/direnv"
         ".local/share/zoxide"
         ".local/share/nix"
+        ".local/share/clash"
         ".local/state/nix"
         ".local/state/nvim"
         ".local/share/CMakeTools"

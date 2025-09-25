@@ -15,10 +15,7 @@ in
       withNodeJs = true;
       withPython3 = true;
       withRuby = true;
-      extraPackages = with pkgs; [
-        clang
-        tree-sitter
-      ];
+      extraPackages = [ pkgs.clang ];
     };
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
