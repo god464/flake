@@ -16,7 +16,10 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      sharedModules = [ topcfg.flake.homeModules.default ];
+      sharedModules = [
+        topcfg.flake.homeModules.default
+        inputs.DankMaterialShell.homeModules.dankMaterialShell
+      ];
       extraSpecialArgs = { inherit inputs; };
       users.cl.home.stateVersion = "25.05";
     };

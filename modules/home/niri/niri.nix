@@ -63,69 +63,69 @@ in
           hotkey-overlay.title = "Open Terminal";
           action.spawn = "ghostty";
         };
-        "Mod+Space" = {
-          hotkey-overlay.title = "Open Launcher";
-          action.spawn = "fuzzel";
-        };
-        "Mod+Escape" = {
-          hotkey-overlay.title = "Lock Screen";
-          action.spawn = "hyprlock";
-        };
-        "Mod+Grave".action.spawn = [
-          "cliphist"
-          "list"
-          "|"
-          "fuzzel"
-          "--dmenu"
-          "|"
-          "cliphist"
-          "decode"
-          "|"
-          "wl-copy"
-        ];
-        "XF86AudioRaiseVolume" = {
-          allow-when-locked = true;
-          action.spawn = [
-            "wpctl"
-            "set-volume"
-            "@DEFAULT_AUDIO_SINK@"
-            "5%+"
-          ];
-        };
-        "XF86AudioLowerVolume" = {
-          allow-when-locked = true;
-          action.spawn = [
-            "wpctl"
-            "set-volume"
-            "@DEFAULT_AUDIO_SINK@"
-            "5%-"
-          ];
-        };
-        "XF86AudioMute" = {
-          allow-when-locked = true;
-          action.spawn = [
-            "wpctl"
-            "set-mute"
-            "@DEFAULT_AUDIO_SINK@"
-            "toggle"
-          ];
-        };
-        "XF86MonBrightnessUp" = {
-          allow-when-locked = true;
-          action.spawn = [
-            "${lib.getExe pkgs.brightnessctl}"
-            "set"
-            "5%+"
-          ];
-        };
-        "XF86MonBrightnessDown" = {
-          allow-when-locked = true;
-          action.spawn = [
-            "${lib.getExe pkgs.brightnessctl}"
-            "set"
-            "5%-"
-          ];
-        };
+        # "Mod+Space" = {
+        #   hotkey-overlay.title = "Open Launcher";
+        #   action.spawn = "fuzzel";
+        # };
+        # "Mod+Escape" = {
+        #   hotkey-overlay.title = "Lock Screen";
+        #   action.spawn = "hyprlock";
+        # };
+        # "Mod+Grave".action.spawn = [
+        #   "cliphist"
+        #   "list"
+        #   "|"
+        #   "fuzzel"
+        #   "--dmenu"
+        #   "|"
+        #   "cliphist"
+        #   "decode"
+        #   "|"
+        #   "wl-copy"
+        # ];
+        # "XF86AudioRaiseVolume" = {
+        #   allow-when-locked = true;
+        #   action.spawn = [
+        #     "wpctl"
+        #     "set-volume"
+        #     "@DEFAULT_AUDIO_SINK@"
+        #     "5%+"
+        #   ];
+        # };
+        # "XF86AudioLowerVolume" = {
+        #   allow-when-locked = true;
+        #   action.spawn = [
+        #     "wpctl"
+        #     "set-volume"
+        #     "@DEFAULT_AUDIO_SINK@"
+        #     "5%-"
+        #   ];
+        # };
+        # "XF86AudioMute" = {
+        #   allow-when-locked = true;
+        #   action.spawn = [
+        #     "wpctl"
+        #     "set-mute"
+        #     "@DEFAULT_AUDIO_SINK@"
+        #     "toggle"
+        #   ];
+        # };
+        # "XF86MonBrightnessUp" = {
+        #   allow-when-locked = true;
+        #   action.spawn = [
+        #     "${lib.getExe pkgs.brightnessctl}"
+        #     "set"
+        #     "5%+"
+        #   ];
+        # };
+        # "XF86MonBrightnessDown" = {
+        #   allow-when-locked = true;
+        #   action.spawn = [
+        #     "${lib.getExe pkgs.brightnessctl}"
+        #     "set"
+        #     "5%-"
+        #   ];
+        # };
         "Mod+O".action = toggle-overview;
         "Mod+Q".action = close-window;
         "Mod+H".action = focus-column-left;
@@ -165,7 +165,7 @@ in
         "Mod+Equal".action = set-column-width "+10%";
         "Mod+Shift+Minus".action = set-window-height "-10%";
         "Mod+Shift+Equal".action = set-window-height "+10%";
-        "Mod+V".action = toggle-window-floating;
+        # "Mod+V".action = toggle-window-floating;
         "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
         "Mod+W".action = toggle-column-tabbed-display;
         Print.action = screenshot;

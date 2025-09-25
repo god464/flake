@@ -45,6 +45,7 @@
   programs' = {
     fish.enable = true;
     vscode.enable = true;
+    zed.enable = true;
   };
   desktop'.niri.enable = true;
   facter.reportPath = ./facter.json;

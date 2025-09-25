@@ -5,8 +5,8 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.waybar = {
-      enable = true;
-      systemd.enable = true;
+      # enable = true;
+      # systemd.enable = true;
       settings = [
         {
           layer = "top";
