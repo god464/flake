@@ -26,7 +26,7 @@ in
           profileNames = [ "*" ];
         };
         # fnott.enable = true;
-        fuzzel.enable = true;
+        # fuzzel.enable = true;
         fzf.enable = true;
         # hyprlock.enable = true;
         # hyprpaper.enable = true;

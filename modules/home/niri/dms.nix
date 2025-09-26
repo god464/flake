@@ -5,9 +5,9 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.dankMaterialShell = {
-      # enable = true;
-      # enableKeybinds = true;
-      # enableSpawn = true;
+      enable = true;
+      enableKeybinds = true;
+      enableSpawn = true;
     };
   };
 }
