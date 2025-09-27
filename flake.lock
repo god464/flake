@@ -1,28 +1,5 @@
 {
   "nodes": {
-    "DankMaterialShell": {
-      "inputs": {
-        "dgop": "dgop",
-        "dms-cli": "dms-cli",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "quickshell": "quickshell"
-      },
-      "locked": {
-        "lastModified": 1758908940,
-        "narHash": "sha256-U1sD617XAb+9jJh0gvnN3UyeBd63nW+DjF3DegU76xI=",
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "rev": "4c6182b79c190a8f17830698437a8f9cbcd3ee5b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "type": "github"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -105,10 +82,33 @@
         "type": "github"
       }
     },
+    "dankMaterialShell": {
+      "inputs": {
+        "dgop": "dgop",
+        "dms-cli": "dms-cli",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1758908940,
+        "narHash": "sha256-U1sD617XAb+9jJh0gvnN3UyeBd63nW+DjF3DegU76xI=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "4c6182b79c190a8f17830698437a8f9cbcd3ee5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "type": "github"
+      }
+    },
     "dgop": {
       "inputs": {
         "nixpkgs": [
-          "DankMaterialShell",
+          "dankMaterialShell",
           "nixpkgs"
         ]
       },
@@ -149,7 +149,7 @@
     "dms-cli": {
       "inputs": {
         "nixpkgs": [
-          "DankMaterialShell",
+          "dankMaterialShell",
           "nixpkgs"
         ]
       },
@@ -790,7 +790,7 @@
     "quickshell": {
       "inputs": {
         "nixpkgs": [
-          "DankMaterialShell",
+          "dankMaterialShell",
           "nixpkgs"
         ]
       },
@@ -810,7 +810,7 @@
     },
     "root": {
       "inputs": {
-        "DankMaterialShell": "DankMaterialShell",
+        "dankMaterialShell": "dankMaterialShell",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "ggnvim": "ggnvim",
