@@ -5,7 +5,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.hyprlock = {
-      # enable = true;
+      enable = true;
       settings = {
         label = [
           {

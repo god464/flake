@@ -4,6 +4,6 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    # services.hyprpaper.enable = true;
+    services.hyprpaper.enable = true;
   };
 }

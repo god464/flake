@@ -25,13 +25,13 @@ in
           enable = true;
           profileNames = [ "*" ];
         };
-        # fnott.enable = true;
-        # fuzzel.enable = true;
+        fnott.enable = true;
+        fuzzel.enable = true;
         fzf.enable = true;
-        # hyprlock.enable = true;
-        # hyprpaper.enable = true;
+        hyprlock.enable = true;
+        hyprpaper.enable = true;
         starship.enable = true;
-        # waybar.enable = true;
+        waybar.enable = true;
         mpv.enable = true;
         zathura.enable = true;
         yazi.enable = true;
