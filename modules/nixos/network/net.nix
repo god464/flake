@@ -18,7 +18,7 @@ in
         nftables.enable = true;
         firewall = {
           enable = true;
-          checkReversePath = "strict";
+          checkReversePath = false;
           filterForward = true;
         };
       }

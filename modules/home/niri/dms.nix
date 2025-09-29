@@ -5,9 +5,9 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.dankMaterialShell = {
-      # enable = true;
-      # enableSystemd = true;
-      # niri.enableKeybinds = true;
+      enable = true;
+      enableSystemd = true;
+      niri.enableKeybinds = true;
     };
   };
 }
