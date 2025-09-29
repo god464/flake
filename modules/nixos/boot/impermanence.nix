@@ -50,6 +50,8 @@ in
         ".local/share/CMakeTools"
         ".config/fcitx5"
         ".config/sparkle"
+        ".config/zed"
+        ".local/share/zed"
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
