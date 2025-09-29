@@ -49,6 +49,7 @@ in
         ".local/state/nvim"
         ".local/share/CMakeTools"
         ".config/fcitx5"
+        ".config/sparkle"
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
