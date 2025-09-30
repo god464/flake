@@ -53,7 +53,7 @@ in
         ".config/zed"
         ".local/share/zed"
         ".config/DankMaterialShell"
-        "./local/state/DankMaterialShell"
+        ".local/state/DankMaterialShell"
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
