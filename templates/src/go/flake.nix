@@ -38,8 +38,16 @@
               delve
               go-tools
               goimports-reviser
+              gofumpt
+              golangci-lint
             ];
-            shellHook = config.pre-commit.installationScript;
+            shellHook = ''
+              ${config.pre-commit.installationScript}
+
+              if [ ! -f "go.mod" ]; then
+                  go mod init
+              fi
+            '';
           };
           treefmt = {
             projectRootFile = "flake.nix";
