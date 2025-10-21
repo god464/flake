@@ -3,16 +3,19 @@
   imports = [ inputs.microvm.nixosModules.microvm ];
   network'.net.name = "microvm";
   users.users.root.password = "";
-  services.btrfs.autoScrub.enable = false;
+  services = {
+    btrfs.autoScrub.enable = false;
+    getty.autologinUser = "root";
+  };
   microvm = {
-    hypervisor = "qemu";
+    hypervisor = "cloud-hypervisor";
     vcpu = 4;
     mem = 4096;
     interfaces = [
       {
         type = "tap";
-        id = "qemu";
-        mac = "00:00:00:00:00:02";
+        id = "microvm";
+        mac = "02:00:00:00:00:01";
       }
     ];
   };
