@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.monitor'.grafana;
+  cfg = config.web'.monitor.grafana;
   inherit (lib) mkEnableOption mkIf;
 in
 {
-  options.monitor'.grafana.enable = mkEnableOption "grafana";
+  options.web'.monitor.grafana.enable = mkEnableOption "grafana";
   config = mkIf cfg.enable {
     services = {
       grafana = {

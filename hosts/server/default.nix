@@ -10,8 +10,4 @@
   };
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;
   web'.http.nginx.enable = true;
-  monitor' = {
-    prometheus.enable = true;
-    grafana.enable = true;
-  };
 }

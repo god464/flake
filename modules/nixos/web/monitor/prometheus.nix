@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.monitor'.prometheus;
+  cfg = config.services'.monitor.prometheus;
   inherit (lib) mkEnableOption mkIf singleton;
 in
 {
-  options.monitor'.prometheus.enable = mkEnableOption "prometheus";
+  options.services'.monitor.prometheus.enable = mkEnableOption "prometheus";
   config = mkIf cfg.enable {
     services.prometheus = {
       enable = true;

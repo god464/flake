@@ -9,8 +9,8 @@
   };
   microvm = {
     hypervisor = "cloud-hypervisor";
-    vcpu = 4;
-    mem = 4096;
+    vcpu = 1;
+    mem = 1024;
     interfaces = [
       {
         type = "tap";
@@ -19,4 +19,5 @@
       }
     ];
   };
+  web'.app.calibre.enable = true;
 }
