@@ -28,5 +28,6 @@
         ];
       };
       legacyPackages = pkgs;
+      packages.vm = self.nixosConfigurations.vm.config.microvm.declaredRunner;
     };
 }
