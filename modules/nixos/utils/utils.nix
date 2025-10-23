@@ -12,9 +12,6 @@ in
     };
     systemd.oomd.enable = true;
     environment.defaultPackages = [ ];
-    environment.sessionVariables = {
-      GOPROXY = "https://goproxy.io,direct";
-    };
     documentation = {
       info.enable = false;
       nixos.enable = false;

@@ -15,6 +15,9 @@ in
         rg = "batgrep";
         man = "batman";
       };
+      shellInit = ''
+        set -gx GOOGLE_CLOUD_PROJECT "$(cat ${osConfig.sops.secrets.google-code-id.path})"
+      '';
     };
   };
 }
