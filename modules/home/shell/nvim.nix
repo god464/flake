@@ -18,6 +18,7 @@ in
       extraPackages = with pkgs; [
         clang
         copilot-language-server
+        lsof
       ];
     };
     xdg.configFile.nvim = {
