@@ -19,7 +19,6 @@ in
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts
-        noto-fonts-extra
         source-serif-pro
         source-sans-pro
         nerd-fonts.symbols-only
