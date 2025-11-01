@@ -57,7 +57,7 @@ in
         ".local/state/wireplumber"
         ".mozilla"
         ".thunderbird"
-        ".codeium"
+        ".config/github-copilot"
         ".gemini"
         ".qwen"
         ".vscode"

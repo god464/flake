@@ -15,7 +15,10 @@ in
       withNodeJs = true;
       withPython3 = true;
       withRuby = true;
-      extraPackages = [ pkgs.clang ];
+      extraPackages = with pkgs; [
+        clang
+        copilot-language-server
+      ];
     };
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
