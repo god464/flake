@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.web'.sql.postgresql;
+  cfg = config.web'.db.postgresql;
   inherit (lib) mkEnableOption;
 in
 {
-  options.web'.sql.postgresql.enable = mkEnableOption "postgresql";
+  options.web'.db.postgresql.enable = mkEnableOption "postgresql";
   config = lib.mkIf cfg.enable {
     services = {
       postgresql = {
