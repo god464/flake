@@ -53,6 +53,7 @@ in
         plymouth.enable = true;
         console.enable = true;
         kmscon.enable = true;
+        nixos-icons.enable = true;
       };
     };
   };
