@@ -19,6 +19,7 @@ in
         clang
         copilot-language-server
         lsof
+        luarocks
       ];
     };
     xdg.configFile.nvim = {
