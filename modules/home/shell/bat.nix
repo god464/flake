@@ -13,7 +13,7 @@ in
       enable = true;
       extraPackages = with pkgs.bat-extras; [
         batpipe
-        # batgrep
+        batgrep
         batdiff
         batman
       ];

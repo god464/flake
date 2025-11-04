@@ -12,7 +12,7 @@ in
         cat = "bat";
         diff = "batdiff";
         less = "batpipe";
-        # rg = "batgrep";
+        rg = "batgrep";
         man = "batman";
       };
       shellInit = ''
