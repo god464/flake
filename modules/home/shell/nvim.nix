@@ -20,6 +20,7 @@ in
         copilot-language-server
         lsof
         luarocks
+        lua5_1
       ];
     };
     xdg.configFile.nvim = {
