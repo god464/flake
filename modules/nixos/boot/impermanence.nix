@@ -47,11 +47,8 @@ in
         ".local/share/nix"
         ".local/state/nix"
         ".local/state/nvim"
-        ".local/share/CMakeTools"
         ".config/fcitx5"
         ".config/sparkle"
-        ".config/zed"
-        ".local/share/zed"
         ".config/DankMaterialShell"
         ".local/state/DankMaterialShell"
         ".local/state/wireplumber"
@@ -60,7 +57,7 @@ in
         ".config/github-copilot"
         ".gemini"
         ".qwen"
-        ".config/Jetbrains"
+        ".config/JetBrains"
       ];
     };
   };
