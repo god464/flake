@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@v12
       - name: Install Nix
         with:
           extra-conf: |
@@ -17,8 +19,7 @@ jobs:
             extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
             experimental-features = nix-command flakes auto-allocate-uids cgroups recursive-nix ca-derivations pipe-operators
         uses: DeterminateSystems/nix-installer-action@v21
-      - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@v12
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: build LiveCD
         run: |
           nix build .#nixosConfigurations.iso.config.formats.install-iso-hyperv
