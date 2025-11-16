@@ -63,15 +63,8 @@
             -Xms2048m
             -Xmx4096m
             -XX:ReservedCodeCacheSize=1024m
-            -XX:+UseG1GC
-            -XX:+HeapDumpOnOutOfMemoryError
-            -XX:-OmitStackTraceInFastThrow
-            -XX:+UseStringDeduplication
-            -Djdk.http.auth.tunneling.disabledSchemes=""
-            -Djdk.attach.allowAttachSelf=true
-            -Dkotlinx.coroutines.debug=off
-            -XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
-            -XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
+            -XX:+UseZGC
+            -XX:+ZGenerational
             --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
             --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
             -javaagent:/home/cl/persist/ja-netfilter/ja-netfilter.jar=jetbrains
@@ -79,7 +72,7 @@
 
         };
     in
-    builtins.map mkVmOpts pkg;
+    map mkVmOpts pkg;
   services' = {
     gpg.enable = true;
     ssh.hostKey = config.sops.secrets.host-desktop.path;
