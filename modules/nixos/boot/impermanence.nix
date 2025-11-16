@@ -58,6 +58,7 @@ in
         ".gemini"
         ".qwen"
         ".config/JetBrains"
+        ".cache/JetBrains"
       ];
     };
   };
