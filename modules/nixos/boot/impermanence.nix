@@ -60,8 +60,7 @@ in
         ".config/github-copilot"
         ".gemini"
         ".qwen"
-        ".vscode"
-        ".config/Code"
+        ".config/Jetbrains"
       ];
     };
   };

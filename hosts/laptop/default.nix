@@ -44,11 +44,15 @@
   };
   programs' = {
     fish.enable = true;
-    vscode.enable = true;
     tmux.enable = true;
   };
   desktop'.niri.enable = true;
   facter.reportPath = ./facter.json;
+  environment.systemPackages = with pkgs.jetbrains; [
+    clion
+    goland
+    webstorm
+  ];
   services' = {
     gpg.enable = true;
     ssh.hostKey = config.sops.secrets.host-desktop.path;
