@@ -59,6 +59,7 @@ in
         ".qwen"
         ".config/JetBrains"
         ".cache/JetBrains"
+        ".local/share/JetBrains"
       ];
     };
   };
