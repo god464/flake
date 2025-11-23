@@ -34,6 +34,8 @@ in
           directory = ".ssh";
           mode = "700";
         }
+        "go"
+        ".cargo"
         ".cache/nvim"
         ".cache/pre-commit"
         ".cache/treefmt"
