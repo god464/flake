@@ -30,7 +30,6 @@ in
         mpv.enable = true;
         zathura.enable = true;
         yazi.enable = true;
-        eog.enable = true;
         tmux.enable = true;
       };
     };
