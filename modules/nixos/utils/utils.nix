@@ -7,7 +7,7 @@ in
   config = mkIf (name != "livecd") {
     system = {
       tools.nixos-generate-config.enable = false;
-      stateVersion = "25.05";
+      stateVersion = "25.11";
       # forbiddenDependenciesRegexes = [ "perl" ];
     };
     systemd.oomd.enable = true;
