@@ -27,13 +27,14 @@ in
       };
     };
     services.gnome.sushi.enable = true;
-    security.pam.services.hyprlock.fprintAuth = false;
+    security.pam.services.login.enableGnomeKeyring = true;
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
       nautilus
       loupe
       gemini-cli
       qwen-code
+      gcr
     ];
   };
 }
