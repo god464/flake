@@ -12,6 +12,7 @@ in
 {
   imports = with inputs; [
     niri-flake.nixosModules.niri
+    dankMaterialShell.nixosModules.dank-material-shell
     dankMaterialShell.nixosModules.greeter
   ];
   options.desktop'.niri.enable = mkEnableOption "niri";
@@ -21,9 +22,12 @@ in
         enable = true;
         package = pkgs.niri-unstable;
       };
-      dankMaterialShell.greeter = {
+      dank-material-shell = {
         enable = true;
-        compositor.name = "niri";
+        greeter = {
+          enable = true;
+          compositor.name = "niri";
+        };
       };
     };
     services.gnome.sushi.enable = true;
