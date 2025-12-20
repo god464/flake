@@ -18,8 +18,8 @@ in
       useUserPackages = true;
       sharedModules = [
         topcfg.flake.homeModules.default
-        inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-        inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+        inputs.dankMaterialShell.homeModules.dank-material-shell
+        inputs.dankMaterialShell.homeModules.niri
       ];
       extraSpecialArgs = { inherit inputs; };
       users.cl.home.stateVersion = "25.11";

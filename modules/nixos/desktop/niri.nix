@@ -28,6 +28,7 @@ in
     };
     services.gnome.sushi.enable = true;
     security.pam.services.login.enableGnomeKeyring = true;
+    systemd.user.services.niri-flake-polkit.enable = false;
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
       nautilus
