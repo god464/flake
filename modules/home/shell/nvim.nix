@@ -21,6 +21,7 @@ in
         lsof
         luarocks
         lua5_1
+        tree-sitter
       ];
     };
     xdg.configFile.nvim = {
