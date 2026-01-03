@@ -14,7 +14,7 @@
           deadnix
           yamllint
           actionlint
-          dprint
+          oxfmt
           just
           vulnix
         ];

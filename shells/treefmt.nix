@@ -5,7 +5,6 @@
     projectRootFile = "flake.nix";
     programs = {
       nixfmt.enable = true;
-      dprint.enable = true;
       just.enable = true;
     };
   };
