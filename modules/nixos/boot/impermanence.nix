@@ -50,7 +50,6 @@ in
         ".local/state/nix"
         ".local/state/nvim"
         ".config/fcitx5"
-        ".config/sparkle"
         ".config/DankMaterialShell"
         ".local/state/DankMaterialShell"
         ".local/state/wireplumber"
@@ -62,6 +61,7 @@ in
         ".config/JetBrains"
         ".cache/JetBrains"
         ".local/share/JetBrains"
+        ".local/share/clash-verge"
       ];
     };
   };
