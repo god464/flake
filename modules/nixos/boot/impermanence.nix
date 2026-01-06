@@ -62,6 +62,7 @@ in
         ".cache/JetBrains"
         ".local/share/JetBrains"
         ".local/share/clash-verge"
+        ".config/io.github.clash-verge-rev.clash-verge-rev"
       ];
     };
   };
