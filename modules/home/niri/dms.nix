@@ -8,6 +8,7 @@ in
       enable = true;
       niri = {
         enableKeybinds = true;
+        includes.enable = false;
         enableSpawn = true;
       };
     };
