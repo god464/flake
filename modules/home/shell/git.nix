@@ -14,6 +14,12 @@ in
         key = "089E15607145FE932C002942D7A72706FC8DE569";
         signByDefault = true;
       };
+      ignores = [
+        ".direnv"
+        ".envrc"
+        ".flake/"
+        ".pre-commit-config.yaml"
+      ];
     };
   };
 }

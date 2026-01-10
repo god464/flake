@@ -6,10 +6,9 @@
         packages = with pkgs; [
           config.treefmt.build.wrapper
           nixd
-          nil
           yaml-language-server
           vscode-langservers-extracted
-          nixfmt-rfc-style
+          nixfmt
           statix
           deadnix
           yamllint
