@@ -6,6 +6,7 @@
     programs = {
       nixfmt.enable = true;
       just.enable = true;
+      oxfmt.enable = true;
     };
   };
 }
