@@ -91,11 +91,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1768613337,
-        "narHash": "sha256-L81q/HcRqKaomNEFVICaDvqQGroAaNwZhbCdv9OJr3c=",
+        "lastModified": 1768629988,
+        "narHash": "sha256-yIdDcV1dqTGvrtPmahi2UjGqSBgY6VhjjOtV6DPOjHE=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "2bcb33e85cc076ddda2a141f11559a2d562e845e",
+        "rev": "ec8ab4746228f53e3885f9319c2a3121d60cc4fe",
         "type": "github"
       },
       "original": {
@@ -264,11 +264,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1768311746,
-        "narHash": "sha256-ClVGuKdUU4g+agyMjyyNrwO3nOXNlf7sHKcsXxsKVdI=",
+        "lastModified": 1768635320,
+        "narHash": "sha256-h0YQU6LRsuqOpU8UjtRwzl2SJe3xuCQOnSb3uyVmVJ0=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "344901db15a6be1083c17dc7453d03f555fd77e2",
+        "rev": "e679179302f88b5b5c21a01655b0f02bbb93f857",
         "type": "github"
       },
       "original": {
