@@ -44,8 +44,10 @@ in
     };
     services.resolved = {
       enable = !display.enable;
-      dnssec = "allow-downgrade";
-      dnsovertls = "opportunistic";
+      settings.Resolve = {
+        DNSSEC = "allow-downgrade";
+        DNSOverTLS = "opportunistic";
+      };
     };
   };
 }

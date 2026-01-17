@@ -12,7 +12,7 @@ in
     stylix = {
       enable = true;
       autoEnable = false;
-      iconTheme = {
+      icons = {
         enable = true;
         package = pkgs.papirus-icon-theme;
         dark = "Papirus-Dark";
