@@ -42,11 +42,24 @@ in
       enable = true;
       wait-online.enable = lib.mkForce false;
     };
-    services.resolved = {
-      enable = !display.enable;
-      settings.Resolve = {
-        DNSSEC = "allow-downgrade";
-        DNSOverTLS = "opportunistic";
+    services.dnscrypt-proxy = {
+      enable = true;
+      settings = {
+        http3 = true;
+        ipv6_servers = true;
+        require_dnssec = true;
+        sources.public-resolvers = {
+          urls = [ "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md" ];
+          cache_file = "/var/cache/dnscrypt-proxy/public-resolvers.md";
+          minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+          refresh_delay = 72;
+        };
+        erver_names = [
+          "cloudflare"
+          "dnspod"
+          "quad9-dnscrypt-ip4-filter-pri"
+          "alidns-doh"
+        ];
       };
     };
   };
