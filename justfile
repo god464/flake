@@ -1,8 +1,7 @@
 [group('nixos')]
 [linux]
 @install target:
-    nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest --mode destroy,format,mount -f .#{{ target }}
-    mkdir -p /mnt/var/lib/sops-nix
+    nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount -f .#{{ target }}
     nixos-install --flake .#{{ target }}
 
 [group('nixos')]
