@@ -1,7 +1,7 @@
 [group('nixos')]
 [linux]
 @install target:
-    nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount -f .#{{ target }}
+    nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- -m destroy,format,mount -f .#{{ target }}
     nixos-install --flake .#{{ target }}
 
 [group('nixos')]
