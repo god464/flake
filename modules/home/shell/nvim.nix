@@ -17,13 +17,15 @@ in
       withRuby = true;
       extraPackages = with pkgs; [
         clang
-        copilot-language-server
-        lsof
         luarocks
         lua5_1
         tree-sitter
       ];
     };
+    home.packages = with pkgs; [
+      copilot-language-server
+      lsof
+    ];
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
       recursive = true;

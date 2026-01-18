@@ -22,7 +22,7 @@ in
         inputs.dankMaterialShell.homeModules.niri
       ];
       extraSpecialArgs = { inherit inputs; };
-      users.cl.home.stateVersion = "25.11";
+      users.cl.home.stateVersion = "26.05";
     };
   };
 }
