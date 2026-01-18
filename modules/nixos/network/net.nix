@@ -21,6 +21,7 @@ in
           checkReversePath = false;
           filterForward = true;
         };
+        resolvconf.enable = false;
       }
       (
         if display.enable then
