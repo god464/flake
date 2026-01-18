@@ -21,7 +21,7 @@
     impermanence.url = "github:nix-community/impermanence";
     preservation.url = "github:WilliButz/preservation";
     microvm = {
-      url = "github:astro/microvm.nix";
+      url = "github:microvm-nix/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
