@@ -18,7 +18,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
     preservation.url = "github:WilliButz/preservation";
     microvm = {
       url = "github:microvm-nix/microvm.nix";

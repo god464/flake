@@ -1,4 +1,4 @@
-# { config, ... }:
+{ config, ... }:
 {
-  # system.nixos-init.enable = config.boot.postBootCommands == "";
+  system.nixos-init.enable = config.boot.postBootCommands == "";
 }
