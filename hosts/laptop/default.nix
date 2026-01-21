@@ -17,7 +17,7 @@
     clash.enable = true;
   };
   sops = {
-    age.keyFile = "/var/lib/sops-nix/keys.txt";
+    age.keyFile = "/var/lib/secrets/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       passwd.neededForUsers = true;
