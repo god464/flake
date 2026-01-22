@@ -48,31 +48,34 @@
   };
   desktop'.niri.enable = true;
   facter.reportPath = ./facter.json;
-  environment.systemPackages =
-    let
-      pkg = with pkgs.jetbrains; [
-        clion
-        webstorm
-        goland
-      ];
-      mkVmOpts =
-        pkg:
-        pkg.override {
-          forceWayland = true;
-          vmopts = ''
-            -Xms2048m
-            -Xmx4096m
-            -XX:ReservedCodeCacheSize=1024m
-            -XX:+UseZGC
-            -XX:+ZGenerational
-            --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
-            --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
-            -javaagent:/home/cl/persist/ja-netfilter/ja-netfilter.jar=jetbrains
-          '';
+  environment = {
+    systemPackages =
+      let
+        pkg = with pkgs.jetbrains; [
+          clion
+          webstorm
+          goland
+        ];
+        mkVmOpts =
+          pkg:
+          pkg.override {
+            forceWayland = true;
+            vmopts = ''
+              -Xms2048m
+              -Xmx4096m
+              -XX:ReservedCodeCacheSize=1024m
+              -XX:+UseZGC
+              -XX:+ZGenerational
+              --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+              --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+              -javaagent:/home/cl/persist/ja-netfilter/ja-netfilter.jar=jetbrains
+            '';
 
-        };
-    in
-    map mkVmOpts pkg;
+          };
+      in
+      map mkVmOpts pkg;
+    etc."machine-id".text = "12d844a4fc17460abb59c9e077267d82";
+  };
   services' = {
     gpg.enable = true;
     ssh.hostKey = config.sops.secrets.host-desktop.path;
