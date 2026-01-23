@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.virtual'.libvirt;
   inherit (lib) mkEnableOption mkIf;
@@ -11,5 +16,7 @@ in
       qemu.swtpm.enable = true;
     };
     programs.virt-manager.enable = true;
+    environment.systemPackages = [ pkgs.dnsmasq ];
+    networking.firewall.trustedInterfaces = [ "virbr0" ];
   };
 }
