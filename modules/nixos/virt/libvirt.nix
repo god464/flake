@@ -21,6 +21,7 @@ in
       nat = {
         enable = true;
         enableIPv6 = true;
+        internalInterfaces = [ "virbr0" ];
       };
       firewall.trustedInterfaces = [ "virbr0" ];
     };

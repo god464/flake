@@ -1,13 +1,13 @@
 [group('nixos')]
 [linux]
 @install target:
-    nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- -m destroy,format,mount -f .#{{ target }}
+    disko -- -m destroy,format,mount -f .#{{ target }}
     nixos-install --flake .#{{ target }}
 
 [group('nixos')]
 [linux]
 @install-remote target ip:
-    nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- --copy-host-keys --flake .#{{ target }} root@{{ ip }}
+    nix run nixpkgs#nixos-anywhere -- --copy-host-keys --flake .#{{ target }} root@{{ ip }}
 
 [group('nix')]
 @clean:
