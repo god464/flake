@@ -17,6 +17,12 @@ in
     };
     programs.virt-manager.enable = true;
     environment.systemPackages = [ pkgs.dnsmasq ];
-    networking.firewall.trustedInterfaces = [ "virbr0" ];
+    networking = {
+      nat = {
+        enable = true;
+        enableIPv6 = true;
+      };
+      firewall.trustedInterfaces = [ "virbr0" ];
+    };
   };
 }
