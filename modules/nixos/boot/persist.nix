@@ -34,7 +34,6 @@ in
             directory = ".ssh";
             mode = "0700";
           }
-          "go"
           ".cargo"
           ".cache/nvim"
           ".cache/pre-commit"

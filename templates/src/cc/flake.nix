@@ -26,7 +26,6 @@
             packages = with pkgs; [
               config.treefmt.build.wrapper
               # Nix
-              nil
               nixd
               nixfmt-rfc-style
               statix
@@ -38,14 +37,10 @@
               vcpkg
               vcpkg-tool
               clang-tools
-              ccls
               cppcheck
               neocmakelsp
             ];
-            shellHook = ''
-              export PATH=$PATH:${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter
-              ${config.pre-commit.installationScript}
-            '';
+            shellHook = config.pre-commit.installationScript;
           };
           treefmt = {
             projectRootFile = "flake.nix";

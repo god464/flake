@@ -25,6 +25,8 @@ in
     home.packages = with pkgs; [
       copilot-language-server
       lsof
+      gemini-cli
+      qwen-code
     ];
     xdg.configFile.nvim = {
       source = inputs.ggnvim;

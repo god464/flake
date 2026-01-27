@@ -175,5 +175,12 @@ in
         "Mod+Shift+P".action = power-off-monitors;
       };
     };
+    home.packages = with pkgs; [
+      wl-clipboard-rs
+      nautilus
+      loupe
+      gcr
+      obsidian
+    ];
   };
 }

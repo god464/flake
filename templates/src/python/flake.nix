@@ -26,17 +26,13 @@
             packages = with pkgs; [
               config.treefmt.build.wrapper
               # Nix
-              nil
               nixd
               nixfmt-rfc-style
               statix
               deadnix
               # python
-              python3
+              python3Minimal
               uv
-              basedpyright
-              ruff
-              ty
               python3Packages.debugpy
               python3Packages.venvShellHook
               # TOML

@@ -26,7 +26,6 @@
             packages = with pkgs; [
               config.treefmt.build.wrapper
               # Nix
-              nil
               nixd
               nixfmt-rfc-style
               statix

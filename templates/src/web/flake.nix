@@ -27,7 +27,6 @@
               config.treefmt.build.wrapper
               # Nix
               nil
-              nixd
               nixfmt-rfc-style
               statix
               deadnix
@@ -35,18 +34,19 @@
               vscode-langservers-extracted
               superhtml
               htmlhint
-              nodePackages.prettier
+              oxfmt
               # CSS
               tailwindcss-language-server
               stylelint
               # JavaScript / TypeScript
-              bun
+              pnpm
               typescript
               vtsls
-              eslint
+              oxlint
               nodejs-slim_latest
               # vue-language-server # Vue
               # astro-language-server # Astro
+              # angular-language-server # Angular
             ];
             shellHook = config.pre-commit.installationScript;
           };
@@ -54,7 +54,7 @@
             projectRootFile = "flake.nix";
             programs = {
               nixfmt.enable = true;
-              prettier.enable = true;
+              oxfmt.enable = true;
             };
           };
           pre-commit.settings.hooks = {
