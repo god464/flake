@@ -42,20 +42,19 @@
   hardware = {
     cpu.amd.updateMicrocode = true;
     amdgpu.initrd.enable = true;
+    facter.reportPath = ./facter.json;
   };
   programs' = {
     fish.enable = true;
     tmux.enable = true;
   };
   desktop'.niri.enable = true;
-  facter.reportPath = ./facter.json;
   environment = {
     systemPackages =
       let
         pkg = with pkgs.jetbrains; [
           clion
           webstorm
-          goland
         ];
         mkVmOpts =
           pkg:
@@ -71,7 +70,6 @@
               --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
               -javaagent:/home/cl/persist/ja-netfilter/ja-netfilter.jar=jetbrains
             '';
-
           };
       in
       map mkVmOpts pkg;
