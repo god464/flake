@@ -63,6 +63,7 @@ in
           ".local/share/clash-verge"
           ".local/share/io.github.clash-verge-rev.clash-verge-rev"
           ".config/io.github.clash-verge-rev.clash-verge-rev"
+          ".local/share/zathura"
         ];
       };
     };
