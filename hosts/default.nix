@@ -32,7 +32,10 @@
         in
         lib.genAttrs [ "laptop" "server" "iso" "vm" ] mkConfig
         // {
-          minimal = inputs.nixpkgs.lib.nixosSystem { modules = [ ./minimal ]; };
+          minimal = inputs.nixpkgs.lib.nixosSystem {
+            modules = [ ./minimal ];
+            specialArgs = { inherit inputs; };
+          };
         };
     }
   );
