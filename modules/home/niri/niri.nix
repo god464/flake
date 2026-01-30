@@ -180,6 +180,7 @@ in
       nautilus
       loupe
       gcr
+      papers
     ];
   };
 }
