@@ -52,5 +52,5 @@
     };
   };
   system.stateVersion = "26.05";
-  nixpkgs.hostPlatform.system = "aarch64-linux";
+  nixpkgs.hostPlatform.system = "x86_64-linux";
 }

@@ -180,7 +180,6 @@ in
       nautilus
       loupe
       gcr
-      obsidian
     ];
   };
 }
