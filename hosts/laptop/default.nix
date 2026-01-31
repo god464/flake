@@ -27,13 +27,7 @@
   sops = {
     age.keyFile = "/var/lib/secrets/keys.txt";
     defaultSopsFile = ./secrets.yaml;
-    secrets = {
-      passwd.neededForUsers = true;
-      host-desktop = {
-        format = "binary";
-        sopsFile = ./secrets/host-laptop.key;
-      };
-    };
+    secrets.passwd.neededForUsers = true;
   };
   nix'.home-manager.enable = true;
   users.users.cl = {

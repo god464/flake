@@ -11,7 +11,10 @@
     "sr_mod"
   ];
   network'.net.name = "server";
-  services'.ssh.enable = true;
+  services'.ssh = {
+    enable = true;
+    hostKey = "/var/ssh/ssh_host_ed25519_key";
+  };
   sops = {
     age.sshKeyPaths = [ "/var/ssh/ssh_host_ed25519_key" ];
     defaultSopsFile = ./secrets.yaml;
