@@ -83,8 +83,5 @@
       map mkVmOpts pkg;
     etc."machine-id".text = "12d844a4fc17460abb59c9e077267d82";
   };
-  services' = {
-    gpg.enable = true;
-    ssh.hostKey = config.sops.secrets.host-desktop.path;
-  };
+  services'.gpg.enable = true;
 }

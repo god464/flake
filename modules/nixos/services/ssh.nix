@@ -15,12 +15,6 @@ in
     services.openssh = mkMerge [
       {
         enable = true;
-        hostKeys = [
-          {
-            path = cfg.hostKey;
-            type = "ed25519";
-          }
-        ];
         startWhenNeeded = true;
         settings.PasswordAuthentication = false;
       }
@@ -28,6 +22,12 @@ in
         if cfg.enable then
           {
             settings.PermitRootLogin = "prohibit-password";
+            hostKeys = [
+              {
+                path = cfg.hostKey;
+                type = "ed25519";
+              }
+            ];
           }
         else
           {
