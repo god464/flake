@@ -1,7 +1,7 @@
 [group('nixos')]
 [linux]
 @install target:
-    disko -- -m destroy,format,mount -f .#{{ target }}
+    nix-shell -p disko --run "disko -- -m destroy,format,mount -f .#{{ target }}"
     nixos-install --flake .#{{ target }}
 
 [group('nixos')]
