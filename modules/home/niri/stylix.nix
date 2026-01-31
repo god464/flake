@@ -26,6 +26,7 @@ in
           profileNames = [ "default" ];
         };
         fzf.enable = true;
+        gdu.enable = true;
         starship.enable = true;
         mpv.enable = true;
         yazi.enable = true;
