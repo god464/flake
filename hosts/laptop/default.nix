@@ -8,6 +8,14 @@
         "radeon.cik_support=0"
         "amdgpu.cik_support=1"
       ];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "uas"
+        "usbhid"
+        "sd_mod"
+      ];
+      supportedFilesystems = [ "ntfs" ];
     };
     secure-boot.enable = true;
     persist.enable = true;

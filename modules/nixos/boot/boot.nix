@@ -15,26 +15,25 @@ let
   cfg = config.boot'.boot;
 in
 {
-  options.boot'.boot.para = mkOption {
-    default = [ ];
-    type = types.listOf types.str;
+  options.boot'.boot = {
+    para = mkOption {
+      default = [ ];
+      type = types.listOf types.str;
+    };
+    availableKernelModules = mkOption {
+      default = [ ];
+      type = types.listOf types.str;
+    };
+    supportedFilesystems = mkOption {
+      default = [ ];
+      type = types.listOf types.str;
+    };
   };
   config = {
     boot = mkMerge [
       {
         initrd = {
-          availableKernelModules = [
-            "nvme"
-            "xhci_pci"
-            "uas"
-            "usb_storage"
-            "sd_mod"
-          ];
-          supportedFilesystems = [
-            "btrfs"
-            "tmpfs"
-            "ntfs"
-          ];
+          inherit (cfg) supportedFilesystems availableKernelModules;
           systemd.enable = true;
         };
         enableContainers = false;

@@ -1,6 +1,15 @@
 { config, ... }:
 {
   imports = [ ./disk.nix ];
+  boot'.boot.availableKernelModules = [
+    "ata_piix"
+    "mptspi"
+    "uhci_hcd"
+    "ehci_pci"
+    "ahci"
+    "sd_mod"
+    "sr_mod"
+  ];
   network'.net.name = "server";
   services'.ssh.enable = true;
   sops = {
@@ -9,5 +18,4 @@
     secrets.passwd.neededForUsers = true;
   };
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;
-  web'.http.nginx.enable = true;
 }

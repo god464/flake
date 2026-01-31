@@ -24,7 +24,7 @@ in
       };
       dank-material-shell = {
         enable = true;
-        quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+        quickshell.package = inputs.quickshell.packages."x86_64-linux".quickshell;
         greeter = {
           enable = true;
           compositor.name = "niri";

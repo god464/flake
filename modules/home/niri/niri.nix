@@ -181,6 +181,8 @@ in
       loupe
       gcr
       papers
+      decibels
+      showtime
     ];
   };
 }

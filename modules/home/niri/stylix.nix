@@ -28,7 +28,6 @@ in
         fzf.enable = true;
         starship.enable = true;
         mpv.enable = true;
-        zathura.enable = true;
         yazi.enable = true;
         tmux.enable = true;
       };
