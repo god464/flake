@@ -1,6 +1,6 @@
 keys:
   - &laptop age1h0w3eg0ac5k8jn8527qfext3sd8c44qshnpe9p7gw5zfke2glapqxa4sxq
-  - &server age1k8sx0jh745alm7l6h4gzmftcacnmheharfqtm0qjumj9tu4td38qvvskpa
+  - &server age13lrux9jl6fphdcljc6q28wrcu89c7fjjxfnjn9qv567rxk6249xqdtfk7w
 creation_rules:
   - path_regex: ^hosts/laptop/secrets\.yaml$
     key_groups:
