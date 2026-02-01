@@ -19,7 +19,7 @@ in
       eula = true;
       servers.fabric = {
         enable = true;
-        package = pkgs.fabricServers-1_21_1;
+        package = pkgs.fabricServers.fabric-1_21_1;
         serverProperties = {
           player-idle-timeout = 60;
           online-mode = false;
