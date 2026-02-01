@@ -1,4 +1,9 @@
-{ osConfig, lib, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = osConfig.programs.fish;
 in
@@ -6,6 +11,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
+      package = pkgs.gitMinimal;
       settings.user = {
         name = "god464";
         email = "god464@users.noreply.github.com";

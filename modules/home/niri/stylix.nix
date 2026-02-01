@@ -33,5 +33,9 @@ in
         tmux.enable = true;
       };
     };
+    programs.firefox = {
+      enable = true;
+      profiles.default = { };
+    };
   };
 }

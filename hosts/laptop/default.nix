@@ -43,7 +43,6 @@
   };
   hardware = {
     cpu.amd.updateMicrocode = true;
-    amdgpu.initrd.enable = true;
     facter.reportPath = ./facter.json;
   };
   programs' = {
@@ -77,5 +76,8 @@
       map mkVmOpts pkg;
     etc."machine-id".text = "12d844a4fc17460abb59c9e077267d82";
   };
-  services'.gpg.enable = true;
+  services' = {
+    gpg.enable = true;
+    ssh.hostKey = "/var/lib/ssh/ssh_host_ed25519_key";
+  };
 }

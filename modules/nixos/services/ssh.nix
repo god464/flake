@@ -17,17 +17,17 @@ in
         enable = true;
         startWhenNeeded = true;
         settings.PasswordAuthentication = false;
+        hostKeys = [
+          {
+            path = cfg.hostKey;
+            type = "ed25519";
+          }
+        ];
       }
       (
         if cfg.enable then
           {
             settings.PermitRootLogin = "prohibit-password";
-            hostKeys = [
-              {
-                path = cfg.hostKey;
-                type = "ed25519";
-              }
-            ];
           }
         else
           {
