@@ -16,9 +16,8 @@ in
       enable = true;
       openFirewall = true;
       eula = true;
-      servers = {
-        paper.enable = true;
-        velocity.enable = true;
+      servers.fabric = {
+        enable = true;
       };
     };
   };
