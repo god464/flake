@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 let
@@ -18,6 +19,12 @@ in
       eula = true;
       servers.fabric = {
         enable = true;
+        package = pkgs.fabricServers-1_21_1;
+        serverProperties = {
+          player-idle-timeout = 60;
+          online-mode = false;
+          motd = "巧克力与香子兰";
+        };
       };
     };
   };
