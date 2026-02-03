@@ -17,14 +17,19 @@ in
       enable = true;
       openFirewall = true;
       eula = true;
-      servers.fabric = {
+      servers.neoforge = {
         enable = true;
-        package = pkgs.fabricServers.fabric-1_21_1;
+        package = pkgs.neoforgeServers.neoForge-1_20_1;
         serverProperties = {
           player-idle-timeout = 60;
           online-mode = false;
           motd = "巧克力与香子兰";
         };
+        symlinks.mods = pkgs.linkFarmFromDrvs "mods" (
+          builtins.attrValues {
+            Mekanism.url = "https://cdn.modrinth.com/data/Ce6I4WUE/versions/uxe1WQp4/Mekanism-1.20.1-10.4.16.80.jar";
+          }
+        );
       };
     };
   };
