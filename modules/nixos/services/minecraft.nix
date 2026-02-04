@@ -28,8 +28,8 @@ in
         symlinks.mods = pkgs.linkFarmFromDrvs "mods" (
           builtins.attrValues {
             "Mekanism" = pkgs.fetchurl {
-              url = "https://cdn.modrinth.com/data/Ce6I4WUE/versions/uxe1WQp4/Mekanism-1.20.1-10.4.16.80.jar";
-              sha256 = "sha256-Ow0ZH6SkXmYvlyWZHXajAZLzAYarsrppS4c7X3uTWNI=";
+              url = "https://cdn.modrinth.com/data/Ce6I4WUE/versions/CzRJjYwn/Mekanism-1.20.4-10.5.20.41.jar";
+              sha256 = "sha256-8qAuPFfcIvPLvbnNQ3rBaNI7XWc9YaBVXJf0Sk5k2jI=";
             };
             "Mekanism Generators" = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/OFVYKsAk/versions/s68xuFXt/MekanismGenerators-1.20.4-10.5.20.41.jar";
