@@ -35,7 +35,6 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-      "libvirtd"
     ];
     createHome = true;
     shell = pkgs.fish;

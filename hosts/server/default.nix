@@ -23,4 +23,5 @@
   users.users.root.hashedPasswordFile = config.sops.secrets.passwd.path;
   environment.etc."machine-id".text = "c2e991aba7c2429cb92b63177e1e1170";
   services'.minecraft.enable = true;
+  virtual'.podman.enable = true;
 }

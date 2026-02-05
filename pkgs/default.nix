@@ -24,7 +24,6 @@
         overlays = [
           self.overlays.pkgs
           inputs.niri-flake.overlays.niri
-          inputs.nix-minecraft.overlay
         ];
       };
       legacyPackages = pkgs;
