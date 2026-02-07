@@ -17,13 +17,8 @@ in
           TYPE = "FORGE";
           VERSION = "1.20.1";
           MODRINTH_DOWNLOAD_DEPENDENCIES = "required";
-          MODRINTH_PROJECTS = ''
-            "Ce6I4WUE"
-            "XxWD5pD3"
-            "OFVYKsAk"
-            "tqQpq1lt"
-            "a6F3uASn"
-          '';
+          ONLINE_MODE = "false";
+          MODRINTH_PROJECTS = "mekanism,mekanism-tools,mekanism-additions,mekanism-generators,ae2";
         };
       };
     };
