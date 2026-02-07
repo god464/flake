@@ -16,11 +16,13 @@ in
           EULA = "TRUE";
           TYPE = "FORGE";
           VERSION = "1.20.1";
-          MODRINTH_DOWNLOAD_DEPENDENCIES = "required";
-          ONLINE_MODE = "false";
+          ONLINE_MODE = "FALSE";
           MODRINTH_PROJECTS = "mekanism,mekanism-tools,mekanism-additions,mekanism-generators,ae2";
+          MODRINTH_DOWNLOAD_DEPENDENCIES = "required";
+          MODRINTH_ALLOWED_VERSION_TYPE = "release";
         };
       };
     };
+    networking.firewall.allowedUDPPorts = [ 25565 ];
   };
 }
