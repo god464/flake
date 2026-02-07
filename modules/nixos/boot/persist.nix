@@ -19,7 +19,6 @@ in
         directories = [
           "/var/lib"
           "/var/cache"
-          "/var/log"
         ];
         users.cl.directories = [
           {
