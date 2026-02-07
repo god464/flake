@@ -13,6 +13,7 @@ in
         ports = [ "127.0.0.1:25565:25565" ];
         volumes = [ "/data:/var/lib/mc" ];
         environment = {
+          EULA = "TRUE";
           TYPE = "FORGE";
           VERSION = "1.20.1";
           MODRINTH_DOWNLOAD_DEPENDENCIES = "required";
