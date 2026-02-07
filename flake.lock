@@ -230,11 +230,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1770381744,
-        "narHash": "sha256-Qkdv/A3gP+96xbOR9rNT7fFGso9HojVB6OCN+CkLugQ=",
+        "lastModified": 1770447293,
+        "narHash": "sha256-UxYpDyTtu3x7nCzW2++Vwn82dGVEHrbMs2o2sJginq0=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "f7ab5cb94e6173e6552f8a56b5860c72cde29ec1",
+        "rev": "ee99b40ba7aa675704843a2ff41f6e95ac0216d9",
         "type": "github"
       },
       "original": {
