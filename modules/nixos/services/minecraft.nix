@@ -11,7 +11,7 @@ in
         autoStart = true;
         image = "itzg/minecraft-server:java17";
         ports = [ "127.0.0.1:25565:25565" ];
-        volumes = [ "/data:/var/lib/mc" ];
+        volumes = [ "/var/lib/mc:/data" ];
         environment = {
           EULA = "TRUE";
           TYPE = "FORGE";
