@@ -7,7 +7,21 @@
     allowMissingModules = true;
   };
   programs.git.enable = true;
-  users.users.root.shell = pkgs.fish;
+  users.users = {
+    nixos = {
+      isNormalUser = true;
+      initialHashedPassword = "";
+      shell = pkgs.fish;
+    };
+    root = {
+      initialHashedPassword = "";
+      shell = pkgs.fish;
+    };
+  };
+  security.polkit.enable = true;
+  security.sudo.wheelNeedsPassword = false;
+  nix.settings.trusted-users = [ "nixos" ];
+  services.getty.autologinUser = "nixos";
   hardware = {
     enableAllFirmware = true;
     enableAllHardware = true;

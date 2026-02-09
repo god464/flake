@@ -5,6 +5,7 @@ let
 in
 {
   config = mkIf (name != "livecd") {
+    programs.nano.enable = false;
     system = {
       tools.nixos-generate-config.enable = false;
       stateVersion = "26.05";

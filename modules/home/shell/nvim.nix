@@ -27,6 +27,7 @@ in
       lsof
       gemini-cli
       qwen-code
+      sqlit-tui
     ];
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
