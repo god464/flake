@@ -32,13 +32,7 @@ in
       };
     };
     services.gnome.sushi.enable = true;
-    security.pam.services = {
-      login = {
-        enableGnomeKeyring = true;
-        googleAuthenticator.enable = true;
-      };
-      greeter.googleAuthenticator.enable = true;
-    };
+    security.pam.services.login.enableGnomeKeyring = true;
     systemd.user.services.niri-flake-polkit.enable = false;
   };
 }
