@@ -31,8 +31,8 @@ in
       fonts = {
         sizes.terminal = 13.0;
         serif = {
-          package = pkgs.source-han-serif;
-          name = "Source Han Serif SC";
+          package = pkgs.apple-pro-sf;
+          name = "SF-PRO";
         };
         sansSerif = {
           package = pkgs.source-han-sans;
