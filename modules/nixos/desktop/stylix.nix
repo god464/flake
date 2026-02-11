@@ -32,15 +32,15 @@ in
         sizes.terminal = 13.0;
         serif = {
           package = pkgs.apple-sf-pro;
-          name = "SF-PRO";
+          name = "SF PRO Rounded";
         };
         sansSerif = {
           package = pkgs.apple-new-york;
-          name = "New York";
+          name = "New York Medium";
         };
         monospace = {
           package = pkgs.apple-sf-mono;
-          name = "SF-Mono";
+          name = "SF Mono";
         };
         emoji = {
           package = pkgs.twemoji-color-font;

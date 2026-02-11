@@ -19,8 +19,9 @@ in
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts
-        source-serif-pro
-        source-sans-pro
+        source-han-sans
+        source-han-serif
+        source-han-mono
         nerd-fonts.symbols-only
         twemoji-color-font
         noto-fonts-color-emoji
