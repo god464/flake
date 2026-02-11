@@ -39,8 +39,8 @@ in
           name = "New York";
         };
         monospace = {
-          package = pkgs.source-han-mono;
-          name = "Source Han Mono SC";
+          package = pkgs.apple-sf-mono;
+          name = "SF-Mono";
         };
         emoji = {
           package = pkgs.twemoji-color-font;
