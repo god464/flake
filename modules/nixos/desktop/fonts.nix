@@ -12,10 +12,10 @@ in
   config = mkIf cfg.enable {
     fonts = {
       packages = with pkgs; [
+        apple-sf-pro
+        apple-sf-mono
+        apple-new-york
         sarasa-gothic
-        source-han-sans
-        source-han-serif
-        source-han-mono
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts

@@ -8,7 +8,7 @@ stdenvNoCC.mkDerivation {
   version = "20.0d10e1";
   src = fetchurl {
     url = "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg";
-    sha256 = "sha256-W0sZkipBtrduInk0oocbFAXX1qy0Z+yk2xUyFfDWx4s=";
+    sha256 = "sha256-bUoLeOOqzQb5E/ZCzq0cfbSvNO1IhW1xcaLgtV2aeUU=";
   };
   nativeBuildInputs = [ p7zip ];
 
@@ -29,7 +29,6 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    install -Dm644 -t $out/share/fonts/truetype $TMPDIR/fonts/*.ttf
     install -Dm644 -t $out/share/fonts/opentype $TMPDIR/fonts/*.otf
 
     runHook postInstall

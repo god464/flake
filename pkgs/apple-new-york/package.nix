@@ -8,7 +8,7 @@ stdenvNoCC.mkDerivation {
   version = "20.0d10e1";
   src = fetchurl {
     url = "https://devimages-cdn.apple.com/design/resources/download/NY.dmg";
-    sha256 = "sha256-W0sZkipBtrduInk0oocbFAXX1qy0Z+yk2xUyFfDWx4s=";
+    sha256 = "sha256-HC7ttFJswPMm+Lfql49aQzdWR2osjFYHJTdgjtuI+PQ=";
   };
   nativeBuildInputs = [ p7zip ];
 

@@ -31,11 +31,11 @@ in
       fonts = {
         sizes.terminal = 13.0;
         serif = {
-          package = pkgs.apple-pro-sf;
+          package = pkgs.apple-sf-pro;
           name = "SF-PRO";
         };
         sansSerif = {
-          package = pkgs.aplle-new-york;
+          package = pkgs.apple-new-york;
           name = "New York";
         };
         monospace = {
@@ -48,6 +48,10 @@ in
         };
       };
       targets = {
+        font-packages = {
+          enable = true;
+          fonts.enable = true;
+        };
         gtk.enable = true;
         qt.enable = true;
         plymouth.enable = true;
