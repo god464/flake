@@ -178,9 +178,7 @@ in
     home.packages = with pkgs; [
       wl-clipboard-rs
       nautilus
-      loupe
       gcr
-      papers
       gdu
     ];
   };
