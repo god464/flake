@@ -1,0 +1,37 @@
+{
+  fetchurl,
+  stdenvNoCC,
+  p7zip,
+}:
+stdenvNoCC.mkDerivation {
+  pname = "apple-sf-pro";
+  version = "20.0d10e1";
+  src = fetchurl {
+    url = "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg";
+    sha256 = "sha256-W0sZkipBtrduInk0oocbFAXX1qy0Z+yk2xUyFfDWx4s=";
+  };
+  nativeBuildInputs = [ p7zip ];
+
+  dontConfigure = true;
+  dontBuild = true;
+
+  unpackPhase = ''
+    mkdir $TMPDIR/fonts
+    7z e $src -y -otmp/
+    cd tmp
+    7z x -txar "SF Pro Fonts.pkg" -y
+    cd SFProFonts.pkg/
+    7z x Payload -y
+    7z x Payload\~ -y
+    mv Library/Fonts/* $TMPDIR/fonts
+  '';
+
+  installPhase = ''
+    runHook preInstall
+
+    install -Dm644 -t $out/share/fonts/truetype $TMPDIR/fonts/*.ttf
+    install -Dm644 -t $out/share/fonts/opentype $TMPDIR/fonts/*.otf
+
+    runHook postInstall
+  '';
+}
