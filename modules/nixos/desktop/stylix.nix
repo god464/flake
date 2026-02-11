@@ -35,8 +35,8 @@ in
           name = "Source Han Serif SC";
         };
         sansSerif = {
-          package = pkgs.source-han-sans;
-          name = "Source Han Sans SC";
+          package = pkgs.aplle-new-york;
+          name = "New York";
         };
         monospace = {
           package = pkgs.source-han-mono;
