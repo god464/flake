@@ -43,8 +43,8 @@ in
           name = "SF Mono";
         };
         emoji = {
-          package = pkgs.twemoji-color-font;
-          name = "Twitter Color Emoji";
+          package = pkgs.apple-color-emoji;
+          name = "Apple Color Emoji";
         };
       };
       targets = {
