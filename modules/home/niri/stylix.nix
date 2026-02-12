@@ -23,6 +23,7 @@ in
         fcitx5.enable = true;
         firefox = {
           enable = true;
+          colorTheme.enable = true;
           profileNames = [ "default" ];
         };
         fzf.enable = true;
