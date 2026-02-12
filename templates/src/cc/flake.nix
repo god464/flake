@@ -38,6 +38,7 @@
               vcpkg-tool
               clang-tools
               cppcheck
+              cmake-lint
               neocmakelsp
             ];
             shellHook = config.pre-commit.installationScript;

@@ -15,7 +15,7 @@ in
         apple-sf-pro
         apple-sf-mono
         apple-new-york
-        apple-emoji
+        apple-color-emoji
         sarasa-gothic
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
