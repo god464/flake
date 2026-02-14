@@ -73,7 +73,10 @@
           };
       in
       map mkVmOpts pkg;
-    etc."machine-id".text = "12d844a4fc17460abb59c9e077267d82";
+    etc."machine-id" = {
+      text = "12d844a4fc17460abb59c9e077267d82";
+      mode = "0444";
+    };
   };
   services' = {
     gpg.enable = true;

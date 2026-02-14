@@ -26,6 +26,9 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPoVNcyt4lHWmTaR5SOlRe3FLNGGbtHD3IsQOSl8E426"
     ];
   };
-  environment.etc."machine-id".text = "c2e991aba7c2429cb92b63177e1e1170";
+  environment.etc."machine-id" = {
+    text = "c2e991aba7c2429cb92b63177e1e1170";
+    mode = "0444";
+  };
   virtual'.podman.enable = true;
 }
