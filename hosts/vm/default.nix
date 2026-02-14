@@ -9,9 +9,9 @@
   };
   microvm = {
     hypervisor = "cloud-hypervisor";
-    vcpu = 1;
+    vcpu = 4;
     vsock.cid = 3;
-    mem = 1024;
+    mem = 4096;
     interfaces = [
       {
         type = "tap";
