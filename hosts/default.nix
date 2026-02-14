@@ -29,7 +29,7 @@
               modules = commonModules ++ [ ./${host} ];
             };
         in
-        lib.genAttrs [ "laptop" "server" "iso" "vm" ] mkConfig
+        lib.genAttrs [ "laptop" "server" "iso" ] mkConfig
         // {
           minimal = inputs.nixpkgs.lib.nixosSystem {
             modules = [ ./minimal ];
