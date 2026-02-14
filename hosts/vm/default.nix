@@ -10,6 +10,7 @@
   microvm = {
     hypervisor = "cloud-hypervisor";
     vcpu = 1;
+    vsock.cid = 3;
     mem = 1024;
     interfaces = [
       {
@@ -19,6 +20,12 @@
       }
     ];
   };
-  web'.app.calibre.enable = true;
   system.nixos-init.enable = false;
+  web' = {
+    app = {
+      immich.enable = true;
+      # linkwarden.enable = true;
+    };
+    http.nginx.enable = true;
+  };
 }

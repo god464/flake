@@ -37,7 +37,7 @@
 
 [group('iso')]
 @geniso:
-    nix build .#nixosConfigurations.iso.config.formats.install-iso-hyperv
+    nixos-rebuild build-image --flake .#iso
 
 [group('facter')]
 @genfacter:
