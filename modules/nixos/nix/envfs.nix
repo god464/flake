@@ -1,3 +1,0 @@
-{
-  # services.envfs.enable = true;
-}

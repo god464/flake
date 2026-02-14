@@ -21,6 +21,7 @@
     ];
   };
   system.nixos-init.enable = false;
+  services.envfs.enable = false;
   web' = {
     app = {
       immich.enable = true;
