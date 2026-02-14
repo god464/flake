@@ -1,8 +1,8 @@
 {
   security = {
-    sudo.enable = true;
+    sudo.enable = false;
     sudo-rs = {
-      enable = false;
+      enable = true;
       execWheelOnly = true;
     };
   };

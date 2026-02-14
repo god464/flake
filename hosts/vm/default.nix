@@ -20,4 +20,5 @@
     ];
   };
   web'.app.calibre.enable = true;
+  system.nixos-init.enable = false;
 }
