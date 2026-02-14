@@ -30,10 +30,4 @@
     text = "c2e991aba7c2429cb92b63177e1e1170";
     mode = "0444";
   };
-  web' = {
-    app = {
-      immich.enable = true;
-    };
-    http.nginx.enable = true;
-  };
 }

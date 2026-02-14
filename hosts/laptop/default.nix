@@ -47,6 +47,7 @@
   programs' = {
     fish.enable = true;
     tmux.enable = true;
+    zen.enable = true;
   };
   desktop'.niri.enable = true;
   environment = {

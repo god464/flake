@@ -1,15 +1,19 @@
-{ config, lib, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  cfg = config.services.displayManager;
-  inherit (lib) mkIf;
+  cfg = osConfig.programs'.zen;
 in
 {
-  config = mkIf cfg.enable {
-    programs.firefox = {
+  config = lib.mkIf cfg.enable {
+    programs.zen-browser = {
       enable = true;
+      nativeMessagingHosts = [ pkgs.firefoxpwa ];
       policies = {
         DisableAppUpdate = true;
-        DisableTelemetry = true;
         DisablePocket = true;
         DisableFirefoxStudies = true;
         NoDefaultBookmarks = true;
@@ -21,6 +25,7 @@ in
           SuspectedFingerprinting = true;
         };
       };
+      profiles.default = { };
     };
   };
 }

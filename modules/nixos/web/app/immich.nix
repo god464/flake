@@ -8,7 +8,10 @@ in
   config = mkIf cfg.enable {
     services = {
       immich.enable = true;
-      nginx.virtualHosts.localhost.locations."/photo/".proxyPass = "http://localhost:2283/";
+      nginx.virtualHosts.localhost.locations."/" = {
+        proxyPass = "http://localhost:2283/";
+        proxyWebsockets = true;
+      };
     };
   };
 }
