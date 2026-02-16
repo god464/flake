@@ -16,6 +16,7 @@ in
         apple-sf-mono
         apple-new-york
         apple-color-emoji
+        apple-pingfang
         sarasa-gothic
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
@@ -32,24 +33,27 @@ in
         subpixel.rgba = "rgb";
         defaultFonts = {
           serif = [
+            "New York Medium"
             "Source Han Serif SC"
             "Noto Serif CJK SC"
             "Symbols Nerd Font"
-            "Twitter Color Emoji"
           ];
           sansSerif = [
+            "PingFang SC"
+            "SF Pro Rounded"
             "Source Han Sans SC"
             "Noto Sans CJK SC"
             "Symbols Nerd Font"
-            "Twitter Color Emoji"
           ];
           monospace = [
+            "SF Mono"
             "Source Han Mono SC"
             "Noto Sans Mono CJK SC"
             "Maple Mono Normal CN"
             "Symbols Nerd Font Mono"
           ];
           emoji = [
+            "Apple Color Emoji"
             "Twitter Color Emoji"
             "Symbols Nerd Font"
           ];

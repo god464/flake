@@ -31,8 +31,8 @@ in
       fonts = {
         sizes.terminal = 13.0;
         serif = {
-          package = pkgs.apple-sf-pro;
-          name = "SF PRO Rounded";
+          package = pkgs.apple-pingfang;
+          name = "PingFang SC";
         };
         sansSerif = {
           package = pkgs.apple-new-york;
