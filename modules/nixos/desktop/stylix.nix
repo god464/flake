@@ -48,10 +48,6 @@ in
         };
       };
       targets = {
-        font-packages = {
-          enable = true;
-          fonts.enable = true;
-        };
         gtk.enable = true;
         qt.enable = true;
         plymouth.enable = true;
