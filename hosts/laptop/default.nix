@@ -17,7 +17,6 @@
       ];
       supportedFilesystems = [ "ntfs" ];
     };
-    secure-boot.enable = true;
     persist.enable = true;
   };
   network' = {

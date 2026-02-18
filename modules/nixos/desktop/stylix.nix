@@ -54,6 +54,7 @@ in
         console.enable = true;
         kmscon.enable = true;
         nixos-icons.enable = true;
+        limine.enable = true;
       };
     };
   };

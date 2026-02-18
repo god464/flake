@@ -39,18 +39,16 @@ in
         enableContainers = false;
         kernelModules = [ "kvm-amd" ];
         kernelPackages = pkgs.linuxPackages_latest;
-        loader = {
-          efi.canTouchEfiVariables = true;
-          systemd-boot = {
-            enable = true;
-            editor = false;
-          };
-        };
+        loader.efi.canTouchEfiVariables = true;
         tmp.useTmpfs = true;
       }
       (
         if display.enable then
           {
+            loader.limine = {
+              enable = true;
+              secureBoot.enable = true;
+            };
             plymouth.enable = true;
             consoleLogLevel = 0;
             kernelParams = cfg.para ++ [
@@ -59,7 +57,12 @@ in
             ];
           }
         else
-          { }
+          {
+            loader.systemd-boot = {
+              enable = true;
+              editor = false;
+            };
+          }
       )
     ];
     zramSwap.enable = true;
