@@ -11,6 +11,7 @@
     "sr_mod"
   ];
   network'.net.name = "server";
+  hardware.facter.reportPath = ./facter.json;
   services'.ssh = {
     enable = true;
     hostKey = "/var/ssh/ssh_host_ed25519_key";
