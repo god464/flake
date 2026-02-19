@@ -1,49 +1,23 @@
-{
-  lib,
-  stdenv,
-  python3,
-  optipng,
-  zopfli,
-  pngquant,
-  imagemagick,
-  which,
-  nototools ? null,
-  fetchFromGitHub,
-}:
+{ stdenv, fetchurl }:
 
-stdenv.mkDerivation (finalAttrs: {
+stdenv.mkDerivation {
   pname = "apple-color-emoji";
-  version = "18.4";
+  version = "20.4d5e1";
 
-  src = fetchFromGitHub {
-    owner = "samuelngs";
-    repo = "apple-emoji-linux";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-Cw4zl9Trb+yVjVajdG2KxG/pozti6IHZB2nR89ZUExM=";
+  src = fetchurl {
+    url = "https://github.com/samuelngs/apple-emoji-ttf/releases/download/macos-26-20260218-4989e498/AppleColorEmoji-Linux.ttf";
+    hash = "sha256:e3d83e32a6a0a878de8c16b0eea0925a135be427557ec4721d2e1d520f99c44a";
   };
 
-  nativeBuildInputs = [
-    which
-    (python3.withPackages (
-      python-pkgs:
-      [
-        python-pkgs.fonttools
-      ]
-      ++ lib.optional (nototools == null) python-pkgs.nototools
-    ))
-    optipng
-    zopfli
-    pngquant
-    imagemagick
-  ]
-  ++ lib.optional (nototools != null) nototools;
-
-  enableParallelBuilding = true;
+  dontConfigure = true;
+  dontBuild = true;
+  dontUnpack = true;
 
   installPhase = ''
     runHook preInstall
-    mkdir -p $out/share/fonts/truetype
-    cp ./AppleColorEmoji.ttf $out/share/fonts/truetype
+
+    install -Dm644 "$src" $out/share/fonts/truetype/AppleColorEmoji-Linux.ttf
+
     runHook postInstall
   '';
-})
+}
