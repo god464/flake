@@ -22,7 +22,6 @@ in
       ++ (with inputs; [
         dankMaterialShell.homeModules.dank-material-shell
         dankMaterialShell.homeModules.niri
-        zen-browser.homeModules.beta
       ]);
       extraSpecialArgs = { inherit inputs; };
       users.cl.home.stateVersion = "26.05";
