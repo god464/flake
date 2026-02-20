@@ -19,10 +19,7 @@ in
       sharedModules = [
         topcfg.flake.homeModules.default
       ]
-      ++ (with inputs; [
-        dankMaterialShell.homeModules.dank-material-shell
-        dankMaterialShell.homeModules.niri
-      ]);
+      ++ (with inputs; [ noctalia.homeModules.default ]);
       extraSpecialArgs = { inherit inputs; };
       users.cl.home.stateVersion = "26.05";
     };

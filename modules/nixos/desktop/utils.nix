@@ -7,7 +7,8 @@ in
   config = mkIf cfg.enable {
     services = {
       fwupd.enable = true;
-      tlp.enable = true;
+      tuned.enable = true;
+      upower.enable = true;
       udisks2 = {
         enable = true;
         mountOnMedia = true;

@@ -10,11 +10,7 @@ let
   cfg = config.desktop'.niri;
 in
 {
-  imports = with inputs; [
-    niri-flake.nixosModules.niri
-    dankMaterialShell.nixosModules.dank-material-shell
-    dankMaterialShell.nixosModules.greeter
-  ];
+  imports = with inputs; [ niri-flake.nixosModules.niri ];
   options.desktop'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
     programs = {
@@ -22,18 +18,11 @@ in
         enable = true;
         package = pkgs.niri-unstable;
       };
-      dank-material-shell = {
-        enable = true;
-        quickshell.package = inputs.quickshell.packages."x86_64-linux".quickshell;
-        greeter = {
-          enable = true;
-          compositor.name = "niri";
-        };
-      };
+      regreet.enable = true;
     };
     services = {
       gnome.sushi.enable = true;
-      power-profiles-daemon.enable = false;
+      gnome.evolution-data-server.enable = true;
     };
     security.pam.services.login.enableGnomeKeyring = true;
     systemd.user.services.niri-flake-polkit.enable = false;
