@@ -31,7 +31,10 @@ in
         };
       };
     };
-    services.gnome.sushi.enable = true;
+    services = {
+      gnome.sushi.enable = true;
+      power-profiles-daemon.enable = false;
+    };
     security.pam.services.login.enableGnomeKeyring = true;
     systemd.user.services.niri-flake-polkit.enable = false;
   };

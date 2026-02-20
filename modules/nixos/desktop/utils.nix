@@ -7,7 +7,11 @@ in
   config = mkIf cfg.enable {
     services = {
       fwupd.enable = true;
-      power-profiles-daemon.enable = true;
+      tlp.enable = true;
+      udisks2 = {
+        enable = true;
+        mountOnMedia = true;
+      };
     };
     security.polkit.enable = true;
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
