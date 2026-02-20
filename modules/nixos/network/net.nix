@@ -26,7 +26,13 @@ in
       (
         if display.enable then
           {
-            wireless.iwd.enable = true;
+            networkmanager = {
+              enable = true;
+              ethernet.macAddress = "random";
+              wifi.macAddress = "ramdom";
+              wifi.backend = "iwd";
+              dns = "none";
+            };
           }
         else
           {
