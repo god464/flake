@@ -31,7 +31,6 @@ in
         mpv.enable = true;
         yazi.enable = true;
         tmux.enable = true;
-        zed.enable = true;
       };
     };
     programs.firefox = {
