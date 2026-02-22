@@ -9,6 +9,8 @@ stdenv.mkDerivation {
     hash = "sha256:535a043af04706d24471059e64745bfc80d6617ada2eea3435dc5620dc0f5318";
   };
 
+  dontConfigure = true;
+  dontBuild = true;
   dontUnpack = true;
 
   installPhase = ''
