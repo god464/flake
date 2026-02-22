@@ -5,8 +5,8 @@ stdenv.mkDerivation {
   version = "20.4d5e1";
 
   src = fetchurl {
-    url = "https://github.com/samuelngs/apple-emoji-ttf/releases/download/macos-26-20260218-4989e498/AppleColorEmoji-Linux.ttf";
-    hash = "sha256:e3d83e32a6a0a878de8c16b0eea0925a135be427557ec4721d2e1d520f99c44a";
+    url = "https://github.com/samuelngs/apple-emoji-ttf/releases/download/macos-26-20260219-2aa12422/AppleColorEmoji-Linux.ttf";
+    hash = "sha256:535a043af04706d24471059e64745bfc80d6617ada2eea3435dc5620dc0f5318";
   };
 
   dontConfigure = true;
