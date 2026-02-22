@@ -54,6 +54,7 @@
         pkg = with pkgs.jetbrains; [
           clion
           webstorm
+          rider
         ];
         mkVmOpts =
           pkg:
