@@ -23,7 +23,7 @@ jobs:
       - name: build LiveCD
         run: |
           nixos-rebuild build-image --flake .#iso
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           path: ./result/*
           overwrite: true
