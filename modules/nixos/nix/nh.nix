@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   programs.nh = {
-    enable = true;
+    enable = lib.mkDefault true;
     flake = "/home/cl/persist/flake";
   };
 }
