@@ -11,6 +11,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.niri.settings = {
+      debug.honor-xdg-activation-with-invalid-serial = [ ];
       input = {
         keyboard.xkb = {
           layout = "us";

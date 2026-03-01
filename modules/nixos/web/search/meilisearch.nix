@@ -5,5 +5,11 @@ let
 in
 {
   options.web'.search.meilisearch.enable = mkEnableOption "meilisearch";
-  config = lib.mkIf cfg.enable { services.meilisearch.enable = true; };
+  config = lib.mkIf cfg.enable {
+    sops.secrets.master_key = { };
+    services.meilisearch = {
+      enable = true;
+      masterKeyFile = config.sops.secrets.master_key.path;
+    };
+  };
 }

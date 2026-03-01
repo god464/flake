@@ -44,10 +44,6 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     ggnvim = {
       url = "github:god464/nvim";
       flake = false;
