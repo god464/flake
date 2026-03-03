@@ -34,6 +34,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "video"
     ];
     createHome = true;
     shell = pkgs.fish;
@@ -51,11 +52,7 @@
   environment = {
     systemPackages =
       let
-        pkg = with pkgs.jetbrains; [
-          clion
-          webstorm
-          rider
-        ];
+        pkg = [ ];
         mkVmOpts =
           pkg:
           pkg.override {
