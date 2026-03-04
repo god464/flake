@@ -32,5 +32,8 @@
     mode = "0444";
   };
   programs.nh.enable = false;
-  web'.app.linkwarden.enable = true;
+  web' = {
+    search.meilisearch.enable = true;
+    app.linkwarden.enable = true;
+  };
 }
