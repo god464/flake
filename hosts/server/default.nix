@@ -35,5 +35,6 @@
   web' = {
     search.meilisearch.enable = true;
     app.linkwarden.enable = true;
+    http.nginx.enable = true;
   };
 }
