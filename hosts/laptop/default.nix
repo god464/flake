@@ -8,6 +8,7 @@
         "radeon.cik_support=0"
         "amdgpu.cik_support=1"
       ];
+      kernelModules = [ "kvm-amd" ];
       availableKernelModules = [
         "nvme"
         "xhci_pci"

@@ -28,6 +28,10 @@ in
       default = [ ];
       type = types.listOf types.str;
     };
+    kernelModules = mkOption {
+      default = [ ];
+      type = types.listOf types.str;
+    };
   };
   config = {
     boot = mkMerge [
@@ -36,8 +40,8 @@ in
           inherit (cfg) supportedFilesystems availableKernelModules;
           systemd.enable = true;
         };
+        inherit (cfg) kernelModules;
         enableContainers = false;
-        kernelModules = [ "kvm-amd" ];
         kernelPackages = pkgs.linuxPackages_latest;
         loader.efi.canTouchEfiVariables = true;
         tmp.useTmpfs = true;
