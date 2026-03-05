@@ -15,7 +15,7 @@ in
           MEILI_MASTER_KEY = config.sops.secrets.master_key.path;
         };
       };
-      nginx.virtualHosts.localhost.locations."/bookmark/".proxyPass = "http://localhost:3000/";
+      nginx.virtualHosts.localhost.locations."/".proxyPass = "http://localhost:3000/";
     };
   };
 }

@@ -32,9 +32,4 @@
     mode = "0444";
   };
   programs.nh.enable = false;
-  web' = {
-    search.meilisearch.enable = true;
-    app.linkwarden.enable = true;
-    http.nginx.enable = true;
-  };
 }
