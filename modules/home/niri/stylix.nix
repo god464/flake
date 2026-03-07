@@ -25,6 +25,10 @@ in
           enable = true;
           profileNames = [ "default" ];
         };
+        zen-browser = {
+          enable = true;
+          profileNames = [ "default" ];
+        };
         fzf.enable = true;
         gdu.enable = true;
         starship.enable = true;

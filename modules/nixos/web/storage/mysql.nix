@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.web'.db.mysql;
+  cfg = config.web'.storage.mysql;
   inherit (lib) mkEnableOption;
 in
 {
-  options.web'.db.mysql.enable = mkEnableOption "mysql";
+  options.web'.storage.mysql.enable = mkEnableOption "mysql";
   config = lib.mkIf cfg.enable {
     services = {
       mysql = {
