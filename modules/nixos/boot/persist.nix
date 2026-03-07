@@ -52,7 +52,6 @@ in
           ".config/noctalia/"
           ".local/state/DankMaterialShell"
           ".local/state/wireplumber"
-          ".mozilla"
           ".thunderbird"
           ".config/github-copilot"
           ".gemini"
@@ -64,6 +63,8 @@ in
           ".local/share/io.github.clash-verge-rev.clash-verge-rev"
           ".config/io.github.clash-verge-rev.clash-verge-rev"
           ".local/share/zathura"
+          ".config/zen"
+          ".cache/zen"
         ];
       };
     };

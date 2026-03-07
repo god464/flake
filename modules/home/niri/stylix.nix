@@ -21,14 +21,6 @@ in
       targets = {
         bat.enable = true;
         fcitx5.enable = true;
-        firefox = {
-          enable = true;
-          profileNames = [ "default" ];
-        };
-        zen-browser = {
-          enable = true;
-          profileNames = [ "default" ];
-        };
         fzf.enable = true;
         gdu.enable = true;
         starship.enable = true;
@@ -36,10 +28,6 @@ in
         yazi.enable = true;
         tmux.enable = true;
       };
-    };
-    programs.firefox = {
-      enable = true;
-      profiles.default = { };
     };
   };
 }

@@ -25,7 +25,6 @@ in
           SuspectedFingerprinting = true;
         };
       };
-      profiles.default = { };
     };
   };
 }

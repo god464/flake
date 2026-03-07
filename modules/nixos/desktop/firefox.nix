@@ -6,7 +6,7 @@ in
 {
   config = mkIf cfg.enable {
     programs.firefox = {
-      enable = true;
+      # enable = true;
       policies = {
         DisableAppUpdate = true;
         DisableTelemetry = true;
