@@ -54,17 +54,25 @@
   environment = {
     systemPackages =
       let
-        pkg = [ ];
+        pkg = with pkgs.jetbrains; [ clion ];
         mkVmOpts =
           pkg:
           pkg.override {
             forceWayland = true;
             vmopts = ''
               -Xms2048m
-              -Xmx4096m
-              -XX:ReservedCodeCacheSize=1024m
+              -Xmx8192m
+              -XX:NewSize=512m
+              -XX:MaxNewSize=2048m
+              -XX:MetaspaceSize=512m
+              -XX:MaxMetaspaceSize=1024m
               -XX:+UseZGC
+              -XX:SoftRefLRUPolicyMSPerMB=50
               -XX:+ZGenerational
+              -XX:+DisableExplicitGC
+              -XX:+OptimizeStringConcat
+              -XX:ReservedCodeCacheSize=1024m
+              -XX:+UseCompressedOops
               --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
               --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
               -javaagent:/home/cl/persist/ja-netfilter/ja-netfilter.jar=jetbrains

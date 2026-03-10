@@ -24,7 +24,7 @@
               type = "btrfs";
               extraArgs = [
                 "-f"
-                "-L Nixos"
+                "-L NixOS"
                 "--csum xxhash"
               ];
               subvolumes = {
