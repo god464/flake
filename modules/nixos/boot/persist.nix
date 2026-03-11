@@ -65,6 +65,12 @@ in
           ".local/share/zathura"
           ".config/zen"
           ".cache/zen"
+          ".claude"
+          ".codex"
+          ".config/opencode"
+          ".local/share/opencode"
+          ".local/state/opencode"
+          ".cache/opencode"
         ];
       };
     };
