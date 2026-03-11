@@ -24,6 +24,7 @@
         overlays = [
           self.overlays.pkgs
           inputs.niri-flake.overlays.niri
+          inputs.llm-agents.overlays.default
         ];
       };
       legacyPackages = pkgs;
