@@ -23,26 +23,59 @@ in
                   alert = "NodeDown";
                   expr = "up == 0";
                   for = "5m";
-                }
-                {
-                  alert = "OOM";
-                  expr = "node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes < 0.85";
-                }
-                {
-                  alert = "DiskFull";
-                  expr = ''node_filesystem_avail_bytes{mountpoint=~"/"} / node_filesystem_size_bytes < 0.85'';
-                }
-                {
-                  alert = "CPUHighUseage";
-                  expr = ''(1 - avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) * 100 > 0.85'';
+                  labels.severity = "critical";
                 }
                 {
                   alert = "UnitFailed";
                   expr = ''node_systemd_unit_state{state="failed"} == 1'';
+                  labels.severity = "warning";
+                }
+                {
+                  alert = "OOM";
+                  expr = "node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes < 0.15";
+                  for = "2m";
+                  labels.severity = "critical";
+                }
+                {
+                  alert = "SwapUsage";
+                  expr = "node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes < 0.5";
+                  for = "5m";
+                  labels.severity = "warning";
+                }
+                {
+                  alert = "CPUHighUsage";
+                  expr = ''(1 - avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) * 100 > 85'';
+                  for = "5m";
+                  labels.severity = "warning";
+                }
+                {
+                  alert = "FileDescriptorUsage";
+                  expr = "node_filefd_allocated / node_filefd_maximum > 0.8";
+                  for = "5m";
+                  labels.severity = "warning";
+                }
+                {
+                  alert = "DiskFull";
+                  expr = ''node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes < 0.15'';
+                  for = "5m";
+                  labels.severity = "critical";
+                }
+                {
+                  alert = "InodeUsage";
+                  expr = ''node_filesystem_files_free{mountpoint="/"} / node_filesystem_files < 0.1'';
+                  for = "5m";
+                  labels.severity = "warning";
                 }
                 {
                   alert = "BtrfsDevErr";
                   expr = "sum(rate(node_btrfs_device_errors_total[2m])) > 0";
+                  labels.severity = "critical";
+                }
+                {
+                  alert = "TooManyProcesses";
+                  expr = "node_procs_running > 500";
+                  for = "10m";
+                  labels.severity = "warning";
                 }
               ];
             }
@@ -67,8 +100,8 @@ in
           };
           inhibit_rules = [
             {
-              source_match.severity = "critical";
-              target_match.severity = "warning";
+              source_matchers = [ ''severity="critical"'' ];
+              target_matchers = [ ''severity="warning"'' ];
               equal = [
                 "alertname"
                 "dev"
