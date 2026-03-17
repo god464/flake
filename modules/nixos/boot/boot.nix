@@ -6,69 +6,56 @@
 }:
 let
   inherit (lib)
-    mkMerge
     types
     mkOption
     mkDefault
+    mkIf
     ;
-  display = config.services.displayManager;
+  hasDisplay = config.services.displayManager.enable;
+  mkListOfStr = mkOption {
+    type = types.listOf types.str;
+    default = [ ];
+  };
   cfg = config.boot'.boot;
 in
 {
   options.boot'.boot = {
-    para = mkOption {
-      default = [ ];
-      type = types.listOf types.str;
-    };
-    availableKernelModules = mkOption {
-      default = [ ];
-      type = types.listOf types.str;
-    };
-    supportedFilesystems = mkOption {
-      default = [ ];
-      type = types.listOf types.str;
-    };
-    kernelModules = mkOption {
-      default = [ ];
-      type = types.listOf types.str;
-    };
+    para = mkListOfStr;
+    availableKernelModules = mkListOfStr;
+    supportedFilesystems = mkListOfStr;
+    kernelModules = mkListOfStr;
   };
   config = {
-    boot = mkMerge [
-      {
-        initrd = {
-          inherit (cfg) supportedFilesystems availableKernelModules;
-          systemd.enable = true;
+    boot = {
+      initrd = {
+        inherit (cfg) supportedFilesystems availableKernelModules;
+        systemd.enable = true;
+      };
+      inherit (cfg) kernelModules;
+      enableContainers = false;
+      kernelPackages = pkgs.linuxPackages_latest;
+      loader = {
+        efi.canTouchEfiVariables = true;
+        limine = mkIf hasDisplay {
+          enable = true;
+          secureBoot.enable = true;
         };
-        inherit (cfg) kernelModules;
-        enableContainers = false;
-        kernelPackages = pkgs.linuxPackages_latest;
-        loader.efi.canTouchEfiVariables = true;
-        tmp.useTmpfs = true;
-      }
-      (
-        if display.enable then
-          {
-            loader.limine = {
-              enable = true;
-              secureBoot.enable = true;
-            };
-            plymouth.enable = true;
-            consoleLogLevel = 0;
-            kernelParams = cfg.para ++ [
-              "quiet"
-              "splash"
-            ];
-          }
-        else
-          {
-            loader.systemd-boot = {
-              enable = true;
-              editor = false;
-            };
-          }
-      )
-    ];
+        systemd-boot = mkIf (!hasDisplay) {
+          enable = true;
+          editor = false;
+        };
+      };
+      tmp.useTmpfs = true;
+      plymouth.enable = hasDisplay;
+      consoleLogLevel = mkIf hasDisplay 0;
+      kernelParams = mkIf hasDisplay (
+        cfg.para
+        ++ [
+          "quiet"
+          "splash"
+        ]
+      );
+    };
     zramSwap.enable = true;
     services.btrfs.autoScrub.enable = mkDefault true;
   };

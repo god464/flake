@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  inherit (lib) mkOption mkEnableOption mkMerge;
+  inherit (lib) mkOption mkEnableOption;
   cfg = config.services'.ssh;
 in
 {
@@ -11,30 +11,17 @@ in
       default = "/etc/ssh/ssh_host_ed25519_key";
     };
   };
-  config = {
-    services.openssh = mkMerge [
+  config.services.openssh = {
+    enable = true;
+    startWhenNeeded = true;
+    settings.PasswordAuthentication = false;
+    hostKeys = [
       {
-        enable = true;
-        startWhenNeeded = true;
-        settings.PasswordAuthentication = false;
-        hostKeys = [
-          {
-            path = cfg.hostKey;
-            type = "ed25519";
-          }
-        ];
+        path = cfg.hostKey;
+        type = "ed25519";
       }
-      (
-        if cfg.enable then
-          {
-            settings.PermitRootLogin = "prohibit-password";
-          }
-        else
-          {
-            openFirewall = false;
-            settings.PermitRootLogin = "no";
-          }
-      )
     ];
+    settings.PermitRootLogin = if cfg.enable then "prohibit-password" else "no";
+    openFirewall = cfg.enable;
   };
 }

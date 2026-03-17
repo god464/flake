@@ -1,45 +1,30 @@
 { lib, config, ... }:
 let
-  inherit (lib)
-    mkOption
-    types
-    mkMerge
-    mkIf
-    ;
+  inherit (lib) mkOption types mkIf;
   cfg = config.network'.net;
-  display = config.services.displayManager;
+  hasDisplay = config.services.displayManager.enable;
 in
 {
   options.network'.net.name = mkOption { type = types.str; };
   config = {
-    networking = mkMerge [
-      {
-        hostName = cfg.name;
-        nftables.enable = true;
-        firewall = {
-          enable = true;
-          checkReversePath = false;
-          filterForward = true;
-        };
-        resolvconf.enable = false;
-      }
-      (
-        if display.enable then
-          {
-            networkmanager = {
-              enable = true;
-              ethernet.macAddress = "random";
-              wifi.macAddress = "ramdom";
-              wifi.backend = "iwd";
-              dns = "none";
-            };
-          }
-        else
-          {
-            useNetworkd = true;
-          }
-      )
-    ];
+    networking = {
+      hostName = cfg.name;
+      nftables.enable = true;
+      firewall = {
+        enable = true;
+        checkReversePath = false;
+        filterForward = true;
+      };
+      resolvconf.enable = false;
+      networkmanager = mkIf hasDisplay {
+        enable = true;
+        ethernet.macAddress = "random";
+        wifi.macAddress = "random";
+        wifi.backend = "iwd";
+        dns = "none";
+      };
+      useNetworkd = !hasDisplay;
+    };
     systemd.network = mkIf config.networking.useNetworkd {
       enable = true;
       wait-online.enable = lib.mkForce false;

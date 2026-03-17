@@ -30,12 +30,10 @@ in
         sqlit-tui
       ]
       ++ (with pkgs.llm-agents; [
-        oh-my-opencode
         qwen-code
         claude-code
         codex
         gemini-cli
-        opencode
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;

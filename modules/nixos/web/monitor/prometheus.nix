@@ -1,7 +1,40 @@
 { config, lib, ... }:
 let
   cfg = config.services'.monitor.prometheus;
-  inherit (lib) mkEnableOption mkIf singleton;
+  inherit (lib) mkEnableOption mkIf;
+  alert =
+    name: expr: extra:
+    {
+      alert = name;
+      inherit expr;
+    }
+    // extra;
+  withFor = attrs: time: attrs // { for = time; };
+  critical.labels.severity = "critical";
+  warning.labels.severity = "warning";
+  alertRules = [
+    (alert "NodeDown" "up == 0" (withFor critical "5m"))
+    (alert "UnitFailed" ''node_systemd_unit_state{state="failed"} == 1'' warning)
+    (alert "OOM" "node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes < 0.15" (
+      withFor critical "2m"
+    ))
+    (alert "SwapUsage" "node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes < 0.5" (
+      withFor warning "5m"
+    ))
+    (alert "CPUHighUsage"
+      ''1 - avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) > 0.85''
+      (withFor warning "5m")
+    )
+    (alert "FileDescriptorUsage" "node_filefd_allocated / node_filefd_maximum > 0.8" (
+      withFor warning "5m"
+    ))
+    (alert "DiskFull"
+      ''node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes < 0.15''
+      (withFor critical "5m")
+    )
+    (alert "BtrfsDevErr" "sum(rate(node_btrfs_device_errors_total[2m])) > 0" critical)
+    (alert "TooManyProcesses" "node_procs_running > 500" (withFor warning "10m"))
+  ];
 in
 {
   options.services'.monitor.prometheus.enable = mkEnableOption "prometheus";
@@ -9,86 +42,33 @@ in
     services.prometheus = {
       enable = true;
       listenAddress = "127.0.0.1";
+
       exporters.node = {
         enable = true;
-        enabledCollectors = [ "systemd" ];
+        enabledCollectors = [
+          "systemd"
+          "process"
+        ];
       };
-      rules = singleton (
-        builtins.toJSON {
+      rules = [
+        (builtins.toJSON {
           groups = [
             {
               name = "system";
-              rules = [
-                {
-                  alert = "NodeDown";
-                  expr = ''up == 0'';
-                  for = "5m";
-                  labels.severity = "critical";
-                }
-                {
-                  alert = "UnitFailed";
-                  expr = ''node_systemd_unit_state{state="failed"} == 1'';
-                  labels.severity = "warning";
-                }
-                {
-                  alert = "OOM";
-                  expr = ''node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes < 0.15'';
-                  for = "2m";
-                  labels.severity = "critical";
-                }
-                {
-                  alert = "SwapUsage";
-                  expr = ''node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes < 0.5'';
-                  for = "5m";
-                  labels.severity = "warning";
-                }
-                {
-                  alert = "CPUHighUsage";
-                  expr = ''1 - avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) > 0.85'';
-                  for = "5m";
-                  labels.severity = "warning";
-                }
-                {
-                  alert = "FileDescriptorUsage";
-                  expr = ''node_filefd_allocated / node_filefd_maximum > 0.8'';
-                  for = "5m";
-                  labels.severity = "warning";
-                }
-                {
-                  alert = "DiskFull";
-                  expr = ''node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes < 0.15'';
-                  for = "5m";
-                  labels.severity = "critical";
-                }
-                {
-                  alert = "InodeUsage";
-                  expr = ''node_filesystem_files_free{mountpoint="/"} / node_filesystem_files < 0.1'';
-                  for = "5m";
-                  labels.severity = "warning";
-                }
-                {
-                  alert = "BtrfsDevErr";
-                  expr = ''sum(rate(node_btrfs_device_errors_total[2m])) > 0'';
-                  labels.severity = "critical";
-                }
-                {
-                  alert = "TooManyProcesses";
-                  expr = ''node_procs_running > 500'';
-                  for = "10m";
-                  labels.severity = "warning";
-                }
-              ];
+              rules = alertRules;
             }
           ];
-        }
-      );
+        })
+      ];
       alertmanager = {
         enable = true;
         configuration = {
           receivers = [
             {
               name = "default";
-              webhook_configs = [ { url = "http://127.0.0.1:5001/"; } ];
+              webhook_configs = [
+                { url = "http://127.0.0.1:5001/"; }
+              ];
             }
           ];
           route = {
