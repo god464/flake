@@ -54,7 +54,10 @@
   environment = {
     systemPackages =
       let
-        pkg = with pkgs.jetbrains; [ clion ];
+        pkg = with pkgs.jetbrains; [
+          clion
+          webstorm
+        ];
         mkVmOpts =
           pkg:
           pkg.override {

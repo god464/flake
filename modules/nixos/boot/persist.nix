@@ -33,7 +33,6 @@ in
             directory = ".ssh";
             mode = "0700";
           }
-          ".cargo"
           ".cache/nvim"
           ".cache/pre-commit"
           ".cache/treefmt"
