@@ -4,7 +4,7 @@ let
   cfg = config.dns'.unbound;
 in
 {
-  options.dns'.unbound.enable = mkEnableOption "Bind";
+  options.dns'.unbound.enable = mkEnableOption "unbound";
   config = mkIf cfg.enable {
     services.unbound = {
       enable = true;

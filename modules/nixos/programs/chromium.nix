@@ -9,12 +9,11 @@ let
   cfg = config.programs'.chromium;
 in
 {
-  options.programs'.chromium.enable = mkEnableOption cfg.enable;
+  options.programs'.chromium.enable = mkEnableOption "chromium";
   config = mkIf cfg.enable {
     programs.chromium.enable = true;
     environment.systemPackages = [
-      pkgs.ungoogled-chromium.override
-      {
+      (pkgs.ungoogled-chromium.override {
         commandLineArgs = [
           "--enable-features=AcceleratedVideoEncoder,UseOzonePlatform,AcceleratedVideoDecodeLinuxGL,VaapiVideoDecoder,AcceleratedVideoDecodeLinuxZeroCopyGL"
           "--ignore-gpu-blocklist"
@@ -23,7 +22,7 @@ in
           "--wayland-text-input-version=3"
           "--enable-wayland-ime"
         ];
-      }
+      })
     ];
   };
 }

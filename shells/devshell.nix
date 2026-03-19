@@ -15,7 +15,6 @@
           actionlint
           oxfmt
           just
-          vulnix
         ];
         shellHook = config.pre-commit.installationScript;
       };
