@@ -258,11 +258,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1774012098,
-        "narHash": "sha256-uqSHVN5QfLmEQZqPIOwKLcQcQbXWAekaqX+YVwn4NQo=",
+        "lastModified": 1774055419,
+        "narHash": "sha256-tvpqO5HLv+uQ0GE95nqDMWD6hkOi0kddLB7g3SxpVKQ=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "ae12b0cd6d8e52b4d182c13e02020df403d14f21",
+        "rev": "ec7a85e9d14e7b2d65d018c8ca5575ade02154b2",
         "type": "github"
       },
       "original": {
@@ -380,11 +380,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1773979202,
-        "narHash": "sha256-cFe/HoD9XFkCQALm+y1kTOBvKGQA8p0YsBxLpWCsZAw=",
+        "lastModified": 1774038678,
+        "narHash": "sha256-i9O80vNmpLb7JW/z2T3E/j1aqRmiRThwurC4FVV2WYk=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "124f2bbdf02a73235a74bc353fc9c706a3b0e015",
+        "rev": "1b3ffb0de27508dab570a0441685ac53365cd927",
         "type": "github"
       },
       "original": {
@@ -578,11 +578,11 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1774010554,
-        "narHash": "sha256-NmIbLmM4DEBrE9Te0im7QYuinmZmYiYWngieo291SWw=",
+        "lastModified": 1774058464,
+        "narHash": "sha256-IY0U5XeKUk8P0x+g1LVkpt8xAKsB+baH504wdKcDniY=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "5a92a82d06de26f433025dff5de9c18ee9d75b91",
+        "rev": "2aa0c7a78d0f5d7e488173368e9939dc27e690aa",
         "type": "github"
       },
       "original": {
