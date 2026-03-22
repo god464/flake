@@ -15,6 +15,7 @@
           actionlint
           oxfmt
           just
+          just-lsp
         ];
         shellHook = config.pre-commit.installationScript;
       };
