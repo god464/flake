@@ -27,19 +27,18 @@
               config.treefmt.build.wrapper
               # Nix
               nixd
-              nixfmt-rfc-style
+              nixfmt
               statix
               deadnix
               # cc
               ninja
-              cmake
+              meson
+              muon
               vscode-extensions.vadimcn.vscode-lldb
               vcpkg
               vcpkg-tool
               clang-tools
               cppcheck
-              cmake-lint
-              neocmakelsp
             ];
             shellHook = config.pre-commit.installationScript;
           };
@@ -48,7 +47,7 @@
             programs = {
               nixfmt.enable = true;
               clang-format.enable = true;
-              cmake-format.enable = true;
+              meson.enable = true;
             };
           };
           pre-commit.settings.hooks = {

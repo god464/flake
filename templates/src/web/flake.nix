@@ -26,8 +26,8 @@
             packages = with pkgs; [
               config.treefmt.build.wrapper
               # Nix
-              nil
-              nixfmt-rfc-style
+              nixd
+              nixfmt
               statix
               deadnix
               # HTML
@@ -61,7 +61,6 @@
             statix.enable = true;
             deadnix.enable = true;
             commitizen.enable = true;
-            denolint.enable = true;
             treefmt.enable = true;
           };
         };

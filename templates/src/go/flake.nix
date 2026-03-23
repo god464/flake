@@ -27,7 +27,7 @@
               config.treefmt.build.wrapper
               # Nix
               nixd
-              nixfmt-rfc-style
+              nixfmt
               statix
               deadnix
               # Go
@@ -39,6 +39,7 @@
               goimports-reviser
               gofumpt
               golangci-lint
+              revive
             ];
             shellHook = ''
               ${config.pre-commit.installationScript}

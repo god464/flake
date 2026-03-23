@@ -40,7 +40,7 @@
               config.treefmt.build.wrapper
               # Nix
               nixd
-              nixfmt-rfc-style
+              nixfmt
               statix
               deadnix
               # TOML
