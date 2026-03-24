@@ -60,6 +60,10 @@ in
           ".local/share/zathura"
           ".config/zen"
           ".cache/zen"
+          ".config/zed"
+          ".local/share/zed"
+          ".local/state/zed"
+          ".cache/zed"
           ".claude"
           ".codex"
         ];
