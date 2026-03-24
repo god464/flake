@@ -49,6 +49,7 @@
     fish.enable = true;
     tmux.enable = true;
     zen.enable = true;
+    zed.enable = true;
   };
   desktop'.niri.enable = true;
   environment = {
