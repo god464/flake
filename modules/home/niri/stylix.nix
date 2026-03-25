@@ -14,9 +14,9 @@ in
       autoEnable = false;
       icons = {
         enable = true;
-        package = pkgs.papirus-icon-theme;
-        dark = "Papirus-Dark";
-        light = "Papirus-Light";
+        package = pkgs.candy-icons;
+        dark = "candy-icons";
+        light = "candy-icons";
       };
       targets = {
         bat.enable = true;

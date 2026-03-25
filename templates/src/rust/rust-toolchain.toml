@@ -8,5 +8,5 @@ components = [
   "rust-src",
   "rust-analyzer",
 ]
-targets = [ "x86_64-unknown-linux-gnu"]
+targets = ["x86_64-unknown-linux-gnu"]
 profile = "default"
