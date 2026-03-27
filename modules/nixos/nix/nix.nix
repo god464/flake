@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.nix'.nix;
   inherit (lib) types mkOption mkAfter;
@@ -16,6 +21,7 @@ in
   };
   config = {
     nix = {
+      package = pkgs.lix;
       sshServe.enable = true;
       channel.enable = false;
       settings = {
@@ -25,7 +31,6 @@ in
           "cgroups"
           "nix-command"
           "flakes"
-          "ca-derivations"
         ];
         substituters = mkAfter (
           cfg.cache
