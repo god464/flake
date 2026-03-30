@@ -15,7 +15,7 @@ jobs:
       - name: Check Nix flake inputs
         uses: DeterminateSystems/flake-checker-action@v12
       - name: Install nix
-        uses: DeterminateSystems/nix-installer-action@v21
+        uses: DeterminateSystems/nix-installer-action@v22
         with:
           extra-conf: |
             extra-substituters = https://cache.garnix.io
