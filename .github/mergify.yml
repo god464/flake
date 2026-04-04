@@ -12,3 +12,5 @@ pull_request_rules:
       update:
       merge:
         method: squash
+merge_protections_settings:
+  reporting_method: check-runs
