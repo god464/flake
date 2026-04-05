@@ -11,6 +11,7 @@ in
         font-family = "Maple Mono Normal CN";
         font-size = 13.0;
         background-opacity = 0.8;
+        background-blur = true;
       };
     };
   };
