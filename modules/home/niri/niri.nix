@@ -169,7 +169,6 @@ in
     home.packages = with pkgs; [
       nautilus
       gcr
-      gdu
     ];
   };
 }

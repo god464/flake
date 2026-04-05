@@ -22,7 +22,6 @@ in
         bat.enable = true;
         fcitx5.enable = true;
         fzf.enable = true;
-        gdu.enable = true;
         starship.enable = true;
         mpv.enable = true;
         yazi.enable = true;
