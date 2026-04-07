@@ -1,7 +1,6 @@
 {
   osConfig,
   lib,
-  pkgs,
   inputs,
   ...
 }:
@@ -11,10 +10,7 @@ in
 {
   programs.noctalia-shell = lib.mkIf cfg.enable {
     enable = true;
-    package = inputs.noctalia.packages."x86_64-linux".default.override {
-      wl-clipboard = pkgs.wl-clipboard-rs;
-      calendarSupport = true;
-    };
+    package = inputs.noctalia.packages."x86_64-linux".default.override { calendarSupport = true; };
     plugins = {
       sources = [
         {
