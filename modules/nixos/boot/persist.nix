@@ -62,6 +62,7 @@ in
           ".cache/zen"
           ".claude"
           ".codex"
+          ".vscode"
         ];
       };
     };
