@@ -63,6 +63,7 @@ in
           ".claude"
           ".codex"
           ".vscode"
+          ".config/Code"
         ];
       };
     };
