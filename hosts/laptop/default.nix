@@ -50,6 +50,7 @@
     tmux.enable = true;
     zen.enable = true;
     vscode.enable = true;
+    chromium.enable = true;
   };
   desktop'.niri.enable = true;
   environment = {
