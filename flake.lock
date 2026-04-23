@@ -622,6 +622,27 @@
         "type": "github"
       }
     },
+    "ph": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1776438391,
+        "narHash": "sha256-Wha15T66+9dUGbWbG7GaqpDXm/6iJroDJeoPknnovcI=",
+        "owner": "CnTeng",
+        "repo": "ph",
+        "rev": "a7bf8826f23ab19d70f220c5f3ca2a881bcde053",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CnTeng",
+        "repo": "ph",
+        "type": "github"
+      }
+    },
     "preservation": {
       "locked": {
         "lastModified": 1757436102,
@@ -651,11 +672,33 @@
         "nixos-facter-modules": "nixos-facter-modules",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
+        "ph": "ph",
         "preservation": "preservation",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "treefmt-nix": "treefmt-nix_3",
         "zen-browser": "zen-browser"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "ph",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776395632,
+        "narHash": "sha256-Mi1uF5f2FsdBIvy+v7MtsqxD3Xjhd0ARJdwoqqqPtJo=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "8087ff1f47fff983a1fba70fa88b759f2fd8ae97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "sops-nix": {

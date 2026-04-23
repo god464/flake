@@ -59,6 +59,10 @@
       url = "github:god464/nvim";
       flake = false;
     };
+    ph = {
+      url = "github:CnTeng/ph";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{ flake-parts, ... }:
