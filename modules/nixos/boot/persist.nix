@@ -64,6 +64,9 @@ in
           ".codex"
           ".vscode"
           ".config/Code"
+          ".config/JetBrains"
+          ".cache/JetBrains"
+          ".local/share/JetBrains"
         ];
       };
     };
