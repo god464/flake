@@ -37,6 +37,7 @@ in
         nixos-icons.enable = true;
         limine.enable = true;
         regreet.enable = true;
+        chromium.enable = true;
       };
     };
   };
