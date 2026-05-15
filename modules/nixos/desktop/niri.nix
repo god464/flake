@@ -18,9 +18,10 @@ in
         enable = true;
         package = pkgs.niri-unstable;
       };
-      regreet.enable = true;
+      # regreet.enable = true;
     };
     services = {
+      displayManager.ly.enable = true;
       gnome.sushi.enable = true;
       gnome.evolution-data-server.enable = true;
     };
