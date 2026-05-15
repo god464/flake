@@ -19,9 +19,12 @@
             self.nixosModules.default
           ]
           ++ [
-            (_: {
-              nixpkgs.pkgs = withSystem "x86_64-linux" ({ pkgs, ... }: pkgs);
-            })
+            (
+              { config, ... }:
+              {
+                nixpkgs.pkgs = withSystem config.hardware.facter.report.system ({ pkgs, ... }: pkgs);
+              }
+            )
           ];
         mkConfig =
           host:
