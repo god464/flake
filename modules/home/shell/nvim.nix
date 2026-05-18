@@ -25,11 +25,11 @@ in
     home.packages =
       with pkgs;
       [
-        copilot-language-server
         lsof
         sqlit-tui
       ]
       ++ (with pkgs.llm-agents; [
+        copilot-language-server
         qwen-code
         claude-code
         codex
