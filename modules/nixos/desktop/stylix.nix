@@ -36,7 +36,7 @@ in
         kmscon.enable = true;
         nixos-icons.enable = true;
         limine.enable = true;
-        regreet.enable = true;
+        # regreet.enable = true;
         chromium.enable = true;
       };
     };
