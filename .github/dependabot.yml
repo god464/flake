@@ -6,6 +6,10 @@ updates:
       interval: daily
     commit-message:
       prefix: 'bump'
+    groups:
+      gh-dependencies:
+        patterns:
+          - '*'
 
   - package-ecosystem: nix
     directory: '/'
@@ -13,3 +17,7 @@ updates:
       interval: daily
     commit-message:
       prefix: 'bump'
+    groups:
+      nix-dependencies:
+        patterns:
+          - '*'
