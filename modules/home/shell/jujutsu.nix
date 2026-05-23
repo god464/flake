@@ -5,7 +5,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.jujutsu = {
-      enable = true;
+      # enable = true;
       settings = {
         user = {
           name = "god464";

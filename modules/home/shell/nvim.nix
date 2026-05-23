@@ -18,7 +18,6 @@ in
       extraPackages = with pkgs; [
         clang
         luarocks
-        lua5_1
         tree-sitter
       ];
     };
@@ -33,7 +32,7 @@ in
         qwen-code
         claude-code
         codex
-        gemini-cli
+        opencode
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
