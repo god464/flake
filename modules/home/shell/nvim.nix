@@ -32,7 +32,7 @@ in
         qwen-code
         claude-code
         codex
-        opencode
+        pi
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
