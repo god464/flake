@@ -56,7 +56,7 @@
   environment = {
     systemPackages =
       let
-        pkg = with pkgs.jetbrains; [ webstorm ];
+        pkg = [ ];
         mkVmOpts =
           pkg:
           pkg.override {
