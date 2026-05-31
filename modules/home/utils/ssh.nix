@@ -3,23 +3,23 @@
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = {
+      settings = {
         "*" = {
-          addKeysToAgent = "yes";
-          compression = true;
-          hashKnownHosts = true;
+          AddKeysToAgent = "yes";
+          Compression = true;
+          HashKnownHosts = true;
         };
         "github.com" = {
-          hostname = "github.com";
-          user = "git";
-          identityFile = "~/.ssh/id_ed25519";
-          identitiesOnly = true;
+          Hostname = "github.com";
+          User = "git";
+          IdentityFile = "~/.ssh/id_ed25519";
+          IdentitiesOnly = true;
         };
         "github_work" = {
-          hostname = "github.com";
-          user = "git";
-          identityFile = "~/.ssh/github_work";
-          identitiesOnly = true;
+          Hostname = "github.com";
+          User = "git";
+          IdentityFile = "~/.ssh/github_work";
+          IdentitiesOnly = true;
         };
       };
     };
