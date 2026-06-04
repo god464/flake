@@ -64,16 +64,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       debug = true;
       imports = [
+        flake-parts.flakeModules.easyOverlay
+        ./pkgs
         ./hosts
         ./shells
         ./modules
-        ./pkgs
         ./templates
       ];
     };

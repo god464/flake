@@ -1,47 +1,50 @@
 {
   inputs,
   withSystem,
-  self,
   config,
   lib,
   ...
 }:
 {
-  flake = withSystem "x86_64-linux" (_: {
-    nixosConfigurations =
-      let
-        commonModules =
-          with inputs;
-          [
-            disko.nixosModules.disko
-            sops-nix.nixosModules.sops
-            nixos-facter-modules.nixosModules.facter
-            self.nixosModules.default
-          ]
-          ++ [
-            (
-              { config, ... }:
-              {
-                nixpkgs.pkgs = withSystem config.hardware.facter.report.system ({ pkgs, ... }: pkgs);
-              }
-            )
-          ];
-        mkConfig =
-          host:
-          inputs.nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit inputs;
-              topcfg = config;
-            };
-            modules = commonModules ++ [ ./${host} ];
+  flake.nixosConfigurations =
+    let
+      inherit (inputs)
+        disko
+        sops-nix
+        nixos-facter-modules
+        nixpkgs
+        ;
+      commonModules = [
+        disko.nixosModules.disko
+        sops-nix.nixosModules.sops
+        nixos-facter-modules.nixosModules.facter
+        config.flake.nixosModules.default
+        (
+          { config, lib, ... }:
+          lib.mkIf (config.hardware.facter.report ? system) {
+            nixpkgs.pkgs = withSystem config.hardware.facter.report.system ({ pkgs, ... }: pkgs);
+          }
+        )
+      ];
+      mkNixosConfig =
+        host:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            topcfg = config;
           };
-      in
-      lib.genAttrs [ "laptop" "server" "iso" ] mkConfig
-      // {
-        minimal = inputs.nixpkgs.lib.nixosSystem {
-          modules = [ ./minimal ];
-          specialArgs = { inherit inputs; };
+          modules = commonModules ++ [ ./${host} ];
         };
+    in
+    lib.genAttrs [ "laptop" "server" ] mkNixosConfig
+    // {
+      iso = nixpkgs.lib.nixosSystem {
+        modules = [ ./iso ];
+        specialArgs = { inherit inputs; };
       };
-  });
+      minimal = nixpkgs.lib.nixosSystem {
+        modules = [ ./minimal ];
+        specialArgs = { inherit inputs; };
+      };
+    };
 }
