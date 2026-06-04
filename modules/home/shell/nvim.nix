@@ -32,6 +32,7 @@ in
         claude-code
         codex
         pi
+        omp
         hermes-agent
       ]);
     xdg.configFile.nvim = {
