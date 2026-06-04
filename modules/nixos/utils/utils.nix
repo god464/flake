@@ -13,7 +13,10 @@ in
       system.nixos-init.enable = mkDefault true;
       environment.etc."nixos".text = "";
       programs.nix-ld.enable = true;
-      services.envfs.enable = mkDefault true;
+      services = {
+        envfs.enable = mkDefault true;
+        kmscon.enable = true;
+      };
       security = {
         sudo.enable = false;
         sudo-rs = {

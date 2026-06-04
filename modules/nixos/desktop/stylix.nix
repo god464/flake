@@ -33,7 +33,7 @@ in
         qt.enable = true;
         plymouth.enable = true;
         console.enable = true;
-        # kmscon.enable = true;
+        kmscon.enable = true;
         nixos-icons.enable = true;
         limine.enable = true;
         # regreet.enable = true;

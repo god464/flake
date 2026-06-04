@@ -29,10 +29,10 @@ in
       ]
       ++ (with pkgs.llm-agents; [
         copilot-language-server
-        qwen-code
         claude-code
         codex
         pi
+        hermes-agent
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
