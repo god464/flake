@@ -61,6 +61,8 @@ in
           ".claude"
           ".codex"
           ".vscode"
+          ".omp"
+          ".hermes"
           ".config/Code"
         ];
       };
