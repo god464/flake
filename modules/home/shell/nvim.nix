@@ -31,7 +31,6 @@ in
         copilot-language-server
         claude-code
         codex
-        pi
         omp
         hermes-agent
       ]);

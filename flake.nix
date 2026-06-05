@@ -71,7 +71,6 @@
       systems = [ "x86_64-linux" ];
       debug = true;
       imports = [
-        flake-parts.flakeModules.easyOverlay
         ./pkgs
         ./hosts
         ./shells
