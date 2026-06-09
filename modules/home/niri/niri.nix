@@ -168,6 +168,7 @@ in
     home.packages = with pkgs; [
       nautilus
       gcr
+      ddcutil
     ];
   };
 }

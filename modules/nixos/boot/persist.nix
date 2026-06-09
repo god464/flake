@@ -48,7 +48,7 @@ in
           ".local/state/nix"
           ".local/state/nvim"
           ".config/fcitx5"
-          ".config/noctalia/"
+          ".local/state/noctalia"
           ".local/state/wireplumber"
           ".thunderbird"
           ".config/github-copilot"
