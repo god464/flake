@@ -23,7 +23,6 @@ in
     services = {
       displayManager.ly.enable = true;
       gnome.sushi.enable = true;
-      gnome.evolution-data-server.enable = true;
     };
     security.pam.services.login.enableGnomeKeyring = true;
     systemd.user.services.niri-flake-polkit.enable = false;
