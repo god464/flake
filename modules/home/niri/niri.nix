@@ -28,7 +28,7 @@ in
         scale = 1.25;
       };
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
-      spawn-at-startup = [ { command = [ "noctalia-shell" ]; } ];
+      spawn-at-startup = [ { command = [ "noctalia" ]; } ];
       layout = {
         gaps = 10;
         preset-column-widths = [
@@ -72,9 +72,8 @@ in
           noctalia =
             cmd:
             [
-              "noctalia-shell"
-              "ipc"
-              "call"
+              "noctalia"
+              "msg"
             ]
             ++ (lib.splitString " " cmd);
 
@@ -88,34 +87,34 @@ in
           };
           "Mod+Space" = {
             hotkey-overlay.title = "Open Launcher";
-            action.spawn = noctalia "launcher toggle";
+            action.spawn = noctalia "panel-toggle launcher";
           };
           "Mod+Escape" = {
             hotkey-overlay.title = "Lock Screen";
             action.spawn = noctalia "lockScreen lock";
           };
           "Mod+V".action = {
-            spawn = noctalia "launcher clipboard";
+            spawn = noctalia "panel-toggle clipboard";
           };
           "XF86AudioRaiseVolume" = {
             allow-when-locked = true;
-            action.spawn = noctalia "volume increase";
+            action.spawn = noctalia "volume-up";
           };
           "XF86AudioLowerVolume" = {
             allow-when-locked = true;
-            action.spawn = noctalia "volume decrease";
+            action.spawn = noctalia "volume-down";
           };
           "XF86AudioMute" = {
             allow-when-locked = true;
-            action.spawn = noctalia "volume muteOutput";
+            action.spawn = noctalia "volume-mute";
           };
           "XF86MonBrightnessUp" = {
             allow-when-locked = true;
-            action.spawn = noctalia "brightness increase";
+            action.spawn = noctalia "brightness-up";
           };
           "XF86MonBrightnessDown" = {
             allow-when-locked = true;
-            action.spawn = noctalia "brightness decrease";
+            action.spawn = noctalia "brightness-down";
           };
           "Mod+O".action = toggle-overview;
           "Mod+Q".action = close-window;
