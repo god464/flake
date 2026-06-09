@@ -10,7 +10,7 @@ in
 {
   programs.noctalia-shell = lib.mkIf cfg.enable {
     enable = true;
-    package = inputs.noctalia.packages."x86_64-linux".default.override { calendarSupport = true; };
+    package = inputs.noctalia.packages."x86_64-linux".default;
     plugins = {
       sources = [
         {
