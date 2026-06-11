@@ -32,7 +32,6 @@ in
         claude-code
         codex
         omp
-        hermes-agent
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;

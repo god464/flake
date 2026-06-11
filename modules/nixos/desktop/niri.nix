@@ -18,10 +18,10 @@ in
         enable = true;
         package = pkgs.niri-unstable;
       };
-      # regreet.enable = true;
+      regreet.enable = true;
     };
     services = {
-      displayManager.ly.enable = true;
+      # displayManager.ly.enable = true;
       gnome.sushi.enable = true;
     };
     security.pam.services.login.enableGnomeKeyring = true;

@@ -62,7 +62,6 @@ in
           ".codex"
           ".vscode"
           ".omp"
-          ".hermes"
           ".config/Code"
         ];
       };
