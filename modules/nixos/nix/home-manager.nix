@@ -24,7 +24,7 @@ in
         zen-browser.homeModules.beta
       ]);
       extraSpecialArgs = { inherit inputs; };
-      users.cl.home.stateVersion = "26.05";
+      users.cl.home.stateVersion = "26.11";
     };
   };
 }

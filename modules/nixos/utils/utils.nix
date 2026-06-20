@@ -33,7 +33,7 @@ in
       programs.nano.enable = false;
       system = {
         tools.nixos-generate-config.enable = false;
-        stateVersion = "26.05";
+        stateVersion = "26.11";
         # forbiddenDependenciesRegexes = [ "perl" ];
       };
       systemd.oomd.enable = true;

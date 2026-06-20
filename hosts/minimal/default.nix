@@ -51,6 +51,6 @@
       options = "--delete-older-than 1w";
     };
   };
-  system.stateVersion = "26.05";
+  system.stateVersion = "26.11";
   nixpkgs.hostPlatform.system = "x86_64-linux";
 }
