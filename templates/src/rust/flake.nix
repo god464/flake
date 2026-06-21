@@ -47,12 +47,11 @@
               taplo
               # Rust
               (rust-bin.fromRustupToolchainFile ./rust-toolchain.toml)
-              vscode-extensions.vadimcn.vscode-lldb
+              lldb
               cargo-edit
             ];
             env.RUST_SRC_PATH = "${pkgs.rustToolchain}/lib/rustlib/src/rust/library";
             shellHook = ''
-              export PATH=$PATH:${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter
               ${config.pre-commit.installationScript}
 
               if [ !-f "Cargo.toml" ]; then
