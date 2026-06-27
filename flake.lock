@@ -257,11 +257,11 @@
     "ggnvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1782133050,
-        "narHash": "sha256-o29Ii7YDJQJ34ulPspfktIrqqHkUgABRG9DYp9k/+fo=",
+        "lastModified": 1782519436,
+        "narHash": "sha256-cbxpoOcO3L52kC9VXXhTV16KKmZIso6knHGNj2qoK/k=",
         "owner": "god464",
         "repo": "nvim",
-        "rev": "8418494341da88dca1b62cad757a5548c5b52f59",
+        "rev": "e91b253f56e56967640960271fc66771a91a80ff",
         "type": "github"
       },
       "original": {
@@ -543,11 +543,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782487467,
-        "narHash": "sha256-uDNAooxOUlbJL8IqYL0lecPDXpNqvkyL4A7c+7XQpzM=",
+        "lastModified": 1782513854,
+        "narHash": "sha256-BvESaKFE/i4vNwrr4JZk1HU+3a0mWdgJJwEhww7NCA0=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "d956d3ed46eacabe0196b050d5476f193d75061c",
+        "rev": "97e81c67d7cdd8c540a87efafbd06686aa3d2cc4",
         "type": "github"
       },
       "original": {
