@@ -32,6 +32,7 @@ in
         claude-code
         codex
         omp
+        cc-switch-cli
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
