@@ -22,7 +22,6 @@ in
           "--gtk-version=4"
           "--wayland-text-input-version=3"
           "--enable-wayland-ime"
-          "--ozone-platform=wayland"
           "--enable-gpu-rasterization"
         ];
       };
