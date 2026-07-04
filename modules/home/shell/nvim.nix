@@ -33,6 +33,7 @@ in
         codex
         omp
         cc-switch-cli
+        codegraph
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
