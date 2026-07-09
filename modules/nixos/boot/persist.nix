@@ -39,7 +39,6 @@ in
           ".cache/bat"
           ".cache/nix"
           ".cache/noctalia"
-          ".local/share/atuin"
           ".local/share/fish"
           ".local/share/nvim"
           ".local/share/direnv"
