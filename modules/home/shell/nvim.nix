@@ -34,6 +34,7 @@ in
         omp
         cc-switch-cli
         codegraph
+        memvid-cli
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
