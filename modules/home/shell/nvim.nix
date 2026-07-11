@@ -29,12 +29,7 @@ in
       ]
       ++ (with pkgs.llm-agents; [
         copilot-language-server
-        claude-code
-        codex
         omp
-        cc-switch-cli
-        codegraph
-        memvid-cli
       ]);
     xdg.configFile.nvim = {
       source = inputs.ggnvim;

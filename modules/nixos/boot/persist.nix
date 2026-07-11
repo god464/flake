@@ -57,8 +57,6 @@ in
           ".local/share/zathura"
           ".config/zen"
           ".cache/zen"
-          ".claude"
-          ".codex"
           ".vscode"
           ".omp"
           ".config/Code"
