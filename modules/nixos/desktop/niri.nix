@@ -24,7 +24,10 @@ in
       # displayManager.ly.enable = true;
       gnome.sushi.enable = true;
     };
-    security.pam.services.login.enableGnomeKeyring = true;
+    security.pam.services = {
+      login.enableGnomeKeyring = true;
+      greetd.enableGnomeKeyring = true;
+    };
     systemd.user.services.niri-flake-polkit.enable = false;
   };
 }
