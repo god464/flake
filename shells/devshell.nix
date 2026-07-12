@@ -17,7 +17,7 @@
           just
           just-lsp
         ];
-        shellHook = config.pre-commit.installationScript;
+        # shellHook = config.pre-commit.installationScript;
       };
     };
 }
