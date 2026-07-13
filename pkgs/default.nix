@@ -6,18 +6,25 @@
 }:
 let
   inherit (inputs) nixpkgs niri-flake llm-agents;
-in
-{
-  flake.overlays.pkgs =
-    _: prev:
+
+  mkPackageSet =
+    scope:
     lib.packagesFromDirectoryRecursive {
-      callPackage = lib.callPackageWith (prev.pkgs // { inherit prev; });
+      callPackage = lib.callPackageWith (
+        scope
+        // {
+          inherit scope;
+        }
+      );
       directory = ./.;
     };
-
+in
+{
+  flake.overlays.pkgs = _: prev: mkPackageSet prev;
   perSystem =
     { pkgs, system, ... }:
     {
+      packages = mkPackageSet pkgs;
       _module.args.pkgs = import nixpkgs {
         inherit system;
         config = {
@@ -31,6 +38,5 @@ in
           llm-agents.overlays.default
         ];
       };
-      legacyPackages = pkgs;
     };
 }

@@ -2,8 +2,8 @@ builds:
   include:
     - nixosConfigurations.*
     - devShells.*.*
-    - packages.x86_64-linux.*
     - apps.x86_64-linux.*
 
   exclude:
     - nixosConfigurations.iso
+    - packages.x86_64-linux.*
