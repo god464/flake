@@ -35,7 +35,7 @@ in
         overlays = [
           self.overlays.pkgs
           niri-flake.overlays.niri
-          llm-agents.overlays.default
+          llm-agents.overlays.shared-nixpkgs
         ];
       };
     };
