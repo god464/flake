@@ -21,7 +21,7 @@ in
   };
   config = {
     nix = {
-      package = pkgs.lix;
+      package = pkgs.nix;
       sshServe.enable = true;
       channel.enable = false;
       settings = {

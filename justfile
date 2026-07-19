@@ -7,7 +7,7 @@
 [group('nixos')]
 [linux]
 @install-remote target ip:
-    nix run nixpkgs#nixos-anywhere -- --copy-host-keys --flake .#{{ target }} root@{{ ip }}
+    nh nixos-anywhere --copy-host-keys --flake .#{{ target }} root@{{ ip }}
 
 [group('nix')]
 @clean:
