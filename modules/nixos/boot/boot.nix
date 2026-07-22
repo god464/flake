@@ -38,10 +38,15 @@ in
         efi.canTouchEfiVariables = true;
         limine = mkIf hasDisplay {
           enable = true;
-          secureBoot.enable = true;
+          efiSupport = true;
+          secureBoot = {
+            enable = true;
+            autoGenerateKeys = true;
+            autoEnrollKeys.enable = true;
+          };
         };
-        systemd-boot = mkIf (!hasDisplay) {
-          enable = true;
+        systemd-boot = {
+          enable = !hasDisplay;
           editor = false;
         };
       };
