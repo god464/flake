@@ -20,7 +20,7 @@ let
     };
 in
 {
-  flake.overlays.pkgs = _: prev: mkPackageSet prev;
+  flake.overlays.pkgs = _: mkPackageSet;
   perSystem =
     { pkgs, system, ... }:
     {
