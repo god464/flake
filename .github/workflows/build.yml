@@ -22,7 +22,7 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@v14
       - name: build LiveCD
         run: |
-          nixos-rebuild build-image --flake .#iso
+          nixos-rebuild build-image --image-variant iso --flake .#iso
       - uses: actions/upload-artifact@v7
         with:
           path: ./result/*

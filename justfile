@@ -37,7 +37,7 @@
 
 [group('iso')]
 @geniso:
-    nixos-rebuild build-image --flake .#iso
+    nixos-rebuild build-image --image-variant iso --flake .#iso
 
 [group('facter')]
 @genfacter:

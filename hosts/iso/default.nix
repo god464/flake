@@ -6,7 +6,11 @@
     device = "/dev/root";
     fsType = "tmpfs";
   };
-  boot.loader.grub.device = "nodev";
+  boot.loader.limine = {
+    enable = true;
+    efiSupport = true;
+    biosSupport = true;
+  };
   networking.hostName = "livecd";
   programs.fish.enable = true;
   boot.initrd = {
@@ -14,16 +18,10 @@
     allowMissingModules = true;
   };
   programs.git.enable = true;
-  users.users = {
-    nixos = {
-      isNormalUser = true;
-      initialHashedPassword = "";
-      shell = pkgs.fish;
-    };
-    root = {
-      initialHashedPassword = "";
-      shell = pkgs.fish;
-    };
+  users.users.nixos = {
+    isNormalUser = true;
+    initialHashedPassword = "";
+    shell = pkgs.fish;
   };
   security.polkit.enable = true;
   security.sudo.wheelNeedsPassword = false;
