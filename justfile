@@ -41,4 +41,8 @@
 
 [group('facter')]
 @genfacter:
-    nix run github:numtide/nixos-facter -- -o facter.json
+    comma nixos-facter -o facter.json
+
+[group('nix')]
+@updatepkg pkg:
+    comma nix-update --flake {{ pkg }}
