@@ -18,10 +18,9 @@ in
         enable = true;
         package = pkgs.niri-unstable;
       };
-      regreet.enable = true;
     };
     services = {
-      # displayManager.ly.enable = true;
+      displayManager.regreet.enable = true;
       gnome.sushi.enable = true;
     };
     security.pam.services = {
