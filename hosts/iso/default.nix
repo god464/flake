@@ -1,5 +1,12 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  modulesPath,
+  ...
+}:
+{
+  imports = [ "${modulesPath}/installer/cd-dvd/iso-image.nix" ];
   nixpkgs = {
     hostPlatform = "x86_64-linux";
     config.allowUnfree = true;
@@ -8,16 +15,8 @@
     "nix-command"
     "flakes"
   ];
-  fileSystems."/" = {
-    device = "/dev/root";
-    fsType = "tmpfs";
-  };
   boot = {
-    loader.limine = {
-      enable = true;
-      efiSupport = true;
-      biosSupport = true;
-    };
+    loader.limine.enable = true;
     initrd.allowMissingModules = true;
     supportedFilesystems = [
       "btrfs"
@@ -63,4 +62,10 @@
   };
   time.timeZone = "Asia/Hong_Kong";
   i18n.defaultLocale = "en_US.UTF-8";
+  isoImage = {
+    makeEfiBootable = true;
+    makeUsbBootable = true;
+  };
+  swapDevices = lib.mkImageMediaOverride [ ];
+  fileSystems = lib.mkImageMediaOverride config.lib.isoFileSystems;
 }
