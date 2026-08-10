@@ -1,26 +1,33 @@
-name: Auto Merge
+name: automerge
 on:
   pull_request:
     types:
       - labeled
-
-permissions:
-  contents: write
-  pull-requests: write
-
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
+  status: {}
 jobs:
-  merge:
-    if: |
-      github.event.label.name == 'dependencies' &&
-      github.event.pull_request.base.ref == 'master'
+  automerge:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - name: Merge PR
+      - id: automerge
+        name: automerge
+        uses: 'pascalgn/automerge-action@v0.16.4'
         env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh pr merge \
-            ${{ github.event.pull_request.number }} \
-            --squash \
-            --delete-branch
+          MERGE_LABELS: 'dependencies'
+          MERGE_METHOD: 'squash'
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN  }}'

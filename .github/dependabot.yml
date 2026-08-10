@@ -10,6 +10,7 @@ updates:
       gh-dependencies:
         patterns:
           - '*'
+
   - package-ecosystem: nix
     directory: '/'
     schedule:
