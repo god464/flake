@@ -10,7 +10,10 @@ let
   cfg = config.desktop'.niri;
 in
 {
-  imports = with inputs; [ niri-flake.nixosModules.niri ];
+  imports = with inputs; [
+    niri-flake.nixosModules.niri
+    noctalia-greeter.nixosModules.default
+  ];
   options.desktop'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
     programs = {
@@ -18,11 +21,9 @@ in
         enable = true;
         package = pkgs.niri-unstable;
       };
+      noctalia-greeter.enable = true;
     };
-    services = {
-      displayManager.regreet.enable = true;
-      gnome.sushi.enable = true;
-    };
+    services.gnome.sushi.enable = true;
     security.pam.services = {
       login.enableGnomeKeyring = true;
       greetd.enableGnomeKeyring = true;
