@@ -28,7 +28,6 @@ in
         scale = 1.25;
       };
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
-      spawn-at-startup = [ { command = [ "noctalia" ]; } ];
       layout = {
         gaps = 10;
         preset-column-widths = [
@@ -168,6 +167,7 @@ in
     home.packages = with pkgs; [
       nautilus
       gcr
+      systemd
       ddcutil
     ];
   };

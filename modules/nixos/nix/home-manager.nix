@@ -18,11 +18,8 @@ in
       useUserPackages = true;
       sharedModules = [
         topcfg.flake.homeModules.default
-      ]
-      ++ (with inputs; [
-        noctalia.homeModules.default
-        zen-browser.homeModules.beta
-      ]);
+        inputs.zen-browser.homeModules.beta
+      ];
       extraSpecialArgs = { inherit inputs; };
       users.cl.home.stateVersion = "26.11";
     };

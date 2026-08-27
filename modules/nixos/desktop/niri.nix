@@ -13,6 +13,7 @@ in
   imports = with inputs; [
     niri-flake.nixosModules.niri
     noctalia-greeter.nixosModules.default
+    noctalia.nixosModules.default
   ];
   options.desktop'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
@@ -20,6 +21,11 @@ in
       niri = {
         enable = true;
         package = pkgs.niri-unstable;
+      };
+      noctalia = {
+        enable = true;
+        recommendedServices.enable = true;
+        systemd.enable = true;
       };
       noctalia-greeter.enable = true;
     };
