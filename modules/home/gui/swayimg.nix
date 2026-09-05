@@ -3,5 +3,5 @@ let
   cfg = osConfig.services.displayManager;
 in
 {
-  config = lib.mkIf cfg.enable { programs.imv.enable = true; };
+  config = lib.mkIf cfg.enable { programs.swayimg.enable = true; };
 }
