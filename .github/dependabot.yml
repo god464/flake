@@ -12,6 +12,7 @@ updates:
           - '*'
 
   - package-ecosystem: nix
+    cooldown: 0
     directory: '/'
     schedule:
       interval: daily
