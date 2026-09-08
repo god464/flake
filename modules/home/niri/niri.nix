@@ -166,9 +166,7 @@ in
     };
     home.packages = with pkgs; [
       nautilus
-      gcr
-      systemd
-      ddcutil
+      gcr_4
     ];
   };
 }
