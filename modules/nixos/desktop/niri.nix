@@ -1,23 +1,13 @@
-{
-  inputs,
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.desktop'.niri;
 in
 {
-  imports = with inputs; [ niri-flake.nixosModules.niri ];
   options.desktop'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
     programs = {
-      niri = {
-        enable = true;
-        package = pkgs.niri-unstable;
-      };
+      niri.enable = true;
       noctalia = {
         enable = true;
         recommendedServices.enable = true;
@@ -27,11 +17,11 @@ in
     services = {
       displayManager.noctalia-greeter.enable = true;
       gnome.sushi.enable = true;
+      gnome.gnome-keyring.enable = true;
     };
     security.pam.services = {
       login.enableGnomeKeyring = true;
       greetd.enableGnomeKeyring = true;
     };
-    systemd.user.services.niri-flake-polkit.enable = false;
   };
 }

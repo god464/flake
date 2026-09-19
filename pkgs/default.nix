@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (inputs) nixpkgs niri-flake llm-agents;
+  inherit (inputs) nixpkgs llm-agents;
 
   mkPackageSet =
     scope:
@@ -34,7 +34,6 @@ in
         };
         overlays = [
           self.overlays.pkgs
-          niri-flake.overlays.niri
           llm-agents.overlays.shared-nixpkgs
         ];
       };
