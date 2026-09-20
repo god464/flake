@@ -14,7 +14,7 @@ in
       enableDefaultConfig = true;
       settings = {
         debug.honor-xdg-activation-with-invalid-serial = { };
-
+        hotkey-overlay.skip-at-startup = { };
         input = {
           keyboard.xkb = {
             layout = "us";
@@ -64,6 +64,12 @@ in
             window-rule = {
               geometry-corner-radius = 20;
               clip-to-geometry = true;
+            };
+          }
+          {
+            window-rule = {
+              match._props.app-id = "^org\.gnome\.World\.Secrets$";
+              block-out-from = "screencast";
             };
           }
           {
