@@ -1,24 +1,33 @@
+name: Build Check
 on:
   pull_request:
   push:
+
 jobs:
   tests:
+    name: build ${{ matrix.name }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: laptop
+            attr: nixosConfigurations.laptop.config.system.build.toplevel
+          - name: server
+            attr: nixosConfigurations.server.config.system.build.toplevel
+          - name: minimal
+            attr: nixosConfigurations.minimal.config.system.build.toplevel
+          - name: devShell
+            attr: devShells.x86_64-linux.default
     steps:
       - uses: actions/checkout@v7
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v23
-      - uses: DeterminateSystems/magic-nix-cache-action@v15
       - uses: cachix/cachix-action@v17
         with:
           name: fufu
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Build laptop
-        run: nix build .#nixosConfigurations.laptop.config.system.build.toplevel
-      - name: Build server
-        run: nix build .#nixosConfigurations.server.config.system.build.toplevel
-      - name: Build minimal
-        run: nix build .#nixosConfigurations.minimal.config.system.build.toplevel
-      - name: Build devShell
-        run: nix build .#devShells.x86_64-linux.default
+
+      - name: Build ${{ matrix.name }}
+        run: nix build --print-build-logs .#${{ matrix.attr }}
