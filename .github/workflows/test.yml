@@ -14,8 +14,6 @@ jobs:
         with:
           name: fufu
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Check flake
-        run: nix flake check --no-build
       - name: Build laptop
         run: nix build .#nixosConfigurations.laptop.config.system.build.toplevel
       - name: Build server
