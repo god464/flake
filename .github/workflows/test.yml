@@ -2,6 +2,7 @@ name: Build Check
 on:
   pull_request:
   push:
+    branches: [master]
 
 jobs:
   tests:
@@ -21,13 +22,12 @@ jobs:
             attr: devShells.x86_64-linux.default
     steps:
       - uses: actions/checkout@v7
-
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v23
       - uses: cachix/cachix-action@v17
         with:
           name: fufu
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
       - name: Build ${{ matrix.name }}
         run: nix build --print-build-logs .#${{ matrix.attr }}

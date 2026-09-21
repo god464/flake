@@ -13,12 +13,19 @@ on:
   pull_request_review:
     types:
       - submitted
+  workflow_run:
+    workflows: ['Build Check']
+    types:
+      - completed
   check_suite:
     types:
       - completed
   status: {}
 jobs:
   automerge:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -30,4 +37,4 @@ jobs:
         env:
           MERGE_LABELS: 'dependencies'
           MERGE_METHOD: 'squash'
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN  }}'
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
