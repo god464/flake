@@ -10,10 +10,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@v14
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v23
+        uses: cachix/install-nix-action@v31.11.1
+      - name: Cachix
+        uses: cachix/cachix-action@v17
+        with:
+          name: fufu
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - uses: DeterminateSystems/magic-nix-cache-action@v15
       - name: build LiveCD
         run: |

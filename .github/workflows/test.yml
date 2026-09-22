@@ -23,11 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v23
-      - uses: cachix/cachix-action@v17
+        uses: cachix/install-nix-action@v31.11.1
+      - name: Cachix
+        uses: cachix/cachix-action@v17
         with:
           name: fufu
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - uses: DeterminateSystems/magic-nix-cache-action@v15
+      - name: Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@v15
       - name: Build ${{ matrix.name }}
         run: nix build --print-build-logs .#${{ matrix.attr }}
