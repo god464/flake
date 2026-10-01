@@ -21,16 +21,12 @@ in
         tree-sitter
       ];
     };
-    home.packages =
-      with pkgs;
-      [
-        lsof
-        sqlit-tui
-      ]
-      ++ (with pkgs.llm-agents; [
-        copilot-language-server
-        omp
-      ]);
+    home.packages = with pkgs; [
+      lsof
+      sqlit-tui
+      copilot-language-server
+      omp
+    ];
     xdg.configFile.nvim = {
       source = inputs.ggnvim;
       recursive = true;

@@ -40,7 +40,6 @@ in
             "https://nix-community.cachix.org"
             "https://cache.numtide.com"
             "https://fufu.cachix.org"
-            "https://noctalia.cachix.org"
           ]
         );
         trusted-public-keys = mkAfter (
@@ -49,7 +48,6 @@ in
             "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
             "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
             "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-            "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
             "fufu.cachix.org-1:7p7+pGjJ8HdJGF+v0mp10BIUjBW8n+HU9iiLW9VgXrk="
           ]
         );
