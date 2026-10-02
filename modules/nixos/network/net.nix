@@ -12,7 +12,7 @@ in
       nftables.enable = true;
       firewall = {
         enable = true;
-        checkReversePath = false;
+        checkReversePath = "strict";
         filterForward = true;
       };
       resolvconf.enable = false;

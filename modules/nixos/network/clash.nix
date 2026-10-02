@@ -8,8 +8,8 @@ in
   config = mkIf cfg.enable {
     programs.clash-verge = {
       enable = true;
-      tunMode = true;
       serviceMode = true;
+      group = "wheel";
     };
   };
 }
