@@ -55,7 +55,7 @@ in
           ".cache/io.github.clash-verge-rev.clash-verge-rev"
           ".local/share/zathura"
           ".config/zen"
-          ".cache/zen"
+          ".config/gh"
           ".vscode"
           ".omp"
           ".config/Code"
