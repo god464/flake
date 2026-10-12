@@ -5,7 +5,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.ghostty = {
-      enable = true;
+      # enable = true;
       settings = {
         theme = "Catppuccin Mocha";
         font-family = "Maple Mono Normal CN";
