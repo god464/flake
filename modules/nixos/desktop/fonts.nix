@@ -20,10 +20,8 @@ in
         source-han-sans
         source-han-serif
         source-han-mono
-        nerd-fonts.symbols-only
         twemoji-color-font
         noto-fonts-color-emoji
-        maple-mono.Normal-CN
       ];
       fontconfig = {
         subpixel.rgba = "rgb";
@@ -31,24 +29,20 @@ in
           serif = [
             "Source Han Serif SC"
             "Noto Serif CJK SC"
-            "Symbols Nerd Font"
           ];
           sansSerif = [
             "SF Pro Rounded"
             "Source Han Sans SC"
             "Noto Sans CJK SC"
-            "Symbols Nerd Font"
           ];
           monospace = [
             "Source Han Mono SC"
             "Noto Sans Mono CJK SC"
             "Maple Mono Normal CN"
-            "Symbols Nerd Font Mono"
           ];
           emoji = [
             "Apple Color Emoji"
             "Twitter Color Emoji"
-            "Symbols Nerd Font"
           ];
         };
       };

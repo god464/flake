@@ -13,8 +13,8 @@ in
       enable = true;
       themeFile = "Catppuccin-Mocha";
       font = {
-        package = pkgs.maple-mono.Normal-CN;
-        name = "Maple Mono Normal CN";
+        package = pkgs.maple-mono.NF-CN;
+        name = "Maple Mono NF CN";
         size = 13.0;
       };
       settings = {
