@@ -29,7 +29,5 @@ jobs:
         with:
           name: fufu
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Magic Nix Cache
-        uses: DeterminateSystems/magic-nix-cache-action@v15
       - name: Build ${{ matrix.name }}
         run: nix build --print-build-logs .#${{ matrix.attr }}
