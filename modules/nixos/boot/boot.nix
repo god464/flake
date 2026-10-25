@@ -29,7 +29,6 @@ in
     boot = {
       initrd = {
         inherit (cfg) supportedFilesystems availableKernelModules;
-        systemd.enable = true;
       };
       inherit (cfg) kernelModules;
       enableContainers = false;
