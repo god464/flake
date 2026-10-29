@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.desktop'.niri;
@@ -11,11 +16,21 @@ in
       noctalia = {
         enable = true;
         recommendedServices.enable = true;
-        systemd.enable = true;
+        systemd = {
+          enable = true;
+          target = "niri-session.target";
+        };
       };
     };
     services = {
-      displayManager.noctalia-greeter.enable = true;
+      displayManager.noctalia-greeter = {
+        enable = true;
+        passwordlessSyncUsers = [ "cl" ];
+        cursorTheme = {
+          name = "Bibata-Modern-Classic";
+          package = pkgs.bibata-cursors;
+        };
+      };
       gnome.sushi.enable = true;
       gnome.gnome-keyring.enable = true;
     };
