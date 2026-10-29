@@ -16,10 +16,7 @@ in
       noctalia = {
         enable = true;
         recommendedServices.enable = true;
-        systemd = {
-          enable = true;
-          target = "niri-session.target";
-        };
+        systemd.enable = true;
       };
     };
     services = {
