@@ -7,6 +7,7 @@ in
 {
   options.network'.net.name = mkOption { type = types.str; };
   config = {
+    services.resolved.enable = true;
     networking = {
       hostName = cfg.name;
       nftables.enable = true;
@@ -15,13 +16,12 @@ in
         checkReversePath = "strict";
         filterForward = true;
       };
-      resolvconf.enable = false;
       networkmanager = mkIf hasDisplay {
         enable = true;
         ethernet.macAddress = "random";
         wifi.macAddress = "random";
         wifi.backend = "iwd";
-        dns = "none";
+        dns = "systemd-resolved";
       };
       useNetworkd = !hasDisplay;
     };

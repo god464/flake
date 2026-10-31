@@ -1,6 +1,6 @@
 {
   services.dnscrypt-proxy = {
-    enable = true;
+    # enable = true;
     settings = {
       http3 = true;
       ipv6_servers = true;
