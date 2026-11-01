@@ -11,6 +11,7 @@ in
 {
   options.desktop'.niri.enable = mkEnableOption "niri";
   config = mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.wl-clipboard-rs ];
     programs = {
       niri.enable = true;
       noctalia = {
