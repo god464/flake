@@ -85,7 +85,7 @@ in
 
           "Mod+Return" = {
             _props.hotkey-overlay-title = "Open Terminal";
-            spawn = [ "kitty" ];
+            spawn = [ "ghostty" ];
           };
 
           "Mod+Space" = {

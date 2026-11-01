@@ -11,7 +11,6 @@ in
       ripgrep.enable = true;
       fd.enable = true;
       bottom.enable = true;
-      herdr.enable = true;
     };
   };
 }
