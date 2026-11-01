@@ -32,5 +32,4 @@
     mode = "0444";
   };
   programs.nh.enable = false;
-  services.sillytavern.enable = true;
 }
