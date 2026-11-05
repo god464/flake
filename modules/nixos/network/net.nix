@@ -13,7 +13,7 @@ in
       nftables.enable = true;
       firewall = {
         enable = true;
-        checkReversePath = "strict";
+        checkReversePath = "loose";
         filterForward = true;
       };
       networkmanager = mkIf hasDisplay {
