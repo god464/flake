@@ -46,6 +46,7 @@
                     ];
                     mountpoint = "/persist";
                   };
+                  "@persist/.snapshots" = { };
                   "@swap" = {
                     mountOptions = [
                       "compress=zstd"
