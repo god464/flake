@@ -22,6 +22,7 @@ in
         source-han-mono
         twemoji-color-font
         noto-fonts-color-emoji
+        maple-mono.NF-CN
       ];
       fontconfig = {
         subpixel.rgba = "rgb";
@@ -31,14 +32,12 @@ in
             "Noto Serif CJK SC"
           ];
           sansSerif = [
-            "SF Pro Rounded"
             "Source Han Sans SC"
             "Noto Sans CJK SC"
           ];
           monospace = [
             "Source Han Mono SC"
             "Noto Sans Mono CJK SC"
-            "Maple Mono Normal CN"
           ];
           emoji = [
             "Apple Color Emoji"

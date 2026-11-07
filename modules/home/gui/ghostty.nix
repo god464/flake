@@ -8,7 +8,7 @@ in
       enable = true;
       settings = {
         theme = "Catppuccin Mocha";
-        font-family = "Maple Mono Normal CN";
+        font-family = "Maple Mono NF CN";
         font-size = 13.0;
         background-opacity = 0.8;
         background-blur = true;
