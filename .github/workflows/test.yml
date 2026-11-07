@@ -31,5 +31,8 @@ jobs:
         with:
           name: fufu
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extra_nix_config: |
+            trusted-public-keys = niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+            substituters = https://cache.numtide.com https://cache.nixos.org/
       - name: Build ${{ matrix.name }}
         run: nix build --print-build-logs .#${{ matrix.attr }}

@@ -29,6 +29,7 @@
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
@@ -51,8 +52,18 @@
       url = "github:CnTeng/ph";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    iets.url = "github:numtide/iets";
-    llm-agents.url = "github:numtide/llm-agents.nix";
+    iets = {
+      url = "github:numtide/iets";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        treefmt-nix.follows = "treefmt-nix";
+      };
+    };
   };
 
   outputs =
