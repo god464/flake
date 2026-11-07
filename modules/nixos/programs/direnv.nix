@@ -1,6 +1,6 @@
-{ osConfig, lib, ... }:
+{ config, lib, ... }:
 let
-  cfg = osConfig.programs.fish;
+  cfg = config.programs.fish;
 in
 {
   config = lib.mkIf cfg.enable {

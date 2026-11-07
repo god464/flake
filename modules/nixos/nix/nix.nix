@@ -21,7 +21,10 @@ in
     };
   };
   config = {
-    iets.classic.enable = true;
+    iets = {
+      classic.enable = true;
+      direnv.enable = true;
+    };
     nix = {
       sshServe.enable = true;
       channel.enable = false;
