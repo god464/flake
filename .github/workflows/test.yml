@@ -1,4 +1,5 @@
 name: Build Check
+
 on:
   pull_request:
   push:
@@ -8,6 +9,11 @@ jobs:
   tests:
     name: build ${{ matrix.name }}
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
     strategy:
       fail-fast: false
       matrix:
@@ -20,19 +26,26 @@ jobs:
             attr: nixosConfigurations.minimal.config.system.build.toplevel
           - name: devShell
             attr: devShells.x86_64-linux.default
+
     steps:
       - uses: actions/checkout@v7
+
       - name: Install Nix
-        uses: cachix/install-nix-action@31.11.3
+        uses: cachix/install-nix-action@v31.11.3
+        with:
+          extra_nix_config: |
+            extra-substituters = https://cache.numtide.com
+            extra-trusted-public-keys = niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=
+
       - name: Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v15
+
       - name: Cachix
+        if: github.event_name == 'push'
         uses: cachix/cachix-action@v17
         with:
           name: fufu
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extra_nix_config: |
-            trusted-public-keys = niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-            substituters = https://cache.numtide.com/ https://cache.nixos.org/
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
       - name: Build ${{ matrix.name }}
-        run: nix build --print-build-logs .#${{ matrix.attr }}
+        run: nix build --print-build-logs --no-link ".#${{ matrix.attr }}"
