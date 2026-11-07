@@ -56,7 +56,6 @@ in
           ".local/share/zathura"
           ".config/zen"
           ".config/gh"
-          ".vscode"
           ".omp"
           ".config/Code"
         ];
