@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (inputs) nixpkgs;
+  inherit (inputs) nixpkgs llm-agents;
 
   mkPackageSet =
     scope:
@@ -32,7 +32,10 @@ in
           checkMeta = true;
           warnUndeclaredOptions = true;
         };
-        overlays = [ self.overlays.pkgs ];
+        overlays = [
+          self.overlays.pkgs
+          llm-agents.overlays.shared-nixpkgs
+        ];
       };
     };
 }

@@ -21,6 +21,7 @@ in
       };
     };
     services = {
+      oo7.enable = true;
       displayManager.noctalia-greeter = {
         enable = true;
         passwordlessSyncUsers = [ "cl" ];
@@ -30,11 +31,6 @@ in
         };
       };
       gnome.sushi.enable = true;
-      gnome.gnome-keyring.enable = true;
-    };
-    security.pam.services = {
-      login.enableGnomeKeyring = true;
-      greetd.enableGnomeKeyring = true;
     };
   };
 }

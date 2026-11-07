@@ -1,7 +1,7 @@
 {
+  inputs,
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -9,6 +9,7 @@ let
   inherit (lib) types mkOption mkAfter;
 in
 {
+  imports = [ inputs.iets.nixosModules.default ];
   options.nix'.nix = {
     cache = mkOption {
       default = [ ];
@@ -20,8 +21,8 @@ in
     };
   };
   config = {
+    iets.classic.enable = true;
     nix = {
-      package = pkgs.nix;
       sshServe.enable = true;
       channel.enable = false;
       settings = {
