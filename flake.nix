@@ -34,6 +34,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
+        systems.follows = "systems";
       };
     };
     nix-index-database = {
@@ -67,8 +68,10 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         treefmt-nix.follows = "treefmt-nix";
+        systems.follows = "systems";
       };
     };
+    systems.url = "github:nix-systems/default";
   };
 
   outputs =
