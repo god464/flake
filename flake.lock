@@ -102,21 +102,6 @@
         "type": "github"
       }
     },
-    "crane": {
-      "locked": {
-        "lastModified": 1792350552,
-        "narHash": "sha256-292lvpvxTGKryKxh3/3tcIVi85CwYGdl4oOi113Sob8=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "e675a36b7377bebe41d548388a2501cbb16d380d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -278,27 +263,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "iets": {
-      "inputs": {
-        "crane": "crane",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1794002605,
-        "narHash": "sha256-RdC/th6UsZ+QBbtgrs2nFXhFX3sY/lAxTbd4B+vhDz8=",
-        "owner": "numtide",
-        "repo": "iets",
-        "rev": "5e9589e7570bfdf7997e5583d08533f0b95b5393",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "iets",
         "type": "github"
       }
     },
@@ -471,7 +435,6 @@
         "ggnvim": "ggnvim",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
-        "iets": "iets",
         "llm-agents": "llm-agents",
         "microvm": "microvm",
         "nix-index-database": "nix-index-database",
