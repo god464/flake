@@ -1,15 +1,9 @@
-{
-  inputs,
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.nix'.nix;
   inherit (lib) types mkOption mkAfter;
 in
 {
-  imports = [ inputs.iets.nixosModules.default ];
   options.nix'.nix = {
     cache = mkOption {
       default = [ ];
@@ -21,10 +15,6 @@ in
     };
   };
   config = {
-    iets = {
-      classic.enable = true;
-      direnv.enable = true;
-    };
     nix = {
       sshServe.enable = true;
       channel.enable = false;

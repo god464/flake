@@ -58,10 +58,6 @@
       url = "github:CnTeng/ph";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    iets = {
-      url = "github:numtide/iets";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs = {
