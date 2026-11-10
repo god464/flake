@@ -15,6 +15,7 @@ in
         enable = true;
         checkReversePath = "loose";
         filterForward = true;
+        trustedInterfaces = [ "Meta" ];
       };
       networkmanager = mkIf hasDisplay {
         enable = true;
