@@ -35,7 +35,7 @@ jobs:
         name: automerge
         uses: 'god464/automerge-action@v1.0.0'
         env:
-          MERGE_LABELS: 'dependencies'
-          MERGE_METHOD: 'squash'
-          UPDATE_LABELS: 'dependencies'
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          merge-labels: 'dependencies'
+          merge-method: 'squash'
+          update-labels: 'dependencies'
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
