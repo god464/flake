@@ -34,7 +34,7 @@ jobs:
       - id: automerge
         name: automerge
         uses: 'god464/automerge-action@v1.0.0'
-        env:
+        with:
           merge-labels: 'dependencies'
           merge-method: 'squash'
           update-labels: 'dependencies'
