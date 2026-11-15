@@ -34,7 +34,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
-        systems.follows = "systems";
       };
     };
     nix-index-database = {
@@ -58,16 +57,7 @@
       url = "github:CnTeng/ph";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
-        systems.follows = "systems";
-      };
-    };
-    systems.url = "github:nix-systems/default";
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs =
