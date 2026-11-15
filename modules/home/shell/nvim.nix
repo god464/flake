@@ -30,6 +30,9 @@ in
       ++ (with pkgs.llm-agents; [
         omp
         copilot-language-server
+        herdr
+        rtk
+        agent-browser
       ]);
 
     xdg.configFile.nvim = {
