@@ -31,7 +31,6 @@ in
         omp
         copilot-language-server
         rtk
-        agent-browser
       ]);
 
     xdg.configFile.nvim = {

@@ -34,8 +34,8 @@ jobs:
         uses: cachix/install-nix-action@v31.11.3
         with:
           extra_nix_config: |
-            extra-substituters = https://cache.numtide.com
-            extra-trusted-public-keys = niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=
+            substituters = https://cache.numtide.com/ https://cache.nixos.org/
+            trusted-public-keys = niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
 
       - name: Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v15
@@ -45,6 +45,7 @@ jobs:
         with:
           name: fufu
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          extraPullNames: nix-community
 
       - name: Build ${{ matrix.name }}
         run: nix build --print-build-logs --no-link ".#${{ matrix.attr }}"
