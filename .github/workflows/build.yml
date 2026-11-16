@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
       - name: Install Nix
-        uses: cachix/install-nix-action@31.11.3
+        uses: cachix/install-nix-action@v31.11.5
       - name: Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v15
       - name: Cachix
