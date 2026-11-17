@@ -18,6 +18,7 @@ in
         TIMELINE_LIMIT_YEARLY = "0";
       };
       persistentTimer = true;
+      snapshotRootOnBoot = true;
     };
   };
 }
