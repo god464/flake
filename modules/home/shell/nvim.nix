@@ -30,8 +30,8 @@ in
       ++ (with pkgs.llm-agents; [
         omp
         copilot-language-server
-        rtk
         codegraph
+        nono
       ]);
 
     xdg.configFile.nvim = {
