@@ -31,7 +31,7 @@ in
         omp
         copilot-language-server
         codegraph
-        nono
+        rtk
       ]);
 
     xdg.configFile.nvim = {
