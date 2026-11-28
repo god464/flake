@@ -50,41 +50,12 @@
     tmux.enable = true;
     zen.enable = true;
     chromium.enable = true;
+    zed.enable = true;
   };
   desktop'.niri.enable = true;
-  environment = {
-    systemPackages =
-      let
-        pkg = [ ];
-        mkVmOpts =
-          pkg:
-          pkg.override {
-            forceWayland = true;
-            vmopts = ''
-              -Xms2048m
-              -Xmx8192m
-              -XX:NewSize=512m
-              -XX:MaxNewSize=2048m
-              -XX:MetaspaceSize=512m
-              -XX:MaxMetaspaceSize=1024m
-              -XX:+UseZGC
-              -XX:SoftRefLRUPolicyMSPerMB=50
-              -XX:+ZGenerational
-              -XX:+DisableExplicitGC
-              -XX:+OptimizeStringConcat
-              -XX:ReservedCodeCacheSize=1024m
-              -XX:+UseCompressedOops
-              --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
-              --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
-              -javaagent:/home/cl/persist/ja-netfilter/ja-netfilter.jar=jetbrains
-            '';
-          };
-      in
-      map mkVmOpts pkg;
-    etc."machine-id" = {
-      text = "12d844a4fc17460abb59c9e077267d82";
-      mode = "0444";
-    };
+  environment.etc."machine-id" = {
+    text = "12d844a4fc17460abb59c9e077267d82";
+    mode = "0444";
   };
   services' = {
     gpg.enable = true;

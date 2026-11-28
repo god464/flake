@@ -23,8 +23,10 @@ in
       ignores = [
         ".direnv"
         ".envrc"
-        ".flake/"
+        ".flake"
         ".pre-commit-config.yaml"
+        ".superpowers"
+        ".codegraph"
       ];
     };
   };
